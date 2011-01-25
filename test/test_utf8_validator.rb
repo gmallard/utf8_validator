@@ -1,7 +1,9 @@
 require 'helper'
 
 class TestUtf8Validator < Test::Unit::TestCase
-  def test_something_for_real
-    flunk "hey buddy, you should probably rename this file and start testing for real"
+  #
+  def test_0010_linkages
+    validator = UTF8::Validator.new
+    assert_not_nil validator
   end
 end
