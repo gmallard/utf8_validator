@@ -157,7 +157,7 @@ class TestUtf8Validator < Test::Unit::TestCase
   end
 
   # Truncated in good text
-  def test0560_intruncated_in_good
+  def test0560_truncated_in_good
     test_data = [
       "\xc2",  # truncated 2 byte characters
       "\xdf",
@@ -174,6 +174,41 @@ class TestUtf8Validator < Test::Unit::TestCase
       string = "a" + string + "b"
       assert !@validator.valid_encoding?(string), "truncated in good: #{string}"
       assert !string.force_encoding("UTF-8").valid_encoding?, "truncated in good 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+    end
+  end
+
+  # Miscellaneous Bad
+  def test0570_miscellaneous_bad
+    # perhaps some duplication here
+    test_data = [
+      "bad byte: \372",
+      "\004\b{\f:\tbody\"\001\207\004\b{\b:\016statusmsg\"\aOK:\017statuscodei\000:\tdata{\t:\voutput\"3Enabled, not running, last run 693 seconds ago:\frunningi\000:\fenabledi\006:\flastrunl+\aE\021\022M:\rsenderid\"\032xx.xx.xx.xx:\016requestid\"%849d647bbe3e421ea19ac9f947bbdde4:\020senderagent\"\fpuppetd:\016msgtarget\"%/topic/mcollective.puppetd.reply:\thash\"\001\257ZdQqtaDmmdD0jZinnEcpN+YbkxQDn8uuCnwsQdvGHau6d+gxnnfPLUddWRSb\nZNMs+sQUXgJNfcV1eVBn1H+Z8QQmzYXVDMqz7J43jmgloz5PsLVbN9K3PmX/\ngszqV/WpvIyAqm98ennWqSzpwMuiCC4q2Jr3s3Gm6bUJ6UkKXnY=\n:\fmsgtimel+\a\372\023\022M",
+      "\207",
+      "\xf4\x90\x80\x80",
+      "\xbf",
+      "\xe0\x9f\xbf",
+      "\xf0\x8f\xbf\xbf",
+      "\xf8\x87\xbf\xbf\xbf",
+      "\xfc\x83\xbf\xbf\xbf\xbf",
+      "\xc0\x80",
+      "\xe0\x80\x80",
+      "\xf0\x80\x80\x80",
+      "\xf8\x80\x80\x80\x80",
+      "\xfc\x80\x80\x80\x80\x80",
+      "\xed\xa0\x80",
+      "\xed\xad\xbf",
+      "\xed\xae\x80",
+      "\xed\xaf\xbf",
+      "\xed\xb0\x80",
+      "\xed\xbe\x80",
+      "\xed\xbf\xbf",
+      "\xc0\x00", # too long for \x00
+      "\xe0\x00\x00", # too long for \x00
+      "\xf0\x00\x00\x00", # too long for \x00
+    ]
+    test_data.each do |string|
+      assert !@validator.valid_encoding?(string), "miscellaneous bad: #{string}"
+      assert !string.force_encoding("UTF-8").valid_encoding?, "miscellaneous bad 19: #{string}"  if RUBY_VERSION =~ /1\.9/
     end
   end
 
