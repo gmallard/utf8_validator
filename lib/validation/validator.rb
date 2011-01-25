@@ -46,19 +46,26 @@ b) reference to an excellent UTF-8 article with accompanying table here:
 http://en.wikipedia.org/wiki/UTF-8
 
 =end
+#
+# == Purpose
+#
+# Container for UTF-8 validator.
+#
 module UTF8
 #
 # == Purpose
 #
 # Validate UTF-8 primarily in a Ruby environments other than 1.9.
 #
-# Instances of this class are thread safe:  a single instance my be shared
-# across multiple concurrent threads.
+# Instances of this class are thread safe with certain caveats.
 #
 class Validator
   #
   DEBUG=false
   #
+  # Validate the supplied string for proper UTF-8 encoding.
+  #
+  # 
   def valid_encoding?(string)
     bytes = string.bytes
     #
