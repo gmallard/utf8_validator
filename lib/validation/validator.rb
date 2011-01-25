@@ -38,12 +38,22 @@ http://unicode.org/mail-arch/unicode-ml/y2003-m02/att-0467/01-The_Algorithm_to_V
           o Input = 0x80-0x8F: change state to B
           o Others: ERROR
 
+This state machine can be easily understood by:
+
+a) examining the machine itself
+b) reference to an excellent UTF-8 article with accompanying table here:
+
+http://en.wikipedia.org/wiki/UTF-8
+
 =end
 module UTF8
 #
 # == Purpose
 #
-# Validate UTF-8 in a Ruby environments other than 1.9.
+# Validate UTF-8 primarily in a Ruby environments other than 1.9.
+#
+# Instances of this class are thread safe:  a single instance my be shared
+# across multiple concurrent threads.
 #
 class Validator
   #
@@ -63,17 +73,28 @@ class Validator
       case state
 
         # State: 'start'
+        # The 'start' state:
+        # * handles all occurrences of valid single byte characters i.e., the ASCII character set
+        # * provides state transition logic for start bytes of valid characters with 2-4 bytes
+        # * signals a validation failure for all other single bytes
+        # 
         when "start"
           puts "state: start" if DEBUG
           case next_byte
+
+            # ASCII
             # * Input = 0x00-0x7F : change state to START
             when (0x00..0x7f)
               puts "state: start 1" if DEBUG
               state = "start"
+
+            # Start byte of two byte characters
             # * Input = 0xC2-0xDF: change state to A
             when (0xc2..0xdf)
               puts "state: start 2" if DEBUG
               state = "a"
+
+            # Start byte of some three byte characters
             # * Input = 0xE1-0xEC, 0xEE-0xEF: change state to B
             when (0xe1..0xec)
               puts "state: start 3" if DEBUG
@@ -81,32 +102,45 @@ class Validator
             when (0xee..0xef)
               puts "state: start 4" if DEBUG
               state = "b"
+
+            # Start byte of special three byte characters
             # * Input = 0xE0: change state to C
             when 0xe0
               puts "state: start 5" if DEBUG
               state = "c"
+
+            # Start byte of more special three byte characters
             # * Input = 0xED: change state to D
             when 0xed
               puts "state: start 6" if DEBUG
               state = "d"
+
+            # Start byte of some four byte characters
             # * Input = 0xF1-0xF3:change state to E
             when (0xf1..0xf3)
               puts "state: start 7" if DEBUG
               state = "e"
+
+            # Start byte of special four byte characters
             # * Input = 0xF0: change state to F
             when 0xf0
               puts "state: start 8" if DEBUG
               state = "f"
+
+            # Start byte of very special four byte characters
             # * Input = 0xF4: change state to G
             when 0xf4
               puts "state: start 9" if DEBUG
               state = "g"
+
+            # All other single characters are invalid
             # * Input = Others (0x80-0xBF,0xC0-0xC1, 0xF5-0xFF): ERROR
             else
               valid = false
               break
           end      
 
+        # The last continuation byte of a 2, 3, or 4 byte character
         # State: 'a'
         #  o Input = 0x80-0xBF: change state to START
         #  o Others: ERROR
@@ -119,6 +153,7 @@ class Validator
             break
           end
 
+        # The first continuation byte for most 3 byte characters
         # State: 'b'
         # o Input = 0x80-0xBF: change state to A
         # o Others: ERROR
@@ -131,6 +166,7 @@ class Validator
             break
           end
 
+        # The first continuation byte for some special 3 byte characters
         # State: 'c'
         # o Input = 0xA0-0xBF: change state to A
         # o Others: ERROR
@@ -143,6 +179,7 @@ class Validator
             break
           end
 
+        # The first continuation byte for the remaining 3 byte characters
         # State: 'd'
         # o Input = 0x80-0x9F: change state to A
         # o Others: ERROR
@@ -155,6 +192,7 @@ class Validator
             break
           end
 
+        # The first continuation byte for some 4 byte characters
         # State: 'e'
         # o Input = 0x80-0xBF: change state to B
         # o Others: ERROR
@@ -167,6 +205,7 @@ class Validator
             break
           end
 
+        # The first continuation byte for some special 4 byte characters
         # State: 'f'
         # o Input = 0x90-0xBF: change state to B
         # o Others: ERROR
@@ -179,6 +218,7 @@ class Validator
             break
           end
 
+        # The first continuation byte for the remaining 4 byte characters
         # State: 'g'
         # o Input = 0x80-0x8F: change state to B
         # o Others: ERROR
@@ -197,6 +237,11 @@ class Validator
       end
     end
     #
+    puts "State at end: #{state}" if DEBUG
+    # Catch truncation at end of string
+    if valid and state != 'start'
+      valid = false
+    end
     valid
   end # of valid_encoding?
 end # of class
