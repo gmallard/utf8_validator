@@ -30,7 +30,8 @@ Validation algorithm.}
     "lib/validation/validator.rb",
     "test/helper.rb",
     "test/test_raise_request.rb",
-    "test/test_utf8_validator.rb"
+    "test/test_utf8_validator.rb",
+    "utf8_validator.gemspec"
   ]
   s.homepage = %q{http://github.com/gmallard/utf8_validator}
   s.licenses = ["MIT"]
