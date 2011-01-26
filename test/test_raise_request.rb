@@ -34,5 +34,15 @@ class TestRaiseRequect < Test::Unit::TestCase
     end
   end
 
+  # Check message from raise
+  def test_0030_check_raise_message
+    #
+    begin
+      @validator.valid_encoding?("a\xffb\xfec", true)
+    rescue UTF8::ValidationError => e
+      assert e.message =~ /^Invalid byte/
+    end
+  end
+
 end
 

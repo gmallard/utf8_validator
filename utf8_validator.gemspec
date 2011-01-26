@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{utf8_validator}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Guy Allard"]
-  s.date = %q{2011-01-25}
+  s.date = %q{2011-01-26}
   s.description = %q{A State Machine implementation of a UTF-8 Encoding 
 Validation algorithm.}
   s.email = %q{allard.guy.m@gmail.com}
@@ -25,12 +25,14 @@ Validation algorithm.}
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "examples/fullstring.rb",
     "lib/utf8_validator.rb",
     "lib/validation/errors.rb",
     "lib/validation/validator.rb",
     "test/helper.rb",
     "test/test_raise_request.rb",
-    "test/test_utf8_validator.rb"
+    "test/test_utf8_validator.rb",
+    "utf8_validator.gemspec"
   ]
   s.homepage = %q{http://github.com/gmallard/utf8_validator}
   s.licenses = ["MIT"]
@@ -38,6 +40,7 @@ Validation algorithm.}
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{A UTF-8 Encoding Validator.}
   s.test_files = [
+    "examples/fullstring.rb",
     "test/helper.rb",
     "test/test_raise_request.rb",
     "test/test_utf8_validator.rb"
@@ -51,18 +54,15 @@ Validation algorithm.}
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, [">= 2.1.2"])
     else
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_dependency(%q<rcov>, [">= 0"])
-      s.add_dependency(%q<bundler>, [">= 2.1.2"])
     end
   else
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
     s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<bundler>, [">= 2.1.2"])
   end
 end
 

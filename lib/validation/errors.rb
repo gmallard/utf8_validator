@@ -1,3 +1,6 @@
+#--
+# Copyright (c) 2011 Guy Allard
+#--
 module UTF8
   #
   # == Purpose
@@ -7,8 +10,5 @@ module UTF8
   #
   class ValidationError < ::RuntimeError
     #
-    def message()
-      "general UTF-8 validation error"
-    end
   end
 end

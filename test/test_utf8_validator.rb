@@ -7,6 +7,10 @@ require 'helper'
 #
 # Tests for the #{UTF8::Validator} implementation.
 #
+# Some test data pulled directly from:
+#
+# http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt
+#
 class TestUtf8Validator < Test::Unit::TestCase
   #
   def setup
@@ -92,6 +96,22 @@ class TestUtf8Validator < Test::Unit::TestCase
     end
   end
 
+  # Boundary conditions
+  def test_0070_boundary_conditions
+    test_data = [
+      "\xed\x9f\xbf", # = "\ud7ff"
+      "\xee\x80\x80", # = "\ue000"
+      "\xef\xbf\xbd", # = "\ufffd"
+#      "\xf4\x8f\xbf\xbf", # = "\U0010ffff" / maybe _should_ fail ??
+#      "\xf4\x90\x80\x80", # = "\ufffd" / maybe  _should_ fail ?? / research
+
+    ]
+    test_data.each do |string|
+      assert @validator.valid_encoding?(string), "boundary conditions: #{string}"
+      assert string.force_encoding("UTF-8").valid_encoding?, "boundary conditions 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+    end
+  end
+
   #--
   # Validation should fail for the following tests
   #--
@@ -108,14 +128,27 @@ class TestUtf8Validator < Test::Unit::TestCase
   # UTF-16 Surrogate Halves
   def test0520_utf16_surrogate_halves
     test_data = [
-      "\xed\xa0\x80", # u-800 (lowest)
-      "\xed\xbf\xbf", # u-fff (highest)
+      "\xed\xa0\x80",
+      "\xed\xad\xbf",
+      "\xed\xae\x80",
+      "\xed\xaf\xbf",
+      "\xed\xb0\x80",
+      "\xed\xbe\x80",
+      "\xed\xbf\xbf",
     ]
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "UTF-16 Surrogate Halves: #{string}"
       assert !string.force_encoding("UTF-8").valid_encoding?, "UTF-16 Surrogate Halves 19: #{string}"  if RUBY_VERSION =~ /1\.9/
     end
   end
+
+  #--
+  # I do not see a need to test UTF-16 surrogate pairs.  They are guaranteed
+  # to alyays fail if the preceding test succeeds.  This is because the 
+  # preceeding test data values are always the first surrogate of the pair.
+  #
+  # UTF-16 surrogates are clearly something I do not understand.
+  #--
 
   # Invalid single bytes
   def test0530_invalid_single_bytes
@@ -219,6 +252,22 @@ class TestUtf8Validator < Test::Unit::TestCase
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "miscellaneous bad: #{string}"
       assert !string.force_encoding("UTF-8").valid_encoding?, "miscellaneous bad 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+    end
+  end
+
+
+  # Maximum overlong sequences
+  def test0580_max_overlong_seqs
+    test_data = [
+      "\xc1\xbf",
+      "\xe0\x9f\xbf",
+      "\xf0\x8f\xbf\xbf",
+      "\xf8\x87\xbf\xbf\xbf",
+      "\xfc\x83\xbf\xbf\xbf\xbf",
+    ]
+    test_data.each do |string|
+      assert !@validator.valid_encoding?(string), "max overlong seq: #{string}"
+      assert !string.force_encoding("UTF-8").valid_encoding?, "max overlong seq 19: #{string}"  if RUBY_VERSION =~ /1\.9/
     end
   end
 
