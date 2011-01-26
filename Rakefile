@@ -21,11 +21,11 @@ Validation algorithm.}
   gem.email = "allard.guy.m@gmail.com"
   gem.authors = ["Guy Allard"]
 
-  # Include your dependencies below. Runtime dependencies are required when using your gem,
-  # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
+  #  Runtime Dependencies - None at present
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-
-  gem.add_development_dependency 'bundler', '>= 2.1.2'
+  #
+  # Bundler/Jeweler takes care of this via the Gemfile.lock process
+  # gem.add_development_dependency 'bundler', '>= 2.1.2'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
