@@ -4,7 +4,6 @@ Provides an implementation of a state machine for validating UTF-8 encoded strin
 
 * simple true / false indicator
 * a raised exception
-* response to an extended error information request
 
 == What This gem does Not Provide
 
