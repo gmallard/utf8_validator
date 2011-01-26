@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>File: README.rdoc [UTF-8 Validator 0.0.2]</title>
+
+	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+</head>
+
+<body class="file">
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./UTF8.html">UTF8</a></li>
+				
+					<li><a href="./UTF8/ValidationError.html">UTF8::ValidationError</a></li>
+				
+					<li><a href="./UTF8/Validator.html">UTF8::Validator</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1>A UTF-8 Validator State Machine</h1>
+<p>
+Provides an implementation of a state machine for validating UTF-8 encoded
+strings.  Clients may request that encoding errors be reported in several
+ways:
+</p>
+<ul>
+<li><p>
+simple true / false indicator
+</p>
+</li>
+<li><p>
+a raised exception
+</p>
+</li>
+</ul>
+<h2>What This gem does Not Provide</h2>
+<ul>
+<li><p>
+UTF-8 Encoding
+</p>
+</li>
+<li><p>
+UTF-8 Decoding
+</p>
+</li>
+</ul>
+<p>
+That functionality is left as an exercise for the reader.
+</p>
+<h2>Thanks To</h2>
+<table>
+<tr><td valign="top">The Unicode Consortium</td><td><p>
+At <a href="http://unicode.org/">unicode.org/</a> for all the information
+published there.
+</p>
+</td></tr>
+<tr><td valign="top">Frank Yung-Fong Tang</td><td><p>
+For the state machine algorithm.  See: <a
+href="http://unicode.org/mail-arch/unicode-ml/y2003-m02/att-0467/01-The_Algorithm_to_Valide_an_UTF-8_String">unicode.org/mail-arch/unicode-ml/y2003-m02/att-0467/01-The_Algorithm_to_Valide_an_UTF-8_String</a>
+</p>
+</td></tr>
+<tr><td valign="top">Markus Kuhn</td><td><p>
+For invalid test data.  <a
+href="http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt">www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt</a>
+</p>
+</td></tr>
+</table>
+<h2>A Word On Ruby Versions</h2>
+<p>
+It is expected that this validator will be used in Ruby environments prior
+to 1.9.x. However, nothing prohibits it&#8217;s use with Ruby 1.9.
+</p>
+<h2>Reporting Issues</h2>
+<p>
+Please report issues on the tracker at github.
+</p>
+<h2>Contributing to the utf8_validator gem</h2>
+<pre>
+ 
+</pre>
+<ul>
+<li><p>
+Check out the latest master to make sure the feature hasn&#8217;t been
+implemented or the bug hasn&#8217;t been fixed yet.
+</p>
+</li>
+<li><p>
+Check out the issue tracker to make sure someone already hasn&#8217;t
+requested it and/or contributed it.
+</p>
+</li>
+<li><p>
+Fork the project.
+</p>
+</li>
+<li><p>
+Start a feature/bugfix branch.
+</p>
+</li>
+<li><p>
+Commit and push until you are happy with your contribution.
+</p>
+</li>
+<li><p>
+Make sure to add tests for it. This is important so it does not break in in
+a future version unintentionally.
+</p>
+</li>
+<li><p>
+Please try not to modify the Rakefile or VERSION file. If you require your
+own version please isolate the version update to its own commit so
+cherry-pick or rebase can be used to skip it.
+</p>
+</li>
+<li><p>
+Request a pull.
+</p>
+</li>
+</ul>
+<h2>Copyright</h2>
+<p>
+Copyright &#169; 2011 Guy Allard. See LICENSE.txt for further details.
+</p>
+
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>
+

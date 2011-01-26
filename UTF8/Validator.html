@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: UTF8::Validator</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/validation/validator_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/validation/validator.rb">lib/validation/validator.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-valid_encoding%3F">#valid_encoding?</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../UTF8.html">UTF8</a></li>
+				
+					<li><a href="../UTF8/ValidationError.html">UTF8::ValidationError</a></li>
+				
+					<li><a href="../UTF8/Validator.html">UTF8::Validator</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">UTF8::Validator</h1>
+
+		<div id="description">
+			<h2>Purpose</h2>
+<p>
+Validate UTF-8 primarily in a Ruby environments other than 1.9.
+</p>
+<p>
+Instances of this class are thread safe, and a single instance may be used
+safely by multiple concurrent threads, with one caveat:
+</p>
+<p>
+The value of #{DEBUG} must not be changed by any thread.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="DEBUG">DEBUG</a></dt>
+				
+				<dd class="description"><p>
+For use during development only.
+</p></dd>
+				
+			
+			</dl>
+		</div>
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="valid-encoding--method" class="method-detail ">
+				<a name="method-i-valid_encoding%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">valid_encoding?</span><span
+						class="method-args">(string, raise_on_error = false)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Validate the supplied string for proper UTF-8 encoding.
+</p>
+<p>
+Calling Sequence:
+</p>
+<pre>
+   validator = UTF8::Validator.new                           -&gt; validator
+   validator.valid_encoding?(string)                         -&gt; true or false
+   validator.valid_encoding?(string, true)                   -&gt; true or exception
+</pre>
+<p>
+Parameters:
+</p>
+<table>
+<tr><td valign="top">string</td><td><p>
+the string to validate
+</p>
+</td></tr>
+<tr><td valign="top">raise_on_error</td><td><p>
+a flag to indicate failure behavior
+</p>
+</td></tr>
+</table>
+<p>
+When raise_on_error is <em>true</em> and a string fails validation, an
+error of type #{UTF8::ValidationError} is raised.  The byte in error and
+the location of that byte are described in the error message.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="valid-encoding--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/validation/validator.rb, line 91</span>
+ 91:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">valid_encoding?</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">raise_on_error</span> = <span class="ruby-keyword kw">false</span>)
+ 92:     <span class="ruby-identifier">bytes</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">bytes</span>
+ 93:     <span class="ruby-comment cmt">#</span>
+ 94:     <span class="ruby-identifier">valid</span> = <span class="ruby-keyword kw">true</span>
+ 95:     <span class="ruby-identifier">index</span> = <span class="ruby-value">1</span>
+ 96:     <span class="ruby-identifier">nb_hex</span> = <span class="ruby-keyword kw">nil</span>
+ 97:     <span class="ruby-identifier">ni_hex</span> = <span class="ruby-keyword kw">nil</span>
+ 98:     <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;start&quot;</span>
+ 99:     <span class="ruby-identifier">next_byte_save</span> = <span class="ruby-keyword kw">nil</span>
+100:     <span class="ruby-comment cmt">#</span>
+101:     <span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">next_byte</span><span class="ruby-operator">|</span>
+102:       <span class="ruby-identifier">index</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+103:       <span class="ruby-identifier">next_byte_save</span> = <span class="ruby-identifier">next_byte</span>
+104:       <span class="ruby-identifier">ni_hex</span> = <span class="ruby-identifier">sprintf</span> <span class="ruby-value str">&quot;%x&quot;</span>, <span class="ruby-identifier">index</span>
+105:       <span class="ruby-identifier">nb_hex</span> = <span class="ruby-identifier">sprintf</span> <span class="ruby-value str">&quot;%x&quot;</span>, <span class="ruby-identifier">next_byte</span>
+106:       <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Top: #{next_byte}(0x#{nb_hex}), index: #{index}(0x#{ni_hex})&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+107:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">state</span>
+108: 
+109:         <span class="ruby-comment cmt"># State: 'start'</span>
+110:         <span class="ruby-comment cmt"># The 'start' state:</span>
+111:         <span class="ruby-comment cmt"># * handles all occurrences of valid single byte characters i.e., the ASCII character set</span>
+112:         <span class="ruby-comment cmt"># * provides state transition logic for start bytes of valid characters with 2-4 bytes</span>
+113:         <span class="ruby-comment cmt"># * signals a validation failure for all other single bytes</span>
+114:         <span class="ruby-comment cmt"># </span>
+115:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;start&quot;</span>
+116:           <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: start&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+117:           <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">next_byte</span>
+118: 
+119:             <span class="ruby-comment cmt"># ASCII</span>
+120:             <span class="ruby-comment cmt"># * Input = 0x00-0x7F : change state to START</span>
+121:             <span class="ruby-keyword kw">when</span> (<span class="ruby-value">0x00</span><span class="ruby-operator">..</span><span class="ruby-value">0x7f</span>)
+122:               <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: start 1&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+123:               <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;start&quot;</span>
+124: 
+125:             <span class="ruby-comment cmt"># Start byte of two byte characters</span>
+126:             <span class="ruby-comment cmt"># * Input = 0xC2-0xDF: change state to A</span>
+127:             <span class="ruby-keyword kw">when</span> (<span class="ruby-value">0xc2</span><span class="ruby-operator">..</span><span class="ruby-value">0xdf</span>)
+128:               <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: start 2&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+129:               <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;a&quot;</span>
+130: 
+131:             <span class="ruby-comment cmt"># Start byte of some three byte characters</span>
+132:             <span class="ruby-comment cmt"># * Input = 0xE1-0xEC, 0xEE-0xEF: change state to B</span>
+133:             <span class="ruby-keyword kw">when</span> (<span class="ruby-value">0xe1</span><span class="ruby-operator">..</span><span class="ruby-value">0xec</span>)
+134:               <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: start 3&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+135:               <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;b&quot;</span>
+136:             <span class="ruby-keyword kw">when</span> (<span class="ruby-value">0xee</span><span class="ruby-operator">..</span><span class="ruby-value">0xef</span>)
+137:               <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: start 4&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+138:               <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;b&quot;</span>
+139: 
+140:             <span class="ruby-comment cmt"># Start byte of special three byte characters</span>
+141:             <span class="ruby-comment cmt"># * Input = 0xE0: change state to C</span>
+142:             <span class="ruby-keyword kw">when</span> <span class="ruby-value">0xe0</span>
+143:               <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: start 5&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+144:               <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;c&quot;</span>
+145: 
+146:             <span class="ruby-comment cmt"># Start byte of the remaining three byte characters</span>
+147:             <span class="ruby-comment cmt"># * Input = 0xED: change state to D</span>
+148:             <span class="ruby-keyword kw">when</span> <span class="ruby-value">0xed</span>
+149:               <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: start 6&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+150:               <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;d&quot;</span>
+151: 
+152:             <span class="ruby-comment cmt"># Start byte of some four byte characters</span>
+153:             <span class="ruby-comment cmt"># * Input = 0xF1-0xF3:change state to E</span>
+154:             <span class="ruby-keyword kw">when</span> (<span class="ruby-value">0xf1</span><span class="ruby-operator">..</span><span class="ruby-value">0xf3</span>)
+155:               <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: start 7&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+156:               <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;e&quot;</span>
+157: 
+158:             <span class="ruby-comment cmt"># Start byte of special four byte characters</span>
+159:             <span class="ruby-comment cmt"># * Input = 0xF0: change state to F</span>
+160:             <span class="ruby-keyword kw">when</span> <span class="ruby-value">0xf0</span>
+161:               <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: start 8&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+162:               <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;f&quot;</span>
+163: 
+164:             <span class="ruby-comment cmt"># Start byte of very special four byte characters</span>
+165:             <span class="ruby-comment cmt"># * Input = 0xF4: change state to G</span>
+166:             <span class="ruby-keyword kw">when</span> <span class="ruby-value">0xf4</span>
+167:               <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: start 9&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+168:               <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;g&quot;</span>
+169: 
+170:             <span class="ruby-comment cmt"># All other single characters are invalid</span>
+171:             <span class="ruby-comment cmt"># * Input = Others (0x80-0xBF,0xC0-0xC1, 0xF5-0xFF): ERROR</span>
+172:             <span class="ruby-keyword kw">else</span>
+173:               <span class="ruby-identifier">valid</span> = <span class="ruby-keyword kw">false</span>
+174:               <span class="ruby-keyword kw">break</span>
+175:           <span class="ruby-keyword kw">end</span> <span class="ruby-comment cmt"># of the inner case, the 'start' state</span>
+176: 
+177:         <span class="ruby-comment cmt"># The last continuation byte of a 2, 3, or 4 byte character</span>
+178:         <span class="ruby-comment cmt"># State: 'a'</span>
+179:         <span class="ruby-comment cmt">#  o Input = 0x80-0xBF: change state to START</span>
+180:         <span class="ruby-comment cmt">#  o Others: ERROR</span>
+181:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;a&quot;</span>
+182:           <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: a&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+183:           <span class="ruby-keyword kw">if</span> (<span class="ruby-value">0x80</span><span class="ruby-operator">..</span><span class="ruby-value">0xbf</span>) <span class="ruby-operator">===</span> <span class="ruby-identifier">next_byte</span>
+184:             <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;start&quot;</span>
+185:           <span class="ruby-keyword kw">else</span>
+186:             <span class="ruby-identifier">valid</span> = <span class="ruby-keyword kw">false</span>
+187:             <span class="ruby-keyword kw">break</span>
+188:           <span class="ruby-keyword kw">end</span>
+189: 
+190:         <span class="ruby-comment cmt"># The first continuation byte for most 3 byte characters</span>
+191:         <span class="ruby-comment cmt"># (those with start bytes in: 0xe1-0xec or 0xee-0xef)</span>
+192:         <span class="ruby-comment cmt"># State: 'b'</span>
+193:         <span class="ruby-comment cmt"># o Input = 0x80-0xBF: change state to A</span>
+194:         <span class="ruby-comment cmt"># o Others: ERROR</span>
+195:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;b&quot;</span>
+196:           <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: b&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+197:           <span class="ruby-keyword kw">if</span> (<span class="ruby-value">0x80</span><span class="ruby-operator">..</span><span class="ruby-value">0xbf</span>) <span class="ruby-operator">===</span> <span class="ruby-identifier">next_byte</span>
+198:             <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;a&quot;</span>
+199:           <span class="ruby-keyword kw">else</span>
+200:             <span class="ruby-identifier">valid</span> = <span class="ruby-keyword kw">false</span>
+201:             <span class="ruby-keyword kw">break</span>
+202:           <span class="ruby-keyword kw">end</span>
+203: 
+204:         <span class="ruby-comment cmt"># The first continuation byte for some special 3 byte characters</span>
+205:         <span class="ruby-comment cmt"># (those with start byte 0xe0)</span>
+206:         <span class="ruby-comment cmt"># State: 'c'</span>
+207:         <span class="ruby-comment cmt"># o Input = 0xA0-0xBF: change state to A</span>
+208:         <span class="ruby-comment cmt"># o Others: ERROR</span>
+209:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;c&quot;</span>
+210:           <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: c&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+211:           <span class="ruby-keyword kw">if</span> (<span class="ruby-value">0xa0</span><span class="ruby-operator">..</span><span class="ruby-value">0xbf</span>) <span class="ruby-operator">===</span> <span class="ruby-identifier">next_byte</span>
+212:             <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;a&quot;</span>
+213:           <span class="ruby-keyword kw">else</span>
+214:             <span class="ruby-identifier">valid</span> = <span class="ruby-keyword kw">false</span>
+215:             <span class="ruby-keyword kw">break</span>
+216:           <span class="ruby-keyword kw">end</span>
+217: 
+218:         <span class="ruby-comment cmt"># The first continuation byte for the remaining 3 byte characters</span>
+219:         <span class="ruby-comment cmt"># (those with start byte 0xed)</span>
+220:         <span class="ruby-comment cmt"># State: 'd'</span>
+221:         <span class="ruby-comment cmt"># o Input = 0x80-0x9F: change state to A</span>
+222:         <span class="ruby-comment cmt"># o Others: ERROR</span>
+223:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;d&quot;</span>
+224:           <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: d&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+225:           <span class="ruby-keyword kw">if</span> (<span class="ruby-value">0x80</span><span class="ruby-operator">..</span><span class="ruby-value">0x9f</span>) <span class="ruby-operator">===</span> <span class="ruby-identifier">next_byte</span>
+226:             <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;a&quot;</span>
+227:           <span class="ruby-keyword kw">else</span>
+228:             <span class="ruby-identifier">valid</span> = <span class="ruby-keyword kw">false</span>
+229:             <span class="ruby-keyword kw">break</span>
+230:           <span class="ruby-keyword kw">end</span>
+231: 
+232:         <span class="ruby-comment cmt"># The first continuation byte for some 4 byte characters</span>
+233:         <span class="ruby-comment cmt"># (those with start bytes in: 0xf1-0xf3)</span>
+234:         <span class="ruby-comment cmt"># State: 'e'</span>
+235:         <span class="ruby-comment cmt"># o Input = 0x80-0xBF: change state to B</span>
+236:         <span class="ruby-comment cmt"># o Others: ERROR</span>
+237:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;e&quot;</span>
+238:           <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: e&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+239:           <span class="ruby-keyword kw">if</span> (<span class="ruby-value">0x80</span><span class="ruby-operator">..</span><span class="ruby-value">0xbf</span>) <span class="ruby-operator">===</span> <span class="ruby-identifier">next_byte</span>
+240:             <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;b&quot;</span>
+241:           <span class="ruby-keyword kw">else</span>
+242:             <span class="ruby-identifier">valid</span> = <span class="ruby-keyword kw">false</span>
+243:             <span class="ruby-keyword kw">break</span>
+244:           <span class="ruby-keyword kw">end</span>
+245: 
+246:         <span class="ruby-comment cmt"># The first continuation byte for some special 4 byte characters</span>
+247:         <span class="ruby-comment cmt"># (those with start byte 0xf0)</span>
+248:         <span class="ruby-comment cmt"># State: 'f'</span>
+249:         <span class="ruby-comment cmt"># o Input = 0x90-0xBF: change state to B</span>
+250:         <span class="ruby-comment cmt"># o Others: ERROR</span>
+251:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;f&quot;</span>
+252:           <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: f&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+253:           <span class="ruby-keyword kw">if</span> (<span class="ruby-value">0x90</span><span class="ruby-operator">..</span><span class="ruby-value">0xbf</span>) <span class="ruby-operator">===</span> <span class="ruby-identifier">next_byte</span>
+254:             <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;b&quot;</span>
+255:           <span class="ruby-keyword kw">else</span>
+256:             <span class="ruby-identifier">valid</span> = <span class="ruby-keyword kw">false</span>
+257:             <span class="ruby-keyword kw">break</span>
+258:           <span class="ruby-keyword kw">end</span>
+259: 
+260:         <span class="ruby-comment cmt"># The first continuation byte for the remaining 4 byte characters</span>
+261:         <span class="ruby-comment cmt"># (those with start byte 0xf4)</span>
+262:         <span class="ruby-comment cmt"># State: 'g'</span>
+263:         <span class="ruby-comment cmt"># o Input = 0x80-0x8F: change state to B</span>
+264:         <span class="ruby-comment cmt"># o Others: ERROR</span>
+265:         <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;g&quot;</span>
+266:           <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;state: g&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+267:           <span class="ruby-keyword kw">if</span> (<span class="ruby-value">0x80</span><span class="ruby-operator">..</span><span class="ruby-value">0x8f</span>) <span class="ruby-operator">===</span> <span class="ruby-identifier">next_byte</span>
+268:             <span class="ruby-identifier">state</span> = <span class="ruby-value str">&quot;b&quot;</span>
+269:           <span class="ruby-keyword kw">else</span>
+270:             <span class="ruby-identifier">valid</span> = <span class="ruby-keyword kw">false</span>
+271:             <span class="ruby-keyword kw">break</span>
+272:           <span class="ruby-keyword kw">end</span>
+273: 
+274:         <span class="ruby-comment cmt">#</span>
+275:         <span class="ruby-keyword kw">else</span>
+276:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>, <span class="ruby-value str">&quot;state: default&quot;</span>
+277:       <span class="ruby-keyword kw">end</span>
+278:     <span class="ruby-keyword kw">end</span>
+279:     <span class="ruby-comment cmt">#</span>
+280:     <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;State at end: #{state}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+281:     <span class="ruby-comment cmt"># Catch truncation at end of string</span>
+282:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">valid</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">'start'</span>
+283:       <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Resetting valid value&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+284:       <span class="ruby-identifier">valid</span> = <span class="ruby-keyword kw">false</span>
+285:     <span class="ruby-keyword kw">end</span>
+286:     <span class="ruby-comment cmt">#</span>
+287:     <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">raise_on_error</span>
+288:       <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Raising Error&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">DEBUG</span>
+289:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ValidationError</span>, <span class="ruby-node">&quot;Invalid byte:#{next_byte_save}(0x#{nb_hex}),index:#{index}(0x#{ni_hex})&quot;</span>
+290:     <span class="ruby-keyword kw">end</span>
+291:     <span class="ruby-comment cmt">#</span>
+292:     <span class="ruby-identifier">valid</span>
+293:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
