@@ -96,6 +96,22 @@ class TestUtf8Validator < Test::Unit::TestCase
     end
   end
 
+  # Boundary conditions
+  def test_0070_boundary_conditions
+    test_data = [
+      "\xed\x9f\xbf", # = "\ud7ff"
+      "\xee\x80\x80", # = "\ue000"
+      "\xef\xbf\xbd", # = "\ufffd"
+#      "\xf4\x8f\xbf\xbf", # = "\U0010ffff" / maybe _should_ fail ??
+#      "\xf4\x90\x80\x80", # = "\ufffd" / maybe  _should_ fail ?? / research
+
+    ]
+    test_data.each do |string|
+      assert @validator.valid_encoding?(string), "boundary conditions: #{string}"
+      assert string.force_encoding("UTF-8").valid_encoding?, "boundary conditions 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+    end
+  end
+
   #--
   # Validation should fail for the following tests
   #--
