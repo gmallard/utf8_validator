@@ -65,18 +65,22 @@ class Validator
   #
   # Validate the supplied string for proper UTF-8 encoding.
   #
-  # 
-  def valid_encoding?(string)
+  def valid_encoding?(string, raise_on_error = false)
     bytes = string.bytes
     #
     valid = true
     index = -1
+    nb_hex = nil
+    ni_hex = nil
     state = "start"
+    next_byte_save = nil
     #
     bytes.each do |next_byte|
       index += 1
+      next_byte_save = next_byte
+      ni_hex = sprintf "%x", index
       nb_hex = sprintf "%x", next_byte
-      puts "Top: #{next_byte}(0x#{nb_hex}), index: #{index}" if DEBUG
+      puts "Top: #{next_byte}(0x#{nb_hex}), index: #{index}(0x#{ni_hex})" if DEBUG
       case state
 
         # State: 'start'
@@ -116,7 +120,7 @@ class Validator
               puts "state: start 5" if DEBUG
               state = "c"
 
-            # Start byte of more special three byte characters
+            # Start byte of the remaining three byte characters
             # * Input = 0xED: change state to D
             when 0xed
               puts "state: start 6" if DEBUG
@@ -145,7 +149,7 @@ class Validator
             else
               valid = false
               break
-          end      
+          end # of the inner case
 
         # The last continuation byte of a 2, 3, or 4 byte character
         # State: 'a'
@@ -249,6 +253,11 @@ class Validator
     if valid and state != 'start'
       valid = false
     end
+    #
+    if !valid and raise_on_error
+      raise ValidationError, "Invalid byte:#{next_byte_save}(0x#{nb_hex}),index:#{index}(0x#{ni_hex})"
+    end
+    #
     valid
   end # of valid_encoding?
 end # of class

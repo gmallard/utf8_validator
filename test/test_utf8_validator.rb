@@ -9,6 +9,11 @@ class TestUtf8Validator < Test::Unit::TestCase
   end
 
   #
+  def teardown
+    @validator = nil
+  end
+
+  #
   def test_0010_linkages
     assert_not_nil @validator
   end
