@@ -7,6 +7,10 @@ require 'helper'
 #
 # Tests for the #{UTF8::Validator} implementation.
 #
+# Some test data pulled directly from:
+#
+# http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt
+#
 class TestUtf8Validator < Test::Unit::TestCase
   #
   def setup
@@ -232,6 +236,22 @@ class TestUtf8Validator < Test::Unit::TestCase
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "miscellaneous bad: #{string}"
       assert !string.force_encoding("UTF-8").valid_encoding?, "miscellaneous bad 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+    end
+  end
+
+
+  # Maximum overlong sequences
+  def test0580_max_overlong_seqs
+    test_data = [
+      "\xc1\xbf",
+      "\xe0\x9f\xbf",
+      "\xf0\x8f\xbf\xbf",
+      "\xf8\x87\xbf\xbf\xbf",
+      "\xfc\x83\xbf\xbf\xbf\xbf",
+    ]
+    test_data.each do |string|
+      assert !@validator.valid_encoding?(string), "max overlong seq: #{string}"
+      assert !string.force_encoding("UTF-8").valid_encoding?, "max overlong seq 19: #{string}"  if RUBY_VERSION =~ /1\.9/
     end
   end
 

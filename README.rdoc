@@ -16,6 +16,7 @@ That functionality is left as an exercise for the reader.
 
 The Unicode Consortium:: At http://unicode.org/ for all the information published there.
 Frank Yung-Fong Tang:: For the state machine algorithm.  See: http://unicode.org/mail-arch/unicode-ml/y2003-m02/att-0467/01-The_Algorithm_to_Valide_an_UTF-8_String
+Markus Kuhn:: For invalid test data.  http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt
 
 == A Word On Ruby Versions
 
