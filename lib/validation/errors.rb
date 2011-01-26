@@ -1,3 +1,6 @@
+#--
+# Copyright (c) 2011 Guy Allard
+#--
 module UTF8
   #
   # == Purpose

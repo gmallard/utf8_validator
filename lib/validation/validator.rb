@@ -60,30 +60,33 @@ module UTF8
 # Instances of this class are thread safe, and a single instance may be used
 # safely by multiple concurrent threads, with one caveat:
 #
-# The value of #{Validator::DEBUG} must not be changed by any thread.
+# The value of #{DEBUG} must not be changed by any thread.
 #
 #--
 # Copyright (c) 2011 Guy Allard
-#
+#--
 class Validator
   #
   # For use during development only.
   #
   DEBUG=false
-
   #
   # Validate the supplied string for proper UTF-8 encoding.
   #
   # Calling Sequence:
   #
+  #    validator = UTF8::Validator.new                           -> validator
   #    validator.valid_encoding?(string)                         -> true or false
-  #    validator.valid_encoding?(string, raise_on_error)         -> true or exception
+  #    validator.valid_encoding?(string, true)                   -> true or exception
   #
   # Parameters:
   #
   # string::         the string to validate
   # raise_on_error:: a flag to indicate failure behavior
-  # 
+  #
+  # When raise_on_error is _true_ and a string fails validation, an
+  # error of type #{UTF8::ValidationError} is raised.  The byte in error
+  # and the location of that byte are described in the error message.
   #
   def valid_encoding?(string, raise_on_error = false)
     bytes = string.bytes
@@ -169,7 +172,7 @@ class Validator
             else
               valid = false
               break
-          end # of the inner case
+          end # of the inner case, the 'start' state
 
         # The last continuation byte of a 2, 3, or 4 byte character
         # State: 'a'
@@ -185,6 +188,7 @@ class Validator
           end
 
         # The first continuation byte for most 3 byte characters
+        # (those with start bytes in: 0xe1-0xec or 0xee-0xef)
         # State: 'b'
         # o Input = 0x80-0xBF: change state to A
         # o Others: ERROR
@@ -198,6 +202,7 @@ class Validator
           end
 
         # The first continuation byte for some special 3 byte characters
+        # (those with start byte 0xe0)
         # State: 'c'
         # o Input = 0xA0-0xBF: change state to A
         # o Others: ERROR
@@ -211,6 +216,7 @@ class Validator
           end
 
         # The first continuation byte for the remaining 3 byte characters
+        # (those with start byte 0xed)
         # State: 'd'
         # o Input = 0x80-0x9F: change state to A
         # o Others: ERROR
@@ -224,6 +230,7 @@ class Validator
           end
 
         # The first continuation byte for some 4 byte characters
+        # (those with start bytes in: 0xf1-0xf3)
         # State: 'e'
         # o Input = 0x80-0xBF: change state to B
         # o Others: ERROR
@@ -237,6 +244,7 @@ class Validator
           end
 
         # The first continuation byte for some special 4 byte characters
+        # (those with start byte 0xf0)
         # State: 'f'
         # o Input = 0x90-0xBF: change state to B
         # o Others: ERROR
@@ -250,6 +258,7 @@ class Validator
           end
 
         # The first continuation byte for the remaining 4 byte characters
+        # (those with start byte 0xf4)
         # State: 'g'
         # o Input = 0x80-0x8F: change state to B
         # o Others: ERROR
