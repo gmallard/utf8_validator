@@ -2,6 +2,11 @@
 #
 require 'helper'
 
+#
+# == Purpose
+#
+# Test raise_on_error functionality.
+#
 class TestRaiseRequect < Test::Unit::TestCase
   #
   def setup
@@ -13,12 +18,16 @@ class TestRaiseRequect < Test::Unit::TestCase
     @validator = nil
   end
 
-  # An ISO-8859-1 character
-  def test_0010_check_raise
+  # ISO-8859-1 characters
+  def test_0010_check_raise_iso
     #
     assert_raise(UTF8::ValidationError) do
      !@validator.valid_encoding?(0x80.chr, true)
     end
+  end
+
+  # A regular old bad byte
+  def test_0020_check_raise_badbyte
     #
     assert_raise(UTF8::ValidationError) do
      !@validator.valid_encoding?("a" + 0xff.chr + "b", true)

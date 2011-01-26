@@ -2,6 +2,11 @@
 #
 require 'helper'
 
+#
+# == Purpose
+#
+# Tests for the #{UTF8::Validator} implementation.
+#
 class TestUtf8Validator < Test::Unit::TestCase
   #
   def setup
@@ -18,9 +23,9 @@ class TestUtf8Validator < Test::Unit::TestCase
     assert_not_nil @validator
   end
 
-  #---
+  #--
   # Validation should succeed for the following tests
-  #---
+  #--
 
   # Some simple ASCII characters
   def test_0020_simple_ascii
@@ -87,9 +92,9 @@ class TestUtf8Validator < Test::Unit::TestCase
     end
   end
 
-  #---
+  #--
   # Validation should fail for the following tests
-  #---
+  #--
 
 
   # ISO-8859-1 (C1 points)

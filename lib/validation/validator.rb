@@ -40,7 +40,7 @@ http://unicode.org/mail-arch/unicode-ml/y2003-m02/att-0467/01-The_Algorithm_to_V
 
 This state machine can be easily understood by:
 
-a) examining the machine itself
+a) examining the machine behavior as documented
 b) reference to an excellent UTF-8 article with accompanying table here:
 
 http://en.wikipedia.org/wiki/UTF-8
@@ -57,13 +57,33 @@ module UTF8
 #
 # Validate UTF-8 primarily in a Ruby environments other than 1.9.
 #
-# Instances of this class are thread safe with certain caveats.
+# Instances of this class are thread safe, and a single instance may be used
+# safely by multiple concurrent threads, with one caveat:
+#
+# The value of #{Validator::DEBUG} must not be changed by any thread.
+#
+#--
+# Copyright (c) 2011 Guy Allard
 #
 class Validator
   #
+  # For use during development only.
+  #
   DEBUG=false
+
   #
   # Validate the supplied string for proper UTF-8 encoding.
+  #
+  # Calling Sequence:
+  #
+  #    validator.valid_encoding?(string)                         -> true or false
+  #    validator.valid_encoding?(string, raise_on_error)         -> true or exception
+  #
+  # Parameters:
+  #
+  # string::         the string to validate
+  # raise_on_error:: a flag to indicate failure behavior
+  # 
   #
   def valid_encoding?(string, raise_on_error = false)
     bytes = string.bytes
