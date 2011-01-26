@@ -15,14 +15,17 @@ Jeweler::Tasks.new do |gem|
   gem.name = "utf8_validator"
   gem.homepage = "http://github.com/gmallard/utf8_validator"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{A State Machine UTF-8 Validation algorithm.}
+  gem.summary = %Q{A UTF-8 Encoding Validator.}
+  gem.description = %Q{A State Machine implementation of a UTF-8 Encoding 
+Validation algorithm.}
   gem.email = "allard.guy.m@gmail.com"
   gem.authors = ["Guy Allard"]
+
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-  #  gem.add_development_dependency 'rspec', '> 1.2.3'
+
+  gem.add_development_dependency 'bundler', '>= 2.1.2'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -47,7 +50,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "utf8_validator #{version}"
+  rdoc.title = "UTF-8 Validator #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
