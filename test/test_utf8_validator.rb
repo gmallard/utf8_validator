@@ -108,14 +108,27 @@ class TestUtf8Validator < Test::Unit::TestCase
   # UTF-16 Surrogate Halves
   def test0520_utf16_surrogate_halves
     test_data = [
-      "\xed\xa0\x80", # u-800 (lowest)
-      "\xed\xbf\xbf", # u-fff (highest)
+      "\xed\xa0\x80",
+      "\xed\xad\xbf",
+      "\xed\xae\x80",
+      "\xed\xaf\xbf",
+      "\xed\xb0\x80",
+      "\xed\xbe\x80",
+      "\xed\xbf\xbf",
     ]
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "UTF-16 Surrogate Halves: #{string}"
       assert !string.force_encoding("UTF-8").valid_encoding?, "UTF-16 Surrogate Halves 19: #{string}"  if RUBY_VERSION =~ /1\.9/
     end
   end
+
+  #--
+  # I do not see a need to test UTF-16 surrogate pairs.  They are guaranteed
+  # to alyays fail if the preceding test succeeds.  This is because the 
+  # preceeding test data values are always the first surrogate of the pair.
+  #
+  # UTF-16 surrogates are clearly something I do not understand.
+  #--
 
   # Invalid single bytes
   def test0530_invalid_single_bytes
