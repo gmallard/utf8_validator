@@ -280,10 +280,12 @@ class Validator
     puts "State at end: #{state}" if DEBUG
     # Catch truncation at end of string
     if valid and state != 'start'
+      puts "Resetting valid value" if DEBUG
       valid = false
     end
     #
     if !valid and raise_on_error
+      puts "Raising Error" if DEBUG
       raise ValidationError, "Invalid byte:#{next_byte_save}(0x#{nb_hex}),index:#{index}(0x#{ni_hex})"
     end
     #
