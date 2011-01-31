@@ -144,7 +144,7 @@ class TestUtf8Validator < Test::Unit::TestCase
 
   #--
   # I do not see a need to test UTF-16 surrogate pairs.  They are guaranteed
-  # to alyays fail if the preceding test succeeds.  This is because the 
+  # to always fail if the preceding test succeeds.  This is because the 
   # preceeding test data values are always the first surrogate of the pair.
   #
   # UTF-16 surrogates are clearly something I do not understand.
