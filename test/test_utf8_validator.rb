@@ -102,9 +102,7 @@ class TestUtf8Validator < Test::Unit::TestCase
       "\xed\x9f\xbf", # = "\ud7ff"
       "\xee\x80\x80", # = "\ue000"
       "\xef\xbf\xbd", # = "\ufffd"
-#      "\xf4\x8f\xbf\xbf", # = "\U0010ffff" / maybe _should_ fail ??
-#      "\xf4\x90\x80\x80", # = "\ufffd" / maybe  _should_ fail ?? / research
-
+      "\xf4\x8f\xbf\xbf", # = "\U10ffff" / _should_ this fail ??
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "boundary conditions: #{string}"
@@ -268,6 +266,17 @@ class TestUtf8Validator < Test::Unit::TestCase
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "max overlong seq: #{string}"
       assert !string.force_encoding("UTF-8").valid_encoding?, "max overlong seq 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+    end
+  end
+
+  # Boundary conditions
+  def test_0590_boundary_conditions
+    test_data = [
+      "\xf4\x90\x80\x80", # See: http://software.hixie.ch/utilities/cgi/unicode-decoder/utf8-decoder
+    ]
+    test_data.each do |string|
+      assert !@validator.valid_encoding?(string), "boundary conditions: #{string}"
+      assert !string.force_encoding("UTF-8").valid_encoding?, "boundary conditions 19: #{string}"  if RUBY_VERSION =~ /1\.9/
     end
   end
 
