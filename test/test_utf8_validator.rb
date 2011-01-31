@@ -168,8 +168,6 @@ class TestUtf8Validator < Test::Unit::TestCase
       "\xc0\x80",
       "\xe0\x80\x80",
       "\xf0\x80\x80\x80",
-      "\xf8\x80\x80\x80\x80",
-      "\xfc\x80\x80\x80\x80\x80",
     ]
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "Not shortest: #{string}"
