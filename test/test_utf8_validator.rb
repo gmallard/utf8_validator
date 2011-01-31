@@ -166,6 +166,9 @@ class TestUtf8Validator < Test::Unit::TestCase
   def test0540_not_shortest
     test_data = [
       "\xc0\x80",
+      "\xc1\x80",
+      "\xc0\x30",
+      "\xc1\x30",
       "\xe0\x80\x80",
       "\xf0\x80\x80\x80",
     ]
