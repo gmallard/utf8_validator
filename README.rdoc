@@ -27,7 +27,7 @@ Other interesting and/or useful information can be found:
 
 == A Word On Ruby Versions
 
-It is expected that this validator will be used in Ruby environments prior to 1.9.x. However, nothing prohibits it's use with Ruby 1.9.
+It is expected that this validator will be used in Ruby environments prior to 1.9.x. However, nothing prohibits use with Ruby 1.9.  Tests recognize a 1.9 environment, and insure that 1.9 native behavior matches the validator behavior.
 
 == Reporting Issues
 
