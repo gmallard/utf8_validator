@@ -77,12 +77,12 @@ class Validator
   #
   #    validator = UTF8::Validator.new                           -> validator
   #    validator.valid_encoding?(string)                         -> true or false
-  #    validator.valid_encoding?(string, true)                   -> true or exception
+  #    validator.valid_encoding?(string, raise_on_error)         -> true or exception
   #
   # Parameters:
   #
   # string::         the string to validate
-  # raise_on_error:: a flag to indicate failure behavior
+  # raise_on_error:: a boolean flag to indicate requested failure behavior
   #
   # When raise_on_error is _true_ and a string fails validation, an
   # error of type #{UTF8::ValidationError} is raised.  The byte in error

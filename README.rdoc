@@ -18,13 +18,28 @@ The Unicode Consortium:: At http://unicode.org/ for all the information publishe
 Frank Yung-Fong Tang:: For the state machine algorithm.  See: http://unicode.org/mail-arch/unicode-ml/y2003-m02/att-0467/01-The_Algorithm_to_Valide_an_UTF-8_String
 Markus Kuhn:: For invalid test data.  http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt
 
+== Useful Information
+
+Other interesting and/or useful information can be found:
+
+* http://software.hixie.ch/utilities/cgi/unicode-decoder/utf8-decoder
+* http://bjoern.hoehrmann.de/utf-8/decoder/dfa/
+
 == A Word On Ruby Versions
 
-It is expected that this validator will be used in Ruby environments prior to 1.9.x. However, nothing prohibits it's use with Ruby 1.9.
+It is expected that this validator will be used in Ruby environments prior to 1.9.x. However, nothing prohibits use with Ruby 1.9.  Tests recognize a 1.9 environment, and insure that 1.9 native behavior matches the validator behavior.
 
 == Reporting Issues
 
-Please report issues on the tracker at github.
+Please report issues on the tracker at github:
+
+* https://github.com/gmallard/utf8_validator/issues
+
+== Web Based Documentation
+
+Human readable documentation can be found at:
+
+* http://gmallard.github.com/utf8_validator
 
 == Contributing to the utf8_validator gem
  
