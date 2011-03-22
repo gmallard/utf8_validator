@@ -281,5 +281,70 @@ class TestUtf8Validator < Test::Unit::TestCase
     end
   end
 
+=begin
+
+The next test is based on examples provided in the Unicode 6.0 specification.
+See pages 91-92.
+
+From that specification:
+
+• The UTF-8 code unit sequence <41 C3 B1 42> is well-formed, because it can be
+partitioned into subsequences, all of which match the specification for UTF-8
+in Table 3-7. It consists of the following minimal well-formed code unit subse-
+quences: <41>, <C3 B1>, and <42>.
+
+• The UTF-8 code unit sequence <41 C2 C3 B1 42> is ill-formed, because it con-
+tains one ill-formed subsequence. There is no subsequence for the C2 byte
+which matches the specification for UTF-8 in Table 3-7. The code unit sequence
+is partitioned into one minimal well-formed code unit subsequence, <41>, fol-
+lowed by one ill-formed code unit subsequence, <C2>, followed by two mini-
+mal well-formed code unit subsequences, <C3 B1> and <42>.
+
+• In isolation, the UTF-8 code unit sequence <C2 C3> would be ill-formed, but
+in the context of the UTF-8 code unit sequence <41 C2 C3 B1 42>, <C2 C3>
+does not constitute an ill-formed code unit subsequence, because the C3 byte is
+actually the first byte of the minimal well-formed UTF-8 code unit subse-
+quence <C3 B1>. Ill-formed code unit subsequences do not overlap with mini-
+mal well-formed code unit subsequences.
+
+// Above:
+
+straight from the Unicode 6.0 spec.  See page 91.
+
+• As another example, the code unit sequence <C0 80 61 F3> is a Unicode 8-bit
+string, but does not consist of a well-formed UTF-8 code unit sequence. That
+code unit sequence could not result from the specification of the UTF-8 encod-
+ing form and is thus ill-formed. (The same code unit sequence could, of course,
+be well-formed in the context of some other character encoding standard using
+8-bit code units, such as ISO/IEC 8859-1, or vendor code pages.)
+
+// Above:
+
+straight from the Unicode 6.0 spec.  See page 92.
+
+=end
+
+  # Tests from examples in the Unicode speciication
+  def test_0600_unicode_specs
+
+    good_data = [
+      "\x41\xc3\xb1\x42",
+    ]
+    good_data.each do |string|
+      assert @validator.valid_encoding?(string), "good unicode specs 01: #{string}"
+      assert string.force_encoding("UTF-8").valid_encoding?, 
+        "good unicode specs 01 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+    end
+
+    bad_data = [
+      "\x41\xc2\xc3\xb1\x42",
+    ]
+    bad_data.each do |string|
+      assert !@validator.valid_encoding?(string), "bad unicode specs 01: #{string}"
+      assert !string.force_encoding("UTF-8").valid_encoding?,
+        "bad unicode specs 01 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+    end
+
+  end
 end
 
