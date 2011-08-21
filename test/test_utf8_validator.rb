@@ -110,6 +110,17 @@ class TestUtf8Validator < Test::Unit::TestCase
     end
   end
 
+  # Interesting valid strings
+  def test_0080_interesting_valid_strings
+    test_data = [
+      "“Iñtërnâtiônàlizætiøn”", # A suggestion from the net
+    ]
+    test_data.each do |string|
+      assert @validator.valid_encoding?(string), "interesting valid strings: #{string}"
+      assert string.force_encoding("UTF-8").valid_encoding?, "interesting valid strings 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+    end
+  end
+
   #--
   # Validation should fail for the following tests
   #--
