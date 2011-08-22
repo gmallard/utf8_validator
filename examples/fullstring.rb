@@ -65,6 +65,7 @@ test_data = [
   "anoerrorsz",
   "errorlast\x80",
   "a\xffbcd\xfeefgh\xfd123",
+  "y\xe2\x88\x88z",
 ]
 #
 test_data.each do |string|
