@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{utf8_validator}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Guy Allard"]
-  s.date = %q{2011-03-21}
+  s.date = %q{2011-08-21}
   s.description = %q{A State Machine implementation of a UTF-8 Encoding 
 Validation algorithm.}
   s.email = %q{allard.guy.m@gmail.com}
@@ -18,7 +18,6 @@ Validation algorithm.}
     "README.rdoc"
   ]
   s.files = [
-    ".document",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
@@ -39,12 +38,6 @@ Validation algorithm.}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{A UTF-8 Encoding Validator.}
-  s.test_files = [
-    "examples/fullstring.rb",
-    "test/helper.rb",
-    "test/test_raise_request.rb",
-    "test/test_utf8_validator.rb"
-  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
@@ -52,16 +45,16 @@ Validation algorithm.}
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
+      s.add_development_dependency(%q<jeweler>, [">= 1.5.2"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
+      s.add_dependency(%q<jeweler>, [">= 1.5.2"])
       s.add_dependency(%q<rcov>, [">= 0"])
     end
   else
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
+    s.add_dependency(%q<jeweler>, [">= 1.5.2"])
     s.add_dependency(%q<rcov>, [">= 0"])
   end
 end
