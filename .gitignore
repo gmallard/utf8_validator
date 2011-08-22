@@ -42,4 +42,6 @@ pkg
 #*.swp
 #
 .document
+#
+Gemfile.lock
 
