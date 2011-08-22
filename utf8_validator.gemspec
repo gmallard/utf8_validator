@@ -19,7 +19,6 @@ Validation algorithm.}
   ]
   s.files = [
     "Gemfile",
-    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
