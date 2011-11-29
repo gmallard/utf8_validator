@@ -89,7 +89,15 @@ class Validator
   # and the location of that byte are described in the error message.
   #
   def valid_encoding?(string, raise_on_error = false)
-    bytes = string.bytes
+    case RUBY_VERSION
+      when /1\.8\.[56]/
+        bytes = []
+        0.upto(string.length-1) {|i|
+          bytes << string[i]
+        }
+      else
+        bytes = string.bytes
+    end
     #
     valid = true
     index = -1
@@ -114,6 +122,7 @@ class Validator
         # 
         when "start"
           puts "state: start" if DEBUG
+          puts "next_byte: #{next_byte}" if DEBUG
           case next_byte
 
             # ASCII
@@ -278,6 +287,7 @@ class Validator
     end
     #
     puts "State at end: #{state}" if DEBUG
+    puts "Valid at end: #{valid}" if DEBUG
     # Catch truncation at end of string
     if valid and state != 'start'
       puts "Resetting valid value" if DEBUG
