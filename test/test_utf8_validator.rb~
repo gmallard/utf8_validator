@@ -115,7 +115,6 @@ class TestUtf8Validator < Test::Unit::TestCase
     test_data = [
       "“Iñtërnâtiônàlizætiøn”", # A suggestion from the net
       "\xd0\x9b\xd0\x93\xd0\xa2\xd0\x9c", # An interesting Russian string from the 'go' guys ....
-      "\xd0\x9bГТМ", # A variation on that
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "interesting valid strings: #{string}"
