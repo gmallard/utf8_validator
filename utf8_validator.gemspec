@@ -4,15 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{utf8_validator}
-  s.version = "1.0.2"
+  s.name = "utf8_validator"
+  s.version = "1.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Guy Allard}]
-  s.date = %q{2011-08-22}
-  s.description = %q{A State Machine implementation of a UTF-8 Encoding 
-Validation algorithm.}
-  s.email = %q{allard.guy.m@gmail.com}
+  s.authors = ["Guy Allard"]
+  s.date = "2011-11-29"
+  s.description = "A State Machine implementation of a UTF-8 Encoding \nValidation algorithm."
+  s.email = "allard.guy.m@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -32,11 +31,11 @@ Validation algorithm.}
     "test/test_utf8_validator.rb",
     "utf8_validator.gemspec"
   ]
-  s.homepage = %q{http://github.com/gmallard/utf8_validator}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6.1}
-  s.summary = %q{A UTF-8 Encoding Validator.}
+  s.homepage = "http://github.com/gmallard/utf8_validator"
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.11"
+  s.summary = "A UTF-8 Encoding Validator."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
