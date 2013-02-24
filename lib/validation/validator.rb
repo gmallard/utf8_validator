@@ -63,7 +63,7 @@ module UTF8
 # The value of #{DEBUG} must not be changed by any thread.
 #
 #--
-# Copyright (c) 2011 Guy Allard
+# Copyright (c) 2011-2013 Guy Allard
 #--
 class Validator
   #
