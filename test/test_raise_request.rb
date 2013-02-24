@@ -1,6 +1,11 @@
 # encoding: utf-8
 #
-require 'helper'
+if Kernel.respond_to?(:require_relative)
+  require_relative("./helper")
+else
+  $:.unshift(File.dirname(__FILE__))
+  require 'helper'
+end
 
 #
 # == Purpose
