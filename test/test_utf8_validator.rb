@@ -20,6 +20,7 @@ class TestUtf8Validator < Test::Unit::TestCase
   #
   def setup
     @validator = UTF8::Validator.new
+		@vercheck = ((RUBY_VERSION =~ /1\.9/) or (RUBY_VERSION =~ /2\.0/)) ? true : false
   end
 
   #
@@ -45,7 +46,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "Simple ASCII: #{string}"
-      assert string.force_encoding("UTF-8").valid_encoding?, "Simple ASCII 19: #{string}" if RUBY_VERSION =~ /1\.9/
+      assert string.force_encoding("UTF-8").valid_encoding?, "Simple ASCII 19: #{string}" if @vercheck
     end
   end
 
@@ -53,7 +54,7 @@ class TestUtf8Validator < Test::Unit::TestCase
   def test_0030_all_ascii
     0.upto(127) do |i|
       assert @validator.valid_encoding?(i.chr), "All ASCII: #{i.chr}"
-      assert i.chr.force_encoding("UTF-8").valid_encoding?, "All ASCII 19: #{i.chr}" if RUBY_VERSION =~ /1\.9/
+      assert i.chr.force_encoding("UTF-8").valid_encoding?, "All ASCII 19: #{i.chr}" if @vercheck
     end
   end
 
@@ -67,7 +68,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "Simple UTF-8, 2bytes: #{string}"
-      assert string.force_encoding("UTF-8").valid_encoding?, "Simple UTF-8 19, 2bytes: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert string.force_encoding("UTF-8").valid_encoding?, "Simple UTF-8 19, 2bytes: #{string}"  if @vercheck
     end
   end
 
@@ -81,7 +82,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "Simple UTF-8, 3bytes: #{string}"
-      assert string.force_encoding("UTF-8").valid_encoding?, "Simple UTF-8 19, 3bytes: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert string.force_encoding("UTF-8").valid_encoding?, "Simple UTF-8 19, 3bytes: #{string}"  if @vercheck
     end
   end
 
@@ -97,7 +98,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "Simple UTF-8, 4bytes: #{string}"
-      assert string.force_encoding("UTF-8").valid_encoding?, "Simple UTF-8 19, 4bytes: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert string.force_encoding("UTF-8").valid_encoding?, "Simple UTF-8 19, 4bytes: #{string}"  if @vercheck
     end
   end
 
@@ -107,11 +108,11 @@ class TestUtf8Validator < Test::Unit::TestCase
       "\xed\x9f\xbf", # = "\ud7ff"
       "\xee\x80\x80", # = "\ue000"
       "\xef\xbf\xbd", # = "\ufffd"
-      "\xf4\x8f\xbf\xbf", # = "\U10ffff" / _should_ this fail ??
+      "\xf4\x8f\xbf\xbf", # = "\U10ffff"
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "boundary conditions: #{string}"
-      assert string.force_encoding("UTF-8").valid_encoding?, "boundary conditions 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert string.force_encoding("UTF-8").valid_encoding?, "boundary conditions 19: #{string}"  if @vercheck
     end
   end
 
@@ -124,7 +125,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "interesting valid strings: #{string}"
-      assert string.force_encoding("UTF-8").valid_encoding?, "interesting valid strings 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert string.force_encoding("UTF-8").valid_encoding?, "interesting valid strings 19: #{string}"  if @vercheck
     end
   end
 
@@ -137,7 +138,7 @@ class TestUtf8Validator < Test::Unit::TestCase
   def test0510_iso_5559_1
     0x80.upto(0x9f) do |i|
       assert !@validator.valid_encoding?(i.chr), "ISO-8859-1: #{i}"
-      assert !i.chr.force_encoding("UTF-8").valid_encoding?, "ISO-8859-1 19: #{i}"  if RUBY_VERSION =~ /1\.9/
+      assert !i.chr.force_encoding("UTF-8").valid_encoding?, "ISO-8859-1 19: #{i}"  if @vercheck
     end
   end
 
@@ -154,7 +155,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "UTF-16 Surrogate Halves: #{string}"
-      assert !string.force_encoding("UTF-8").valid_encoding?, "UTF-16 Surrogate Halves 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert !string.force_encoding("UTF-8").valid_encoding?, "UTF-16 Surrogate Halves 19: #{string}"  if @vercheck
     end
   end
 
@@ -176,7 +177,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "Invalid single bytes: #{string}"
-      assert !string.force_encoding("UTF-8").valid_encoding?, "Invalid single bytes 10: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert !string.force_encoding("UTF-8").valid_encoding?, "Invalid single bytes 10: #{string}"  if @vercheck
     end
   end
 
@@ -192,7 +193,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "Not shortest: #{string}"
-      assert !string.force_encoding("UTF-8").valid_encoding?, "Not shortest 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert !string.force_encoding("UTF-8").valid_encoding?, "Not shortest 19: #{string}"  if @vercheck
     end
   end
 
@@ -212,7 +213,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "truncated last: #{string}"
-      assert !string.force_encoding("UTF-8").valid_encoding?, "truncated last 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert !string.force_encoding("UTF-8").valid_encoding?, "truncated last 19: #{string}"  if @vercheck
     end
   end
 
@@ -233,7 +234,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     test_data.each do |string|
       string = "a" + string + "b"
       assert !@validator.valid_encoding?(string), "truncated in good: #{string}"
-      assert !string.force_encoding("UTF-8").valid_encoding?, "truncated in good 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert !string.force_encoding("UTF-8").valid_encoding?, "truncated in good 19: #{string}"  if @vercheck
     end
   end
 
@@ -268,7 +269,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "miscellaneous bad: #{string}"
-      assert !string.force_encoding("UTF-8").valid_encoding?, "miscellaneous bad 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert !string.force_encoding("UTF-8").valid_encoding?, "miscellaneous bad 19: #{string}"  if @vercheck
     end
   end
 
@@ -284,7 +285,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "max overlong seq: #{string}"
-      assert !string.force_encoding("UTF-8").valid_encoding?, "max overlong seq 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert !string.force_encoding("UTF-8").valid_encoding?, "max overlong seq 19: #{string}"  if @vercheck
     end
   end
 
@@ -295,7 +296,7 @@ class TestUtf8Validator < Test::Unit::TestCase
     ]
     test_data.each do |string|
       assert !@validator.valid_encoding?(string), "boundary conditions: #{string}"
-      assert !string.force_encoding("UTF-8").valid_encoding?, "boundary conditions 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+      assert !string.force_encoding("UTF-8").valid_encoding?, "boundary conditions 19: #{string}"  if @vercheck
     end
   end
 
@@ -351,7 +352,7 @@ straight from the Unicode 6.0 spec.  See page 92.
     good_data.each do |string|
       assert @validator.valid_encoding?(string), "good unicode specs 01: #{string}"
       assert string.force_encoding("UTF-8").valid_encoding?, 
-        "good unicode specs 01 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+        "good unicode specs 01 19: #{string}"  if @vercheck
     end
 
     bad_data = [
@@ -360,7 +361,7 @@ straight from the Unicode 6.0 spec.  See page 92.
     bad_data.each do |string|
       assert !@validator.valid_encoding?(string), "bad unicode specs 01: #{string}"
       assert !string.force_encoding("UTF-8").valid_encoding?,
-        "bad unicode specs 01 19: #{string}"  if RUBY_VERSION =~ /1\.9/
+        "bad unicode specs 01 19: #{string}"  if @vercheck
     end
 
   end
