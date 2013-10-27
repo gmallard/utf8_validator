@@ -20,7 +20,7 @@ class TestUtf8Validator < Test::Unit::TestCase
   #
   def setup
     @validator = UTF8::Validator.new
-		@vercheck = ((RUBY_VERSION =~ /1\.9/) or (RUBY_VERSION =~ /2\.0/)) ? true : false
+    @vercheck = ((RUBY_VERSION =~ /1\.9/) or (RUBY_VERSION =~ /2\.[01]/)) ? true : false
   end
 
   #
