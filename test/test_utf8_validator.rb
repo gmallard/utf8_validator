@@ -122,6 +122,7 @@ class TestUtf8Validator < Test::Unit::TestCase
       "“Iñtërnâtiônàlizætiøn”", # A suggestion from the net
       "\xd0\x9b\xd0\x93\xd0\xa2\xd0\x9c", # An interesting Russian string from the 'go' guys ....
       "\xd0\x9bГТМ", # A variation on that
+      "cafe\u0301", # Also from the net, https://groups.google.com/forum/#!topic/golang-nuts/yLt9uZcn1k8
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "interesting valid strings: #{string}"
