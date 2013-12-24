@@ -124,6 +124,10 @@ class TestUtf8Validator < Test::Unit::TestCase
       "\xd0\x9bГТМ", # A variation on that
       "cafe\u0301", # Also from the net, https://groups.google.com/forum/#!topic/golang-nuts/yLt9uZcn1k8
       "ssıʎ ʍɐ", # Also from the net, just a user name I think ....
+      "\u004b", # "K" - the letter K
+      "\u212a", # "K" - the Kelvin sign
+      "\u03a9", # "Ω" - Omega
+      "\u2126", # "Ω" - The Ohm sign
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "interesting valid strings: #{string}"
