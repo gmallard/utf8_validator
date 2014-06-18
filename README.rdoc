@@ -48,6 +48,10 @@ Testing for 2.0.x done using:
 
 * 2.0.0p0
 
+Testing for 2.1.x done using:
+
+* 2.1.1p76
+
 == Reporting Issues
 
 Please report issues on the tracker at github:
@@ -73,6 +77,6 @@ Human readable documentation can be found at:
 
 == Copyright
 
-Copyright (c) 2011-2013 Guy Allard. See LICENSE.txt for
+Copyright (c) 2011-2014 Guy Allard. See LICENSE.txt for
 further details.
 
