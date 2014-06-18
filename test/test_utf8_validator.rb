@@ -3226,5 +3226,2920 @@ http://www.babelstone.co.uk/Unicode/7_0_new.txt
 
   end
 
+=begin
+
+Test derived from data in:
+
+http://www.unicode.org/versions/Unicode7.0.0/
+
+=end
+
+  def test_0710_uc7
+    test_data = [
+    "\u1ab0",     # Combining Diacritical Marks Extended
+    "\u1ab1",     # Combining Diacritical Marks Extended
+    "\u1ab2",     # Combining Diacritical Marks Extended
+    "\u1ab3",     # Combining Diacritical Marks Extended
+    "\u1ab4",     # Combining Diacritical Marks Extended
+    "\u1ab5",     # Combining Diacritical Marks Extended
+    "\u1ab6",     # Combining Diacritical Marks Extended
+    "\u1ab7",     # Combining Diacritical Marks Extended
+    "\u1ab8",     # Combining Diacritical Marks Extended
+    "\u1ab9",     # Combining Diacritical Marks Extended
+    "\u1aba",     # Combining Diacritical Marks Extended
+    "\u1abb",     # Combining Diacritical Marks Extended
+    "\u1abc",     # Combining Diacritical Marks Extended
+    "\u1abd",     # Combining Diacritical Marks Extended
+    "\u1abe",     # Combining Diacritical Marks Extended
+    "\u1abf",     # Combining Diacritical Marks Extended
+    "\u1ac0",     # Combining Diacritical Marks Extended
+    "\u1ac1",     # Combining Diacritical Marks Extended
+    "\u1ac2",     # Combining Diacritical Marks Extended
+    "\u1ac3",     # Combining Diacritical Marks Extended
+    "\u1ac4",     # Combining Diacritical Marks Extended
+    "\u1ac5",     # Combining Diacritical Marks Extended
+    "\u1ac6",     # Combining Diacritical Marks Extended
+    "\u1ac7",     # Combining Diacritical Marks Extended
+    "\u1ac8",     # Combining Diacritical Marks Extended
+    "\u1ac9",     # Combining Diacritical Marks Extended
+    "\u1aca",     # Combining Diacritical Marks Extended
+    "\u1acb",     # Combining Diacritical Marks Extended
+    "\u1acc",     # Combining Diacritical Marks Extended
+    "\u1acd",     # Combining Diacritical Marks Extended
+    "\u1ace",     # Combining Diacritical Marks Extended
+    "\u1acf",     # Combining Diacritical Marks Extended
+    "\u1ad0",     # Combining Diacritical Marks Extended
+    "\u1ad1",     # Combining Diacritical Marks Extended
+    "\u1ad2",     # Combining Diacritical Marks Extended
+    "\u1ad3",     # Combining Diacritical Marks Extended
+    "\u1ad4",     # Combining Diacritical Marks Extended
+    "\u1ad5",     # Combining Diacritical Marks Extended
+    "\u1ad6",     # Combining Diacritical Marks Extended
+    "\u1ad7",     # Combining Diacritical Marks Extended
+    "\u1ad8",     # Combining Diacritical Marks Extended
+    "\u1ad9",     # Combining Diacritical Marks Extended
+    "\u1ada",     # Combining Diacritical Marks Extended
+    "\u1adb",     # Combining Diacritical Marks Extended
+    "\u1adc",     # Combining Diacritical Marks Extended
+    "\u1add",     # Combining Diacritical Marks Extended
+    "\u1ade",     # Combining Diacritical Marks Extended
+    "\u1adf",     # Combining Diacritical Marks Extended
+    "\u1ae0",     # Combining Diacritical Marks Extended
+    "\u1ae1",     # Combining Diacritical Marks Extended
+    "\u1ae2",     # Combining Diacritical Marks Extended
+    "\u1ae3",     # Combining Diacritical Marks Extended
+    "\u1ae4",     # Combining Diacritical Marks Extended
+    "\u1ae5",     # Combining Diacritical Marks Extended
+    "\u1ae6",     # Combining Diacritical Marks Extended
+    "\u1ae7",     # Combining Diacritical Marks Extended
+    "\u1ae8",     # Combining Diacritical Marks Extended
+    "\u1ae9",     # Combining Diacritical Marks Extended
+    "\u1aea",     # Combining Diacritical Marks Extended
+    "\u1aeb",     # Combining Diacritical Marks Extended
+    "\u1aec",     # Combining Diacritical Marks Extended
+    "\u1aed",     # Combining Diacritical Marks Extended
+    "\u1aee",     # Combining Diacritical Marks Extended
+    "\u1aef",     # Combining Diacritical Marks Extended
+    "\u1af0",     # Combining Diacritical Marks Extended
+    "\u1af1",     # Combining Diacritical Marks Extended
+    "\u1af2",     # Combining Diacritical Marks Extended
+    "\u1af3",     # Combining Diacritical Marks Extended
+    "\u1af4",     # Combining Diacritical Marks Extended
+    "\u1af5",     # Combining Diacritical Marks Extended
+    "\u1af6",     # Combining Diacritical Marks Extended
+    "\u1af7",     # Combining Diacritical Marks Extended
+    "\u1af8",     # Combining Diacritical Marks Extended
+    "\u1af9",     # Combining Diacritical Marks Extended
+    "\u1afa",     # Combining Diacritical Marks Extended
+    "\u1afb",     # Combining Diacritical Marks Extended
+    "\u1afc",     # Combining Diacritical Marks Extended
+    "\u1afd",     # Combining Diacritical Marks Extended
+    "\u1afe",     # Combining Diacritical Marks Extended
+    "\u1aff",     # Combining Diacritical Marks Extended
+    "\ua9e0",     # Myanmar Extended-B
+    "\ua9e1",     # Myanmar Extended-B
+    "\ua9e2",     # Myanmar Extended-B
+    "\ua9e3",     # Myanmar Extended-B
+    "\ua9e4",     # Myanmar Extended-B
+    "\ua9e5",     # Myanmar Extended-B
+    "\ua9e6",     # Myanmar Extended-B
+    "\ua9e7",     # Myanmar Extended-B
+    "\ua9e8",     # Myanmar Extended-B
+    "\ua9e9",     # Myanmar Extended-B
+    "\ua9ea",     # Myanmar Extended-B
+    "\ua9eb",     # Myanmar Extended-B
+    "\ua9ec",     # Myanmar Extended-B
+    "\ua9ed",     # Myanmar Extended-B
+    "\ua9ee",     # Myanmar Extended-B
+    "\ua9ef",     # Myanmar Extended-B
+    "\ua9f0",     # Myanmar Extended-B
+    "\ua9f1",     # Myanmar Extended-B
+    "\ua9f2",     # Myanmar Extended-B
+    "\ua9f3",     # Myanmar Extended-B
+    "\ua9f4",     # Myanmar Extended-B
+    "\ua9f5",     # Myanmar Extended-B
+    "\ua9f6",     # Myanmar Extended-B
+    "\ua9f7",     # Myanmar Extended-B
+    "\ua9f8",     # Myanmar Extended-B
+    "\ua9f9",     # Myanmar Extended-B
+    "\ua9fa",     # Myanmar Extended-B
+    "\ua9fb",     # Myanmar Extended-B
+    "\ua9fc",     # Myanmar Extended-B
+    "\ua9fd",     # Myanmar Extended-B
+    "\ua9fe",     # Myanmar Extended-B
+    "\ua9ff",     # Myanmar Extended-B
+    "\uab30",     # Latin Extended-E
+    "\uab31",     # Latin Extended-E
+    "\uab32",     # Latin Extended-E
+    "\uab33",     # Latin Extended-E
+    "\uab34",     # Latin Extended-E
+    "\uab35",     # Latin Extended-E
+    "\uab36",     # Latin Extended-E
+    "\uab37",     # Latin Extended-E
+    "\uab38",     # Latin Extended-E
+    "\uab39",     # Latin Extended-E
+    "\uab3a",     # Latin Extended-E
+    "\uab3b",     # Latin Extended-E
+    "\uab3c",     # Latin Extended-E
+    "\uab3d",     # Latin Extended-E
+    "\uab3e",     # Latin Extended-E
+    "\uab3f",     # Latin Extended-E
+    "\uab40",     # Latin Extended-E
+    "\uab41",     # Latin Extended-E
+    "\uab42",     # Latin Extended-E
+    "\uab43",     # Latin Extended-E
+    "\uab44",     # Latin Extended-E
+    "\uab45",     # Latin Extended-E
+    "\uab46",     # Latin Extended-E
+    "\uab47",     # Latin Extended-E
+    "\uab48",     # Latin Extended-E
+    "\uab49",     # Latin Extended-E
+    "\uab4a",     # Latin Extended-E
+    "\uab4b",     # Latin Extended-E
+    "\uab4c",     # Latin Extended-E
+    "\uab4d",     # Latin Extended-E
+    "\uab4e",     # Latin Extended-E
+    "\uab4f",     # Latin Extended-E
+    "\uab50",     # Latin Extended-E
+    "\uab51",     # Latin Extended-E
+    "\uab52",     # Latin Extended-E
+    "\uab53",     # Latin Extended-E
+    "\uab54",     # Latin Extended-E
+    "\uab55",     # Latin Extended-E
+    "\uab56",     # Latin Extended-E
+    "\uab57",     # Latin Extended-E
+    "\uab58",     # Latin Extended-E
+    "\uab59",     # Latin Extended-E
+    "\uab5a",     # Latin Extended-E
+    "\uab5b",     # Latin Extended-E
+    "\uab5c",     # Latin Extended-E
+    "\uab5d",     # Latin Extended-E
+    "\uab5e",     # Latin Extended-E
+    "\uab5f",     # Latin Extended-E
+    "\uab60",     # Latin Extended-E
+    "\uab61",     # Latin Extended-E
+    "\uab62",     # Latin Extended-E
+    "\uab63",     # Latin Extended-E
+    "\uab64",     # Latin Extended-E
+    "\uab65",     # Latin Extended-E
+    "\uab66",     # Latin Extended-E
+    "\uab67",     # Latin Extended-E
+    "\uab68",     # Latin Extended-E
+    "\uab69",     # Latin Extended-E
+    "\uab6a",     # Latin Extended-E
+    "\uab6b",     # Latin Extended-E
+    "\uab6c",     # Latin Extended-E
+    "\uab6d",     # Latin Extended-E
+    "\uab6e",     # Latin Extended-E
+    "\uab6f",     # Latin Extended-E
+    "\u102e0",     # Coptic Epact Numbers
+    "\u102e1",     # Coptic Epact Numbers
+    "\u102e2",     # Coptic Epact Numbers
+    "\u102e3",     # Coptic Epact Numbers
+    "\u102e4",     # Coptic Epact Numbers
+    "\u102e5",     # Coptic Epact Numbers
+    "\u102e6",     # Coptic Epact Numbers
+    "\u102e7",     # Coptic Epact Numbers
+    "\u102e8",     # Coptic Epact Numbers
+    "\u102e9",     # Coptic Epact Numbers
+    "\u102ea",     # Coptic Epact Numbers
+    "\u102eb",     # Coptic Epact Numbers
+    "\u102ec",     # Coptic Epact Numbers
+    "\u102ed",     # Coptic Epact Numbers
+    "\u102ee",     # Coptic Epact Numbers
+    "\u102ef",     # Coptic Epact Numbers
+    "\u102f0",     # Coptic Epact Numbers
+    "\u102f1",     # Coptic Epact Numbers
+    "\u102f2",     # Coptic Epact Numbers
+    "\u102f3",     # Coptic Epact Numbers
+    "\u102f4",     # Coptic Epact Numbers
+    "\u102f5",     # Coptic Epact Numbers
+    "\u102f6",     # Coptic Epact Numbers
+    "\u102f7",     # Coptic Epact Numbers
+    "\u102f8",     # Coptic Epact Numbers
+    "\u102f9",     # Coptic Epact Numbers
+    "\u102fa",     # Coptic Epact Numbers
+    "\u102fb",     # Coptic Epact Numbers
+    "\u102fc",     # Coptic Epact Numbers
+    "\u102fd",     # Coptic Epact Numbers
+    "\u102fe",     # Coptic Epact Numbers
+    "\u102ff",     # Coptic Epact Numbers
+    "\u10350",     # Old Permic
+    "\u10351",     # Old Permic
+    "\u10352",     # Old Permic
+    "\u10353",     # Old Permic
+    "\u10354",     # Old Permic
+    "\u10355",     # Old Permic
+    "\u10356",     # Old Permic
+    "\u10357",     # Old Permic
+    "\u10358",     # Old Permic
+    "\u10359",     # Old Permic
+    "\u1035a",     # Old Permic
+    "\u1035b",     # Old Permic
+    "\u1035c",     # Old Permic
+    "\u1035d",     # Old Permic
+    "\u1035e",     # Old Permic
+    "\u1035f",     # Old Permic
+    "\u10360",     # Old Permic
+    "\u10361",     # Old Permic
+    "\u10362",     # Old Permic
+    "\u10363",     # Old Permic
+    "\u10364",     # Old Permic
+    "\u10365",     # Old Permic
+    "\u10366",     # Old Permic
+    "\u10367",     # Old Permic
+    "\u10368",     # Old Permic
+    "\u10369",     # Old Permic
+    "\u1036a",     # Old Permic
+    "\u1036b",     # Old Permic
+    "\u1036c",     # Old Permic
+    "\u1036d",     # Old Permic
+    "\u1036e",     # Old Permic
+    "\u1036f",     # Old Permic
+    "\u10370",     # Old Permic
+    "\u10371",     # Old Permic
+    "\u10372",     # Old Permic
+    "\u10373",     # Old Permic
+    "\u10374",     # Old Permic
+    "\u10375",     # Old Permic
+    "\u10376",     # Old Permic
+    "\u10377",     # Old Permic
+    "\u10378",     # Old Permic
+    "\u10379",     # Old Permic
+    "\u1037a",     # Old Permic
+    "\u1037b",     # Old Permic
+    "\u1037c",     # Old Permic
+    "\u1037d",     # Old Permic
+    "\u1037e",     # Old Permic
+    "\u1037f",     # Old Permic
+    "\u10500",     # Elbasan
+    "\u10501",     # Elbasan
+    "\u10502",     # Elbasan
+    "\u10503",     # Elbasan
+    "\u10504",     # Elbasan
+    "\u10505",     # Elbasan
+    "\u10506",     # Elbasan
+    "\u10507",     # Elbasan
+    "\u10508",     # Elbasan
+    "\u10509",     # Elbasan
+    "\u1050a",     # Elbasan
+    "\u1050b",     # Elbasan
+    "\u1050c",     # Elbasan
+    "\u1050d",     # Elbasan
+    "\u1050e",     # Elbasan
+    "\u1050f",     # Elbasan
+    "\u10510",     # Elbasan
+    "\u10511",     # Elbasan
+    "\u10512",     # Elbasan
+    "\u10513",     # Elbasan
+    "\u10514",     # Elbasan
+    "\u10515",     # Elbasan
+    "\u10516",     # Elbasan
+    "\u10517",     # Elbasan
+    "\u10518",     # Elbasan
+    "\u10519",     # Elbasan
+    "\u1051a",     # Elbasan
+    "\u1051b",     # Elbasan
+    "\u1051c",     # Elbasan
+    "\u1051d",     # Elbasan
+    "\u1051e",     # Elbasan
+    "\u1051f",     # Elbasan
+    "\u10520",     # Elbasan
+    "\u10521",     # Elbasan
+    "\u10522",     # Elbasan
+    "\u10523",     # Elbasan
+    "\u10524",     # Elbasan
+    "\u10525",     # Elbasan
+    "\u10526",     # Elbasan
+    "\u10527",     # Elbasan
+    "\u10528",     # Elbasan
+    "\u10529",     # Elbasan
+    "\u1052a",     # Elbasan
+    "\u1052b",     # Elbasan
+    "\u1052c",     # Elbasan
+    "\u1052d",     # Elbasan
+    "\u1052e",     # Elbasan
+    "\u1052f",     # Elbasan
+    "\u10530",     # Caucasian Albanian
+    "\u10531",     # Caucasian Albanian
+    "\u10532",     # Caucasian Albanian
+    "\u10533",     # Caucasian Albanian
+    "\u10534",     # Caucasian Albanian
+    "\u10535",     # Caucasian Albanian
+    "\u10536",     # Caucasian Albanian
+    "\u10537",     # Caucasian Albanian
+    "\u10538",     # Caucasian Albanian
+    "\u10539",     # Caucasian Albanian
+    "\u1053a",     # Caucasian Albanian
+    "\u1053b",     # Caucasian Albanian
+    "\u1053c",     # Caucasian Albanian
+    "\u1053d",     # Caucasian Albanian
+    "\u1053e",     # Caucasian Albanian
+    "\u1053f",     # Caucasian Albanian
+    "\u10540",     # Caucasian Albanian
+    "\u10541",     # Caucasian Albanian
+    "\u10542",     # Caucasian Albanian
+    "\u10543",     # Caucasian Albanian
+    "\u10544",     # Caucasian Albanian
+    "\u10545",     # Caucasian Albanian
+    "\u10546",     # Caucasian Albanian
+    "\u10547",     # Caucasian Albanian
+    "\u10548",     # Caucasian Albanian
+    "\u10549",     # Caucasian Albanian
+    "\u1054a",     # Caucasian Albanian
+    "\u1054b",     # Caucasian Albanian
+    "\u1054c",     # Caucasian Albanian
+    "\u1054d",     # Caucasian Albanian
+    "\u1054e",     # Caucasian Albanian
+    "\u1054f",     # Caucasian Albanian
+    "\u10550",     # Caucasian Albanian
+    "\u10551",     # Caucasian Albanian
+    "\u10552",     # Caucasian Albanian
+    "\u10553",     # Caucasian Albanian
+    "\u10554",     # Caucasian Albanian
+    "\u10555",     # Caucasian Albanian
+    "\u10556",     # Caucasian Albanian
+    "\u10557",     # Caucasian Albanian
+    "\u10558",     # Caucasian Albanian
+    "\u10559",     # Caucasian Albanian
+    "\u1055a",     # Caucasian Albanian
+    "\u1055b",     # Caucasian Albanian
+    "\u1055c",     # Caucasian Albanian
+    "\u1055d",     # Caucasian Albanian
+    "\u1055e",     # Caucasian Albanian
+    "\u1055f",     # Caucasian Albanian
+    "\u10560",     # Caucasian Albanian
+    "\u10561",     # Caucasian Albanian
+    "\u10562",     # Caucasian Albanian
+    "\u10563",     # Caucasian Albanian
+    "\u10564",     # Caucasian Albanian
+    "\u10565",     # Caucasian Albanian
+    "\u10566",     # Caucasian Albanian
+    "\u10567",     # Caucasian Albanian
+    "\u10568",     # Caucasian Albanian
+    "\u10569",     # Caucasian Albanian
+    "\u1056a",     # Caucasian Albanian
+    "\u1056b",     # Caucasian Albanian
+    "\u1056c",     # Caucasian Albanian
+    "\u1056d",     # Caucasian Albanian
+    "\u1056e",     # Caucasian Albanian
+    "\u1056f",     # Caucasian Albanian
+    "\u10600",     # Linear A
+    "\u10601",     # Linear A
+    "\u10602",     # Linear A
+    "\u10603",     # Linear A
+    "\u10604",     # Linear A
+    "\u10605",     # Linear A
+    "\u10606",     # Linear A
+    "\u10607",     # Linear A
+    "\u10608",     # Linear A
+    "\u10609",     # Linear A
+    "\u1060a",     # Linear A
+    "\u1060b",     # Linear A
+    "\u1060c",     # Linear A
+    "\u1060d",     # Linear A
+    "\u1060e",     # Linear A
+    "\u1060f",     # Linear A
+    "\u10610",     # Linear A
+    "\u10611",     # Linear A
+    "\u10612",     # Linear A
+    "\u10613",     # Linear A
+    "\u10614",     # Linear A
+    "\u10615",     # Linear A
+    "\u10616",     # Linear A
+    "\u10617",     # Linear A
+    "\u10618",     # Linear A
+    "\u10619",     # Linear A
+    "\u1061a",     # Linear A
+    "\u1061b",     # Linear A
+    "\u1061c",     # Linear A
+    "\u1061d",     # Linear A
+    "\u1061e",     # Linear A
+    "\u1061f",     # Linear A
+    "\u10620",     # Linear A
+    "\u10621",     # Linear A
+    "\u10622",     # Linear A
+    "\u10623",     # Linear A
+    "\u10624",     # Linear A
+    "\u10625",     # Linear A
+    "\u10626",     # Linear A
+    "\u10627",     # Linear A
+    "\u10628",     # Linear A
+    "\u10629",     # Linear A
+    "\u1062a",     # Linear A
+    "\u1062b",     # Linear A
+    "\u1062c",     # Linear A
+    "\u1062d",     # Linear A
+    "\u1062e",     # Linear A
+    "\u1062f",     # Linear A
+    "\u10630",     # Linear A
+    "\u10631",     # Linear A
+    "\u10632",     # Linear A
+    "\u10633",     # Linear A
+    "\u10634",     # Linear A
+    "\u10635",     # Linear A
+    "\u10636",     # Linear A
+    "\u10637",     # Linear A
+    "\u10638",     # Linear A
+    "\u10639",     # Linear A
+    "\u1063a",     # Linear A
+    "\u1063b",     # Linear A
+    "\u1063c",     # Linear A
+    "\u1063d",     # Linear A
+    "\u1063e",     # Linear A
+    "\u1063f",     # Linear A
+    "\u10640",     # Linear A
+    "\u10641",     # Linear A
+    "\u10642",     # Linear A
+    "\u10643",     # Linear A
+    "\u10644",     # Linear A
+    "\u10645",     # Linear A
+    "\u10646",     # Linear A
+    "\u10647",     # Linear A
+    "\u10648",     # Linear A
+    "\u10649",     # Linear A
+    "\u1064a",     # Linear A
+    "\u1064b",     # Linear A
+    "\u1064c",     # Linear A
+    "\u1064d",     # Linear A
+    "\u1064e",     # Linear A
+    "\u1064f",     # Linear A
+    "\u10650",     # Linear A
+    "\u10651",     # Linear A
+    "\u10652",     # Linear A
+    "\u10653",     # Linear A
+    "\u10654",     # Linear A
+    "\u10655",     # Linear A
+    "\u10656",     # Linear A
+    "\u10657",     # Linear A
+    "\u10658",     # Linear A
+    "\u10659",     # Linear A
+    "\u1065a",     # Linear A
+    "\u1065b",     # Linear A
+    "\u1065c",     # Linear A
+    "\u1065d",     # Linear A
+    "\u1065e",     # Linear A
+    "\u1065f",     # Linear A
+    "\u10660",     # Linear A
+    "\u10661",     # Linear A
+    "\u10662",     # Linear A
+    "\u10663",     # Linear A
+    "\u10664",     # Linear A
+    "\u10665",     # Linear A
+    "\u10666",     # Linear A
+    "\u10667",     # Linear A
+    "\u10668",     # Linear A
+    "\u10669",     # Linear A
+    "\u1066a",     # Linear A
+    "\u1066b",     # Linear A
+    "\u1066c",     # Linear A
+    "\u1066d",     # Linear A
+    "\u1066e",     # Linear A
+    "\u1066f",     # Linear A
+    "\u10670",     # Linear A
+    "\u10671",     # Linear A
+    "\u10672",     # Linear A
+    "\u10673",     # Linear A
+    "\u10674",     # Linear A
+    "\u10675",     # Linear A
+    "\u10676",     # Linear A
+    "\u10677",     # Linear A
+    "\u10678",     # Linear A
+    "\u10679",     # Linear A
+    "\u1067a",     # Linear A
+    "\u1067b",     # Linear A
+    "\u1067c",     # Linear A
+    "\u1067d",     # Linear A
+    "\u1067e",     # Linear A
+    "\u1067f",     # Linear A
+    "\u10680",     # Linear A
+    "\u10681",     # Linear A
+    "\u10682",     # Linear A
+    "\u10683",     # Linear A
+    "\u10684",     # Linear A
+    "\u10685",     # Linear A
+    "\u10686",     # Linear A
+    "\u10687",     # Linear A
+    "\u10688",     # Linear A
+    "\u10689",     # Linear A
+    "\u1068a",     # Linear A
+    "\u1068b",     # Linear A
+    "\u1068c",     # Linear A
+    "\u1068d",     # Linear A
+    "\u1068e",     # Linear A
+    "\u1068f",     # Linear A
+    "\u10690",     # Linear A
+    "\u10691",     # Linear A
+    "\u10692",     # Linear A
+    "\u10693",     # Linear A
+    "\u10694",     # Linear A
+    "\u10695",     # Linear A
+    "\u10696",     # Linear A
+    "\u10697",     # Linear A
+    "\u10698",     # Linear A
+    "\u10699",     # Linear A
+    "\u1069a",     # Linear A
+    "\u1069b",     # Linear A
+    "\u1069c",     # Linear A
+    "\u1069d",     # Linear A
+    "\u1069e",     # Linear A
+    "\u1069f",     # Linear A
+    "\u106a0",     # Linear A
+    "\u106a1",     # Linear A
+    "\u106a2",     # Linear A
+    "\u106a3",     # Linear A
+    "\u106a4",     # Linear A
+    "\u106a5",     # Linear A
+    "\u106a6",     # Linear A
+    "\u106a7",     # Linear A
+    "\u106a8",     # Linear A
+    "\u106a9",     # Linear A
+    "\u106aa",     # Linear A
+    "\u106ab",     # Linear A
+    "\u106ac",     # Linear A
+    "\u106ad",     # Linear A
+    "\u106ae",     # Linear A
+    "\u106af",     # Linear A
+    "\u106b0",     # Linear A
+    "\u106b1",     # Linear A
+    "\u106b2",     # Linear A
+    "\u106b3",     # Linear A
+    "\u106b4",     # Linear A
+    "\u106b5",     # Linear A
+    "\u106b6",     # Linear A
+    "\u106b7",     # Linear A
+    "\u106b8",     # Linear A
+    "\u106b9",     # Linear A
+    "\u106ba",     # Linear A
+    "\u106bb",     # Linear A
+    "\u106bc",     # Linear A
+    "\u106bd",     # Linear A
+    "\u106be",     # Linear A
+    "\u106bf",     # Linear A
+    "\u106c0",     # Linear A
+    "\u106c1",     # Linear A
+    "\u106c2",     # Linear A
+    "\u106c3",     # Linear A
+    "\u106c4",     # Linear A
+    "\u106c5",     # Linear A
+    "\u106c6",     # Linear A
+    "\u106c7",     # Linear A
+    "\u106c8",     # Linear A
+    "\u106c9",     # Linear A
+    "\u106ca",     # Linear A
+    "\u106cb",     # Linear A
+    "\u106cc",     # Linear A
+    "\u106cd",     # Linear A
+    "\u106ce",     # Linear A
+    "\u106cf",     # Linear A
+    "\u106d0",     # Linear A
+    "\u106d1",     # Linear A
+    "\u106d2",     # Linear A
+    "\u106d3",     # Linear A
+    "\u106d4",     # Linear A
+    "\u106d5",     # Linear A
+    "\u106d6",     # Linear A
+    "\u106d7",     # Linear A
+    "\u106d8",     # Linear A
+    "\u106d9",     # Linear A
+    "\u106da",     # Linear A
+    "\u106db",     # Linear A
+    "\u106dc",     # Linear A
+    "\u106dd",     # Linear A
+    "\u106de",     # Linear A
+    "\u106df",     # Linear A
+    "\u106e0",     # Linear A
+    "\u106e1",     # Linear A
+    "\u106e2",     # Linear A
+    "\u106e3",     # Linear A
+    "\u106e4",     # Linear A
+    "\u106e5",     # Linear A
+    "\u106e6",     # Linear A
+    "\u106e7",     # Linear A
+    "\u106e8",     # Linear A
+    "\u106e9",     # Linear A
+    "\u106ea",     # Linear A
+    "\u106eb",     # Linear A
+    "\u106ec",     # Linear A
+    "\u106ed",     # Linear A
+    "\u106ee",     # Linear A
+    "\u106ef",     # Linear A
+    "\u106f0",     # Linear A
+    "\u106f1",     # Linear A
+    "\u106f2",     # Linear A
+    "\u106f3",     # Linear A
+    "\u106f4",     # Linear A
+    "\u106f5",     # Linear A
+    "\u106f6",     # Linear A
+    "\u106f7",     # Linear A
+    "\u106f8",     # Linear A
+    "\u106f9",     # Linear A
+    "\u106fa",     # Linear A
+    "\u106fb",     # Linear A
+    "\u106fc",     # Linear A
+    "\u106fd",     # Linear A
+    "\u106fe",     # Linear A
+    "\u106ff",     # Linear A
+    "\u10700",     # Linear A
+    "\u10701",     # Linear A
+    "\u10702",     # Linear A
+    "\u10703",     # Linear A
+    "\u10704",     # Linear A
+    "\u10705",     # Linear A
+    "\u10706",     # Linear A
+    "\u10707",     # Linear A
+    "\u10708",     # Linear A
+    "\u10709",     # Linear A
+    "\u1070a",     # Linear A
+    "\u1070b",     # Linear A
+    "\u1070c",     # Linear A
+    "\u1070d",     # Linear A
+    "\u1070e",     # Linear A
+    "\u1070f",     # Linear A
+    "\u10710",     # Linear A
+    "\u10711",     # Linear A
+    "\u10712",     # Linear A
+    "\u10713",     # Linear A
+    "\u10714",     # Linear A
+    "\u10715",     # Linear A
+    "\u10716",     # Linear A
+    "\u10717",     # Linear A
+    "\u10718",     # Linear A
+    "\u10719",     # Linear A
+    "\u1071a",     # Linear A
+    "\u1071b",     # Linear A
+    "\u1071c",     # Linear A
+    "\u1071d",     # Linear A
+    "\u1071e",     # Linear A
+    "\u1071f",     # Linear A
+    "\u10720",     # Linear A
+    "\u10721",     # Linear A
+    "\u10722",     # Linear A
+    "\u10723",     # Linear A
+    "\u10724",     # Linear A
+    "\u10725",     # Linear A
+    "\u10726",     # Linear A
+    "\u10727",     # Linear A
+    "\u10728",     # Linear A
+    "\u10729",     # Linear A
+    "\u1072a",     # Linear A
+    "\u1072b",     # Linear A
+    "\u1072c",     # Linear A
+    "\u1072d",     # Linear A
+    "\u1072e",     # Linear A
+    "\u1072f",     # Linear A
+    "\u10730",     # Linear A
+    "\u10731",     # Linear A
+    "\u10732",     # Linear A
+    "\u10733",     # Linear A
+    "\u10734",     # Linear A
+    "\u10735",     # Linear A
+    "\u10736",     # Linear A
+    "\u10737",     # Linear A
+    "\u10738",     # Linear A
+    "\u10739",     # Linear A
+    "\u1073a",     # Linear A
+    "\u1073b",     # Linear A
+    "\u1073c",     # Linear A
+    "\u1073d",     # Linear A
+    "\u1073e",     # Linear A
+    "\u1073f",     # Linear A
+    "\u10740",     # Linear A
+    "\u10741",     # Linear A
+    "\u10742",     # Linear A
+    "\u10743",     # Linear A
+    "\u10744",     # Linear A
+    "\u10745",     # Linear A
+    "\u10746",     # Linear A
+    "\u10747",     # Linear A
+    "\u10748",     # Linear A
+    "\u10749",     # Linear A
+    "\u1074a",     # Linear A
+    "\u1074b",     # Linear A
+    "\u1074c",     # Linear A
+    "\u1074d",     # Linear A
+    "\u1074e",     # Linear A
+    "\u1074f",     # Linear A
+    "\u10750",     # Linear A
+    "\u10751",     # Linear A
+    "\u10752",     # Linear A
+    "\u10753",     # Linear A
+    "\u10754",     # Linear A
+    "\u10755",     # Linear A
+    "\u10756",     # Linear A
+    "\u10757",     # Linear A
+    "\u10758",     # Linear A
+    "\u10759",     # Linear A
+    "\u1075a",     # Linear A
+    "\u1075b",     # Linear A
+    "\u1075c",     # Linear A
+    "\u1075d",     # Linear A
+    "\u1075e",     # Linear A
+    "\u1075f",     # Linear A
+    "\u10760",     # Linear A
+    "\u10761",     # Linear A
+    "\u10762",     # Linear A
+    "\u10763",     # Linear A
+    "\u10764",     # Linear A
+    "\u10765",     # Linear A
+    "\u10766",     # Linear A
+    "\u10767",     # Linear A
+    "\u10768",     # Linear A
+    "\u10769",     # Linear A
+    "\u1076a",     # Linear A
+    "\u1076b",     # Linear A
+    "\u1076c",     # Linear A
+    "\u1076d",     # Linear A
+    "\u1076e",     # Linear A
+    "\u1076f",     # Linear A
+    "\u10770",     # Linear A
+    "\u10771",     # Linear A
+    "\u10772",     # Linear A
+    "\u10773",     # Linear A
+    "\u10774",     # Linear A
+    "\u10775",     # Linear A
+    "\u10776",     # Linear A
+    "\u10777",     # Linear A
+    "\u10778",     # Linear A
+    "\u10779",     # Linear A
+    "\u1077a",     # Linear A
+    "\u1077b",     # Linear A
+    "\u1077c",     # Linear A
+    "\u1077d",     # Linear A
+    "\u1077e",     # Linear A
+    "\u1077f",     # Linear A
+    "\u10860",     # Palmyrene
+    "\u10861",     # Palmyrene
+    "\u10862",     # Palmyrene
+    "\u10863",     # Palmyrene
+    "\u10864",     # Palmyrene
+    "\u10865",     # Palmyrene
+    "\u10866",     # Palmyrene
+    "\u10867",     # Palmyrene
+    "\u10868",     # Palmyrene
+    "\u10869",     # Palmyrene
+    "\u1086a",     # Palmyrene
+    "\u1086b",     # Palmyrene
+    "\u1086c",     # Palmyrene
+    "\u1086d",     # Palmyrene
+    "\u1086e",     # Palmyrene
+    "\u1086f",     # Palmyrene
+    "\u10870",     # Palmyrene
+    "\u10871",     # Palmyrene
+    "\u10872",     # Palmyrene
+    "\u10873",     # Palmyrene
+    "\u10874",     # Palmyrene
+    "\u10875",     # Palmyrene
+    "\u10876",     # Palmyrene
+    "\u10877",     # Palmyrene
+    "\u10878",     # Palmyrene
+    "\u10879",     # Palmyrene
+    "\u1087a",     # Palmyrene
+    "\u1087b",     # Palmyrene
+    "\u1087c",     # Palmyrene
+    "\u1087d",     # Palmyrene
+    "\u1087e",     # Palmyrene
+    "\u1087f",     # Palmyrene
+    "\u10880",     # Nabataean
+    "\u10881",     # Nabataean
+    "\u10882",     # Nabataean
+    "\u10883",     # Nabataean
+    "\u10884",     # Nabataean
+    "\u10885",     # Nabataean
+    "\u10886",     # Nabataean
+    "\u10887",     # Nabataean
+    "\u10888",     # Nabataean
+    "\u10889",     # Nabataean
+    "\u1088a",     # Nabataean
+    "\u1088b",     # Nabataean
+    "\u1088c",     # Nabataean
+    "\u1088d",     # Nabataean
+    "\u1088e",     # Nabataean
+    "\u1088f",     # Nabataean
+    "\u10890",     # Nabataean
+    "\u10891",     # Nabataean
+    "\u10892",     # Nabataean
+    "\u10893",     # Nabataean
+    "\u10894",     # Nabataean
+    "\u10895",     # Nabataean
+    "\u10896",     # Nabataean
+    "\u10897",     # Nabataean
+    "\u10898",     # Nabataean
+    "\u10899",     # Nabataean
+    "\u1089a",     # Nabataean
+    "\u1089b",     # Nabataean
+    "\u1089c",     # Nabataean
+    "\u1089d",     # Nabataean
+    "\u1089e",     # Nabataean
+    "\u1089f",     # Nabataean
+    "\u108a0",     # Nabataean
+    "\u108a1",     # Nabataean
+    "\u108a2",     # Nabataean
+    "\u108a3",     # Nabataean
+    "\u108a4",     # Nabataean
+    "\u108a5",     # Nabataean
+    "\u108a6",     # Nabataean
+    "\u108a7",     # Nabataean
+    "\u108a8",     # Nabataean
+    "\u108a9",     # Nabataean
+    "\u108aa",     # Nabataean
+    "\u108ab",     # Nabataean
+    "\u108ac",     # Nabataean
+    "\u108ad",     # Nabataean
+    "\u108ae",     # Nabataean
+    "\u108af",     # Nabataean
+    "\u10a80",     # Old North Arabian
+    "\u10a81",     # Old North Arabian
+    "\u10a82",     # Old North Arabian
+    "\u10a83",     # Old North Arabian
+    "\u10a84",     # Old North Arabian
+    "\u10a85",     # Old North Arabian
+    "\u10a86",     # Old North Arabian
+    "\u10a87",     # Old North Arabian
+    "\u10a88",     # Old North Arabian
+    "\u10a89",     # Old North Arabian
+    "\u10a8a",     # Old North Arabian
+    "\u10a8b",     # Old North Arabian
+    "\u10a8c",     # Old North Arabian
+    "\u10a8d",     # Old North Arabian
+    "\u10a8e",     # Old North Arabian
+    "\u10a8f",     # Old North Arabian
+    "\u10a90",     # Old North Arabian
+    "\u10a91",     # Old North Arabian
+    "\u10a92",     # Old North Arabian
+    "\u10a93",     # Old North Arabian
+    "\u10a94",     # Old North Arabian
+    "\u10a95",     # Old North Arabian
+    "\u10a96",     # Old North Arabian
+    "\u10a97",     # Old North Arabian
+    "\u10a98",     # Old North Arabian
+    "\u10a99",     # Old North Arabian
+    "\u10a9a",     # Old North Arabian
+    "\u10a9b",     # Old North Arabian
+    "\u10a9c",     # Old North Arabian
+    "\u10a9d",     # Old North Arabian
+    "\u10a9e",     # Old North Arabian
+    "\u10a9f",     # Old North Arabian
+    "\u10ac0",     # Manichaean
+    "\u10ac1",     # Manichaean
+    "\u10ac2",     # Manichaean
+    "\u10ac3",     # Manichaean
+    "\u10ac4",     # Manichaean
+    "\u10ac5",     # Manichaean
+    "\u10ac6",     # Manichaean
+    "\u10ac7",     # Manichaean
+    "\u10ac8",     # Manichaean
+    "\u10ac9",     # Manichaean
+    "\u10aca",     # Manichaean
+    "\u10acb",     # Manichaean
+    "\u10acc",     # Manichaean
+    "\u10acd",     # Manichaean
+    "\u10ace",     # Manichaean
+    "\u10acf",     # Manichaean
+    "\u10ad0",     # Manichaean
+    "\u10ad1",     # Manichaean
+    "\u10ad2",     # Manichaean
+    "\u10ad3",     # Manichaean
+    "\u10ad4",     # Manichaean
+    "\u10ad5",     # Manichaean
+    "\u10ad6",     # Manichaean
+    "\u10ad7",     # Manichaean
+    "\u10ad8",     # Manichaean
+    "\u10ad9",     # Manichaean
+    "\u10ada",     # Manichaean
+    "\u10adb",     # Manichaean
+    "\u10adc",     # Manichaean
+    "\u10add",     # Manichaean
+    "\u10ade",     # Manichaean
+    "\u10adf",     # Manichaean
+    "\u10ae0",     # Manichaean
+    "\u10ae1",     # Manichaean
+    "\u10ae2",     # Manichaean
+    "\u10ae3",     # Manichaean
+    "\u10ae4",     # Manichaean
+    "\u10ae5",     # Manichaean
+    "\u10ae6",     # Manichaean
+    "\u10ae7",     # Manichaean
+    "\u10ae8",     # Manichaean
+    "\u10ae9",     # Manichaean
+    "\u10aea",     # Manichaean
+    "\u10aeb",     # Manichaean
+    "\u10aec",     # Manichaean
+    "\u10aed",     # Manichaean
+    "\u10aee",     # Manichaean
+    "\u10aef",     # Manichaean
+    "\u10af0",     # Manichaean
+    "\u10af1",     # Manichaean
+    "\u10af2",     # Manichaean
+    "\u10af3",     # Manichaean
+    "\u10af4",     # Manichaean
+    "\u10af5",     # Manichaean
+    "\u10af6",     # Manichaean
+    "\u10af7",     # Manichaean
+    "\u10af8",     # Manichaean
+    "\u10af9",     # Manichaean
+    "\u10afa",     # Manichaean
+    "\u10afb",     # Manichaean
+    "\u10afc",     # Manichaean
+    "\u10afd",     # Manichaean
+    "\u10afe",     # Manichaean
+    "\u10aff",     # Manichaean
+    "\u10b80",     # Psalter Pahlavi
+    "\u10b81",     # Psalter Pahlavi
+    "\u10b82",     # Psalter Pahlavi
+    "\u10b83",     # Psalter Pahlavi
+    "\u10b84",     # Psalter Pahlavi
+    "\u10b85",     # Psalter Pahlavi
+    "\u10b86",     # Psalter Pahlavi
+    "\u10b87",     # Psalter Pahlavi
+    "\u10b88",     # Psalter Pahlavi
+    "\u10b89",     # Psalter Pahlavi
+    "\u10b8a",     # Psalter Pahlavi
+    "\u10b8b",     # Psalter Pahlavi
+    "\u10b8c",     # Psalter Pahlavi
+    "\u10b8d",     # Psalter Pahlavi
+    "\u10b8e",     # Psalter Pahlavi
+    "\u10b8f",     # Psalter Pahlavi
+    "\u10b90",     # Psalter Pahlavi
+    "\u10b91",     # Psalter Pahlavi
+    "\u10b92",     # Psalter Pahlavi
+    "\u10b93",     # Psalter Pahlavi
+    "\u10b94",     # Psalter Pahlavi
+    "\u10b95",     # Psalter Pahlavi
+    "\u10b96",     # Psalter Pahlavi
+    "\u10b97",     # Psalter Pahlavi
+    "\u10b98",     # Psalter Pahlavi
+    "\u10b99",     # Psalter Pahlavi
+    "\u10b9a",     # Psalter Pahlavi
+    "\u10b9b",     # Psalter Pahlavi
+    "\u10b9c",     # Psalter Pahlavi
+    "\u10b9d",     # Psalter Pahlavi
+    "\u10b9e",     # Psalter Pahlavi
+    "\u10b9f",     # Psalter Pahlavi
+    "\u10ba0",     # Psalter Pahlavi
+    "\u10ba1",     # Psalter Pahlavi
+    "\u10ba2",     # Psalter Pahlavi
+    "\u10ba3",     # Psalter Pahlavi
+    "\u10ba4",     # Psalter Pahlavi
+    "\u10ba5",     # Psalter Pahlavi
+    "\u10ba6",     # Psalter Pahlavi
+    "\u10ba7",     # Psalter Pahlavi
+    "\u10ba8",     # Psalter Pahlavi
+    "\u10ba9",     # Psalter Pahlavi
+    "\u10baa",     # Psalter Pahlavi
+    "\u10bab",     # Psalter Pahlavi
+    "\u10bac",     # Psalter Pahlavi
+    "\u10bad",     # Psalter Pahlavi
+    "\u10bae",     # Psalter Pahlavi
+    "\u10baf",     # Psalter Pahlavi
+    "\u11150",     # Mahajani
+    "\u11151",     # Mahajani
+    "\u11152",     # Mahajani
+    "\u11153",     # Mahajani
+    "\u11154",     # Mahajani
+    "\u11155",     # Mahajani
+    "\u11156",     # Mahajani
+    "\u11157",     # Mahajani
+    "\u11158",     # Mahajani
+    "\u11159",     # Mahajani
+    "\u1115a",     # Mahajani
+    "\u1115b",     # Mahajani
+    "\u1115c",     # Mahajani
+    "\u1115d",     # Mahajani
+    "\u1115e",     # Mahajani
+    "\u1115f",     # Mahajani
+    "\u11160",     # Mahajani
+    "\u11161",     # Mahajani
+    "\u11162",     # Mahajani
+    "\u11163",     # Mahajani
+    "\u11164",     # Mahajani
+    "\u11165",     # Mahajani
+    "\u11166",     # Mahajani
+    "\u11167",     # Mahajani
+    "\u11168",     # Mahajani
+    "\u11169",     # Mahajani
+    "\u1116a",     # Mahajani
+    "\u1116b",     # Mahajani
+    "\u1116c",     # Mahajani
+    "\u1116d",     # Mahajani
+    "\u1116e",     # Mahajani
+    "\u1116f",     # Mahajani
+    "\u11170",     # Mahajani
+    "\u11171",     # Mahajani
+    "\u11172",     # Mahajani
+    "\u11173",     # Mahajani
+    "\u11174",     # Mahajani
+    "\u11175",     # Mahajani
+    "\u11176",     # Mahajani
+    "\u11177",     # Mahajani
+    "\u11178",     # Mahajani
+    "\u11179",     # Mahajani
+    "\u1117a",     # Mahajani
+    "\u1117b",     # Mahajani
+    "\u1117c",     # Mahajani
+    "\u1117d",     # Mahajani
+    "\u1117e",     # Mahajani
+    "\u1117f",     # Mahajani
+    "\u111e0",     # Sinhala Archaic Numbers
+    "\u111e1",     # Sinhala Archaic Numbers
+    "\u111e2",     # Sinhala Archaic Numbers
+    "\u111e3",     # Sinhala Archaic Numbers
+    "\u111e4",     # Sinhala Archaic Numbers
+    "\u111e5",     # Sinhala Archaic Numbers
+    "\u111e6",     # Sinhala Archaic Numbers
+    "\u111e7",     # Sinhala Archaic Numbers
+    "\u111e8",     # Sinhala Archaic Numbers
+    "\u111e9",     # Sinhala Archaic Numbers
+    "\u111ea",     # Sinhala Archaic Numbers
+    "\u111eb",     # Sinhala Archaic Numbers
+    "\u111ec",     # Sinhala Archaic Numbers
+    "\u111ed",     # Sinhala Archaic Numbers
+    "\u111ee",     # Sinhala Archaic Numbers
+    "\u111ef",     # Sinhala Archaic Numbers
+    "\u111f0",     # Sinhala Archaic Numbers
+    "\u111f1",     # Sinhala Archaic Numbers
+    "\u111f2",     # Sinhala Archaic Numbers
+    "\u111f3",     # Sinhala Archaic Numbers
+    "\u111f4",     # Sinhala Archaic Numbers
+    "\u111f5",     # Sinhala Archaic Numbers
+    "\u111f6",     # Sinhala Archaic Numbers
+    "\u111f7",     # Sinhala Archaic Numbers
+    "\u111f8",     # Sinhala Archaic Numbers
+    "\u111f9",     # Sinhala Archaic Numbers
+    "\u111fa",     # Sinhala Archaic Numbers
+    "\u111fb",     # Sinhala Archaic Numbers
+    "\u111fc",     # Sinhala Archaic Numbers
+    "\u111fd",     # Sinhala Archaic Numbers
+    "\u111fe",     # Sinhala Archaic Numbers
+    "\u111ff",     # Sinhala Archaic Numbers
+    "\u11200",     # Khojki
+    "\u11201",     # Khojki
+    "\u11202",     # Khojki
+    "\u11203",     # Khojki
+    "\u11204",     # Khojki
+    "\u11205",     # Khojki
+    "\u11206",     # Khojki
+    "\u11207",     # Khojki
+    "\u11208",     # Khojki
+    "\u11209",     # Khojki
+    "\u1120a",     # Khojki
+    "\u1120b",     # Khojki
+    "\u1120c",     # Khojki
+    "\u1120d",     # Khojki
+    "\u1120e",     # Khojki
+    "\u1120f",     # Khojki
+    "\u11210",     # Khojki
+    "\u11211",     # Khojki
+    "\u11212",     # Khojki
+    "\u11213",     # Khojki
+    "\u11214",     # Khojki
+    "\u11215",     # Khojki
+    "\u11216",     # Khojki
+    "\u11217",     # Khojki
+    "\u11218",     # Khojki
+    "\u11219",     # Khojki
+    "\u1121a",     # Khojki
+    "\u1121b",     # Khojki
+    "\u1121c",     # Khojki
+    "\u1121d",     # Khojki
+    "\u1121e",     # Khojki
+    "\u1121f",     # Khojki
+    "\u11220",     # Khojki
+    "\u11221",     # Khojki
+    "\u11222",     # Khojki
+    "\u11223",     # Khojki
+    "\u11224",     # Khojki
+    "\u11225",     # Khojki
+    "\u11226",     # Khojki
+    "\u11227",     # Khojki
+    "\u11228",     # Khojki
+    "\u11229",     # Khojki
+    "\u1122a",     # Khojki
+    "\u1122b",     # Khojki
+    "\u1122c",     # Khojki
+    "\u1122d",     # Khojki
+    "\u1122e",     # Khojki
+    "\u1122f",     # Khojki
+    "\u11230",     # Khojki
+    "\u11231",     # Khojki
+    "\u11232",     # Khojki
+    "\u11233",     # Khojki
+    "\u11234",     # Khojki
+    "\u11235",     # Khojki
+    "\u11236",     # Khojki
+    "\u11237",     # Khojki
+    "\u11238",     # Khojki
+    "\u11239",     # Khojki
+    "\u1123a",     # Khojki
+    "\u1123b",     # Khojki
+    "\u1123c",     # Khojki
+    "\u1123d",     # Khojki
+    "\u1123e",     # Khojki
+    "\u1123f",     # Khojki
+    "\u11240",     # Khojki
+    "\u11241",     # Khojki
+    "\u11242",     # Khojki
+    "\u11243",     # Khojki
+    "\u11244",     # Khojki
+    "\u11245",     # Khojki
+    "\u11246",     # Khojki
+    "\u11247",     # Khojki
+    "\u11248",     # Khojki
+    "\u11249",     # Khojki
+    "\u1124a",     # Khojki
+    "\u1124b",     # Khojki
+    "\u1124c",     # Khojki
+    "\u1124d",     # Khojki
+    "\u1124e",     # Khojki
+    "\u1124f",     # Khojki
+    "\u112b0",     # Khudawadi
+    "\u112b1",     # Khudawadi
+    "\u112b2",     # Khudawadi
+    "\u112b3",     # Khudawadi
+    "\u112b4",     # Khudawadi
+    "\u112b5",     # Khudawadi
+    "\u112b6",     # Khudawadi
+    "\u112b7",     # Khudawadi
+    "\u112b8",     # Khudawadi
+    "\u112b9",     # Khudawadi
+    "\u112ba",     # Khudawadi
+    "\u112bb",     # Khudawadi
+    "\u112bc",     # Khudawadi
+    "\u112bd",     # Khudawadi
+    "\u112be",     # Khudawadi
+    "\u112bf",     # Khudawadi
+    "\u112c0",     # Khudawadi
+    "\u112c1",     # Khudawadi
+    "\u112c2",     # Khudawadi
+    "\u112c3",     # Khudawadi
+    "\u112c4",     # Khudawadi
+    "\u112c5",     # Khudawadi
+    "\u112c6",     # Khudawadi
+    "\u112c7",     # Khudawadi
+    "\u112c8",     # Khudawadi
+    "\u112c9",     # Khudawadi
+    "\u112ca",     # Khudawadi
+    "\u112cb",     # Khudawadi
+    "\u112cc",     # Khudawadi
+    "\u112cd",     # Khudawadi
+    "\u112ce",     # Khudawadi
+    "\u112cf",     # Khudawadi
+    "\u112d0",     # Khudawadi
+    "\u112d1",     # Khudawadi
+    "\u112d2",     # Khudawadi
+    "\u112d3",     # Khudawadi
+    "\u112d4",     # Khudawadi
+    "\u112d5",     # Khudawadi
+    "\u112d6",     # Khudawadi
+    "\u112d7",     # Khudawadi
+    "\u112d8",     # Khudawadi
+    "\u112d9",     # Khudawadi
+    "\u112da",     # Khudawadi
+    "\u112db",     # Khudawadi
+    "\u112dc",     # Khudawadi
+    "\u112dd",     # Khudawadi
+    "\u112de",     # Khudawadi
+    "\u112df",     # Khudawadi
+    "\u112e0",     # Khudawadi
+    "\u112e1",     # Khudawadi
+    "\u112e2",     # Khudawadi
+    "\u112e3",     # Khudawadi
+    "\u112e4",     # Khudawadi
+    "\u112e5",     # Khudawadi
+    "\u112e6",     # Khudawadi
+    "\u112e7",     # Khudawadi
+    "\u112e8",     # Khudawadi
+    "\u112e9",     # Khudawadi
+    "\u112ea",     # Khudawadi
+    "\u112eb",     # Khudawadi
+    "\u112ec",     # Khudawadi
+    "\u112ed",     # Khudawadi
+    "\u112ee",     # Khudawadi
+    "\u112ef",     # Khudawadi
+    "\u112f0",     # Khudawadi
+    "\u112f1",     # Khudawadi
+    "\u112f2",     # Khudawadi
+    "\u112f3",     # Khudawadi
+    "\u112f4",     # Khudawadi
+    "\u112f5",     # Khudawadi
+    "\u112f6",     # Khudawadi
+    "\u112f7",     # Khudawadi
+    "\u112f8",     # Khudawadi
+    "\u112f9",     # Khudawadi
+    "\u112fa",     # Khudawadi
+    "\u112fb",     # Khudawadi
+    "\u112fc",     # Khudawadi
+    "\u112fd",     # Khudawadi
+    "\u112fe",     # Khudawadi
+    "\u112ff",     # Khudawadi
+    "\u11300",     # Grantha
+    "\u11301",     # Grantha
+    "\u11302",     # Grantha
+    "\u11303",     # Grantha
+    "\u11304",     # Grantha
+    "\u11305",     # Grantha
+    "\u11306",     # Grantha
+    "\u11307",     # Grantha
+    "\u11308",     # Grantha
+    "\u11309",     # Grantha
+    "\u1130a",     # Grantha
+    "\u1130b",     # Grantha
+    "\u1130c",     # Grantha
+    "\u1130d",     # Grantha
+    "\u1130e",     # Grantha
+    "\u1130f",     # Grantha
+    "\u11310",     # Grantha
+    "\u11311",     # Grantha
+    "\u11312",     # Grantha
+    "\u11313",     # Grantha
+    "\u11314",     # Grantha
+    "\u11315",     # Grantha
+    "\u11316",     # Grantha
+    "\u11317",     # Grantha
+    "\u11318",     # Grantha
+    "\u11319",     # Grantha
+    "\u1131a",     # Grantha
+    "\u1131b",     # Grantha
+    "\u1131c",     # Grantha
+    "\u1131d",     # Grantha
+    "\u1131e",     # Grantha
+    "\u1131f",     # Grantha
+    "\u11320",     # Grantha
+    "\u11321",     # Grantha
+    "\u11322",     # Grantha
+    "\u11323",     # Grantha
+    "\u11324",     # Grantha
+    "\u11325",     # Grantha
+    "\u11326",     # Grantha
+    "\u11327",     # Grantha
+    "\u11328",     # Grantha
+    "\u11329",     # Grantha
+    "\u1132a",     # Grantha
+    "\u1132b",     # Grantha
+    "\u1132c",     # Grantha
+    "\u1132d",     # Grantha
+    "\u1132e",     # Grantha
+    "\u1132f",     # Grantha
+    "\u11330",     # Grantha
+    "\u11331",     # Grantha
+    "\u11332",     # Grantha
+    "\u11333",     # Grantha
+    "\u11334",     # Grantha
+    "\u11335",     # Grantha
+    "\u11336",     # Grantha
+    "\u11337",     # Grantha
+    "\u11338",     # Grantha
+    "\u11339",     # Grantha
+    "\u1133a",     # Grantha
+    "\u1133b",     # Grantha
+    "\u1133c",     # Grantha
+    "\u1133d",     # Grantha
+    "\u1133e",     # Grantha
+    "\u1133f",     # Grantha
+    "\u11340",     # Grantha
+    "\u11341",     # Grantha
+    "\u11342",     # Grantha
+    "\u11343",     # Grantha
+    "\u11344",     # Grantha
+    "\u11345",     # Grantha
+    "\u11346",     # Grantha
+    "\u11347",     # Grantha
+    "\u11348",     # Grantha
+    "\u11349",     # Grantha
+    "\u1134a",     # Grantha
+    "\u1134b",     # Grantha
+    "\u1134c",     # Grantha
+    "\u1134d",     # Grantha
+    "\u1134e",     # Grantha
+    "\u1134f",     # Grantha
+    "\u11350",     # Grantha
+    "\u11351",     # Grantha
+    "\u11352",     # Grantha
+    "\u11353",     # Grantha
+    "\u11354",     # Grantha
+    "\u11355",     # Grantha
+    "\u11356",     # Grantha
+    "\u11357",     # Grantha
+    "\u11358",     # Grantha
+    "\u11359",     # Grantha
+    "\u1135a",     # Grantha
+    "\u1135b",     # Grantha
+    "\u1135c",     # Grantha
+    "\u1135d",     # Grantha
+    "\u1135e",     # Grantha
+    "\u1135f",     # Grantha
+    "\u11360",     # Grantha
+    "\u11361",     # Grantha
+    "\u11362",     # Grantha
+    "\u11363",     # Grantha
+    "\u11364",     # Grantha
+    "\u11365",     # Grantha
+    "\u11366",     # Grantha
+    "\u11367",     # Grantha
+    "\u11368",     # Grantha
+    "\u11369",     # Grantha
+    "\u1136a",     # Grantha
+    "\u1136b",     # Grantha
+    "\u1136c",     # Grantha
+    "\u1136d",     # Grantha
+    "\u1136e",     # Grantha
+    "\u1136f",     # Grantha
+    "\u11370",     # Grantha
+    "\u11371",     # Grantha
+    "\u11372",     # Grantha
+    "\u11373",     # Grantha
+    "\u11374",     # Grantha
+    "\u11375",     # Grantha
+    "\u11376",     # Grantha
+    "\u11377",     # Grantha
+    "\u11378",     # Grantha
+    "\u11379",     # Grantha
+    "\u1137a",     # Grantha
+    "\u1137b",     # Grantha
+    "\u1137c",     # Grantha
+    "\u1137d",     # Grantha
+    "\u1137e",     # Grantha
+    "\u1137f",     # Grantha
+    "\u11480",     # Tirhuta
+    "\u11481",     # Tirhuta
+    "\u11482",     # Tirhuta
+    "\u11483",     # Tirhuta
+    "\u11484",     # Tirhuta
+    "\u11485",     # Tirhuta
+    "\u11486",     # Tirhuta
+    "\u11487",     # Tirhuta
+    "\u11488",     # Tirhuta
+    "\u11489",     # Tirhuta
+    "\u1148a",     # Tirhuta
+    "\u1148b",     # Tirhuta
+    "\u1148c",     # Tirhuta
+    "\u1148d",     # Tirhuta
+    "\u1148e",     # Tirhuta
+    "\u1148f",     # Tirhuta
+    "\u11490",     # Tirhuta
+    "\u11491",     # Tirhuta
+    "\u11492",     # Tirhuta
+    "\u11493",     # Tirhuta
+    "\u11494",     # Tirhuta
+    "\u11495",     # Tirhuta
+    "\u11496",     # Tirhuta
+    "\u11497",     # Tirhuta
+    "\u11498",     # Tirhuta
+    "\u11499",     # Tirhuta
+    "\u1149a",     # Tirhuta
+    "\u1149b",     # Tirhuta
+    "\u1149c",     # Tirhuta
+    "\u1149d",     # Tirhuta
+    "\u1149e",     # Tirhuta
+    "\u1149f",     # Tirhuta
+    "\u114a0",     # Tirhuta
+    "\u114a1",     # Tirhuta
+    "\u114a2",     # Tirhuta
+    "\u114a3",     # Tirhuta
+    "\u114a4",     # Tirhuta
+    "\u114a5",     # Tirhuta
+    "\u114a6",     # Tirhuta
+    "\u114a7",     # Tirhuta
+    "\u114a8",     # Tirhuta
+    "\u114a9",     # Tirhuta
+    "\u114aa",     # Tirhuta
+    "\u114ab",     # Tirhuta
+    "\u114ac",     # Tirhuta
+    "\u114ad",     # Tirhuta
+    "\u114ae",     # Tirhuta
+    "\u114af",     # Tirhuta
+    "\u114b0",     # Tirhuta
+    "\u114b1",     # Tirhuta
+    "\u114b2",     # Tirhuta
+    "\u114b3",     # Tirhuta
+    "\u114b4",     # Tirhuta
+    "\u114b5",     # Tirhuta
+    "\u114b6",     # Tirhuta
+    "\u114b7",     # Tirhuta
+    "\u114b8",     # Tirhuta
+    "\u114b9",     # Tirhuta
+    "\u114ba",     # Tirhuta
+    "\u114bb",     # Tirhuta
+    "\u114bc",     # Tirhuta
+    "\u114bd",     # Tirhuta
+    "\u114be",     # Tirhuta
+    "\u114bf",     # Tirhuta
+    "\u114c0",     # Tirhuta
+    "\u114c1",     # Tirhuta
+    "\u114c2",     # Tirhuta
+    "\u114c3",     # Tirhuta
+    "\u114c4",     # Tirhuta
+    "\u114c5",     # Tirhuta
+    "\u114c6",     # Tirhuta
+    "\u114c7",     # Tirhuta
+    "\u114c8",     # Tirhuta
+    "\u114c9",     # Tirhuta
+    "\u114ca",     # Tirhuta
+    "\u114cb",     # Tirhuta
+    "\u114cc",     # Tirhuta
+    "\u114cd",     # Tirhuta
+    "\u114ce",     # Tirhuta
+    "\u114cf",     # Tirhuta
+    "\u114d0",     # Tirhuta
+    "\u114d1",     # Tirhuta
+    "\u114d2",     # Tirhuta
+    "\u114d3",     # Tirhuta
+    "\u114d4",     # Tirhuta
+    "\u114d5",     # Tirhuta
+    "\u114d6",     # Tirhuta
+    "\u114d7",     # Tirhuta
+    "\u114d8",     # Tirhuta
+    "\u114d9",     # Tirhuta
+    "\u114da",     # Tirhuta
+    "\u114db",     # Tirhuta
+    "\u114dc",     # Tirhuta
+    "\u114dd",     # Tirhuta
+    "\u114de",     # Tirhuta
+    "\u114df",     # Tirhuta
+    "\u11580",     # Siddham
+    "\u11581",     # Siddham
+    "\u11582",     # Siddham
+    "\u11583",     # Siddham
+    "\u11584",     # Siddham
+    "\u11585",     # Siddham
+    "\u11586",     # Siddham
+    "\u11587",     # Siddham
+    "\u11588",     # Siddham
+    "\u11589",     # Siddham
+    "\u1158a",     # Siddham
+    "\u1158b",     # Siddham
+    "\u1158c",     # Siddham
+    "\u1158d",     # Siddham
+    "\u1158e",     # Siddham
+    "\u1158f",     # Siddham
+    "\u11590",     # Siddham
+    "\u11591",     # Siddham
+    "\u11592",     # Siddham
+    "\u11593",     # Siddham
+    "\u11594",     # Siddham
+    "\u11595",     # Siddham
+    "\u11596",     # Siddham
+    "\u11597",     # Siddham
+    "\u11598",     # Siddham
+    "\u11599",     # Siddham
+    "\u1159a",     # Siddham
+    "\u1159b",     # Siddham
+    "\u1159c",     # Siddham
+    "\u1159d",     # Siddham
+    "\u1159e",     # Siddham
+    "\u1159f",     # Siddham
+    "\u115a0",     # Siddham
+    "\u115a1",     # Siddham
+    "\u115a2",     # Siddham
+    "\u115a3",     # Siddham
+    "\u115a4",     # Siddham
+    "\u115a5",     # Siddham
+    "\u115a6",     # Siddham
+    "\u115a7",     # Siddham
+    "\u115a8",     # Siddham
+    "\u115a9",     # Siddham
+    "\u115aa",     # Siddham
+    "\u115ab",     # Siddham
+    "\u115ac",     # Siddham
+    "\u115ad",     # Siddham
+    "\u115ae",     # Siddham
+    "\u115af",     # Siddham
+    "\u115b0",     # Siddham
+    "\u115b1",     # Siddham
+    "\u115b2",     # Siddham
+    "\u115b3",     # Siddham
+    "\u115b4",     # Siddham
+    "\u115b5",     # Siddham
+    "\u115b6",     # Siddham
+    "\u115b7",     # Siddham
+    "\u115b8",     # Siddham
+    "\u115b9",     # Siddham
+    "\u115ba",     # Siddham
+    "\u115bb",     # Siddham
+    "\u115bc",     # Siddham
+    "\u115bd",     # Siddham
+    "\u115be",     # Siddham
+    "\u115bf",     # Siddham
+    "\u115c0",     # Siddham
+    "\u115c1",     # Siddham
+    "\u115c2",     # Siddham
+    "\u115c3",     # Siddham
+    "\u115c4",     # Siddham
+    "\u115c5",     # Siddham
+    "\u115c6",     # Siddham
+    "\u115c7",     # Siddham
+    "\u115c8",     # Siddham
+    "\u115c9",     # Siddham
+    "\u115ca",     # Siddham
+    "\u115cb",     # Siddham
+    "\u115cc",     # Siddham
+    "\u115cd",     # Siddham
+    "\u115ce",     # Siddham
+    "\u115cf",     # Siddham
+    "\u115d0",     # Siddham
+    "\u115d1",     # Siddham
+    "\u115d2",     # Siddham
+    "\u115d3",     # Siddham
+    "\u115d4",     # Siddham
+    "\u115d5",     # Siddham
+    "\u115d6",     # Siddham
+    "\u115d7",     # Siddham
+    "\u115d8",     # Siddham
+    "\u115d9",     # Siddham
+    "\u115da",     # Siddham
+    "\u115db",     # Siddham
+    "\u115dc",     # Siddham
+    "\u115dd",     # Siddham
+    "\u115de",     # Siddham
+    "\u115df",     # Siddham
+    "\u115e0",     # Siddham
+    "\u115e1",     # Siddham
+    "\u115e2",     # Siddham
+    "\u115e3",     # Siddham
+    "\u115e4",     # Siddham
+    "\u115e5",     # Siddham
+    "\u115e6",     # Siddham
+    "\u115e7",     # Siddham
+    "\u115e8",     # Siddham
+    "\u115e9",     # Siddham
+    "\u115ea",     # Siddham
+    "\u115eb",     # Siddham
+    "\u115ec",     # Siddham
+    "\u115ed",     # Siddham
+    "\u115ee",     # Siddham
+    "\u115ef",     # Siddham
+    "\u115f0",     # Siddham
+    "\u115f1",     # Siddham
+    "\u115f2",     # Siddham
+    "\u115f3",     # Siddham
+    "\u115f4",     # Siddham
+    "\u115f5",     # Siddham
+    "\u115f6",     # Siddham
+    "\u115f7",     # Siddham
+    "\u115f8",     # Siddham
+    "\u115f9",     # Siddham
+    "\u115fa",     # Siddham
+    "\u115fb",     # Siddham
+    "\u115fc",     # Siddham
+    "\u115fd",     # Siddham
+    "\u115fe",     # Siddham
+    "\u115ff",     # Siddham
+    "\u11600",     # Modi
+    "\u11601",     # Modi
+    "\u11602",     # Modi
+    "\u11603",     # Modi
+    "\u11604",     # Modi
+    "\u11605",     # Modi
+    "\u11606",     # Modi
+    "\u11607",     # Modi
+    "\u11608",     # Modi
+    "\u11609",     # Modi
+    "\u1160a",     # Modi
+    "\u1160b",     # Modi
+    "\u1160c",     # Modi
+    "\u1160d",     # Modi
+    "\u1160e",     # Modi
+    "\u1160f",     # Modi
+    "\u11610",     # Modi
+    "\u11611",     # Modi
+    "\u11612",     # Modi
+    "\u11613",     # Modi
+    "\u11614",     # Modi
+    "\u11615",     # Modi
+    "\u11616",     # Modi
+    "\u11617",     # Modi
+    "\u11618",     # Modi
+    "\u11619",     # Modi
+    "\u1161a",     # Modi
+    "\u1161b",     # Modi
+    "\u1161c",     # Modi
+    "\u1161d",     # Modi
+    "\u1161e",     # Modi
+    "\u1161f",     # Modi
+    "\u11620",     # Modi
+    "\u11621",     # Modi
+    "\u11622",     # Modi
+    "\u11623",     # Modi
+    "\u11624",     # Modi
+    "\u11625",     # Modi
+    "\u11626",     # Modi
+    "\u11627",     # Modi
+    "\u11628",     # Modi
+    "\u11629",     # Modi
+    "\u1162a",     # Modi
+    "\u1162b",     # Modi
+    "\u1162c",     # Modi
+    "\u1162d",     # Modi
+    "\u1162e",     # Modi
+    "\u1162f",     # Modi
+    "\u11630",     # Modi
+    "\u11631",     # Modi
+    "\u11632",     # Modi
+    "\u11633",     # Modi
+    "\u11634",     # Modi
+    "\u11635",     # Modi
+    "\u11636",     # Modi
+    "\u11637",     # Modi
+    "\u11638",     # Modi
+    "\u11639",     # Modi
+    "\u1163a",     # Modi
+    "\u1163b",     # Modi
+    "\u1163c",     # Modi
+    "\u1163d",     # Modi
+    "\u1163e",     # Modi
+    "\u1163f",     # Modi
+    "\u11640",     # Modi
+    "\u11641",     # Modi
+    "\u11642",     # Modi
+    "\u11643",     # Modi
+    "\u11644",     # Modi
+    "\u11645",     # Modi
+    "\u11646",     # Modi
+    "\u11647",     # Modi
+    "\u11648",     # Modi
+    "\u11649",     # Modi
+    "\u1164a",     # Modi
+    "\u1164b",     # Modi
+    "\u1164c",     # Modi
+    "\u1164d",     # Modi
+    "\u1164e",     # Modi
+    "\u1164f",     # Modi
+    "\u11650",     # Modi
+    "\u11651",     # Modi
+    "\u11652",     # Modi
+    "\u11653",     # Modi
+    "\u11654",     # Modi
+    "\u11655",     # Modi
+    "\u11656",     # Modi
+    "\u11657",     # Modi
+    "\u11658",     # Modi
+    "\u11659",     # Modi
+    "\u1165a",     # Modi
+    "\u1165b",     # Modi
+    "\u1165c",     # Modi
+    "\u1165d",     # Modi
+    "\u1165e",     # Modi
+    "\u1165f",     # Modi
+    "\u118a0",     # Warang Citi
+    "\u118a1",     # Warang Citi
+    "\u118a2",     # Warang Citi
+    "\u118a3",     # Warang Citi
+    "\u118a4",     # Warang Citi
+    "\u118a5",     # Warang Citi
+    "\u118a6",     # Warang Citi
+    "\u118a7",     # Warang Citi
+    "\u118a8",     # Warang Citi
+    "\u118a9",     # Warang Citi
+    "\u118aa",     # Warang Citi
+    "\u118ab",     # Warang Citi
+    "\u118ac",     # Warang Citi
+    "\u118ad",     # Warang Citi
+    "\u118ae",     # Warang Citi
+    "\u118af",     # Warang Citi
+    "\u118b0",     # Warang Citi
+    "\u118b1",     # Warang Citi
+    "\u118b2",     # Warang Citi
+    "\u118b3",     # Warang Citi
+    "\u118b4",     # Warang Citi
+    "\u118b5",     # Warang Citi
+    "\u118b6",     # Warang Citi
+    "\u118b7",     # Warang Citi
+    "\u118b8",     # Warang Citi
+    "\u118b9",     # Warang Citi
+    "\u118ba",     # Warang Citi
+    "\u118bb",     # Warang Citi
+    "\u118bc",     # Warang Citi
+    "\u118bd",     # Warang Citi
+    "\u118be",     # Warang Citi
+    "\u118bf",     # Warang Citi
+    "\u118c0",     # Warang Citi
+    "\u118c1",     # Warang Citi
+    "\u118c2",     # Warang Citi
+    "\u118c3",     # Warang Citi
+    "\u118c4",     # Warang Citi
+    "\u118c5",     # Warang Citi
+    "\u118c6",     # Warang Citi
+    "\u118c7",     # Warang Citi
+    "\u118c8",     # Warang Citi
+    "\u118c9",     # Warang Citi
+    "\u118ca",     # Warang Citi
+    "\u118cb",     # Warang Citi
+    "\u118cc",     # Warang Citi
+    "\u118cd",     # Warang Citi
+    "\u118ce",     # Warang Citi
+    "\u118cf",     # Warang Citi
+    "\u118d0",     # Warang Citi
+    "\u118d1",     # Warang Citi
+    "\u118d2",     # Warang Citi
+    "\u118d3",     # Warang Citi
+    "\u118d4",     # Warang Citi
+    "\u118d5",     # Warang Citi
+    "\u118d6",     # Warang Citi
+    "\u118d7",     # Warang Citi
+    "\u118d8",     # Warang Citi
+    "\u118d9",     # Warang Citi
+    "\u118da",     # Warang Citi
+    "\u118db",     # Warang Citi
+    "\u118dc",     # Warang Citi
+    "\u118dd",     # Warang Citi
+    "\u118de",     # Warang Citi
+    "\u118df",     # Warang Citi
+    "\u118e0",     # Warang Citi
+    "\u118e1",     # Warang Citi
+    "\u118e2",     # Warang Citi
+    "\u118e3",     # Warang Citi
+    "\u118e4",     # Warang Citi
+    "\u118e5",     # Warang Citi
+    "\u118e6",     # Warang Citi
+    "\u118e7",     # Warang Citi
+    "\u118e8",     # Warang Citi
+    "\u118e9",     # Warang Citi
+    "\u118ea",     # Warang Citi
+    "\u118eb",     # Warang Citi
+    "\u118ec",     # Warang Citi
+    "\u118ed",     # Warang Citi
+    "\u118ee",     # Warang Citi
+    "\u118ef",     # Warang Citi
+    "\u118f0",     # Warang Citi
+    "\u118f1",     # Warang Citi
+    "\u118f2",     # Warang Citi
+    "\u118f3",     # Warang Citi
+    "\u118f4",     # Warang Citi
+    "\u118f5",     # Warang Citi
+    "\u118f6",     # Warang Citi
+    "\u118f7",     # Warang Citi
+    "\u118f8",     # Warang Citi
+    "\u118f9",     # Warang Citi
+    "\u118fa",     # Warang Citi
+    "\u118fb",     # Warang Citi
+    "\u118fc",     # Warang Citi
+    "\u118fd",     # Warang Citi
+    "\u118fe",     # Warang Citi
+    "\u118ff",     # Warang Citi
+    "\u11ac0",     # Pau Cin Hau
+    "\u11ac1",     # Pau Cin Hau
+    "\u11ac2",     # Pau Cin Hau
+    "\u11ac3",     # Pau Cin Hau
+    "\u11ac4",     # Pau Cin Hau
+    "\u11ac5",     # Pau Cin Hau
+    "\u11ac6",     # Pau Cin Hau
+    "\u11ac7",     # Pau Cin Hau
+    "\u11ac8",     # Pau Cin Hau
+    "\u11ac9",     # Pau Cin Hau
+    "\u11aca",     # Pau Cin Hau
+    "\u11acb",     # Pau Cin Hau
+    "\u11acc",     # Pau Cin Hau
+    "\u11acd",     # Pau Cin Hau
+    "\u11ace",     # Pau Cin Hau
+    "\u11acf",     # Pau Cin Hau
+    "\u11ad0",     # Pau Cin Hau
+    "\u11ad1",     # Pau Cin Hau
+    "\u11ad2",     # Pau Cin Hau
+    "\u11ad3",     # Pau Cin Hau
+    "\u11ad4",     # Pau Cin Hau
+    "\u11ad5",     # Pau Cin Hau
+    "\u11ad6",     # Pau Cin Hau
+    "\u11ad7",     # Pau Cin Hau
+    "\u11ad8",     # Pau Cin Hau
+    "\u11ad9",     # Pau Cin Hau
+    "\u11ada",     # Pau Cin Hau
+    "\u11adb",     # Pau Cin Hau
+    "\u11adc",     # Pau Cin Hau
+    "\u11add",     # Pau Cin Hau
+    "\u11ade",     # Pau Cin Hau
+    "\u11adf",     # Pau Cin Hau
+    "\u11ae0",     # Pau Cin Hau
+    "\u11ae1",     # Pau Cin Hau
+    "\u11ae2",     # Pau Cin Hau
+    "\u11ae3",     # Pau Cin Hau
+    "\u11ae4",     # Pau Cin Hau
+    "\u11ae5",     # Pau Cin Hau
+    "\u11ae6",     # Pau Cin Hau
+    "\u11ae7",     # Pau Cin Hau
+    "\u11ae8",     # Pau Cin Hau
+    "\u11ae9",     # Pau Cin Hau
+    "\u11aea",     # Pau Cin Hau
+    "\u11aeb",     # Pau Cin Hau
+    "\u11aec",     # Pau Cin Hau
+    "\u11aed",     # Pau Cin Hau
+    "\u11aee",     # Pau Cin Hau
+    "\u11aef",     # Pau Cin Hau
+    "\u11af0",     # Pau Cin Hau
+    "\u11af1",     # Pau Cin Hau
+    "\u11af2",     # Pau Cin Hau
+    "\u11af3",     # Pau Cin Hau
+    "\u11af4",     # Pau Cin Hau
+    "\u11af5",     # Pau Cin Hau
+    "\u11af6",     # Pau Cin Hau
+    "\u11af7",     # Pau Cin Hau
+    "\u11af8",     # Pau Cin Hau
+    "\u11af9",     # Pau Cin Hau
+    "\u11afa",     # Pau Cin Hau
+    "\u11afb",     # Pau Cin Hau
+    "\u11afc",     # Pau Cin Hau
+    "\u11afd",     # Pau Cin Hau
+    "\u11afe",     # Pau Cin Hau
+    "\u11aff",     # Pau Cin Hau
+    "\u16a40",     # Mro
+    "\u16a41",     # Mro
+    "\u16a42",     # Mro
+    "\u16a43",     # Mro
+    "\u16a44",     # Mro
+    "\u16a45",     # Mro
+    "\u16a46",     # Mro
+    "\u16a47",     # Mro
+    "\u16a48",     # Mro
+    "\u16a49",     # Mro
+    "\u16a4a",     # Mro
+    "\u16a4b",     # Mro
+    "\u16a4c",     # Mro
+    "\u16a4d",     # Mro
+    "\u16a4e",     # Mro
+    "\u16a4f",     # Mro
+    "\u16a50",     # Mro
+    "\u16a51",     # Mro
+    "\u16a52",     # Mro
+    "\u16a53",     # Mro
+    "\u16a54",     # Mro
+    "\u16a55",     # Mro
+    "\u16a56",     # Mro
+    "\u16a57",     # Mro
+    "\u16a58",     # Mro
+    "\u16a59",     # Mro
+    "\u16a5a",     # Mro
+    "\u16a5b",     # Mro
+    "\u16a5c",     # Mro
+    "\u16a5d",     # Mro
+    "\u16a5e",     # Mro
+    "\u16a5f",     # Mro
+    "\u16a60",     # Mro
+    "\u16a61",     # Mro
+    "\u16a62",     # Mro
+    "\u16a63",     # Mro
+    "\u16a64",     # Mro
+    "\u16a65",     # Mro
+    "\u16a66",     # Mro
+    "\u16a67",     # Mro
+    "\u16a68",     # Mro
+    "\u16a69",     # Mro
+    "\u16a6a",     # Mro
+    "\u16a6b",     # Mro
+    "\u16a6c",     # Mro
+    "\u16a6d",     # Mro
+    "\u16a6e",     # Mro
+    "\u16a6f",     # Mro
+    "\u16ad0",     # Bassa Vah
+    "\u16ad1",     # Bassa Vah
+    "\u16ad2",     # Bassa Vah
+    "\u16ad3",     # Bassa Vah
+    "\u16ad4",     # Bassa Vah
+    "\u16ad5",     # Bassa Vah
+    "\u16ad6",     # Bassa Vah
+    "\u16ad7",     # Bassa Vah
+    "\u16ad8",     # Bassa Vah
+    "\u16ad9",     # Bassa Vah
+    "\u16ada",     # Bassa Vah
+    "\u16adb",     # Bassa Vah
+    "\u16adc",     # Bassa Vah
+    "\u16add",     # Bassa Vah
+    "\u16ade",     # Bassa Vah
+    "\u16adf",     # Bassa Vah
+    "\u16ae0",     # Bassa Vah
+    "\u16ae1",     # Bassa Vah
+    "\u16ae2",     # Bassa Vah
+    "\u16ae3",     # Bassa Vah
+    "\u16ae4",     # Bassa Vah
+    "\u16ae5",     # Bassa Vah
+    "\u16ae6",     # Bassa Vah
+    "\u16ae7",     # Bassa Vah
+    "\u16ae8",     # Bassa Vah
+    "\u16ae9",     # Bassa Vah
+    "\u16aea",     # Bassa Vah
+    "\u16aeb",     # Bassa Vah
+    "\u16aec",     # Bassa Vah
+    "\u16aed",     # Bassa Vah
+    "\u16aee",     # Bassa Vah
+    "\u16aef",     # Bassa Vah
+    "\u16af0",     # Bassa Vah
+    "\u16af1",     # Bassa Vah
+    "\u16af2",     # Bassa Vah
+    "\u16af3",     # Bassa Vah
+    "\u16af4",     # Bassa Vah
+    "\u16af5",     # Bassa Vah
+    "\u16af6",     # Bassa Vah
+    "\u16af7",     # Bassa Vah
+    "\u16af8",     # Bassa Vah
+    "\u16af9",     # Bassa Vah
+    "\u16afa",     # Bassa Vah
+    "\u16afb",     # Bassa Vah
+    "\u16afc",     # Bassa Vah
+    "\u16afd",     # Bassa Vah
+    "\u16afe",     # Bassa Vah
+    "\u16aff",     # Bassa Vah
+    "\u16b00",     # Pahawh Hmong
+    "\u16b01",     # Pahawh Hmong
+    "\u16b02",     # Pahawh Hmong
+    "\u16b03",     # Pahawh Hmong
+    "\u16b04",     # Pahawh Hmong
+    "\u16b05",     # Pahawh Hmong
+    "\u16b06",     # Pahawh Hmong
+    "\u16b07",     # Pahawh Hmong
+    "\u16b08",     # Pahawh Hmong
+    "\u16b09",     # Pahawh Hmong
+    "\u16b0a",     # Pahawh Hmong
+    "\u16b0b",     # Pahawh Hmong
+    "\u16b0c",     # Pahawh Hmong
+    "\u16b0d",     # Pahawh Hmong
+    "\u16b0e",     # Pahawh Hmong
+    "\u16b0f",     # Pahawh Hmong
+    "\u16b10",     # Pahawh Hmong
+    "\u16b11",     # Pahawh Hmong
+    "\u16b12",     # Pahawh Hmong
+    "\u16b13",     # Pahawh Hmong
+    "\u16b14",     # Pahawh Hmong
+    "\u16b15",     # Pahawh Hmong
+    "\u16b16",     # Pahawh Hmong
+    "\u16b17",     # Pahawh Hmong
+    "\u16b18",     # Pahawh Hmong
+    "\u16b19",     # Pahawh Hmong
+    "\u16b1a",     # Pahawh Hmong
+    "\u16b1b",     # Pahawh Hmong
+    "\u16b1c",     # Pahawh Hmong
+    "\u16b1d",     # Pahawh Hmong
+    "\u16b1e",     # Pahawh Hmong
+    "\u16b1f",     # Pahawh Hmong
+    "\u16b20",     # Pahawh Hmong
+    "\u16b21",     # Pahawh Hmong
+    "\u16b22",     # Pahawh Hmong
+    "\u16b23",     # Pahawh Hmong
+    "\u16b24",     # Pahawh Hmong
+    "\u16b25",     # Pahawh Hmong
+    "\u16b26",     # Pahawh Hmong
+    "\u16b27",     # Pahawh Hmong
+    "\u16b28",     # Pahawh Hmong
+    "\u16b29",     # Pahawh Hmong
+    "\u16b2a",     # Pahawh Hmong
+    "\u16b2b",     # Pahawh Hmong
+    "\u16b2c",     # Pahawh Hmong
+    "\u16b2d",     # Pahawh Hmong
+    "\u16b2e",     # Pahawh Hmong
+    "\u16b2f",     # Pahawh Hmong
+    "\u16b30",     # Pahawh Hmong
+    "\u16b31",     # Pahawh Hmong
+    "\u16b32",     # Pahawh Hmong
+    "\u16b33",     # Pahawh Hmong
+    "\u16b34",     # Pahawh Hmong
+    "\u16b35",     # Pahawh Hmong
+    "\u16b36",     # Pahawh Hmong
+    "\u16b37",     # Pahawh Hmong
+    "\u16b38",     # Pahawh Hmong
+    "\u16b39",     # Pahawh Hmong
+    "\u16b3a",     # Pahawh Hmong
+    "\u16b3b",     # Pahawh Hmong
+    "\u16b3c",     # Pahawh Hmong
+    "\u16b3d",     # Pahawh Hmong
+    "\u16b3e",     # Pahawh Hmong
+    "\u16b3f",     # Pahawh Hmong
+    "\u16b40",     # Pahawh Hmong
+    "\u16b41",     # Pahawh Hmong
+    "\u16b42",     # Pahawh Hmong
+    "\u16b43",     # Pahawh Hmong
+    "\u16b44",     # Pahawh Hmong
+    "\u16b45",     # Pahawh Hmong
+    "\u16b46",     # Pahawh Hmong
+    "\u16b47",     # Pahawh Hmong
+    "\u16b48",     # Pahawh Hmong
+    "\u16b49",     # Pahawh Hmong
+    "\u16b4a",     # Pahawh Hmong
+    "\u16b4b",     # Pahawh Hmong
+    "\u16b4c",     # Pahawh Hmong
+    "\u16b4d",     # Pahawh Hmong
+    "\u16b4e",     # Pahawh Hmong
+    "\u16b4f",     # Pahawh Hmong
+    "\u16b50",     # Pahawh Hmong
+    "\u16b51",     # Pahawh Hmong
+    "\u16b52",     # Pahawh Hmong
+    "\u16b53",     # Pahawh Hmong
+    "\u16b54",     # Pahawh Hmong
+    "\u16b55",     # Pahawh Hmong
+    "\u16b56",     # Pahawh Hmong
+    "\u16b57",     # Pahawh Hmong
+    "\u16b58",     # Pahawh Hmong
+    "\u16b59",     # Pahawh Hmong
+    "\u16b5a",     # Pahawh Hmong
+    "\u16b5b",     # Pahawh Hmong
+    "\u16b5c",     # Pahawh Hmong
+    "\u16b5d",     # Pahawh Hmong
+    "\u16b5e",     # Pahawh Hmong
+    "\u16b5f",     # Pahawh Hmong
+    "\u16b60",     # Pahawh Hmong
+    "\u16b61",     # Pahawh Hmong
+    "\u16b62",     # Pahawh Hmong
+    "\u16b63",     # Pahawh Hmong
+    "\u16b64",     # Pahawh Hmong
+    "\u16b65",     # Pahawh Hmong
+    "\u16b66",     # Pahawh Hmong
+    "\u16b67",     # Pahawh Hmong
+    "\u16b68",     # Pahawh Hmong
+    "\u16b69",     # Pahawh Hmong
+    "\u16b6a",     # Pahawh Hmong
+    "\u16b6b",     # Pahawh Hmong
+    "\u16b6c",     # Pahawh Hmong
+    "\u16b6d",     # Pahawh Hmong
+    "\u16b6e",     # Pahawh Hmong
+    "\u16b6f",     # Pahawh Hmong
+    "\u16b70",     # Pahawh Hmong
+    "\u16b71",     # Pahawh Hmong
+    "\u16b72",     # Pahawh Hmong
+    "\u16b73",     # Pahawh Hmong
+    "\u16b74",     # Pahawh Hmong
+    "\u16b75",     # Pahawh Hmong
+    "\u16b76",     # Pahawh Hmong
+    "\u16b77",     # Pahawh Hmong
+    "\u16b78",     # Pahawh Hmong
+    "\u16b79",     # Pahawh Hmong
+    "\u16b7a",     # Pahawh Hmong
+    "\u16b7b",     # Pahawh Hmong
+    "\u16b7c",     # Pahawh Hmong
+    "\u16b7d",     # Pahawh Hmong
+    "\u16b7e",     # Pahawh Hmong
+    "\u16b7f",     # Pahawh Hmong
+    "\u16b80",     # Pahawh Hmong
+    "\u16b81",     # Pahawh Hmong
+    "\u16b82",     # Pahawh Hmong
+    "\u16b83",     # Pahawh Hmong
+    "\u16b84",     # Pahawh Hmong
+    "\u16b85",     # Pahawh Hmong
+    "\u16b86",     # Pahawh Hmong
+    "\u16b87",     # Pahawh Hmong
+    "\u16b88",     # Pahawh Hmong
+    "\u16b89",     # Pahawh Hmong
+    "\u16b8a",     # Pahawh Hmong
+    "\u16b8b",     # Pahawh Hmong
+    "\u16b8c",     # Pahawh Hmong
+    "\u16b8d",     # Pahawh Hmong
+    "\u16b8e",     # Pahawh Hmong
+    "\u16b8f",     # Pahawh Hmong
+    "\u1bc00",     # Duployan
+    "\u1bc01",     # Duployan
+    "\u1bc02",     # Duployan
+    "\u1bc03",     # Duployan
+    "\u1bc04",     # Duployan
+    "\u1bc05",     # Duployan
+    "\u1bc06",     # Duployan
+    "\u1bc07",     # Duployan
+    "\u1bc08",     # Duployan
+    "\u1bc09",     # Duployan
+    "\u1bc0a",     # Duployan
+    "\u1bc0b",     # Duployan
+    "\u1bc0c",     # Duployan
+    "\u1bc0d",     # Duployan
+    "\u1bc0e",     # Duployan
+    "\u1bc0f",     # Duployan
+    "\u1bc10",     # Duployan
+    "\u1bc11",     # Duployan
+    "\u1bc12",     # Duployan
+    "\u1bc13",     # Duployan
+    "\u1bc14",     # Duployan
+    "\u1bc15",     # Duployan
+    "\u1bc16",     # Duployan
+    "\u1bc17",     # Duployan
+    "\u1bc18",     # Duployan
+    "\u1bc19",     # Duployan
+    "\u1bc1a",     # Duployan
+    "\u1bc1b",     # Duployan
+    "\u1bc1c",     # Duployan
+    "\u1bc1d",     # Duployan
+    "\u1bc1e",     # Duployan
+    "\u1bc1f",     # Duployan
+    "\u1bc20",     # Duployan
+    "\u1bc21",     # Duployan
+    "\u1bc22",     # Duployan
+    "\u1bc23",     # Duployan
+    "\u1bc24",     # Duployan
+    "\u1bc25",     # Duployan
+    "\u1bc26",     # Duployan
+    "\u1bc27",     # Duployan
+    "\u1bc28",     # Duployan
+    "\u1bc29",     # Duployan
+    "\u1bc2a",     # Duployan
+    "\u1bc2b",     # Duployan
+    "\u1bc2c",     # Duployan
+    "\u1bc2d",     # Duployan
+    "\u1bc2e",     # Duployan
+    "\u1bc2f",     # Duployan
+    "\u1bc30",     # Duployan
+    "\u1bc31",     # Duployan
+    "\u1bc32",     # Duployan
+    "\u1bc33",     # Duployan
+    "\u1bc34",     # Duployan
+    "\u1bc35",     # Duployan
+    "\u1bc36",     # Duployan
+    "\u1bc37",     # Duployan
+    "\u1bc38",     # Duployan
+    "\u1bc39",     # Duployan
+    "\u1bc3a",     # Duployan
+    "\u1bc3b",     # Duployan
+    "\u1bc3c",     # Duployan
+    "\u1bc3d",     # Duployan
+    "\u1bc3e",     # Duployan
+    "\u1bc3f",     # Duployan
+    "\u1bc40",     # Duployan
+    "\u1bc41",     # Duployan
+    "\u1bc42",     # Duployan
+    "\u1bc43",     # Duployan
+    "\u1bc44",     # Duployan
+    "\u1bc45",     # Duployan
+    "\u1bc46",     # Duployan
+    "\u1bc47",     # Duployan
+    "\u1bc48",     # Duployan
+    "\u1bc49",     # Duployan
+    "\u1bc4a",     # Duployan
+    "\u1bc4b",     # Duployan
+    "\u1bc4c",     # Duployan
+    "\u1bc4d",     # Duployan
+    "\u1bc4e",     # Duployan
+    "\u1bc4f",     # Duployan
+    "\u1bc50",     # Duployan
+    "\u1bc51",     # Duployan
+    "\u1bc52",     # Duployan
+    "\u1bc53",     # Duployan
+    "\u1bc54",     # Duployan
+    "\u1bc55",     # Duployan
+    "\u1bc56",     # Duployan
+    "\u1bc57",     # Duployan
+    "\u1bc58",     # Duployan
+    "\u1bc59",     # Duployan
+    "\u1bc5a",     # Duployan
+    "\u1bc5b",     # Duployan
+    "\u1bc5c",     # Duployan
+    "\u1bc5d",     # Duployan
+    "\u1bc5e",     # Duployan
+    "\u1bc5f",     # Duployan
+    "\u1bc60",     # Duployan
+    "\u1bc61",     # Duployan
+    "\u1bc62",     # Duployan
+    "\u1bc63",     # Duployan
+    "\u1bc64",     # Duployan
+    "\u1bc65",     # Duployan
+    "\u1bc66",     # Duployan
+    "\u1bc67",     # Duployan
+    "\u1bc68",     # Duployan
+    "\u1bc69",     # Duployan
+    "\u1bc6a",     # Duployan
+    "\u1bc6b",     # Duployan
+    "\u1bc6c",     # Duployan
+    "\u1bc6d",     # Duployan
+    "\u1bc6e",     # Duployan
+    "\u1bc6f",     # Duployan
+    "\u1bc70",     # Duployan
+    "\u1bc71",     # Duployan
+    "\u1bc72",     # Duployan
+    "\u1bc73",     # Duployan
+    "\u1bc74",     # Duployan
+    "\u1bc75",     # Duployan
+    "\u1bc76",     # Duployan
+    "\u1bc77",     # Duployan
+    "\u1bc78",     # Duployan
+    "\u1bc79",     # Duployan
+    "\u1bc7a",     # Duployan
+    "\u1bc7b",     # Duployan
+    "\u1bc7c",     # Duployan
+    "\u1bc7d",     # Duployan
+    "\u1bc7e",     # Duployan
+    "\u1bc7f",     # Duployan
+    "\u1bc80",     # Duployan
+    "\u1bc81",     # Duployan
+    "\u1bc82",     # Duployan
+    "\u1bc83",     # Duployan
+    "\u1bc84",     # Duployan
+    "\u1bc85",     # Duployan
+    "\u1bc86",     # Duployan
+    "\u1bc87",     # Duployan
+    "\u1bc88",     # Duployan
+    "\u1bc89",     # Duployan
+    "\u1bc8a",     # Duployan
+    "\u1bc8b",     # Duployan
+    "\u1bc8c",     # Duployan
+    "\u1bc8d",     # Duployan
+    "\u1bc8e",     # Duployan
+    "\u1bc8f",     # Duployan
+    "\u1bc90",     # Duployan
+    "\u1bc91",     # Duployan
+    "\u1bc92",     # Duployan
+    "\u1bc93",     # Duployan
+    "\u1bc94",     # Duployan
+    "\u1bc95",     # Duployan
+    "\u1bc96",     # Duployan
+    "\u1bc97",     # Duployan
+    "\u1bc98",     # Duployan
+    "\u1bc99",     # Duployan
+    "\u1bc9a",     # Duployan
+    "\u1bc9b",     # Duployan
+    "\u1bc9c",     # Duployan
+    "\u1bc9d",     # Duployan
+    "\u1bc9e",     # Duployan
+    "\u1bc9f",     # Duployan
+    "\u1bca0",     # Shorthand Format Controls
+    "\u1bca1",     # Shorthand Format Controls
+    "\u1bca2",     # Shorthand Format Controls
+    "\u1bca3",     # Shorthand Format Controls
+    "\u1bca4",     # Shorthand Format Controls
+    "\u1bca5",     # Shorthand Format Controls
+    "\u1bca6",     # Shorthand Format Controls
+    "\u1bca7",     # Shorthand Format Controls
+    "\u1bca8",     # Shorthand Format Controls
+    "\u1bca9",     # Shorthand Format Controls
+    "\u1bcaa",     # Shorthand Format Controls
+    "\u1bcab",     # Shorthand Format Controls
+    "\u1bcac",     # Shorthand Format Controls
+    "\u1bcad",     # Shorthand Format Controls
+    "\u1bcae",     # Shorthand Format Controls
+    "\u1bcaf",     # Shorthand Format Controls
+    "\u1e800",     # Mende Kikakui
+    "\u1e801",     # Mende Kikakui
+    "\u1e802",     # Mende Kikakui
+    "\u1e803",     # Mende Kikakui
+    "\u1e804",     # Mende Kikakui
+    "\u1e805",     # Mende Kikakui
+    "\u1e806",     # Mende Kikakui
+    "\u1e807",     # Mende Kikakui
+    "\u1e808",     # Mende Kikakui
+    "\u1e809",     # Mende Kikakui
+    "\u1e80a",     # Mende Kikakui
+    "\u1e80b",     # Mende Kikakui
+    "\u1e80c",     # Mende Kikakui
+    "\u1e80d",     # Mende Kikakui
+    "\u1e80e",     # Mende Kikakui
+    "\u1e80f",     # Mende Kikakui
+    "\u1e810",     # Mende Kikakui
+    "\u1e811",     # Mende Kikakui
+    "\u1e812",     # Mende Kikakui
+    "\u1e813",     # Mende Kikakui
+    "\u1e814",     # Mende Kikakui
+    "\u1e815",     # Mende Kikakui
+    "\u1e816",     # Mende Kikakui
+    "\u1e817",     # Mende Kikakui
+    "\u1e818",     # Mende Kikakui
+    "\u1e819",     # Mende Kikakui
+    "\u1e81a",     # Mende Kikakui
+    "\u1e81b",     # Mende Kikakui
+    "\u1e81c",     # Mende Kikakui
+    "\u1e81d",     # Mende Kikakui
+    "\u1e81e",     # Mende Kikakui
+    "\u1e81f",     # Mende Kikakui
+    "\u1e820",     # Mende Kikakui
+    "\u1e821",     # Mende Kikakui
+    "\u1e822",     # Mende Kikakui
+    "\u1e823",     # Mende Kikakui
+    "\u1e824",     # Mende Kikakui
+    "\u1e825",     # Mende Kikakui
+    "\u1e826",     # Mende Kikakui
+    "\u1e827",     # Mende Kikakui
+    "\u1e828",     # Mende Kikakui
+    "\u1e829",     # Mende Kikakui
+    "\u1e82a",     # Mende Kikakui
+    "\u1e82b",     # Mende Kikakui
+    "\u1e82c",     # Mende Kikakui
+    "\u1e82d",     # Mende Kikakui
+    "\u1e82e",     # Mende Kikakui
+    "\u1e82f",     # Mende Kikakui
+    "\u1e830",     # Mende Kikakui
+    "\u1e831",     # Mende Kikakui
+    "\u1e832",     # Mende Kikakui
+    "\u1e833",     # Mende Kikakui
+    "\u1e834",     # Mende Kikakui
+    "\u1e835",     # Mende Kikakui
+    "\u1e836",     # Mende Kikakui
+    "\u1e837",     # Mende Kikakui
+    "\u1e838",     # Mende Kikakui
+    "\u1e839",     # Mende Kikakui
+    "\u1e83a",     # Mende Kikakui
+    "\u1e83b",     # Mende Kikakui
+    "\u1e83c",     # Mende Kikakui
+    "\u1e83d",     # Mende Kikakui
+    "\u1e83e",     # Mende Kikakui
+    "\u1e83f",     # Mende Kikakui
+    "\u1e840",     # Mende Kikakui
+    "\u1e841",     # Mende Kikakui
+    "\u1e842",     # Mende Kikakui
+    "\u1e843",     # Mende Kikakui
+    "\u1e844",     # Mende Kikakui
+    "\u1e845",     # Mende Kikakui
+    "\u1e846",     # Mende Kikakui
+    "\u1e847",     # Mende Kikakui
+    "\u1e848",     # Mende Kikakui
+    "\u1e849",     # Mende Kikakui
+    "\u1e84a",     # Mende Kikakui
+    "\u1e84b",     # Mende Kikakui
+    "\u1e84c",     # Mende Kikakui
+    "\u1e84d",     # Mende Kikakui
+    "\u1e84e",     # Mende Kikakui
+    "\u1e84f",     # Mende Kikakui
+    "\u1e850",     # Mende Kikakui
+    "\u1e851",     # Mende Kikakui
+    "\u1e852",     # Mende Kikakui
+    "\u1e853",     # Mende Kikakui
+    "\u1e854",     # Mende Kikakui
+    "\u1e855",     # Mende Kikakui
+    "\u1e856",     # Mende Kikakui
+    "\u1e857",     # Mende Kikakui
+    "\u1e858",     # Mende Kikakui
+    "\u1e859",     # Mende Kikakui
+    "\u1e85a",     # Mende Kikakui
+    "\u1e85b",     # Mende Kikakui
+    "\u1e85c",     # Mende Kikakui
+    "\u1e85d",     # Mende Kikakui
+    "\u1e85e",     # Mende Kikakui
+    "\u1e85f",     # Mende Kikakui
+    "\u1e860",     # Mende Kikakui
+    "\u1e861",     # Mende Kikakui
+    "\u1e862",     # Mende Kikakui
+    "\u1e863",     # Mende Kikakui
+    "\u1e864",     # Mende Kikakui
+    "\u1e865",     # Mende Kikakui
+    "\u1e866",     # Mende Kikakui
+    "\u1e867",     # Mende Kikakui
+    "\u1e868",     # Mende Kikakui
+    "\u1e869",     # Mende Kikakui
+    "\u1e86a",     # Mende Kikakui
+    "\u1e86b",     # Mende Kikakui
+    "\u1e86c",     # Mende Kikakui
+    "\u1e86d",     # Mende Kikakui
+    "\u1e86e",     # Mende Kikakui
+    "\u1e86f",     # Mende Kikakui
+    "\u1e870",     # Mende Kikakui
+    "\u1e871",     # Mende Kikakui
+    "\u1e872",     # Mende Kikakui
+    "\u1e873",     # Mende Kikakui
+    "\u1e874",     # Mende Kikakui
+    "\u1e875",     # Mende Kikakui
+    "\u1e876",     # Mende Kikakui
+    "\u1e877",     # Mende Kikakui
+    "\u1e878",     # Mende Kikakui
+    "\u1e879",     # Mende Kikakui
+    "\u1e87a",     # Mende Kikakui
+    "\u1e87b",     # Mende Kikakui
+    "\u1e87c",     # Mende Kikakui
+    "\u1e87d",     # Mende Kikakui
+    "\u1e87e",     # Mende Kikakui
+    "\u1e87f",     # Mende Kikakui
+    "\u1e880",     # Mende Kikakui
+    "\u1e881",     # Mende Kikakui
+    "\u1e882",     # Mende Kikakui
+    "\u1e883",     # Mende Kikakui
+    "\u1e884",     # Mende Kikakui
+    "\u1e885",     # Mende Kikakui
+    "\u1e886",     # Mende Kikakui
+    "\u1e887",     # Mende Kikakui
+    "\u1e888",     # Mende Kikakui
+    "\u1e889",     # Mende Kikakui
+    "\u1e88a",     # Mende Kikakui
+    "\u1e88b",     # Mende Kikakui
+    "\u1e88c",     # Mende Kikakui
+    "\u1e88d",     # Mende Kikakui
+    "\u1e88e",     # Mende Kikakui
+    "\u1e88f",     # Mende Kikakui
+    "\u1e890",     # Mende Kikakui
+    "\u1e891",     # Mende Kikakui
+    "\u1e892",     # Mende Kikakui
+    "\u1e893",     # Mende Kikakui
+    "\u1e894",     # Mende Kikakui
+    "\u1e895",     # Mende Kikakui
+    "\u1e896",     # Mende Kikakui
+    "\u1e897",     # Mende Kikakui
+    "\u1e898",     # Mende Kikakui
+    "\u1e899",     # Mende Kikakui
+    "\u1e89a",     # Mende Kikakui
+    "\u1e89b",     # Mende Kikakui
+    "\u1e89c",     # Mende Kikakui
+    "\u1e89d",     # Mende Kikakui
+    "\u1e89e",     # Mende Kikakui
+    "\u1e89f",     # Mende Kikakui
+    "\u1e8a0",     # Mende Kikakui
+    "\u1e8a1",     # Mende Kikakui
+    "\u1e8a2",     # Mende Kikakui
+    "\u1e8a3",     # Mende Kikakui
+    "\u1e8a4",     # Mende Kikakui
+    "\u1e8a5",     # Mende Kikakui
+    "\u1e8a6",     # Mende Kikakui
+    "\u1e8a7",     # Mende Kikakui
+    "\u1e8a8",     # Mende Kikakui
+    "\u1e8a9",     # Mende Kikakui
+    "\u1e8aa",     # Mende Kikakui
+    "\u1e8ab",     # Mende Kikakui
+    "\u1e8ac",     # Mende Kikakui
+    "\u1e8ad",     # Mende Kikakui
+    "\u1e8ae",     # Mende Kikakui
+    "\u1e8af",     # Mende Kikakui
+    "\u1e8b0",     # Mende Kikakui
+    "\u1e8b1",     # Mende Kikakui
+    "\u1e8b2",     # Mende Kikakui
+    "\u1e8b3",     # Mende Kikakui
+    "\u1e8b4",     # Mende Kikakui
+    "\u1e8b5",     # Mende Kikakui
+    "\u1e8b6",     # Mende Kikakui
+    "\u1e8b7",     # Mende Kikakui
+    "\u1e8b8",     # Mende Kikakui
+    "\u1e8b9",     # Mende Kikakui
+    "\u1e8ba",     # Mende Kikakui
+    "\u1e8bb",     # Mende Kikakui
+    "\u1e8bc",     # Mende Kikakui
+    "\u1e8bd",     # Mende Kikakui
+    "\u1e8be",     # Mende Kikakui
+    "\u1e8bf",     # Mende Kikakui
+    "\u1e8c0",     # Mende Kikakui
+    "\u1e8c1",     # Mende Kikakui
+    "\u1e8c2",     # Mende Kikakui
+    "\u1e8c3",     # Mende Kikakui
+    "\u1e8c4",     # Mende Kikakui
+    "\u1e8c5",     # Mende Kikakui
+    "\u1e8c6",     # Mende Kikakui
+    "\u1e8c7",     # Mende Kikakui
+    "\u1e8c8",     # Mende Kikakui
+    "\u1e8c9",     # Mende Kikakui
+    "\u1e8ca",     # Mende Kikakui
+    "\u1e8cb",     # Mende Kikakui
+    "\u1e8cc",     # Mende Kikakui
+    "\u1e8cd",     # Mende Kikakui
+    "\u1e8ce",     # Mende Kikakui
+    "\u1e8cf",     # Mende Kikakui
+    "\u1e8d0",     # Mende Kikakui
+    "\u1e8d1",     # Mende Kikakui
+    "\u1e8d2",     # Mende Kikakui
+    "\u1e8d3",     # Mende Kikakui
+    "\u1e8d4",     # Mende Kikakui
+    "\u1e8d5",     # Mende Kikakui
+    "\u1e8d6",     # Mende Kikakui
+    "\u1e8d7",     # Mende Kikakui
+    "\u1e8d8",     # Mende Kikakui
+    "\u1e8d9",     # Mende Kikakui
+    "\u1e8da",     # Mende Kikakui
+    "\u1e8db",     # Mende Kikakui
+    "\u1e8dc",     # Mende Kikakui
+    "\u1e8dd",     # Mende Kikakui
+    "\u1e8de",     # Mende Kikakui
+    "\u1e8df",     # Mende Kikakui
+    "\u1f650",     # Ornamental Dingbats
+    "\u1f651",     # Ornamental Dingbats
+    "\u1f652",     # Ornamental Dingbats
+    "\u1f653",     # Ornamental Dingbats
+    "\u1f654",     # Ornamental Dingbats
+    "\u1f655",     # Ornamental Dingbats
+    "\u1f656",     # Ornamental Dingbats
+    "\u1f657",     # Ornamental Dingbats
+    "\u1f658",     # Ornamental Dingbats
+    "\u1f659",     # Ornamental Dingbats
+    "\u1f65a",     # Ornamental Dingbats
+    "\u1f65b",     # Ornamental Dingbats
+    "\u1f65c",     # Ornamental Dingbats
+    "\u1f65d",     # Ornamental Dingbats
+    "\u1f65e",     # Ornamental Dingbats
+    "\u1f65f",     # Ornamental Dingbats
+    "\u1f660",     # Ornamental Dingbats
+    "\u1f661",     # Ornamental Dingbats
+    "\u1f662",     # Ornamental Dingbats
+    "\u1f663",     # Ornamental Dingbats
+    "\u1f664",     # Ornamental Dingbats
+    "\u1f665",     # Ornamental Dingbats
+    "\u1f666",     # Ornamental Dingbats
+    "\u1f667",     # Ornamental Dingbats
+    "\u1f668",     # Ornamental Dingbats
+    "\u1f669",     # Ornamental Dingbats
+    "\u1f66a",     # Ornamental Dingbats
+    "\u1f66b",     # Ornamental Dingbats
+    "\u1f66c",     # Ornamental Dingbats
+    "\u1f66d",     # Ornamental Dingbats
+    "\u1f66e",     # Ornamental Dingbats
+    "\u1f66f",     # Ornamental Dingbats
+    "\u1f670",     # Ornamental Dingbats
+    "\u1f671",     # Ornamental Dingbats
+    "\u1f672",     # Ornamental Dingbats
+    "\u1f673",     # Ornamental Dingbats
+    "\u1f674",     # Ornamental Dingbats
+    "\u1f675",     # Ornamental Dingbats
+    "\u1f676",     # Ornamental Dingbats
+    "\u1f677",     # Ornamental Dingbats
+    "\u1f678",     # Ornamental Dingbats
+    "\u1f679",     # Ornamental Dingbats
+    "\u1f67a",     # Ornamental Dingbats
+    "\u1f67b",     # Ornamental Dingbats
+    "\u1f67c",     # Ornamental Dingbats
+    "\u1f67d",     # Ornamental Dingbats
+    "\u1f67e",     # Ornamental Dingbats
+    "\u1f67f",     # Ornamental Dingbats
+    "\u1f780",     # Geometric Shapes Extended
+    "\u1f781",     # Geometric Shapes Extended
+    "\u1f782",     # Geometric Shapes Extended
+    "\u1f783",     # Geometric Shapes Extended
+    "\u1f784",     # Geometric Shapes Extended
+    "\u1f785",     # Geometric Shapes Extended
+    "\u1f786",     # Geometric Shapes Extended
+    "\u1f787",     # Geometric Shapes Extended
+    "\u1f788",     # Geometric Shapes Extended
+    "\u1f789",     # Geometric Shapes Extended
+    "\u1f78a",     # Geometric Shapes Extended
+    "\u1f78b",     # Geometric Shapes Extended
+    "\u1f78c",     # Geometric Shapes Extended
+    "\u1f78d",     # Geometric Shapes Extended
+    "\u1f78e",     # Geometric Shapes Extended
+    "\u1f78f",     # Geometric Shapes Extended
+    "\u1f790",     # Geometric Shapes Extended
+    "\u1f791",     # Geometric Shapes Extended
+    "\u1f792",     # Geometric Shapes Extended
+    "\u1f793",     # Geometric Shapes Extended
+    "\u1f794",     # Geometric Shapes Extended
+    "\u1f795",     # Geometric Shapes Extended
+    "\u1f796",     # Geometric Shapes Extended
+    "\u1f797",     # Geometric Shapes Extended
+    "\u1f798",     # Geometric Shapes Extended
+    "\u1f799",     # Geometric Shapes Extended
+    "\u1f79a",     # Geometric Shapes Extended
+    "\u1f79b",     # Geometric Shapes Extended
+    "\u1f79c",     # Geometric Shapes Extended
+    "\u1f79d",     # Geometric Shapes Extended
+    "\u1f79e",     # Geometric Shapes Extended
+    "\u1f79f",     # Geometric Shapes Extended
+    "\u1f7a0",     # Geometric Shapes Extended
+    "\u1f7a1",     # Geometric Shapes Extended
+    "\u1f7a2",     # Geometric Shapes Extended
+    "\u1f7a3",     # Geometric Shapes Extended
+    "\u1f7a4",     # Geometric Shapes Extended
+    "\u1f7a5",     # Geometric Shapes Extended
+    "\u1f7a6",     # Geometric Shapes Extended
+    "\u1f7a7",     # Geometric Shapes Extended
+    "\u1f7a8",     # Geometric Shapes Extended
+    "\u1f7a9",     # Geometric Shapes Extended
+    "\u1f7aa",     # Geometric Shapes Extended
+    "\u1f7ab",     # Geometric Shapes Extended
+    "\u1f7ac",     # Geometric Shapes Extended
+    "\u1f7ad",     # Geometric Shapes Extended
+    "\u1f7ae",     # Geometric Shapes Extended
+    "\u1f7af",     # Geometric Shapes Extended
+    "\u1f7b0",     # Geometric Shapes Extended
+    "\u1f7b1",     # Geometric Shapes Extended
+    "\u1f7b2",     # Geometric Shapes Extended
+    "\u1f7b3",     # Geometric Shapes Extended
+    "\u1f7b4",     # Geometric Shapes Extended
+    "\u1f7b5",     # Geometric Shapes Extended
+    "\u1f7b6",     # Geometric Shapes Extended
+    "\u1f7b7",     # Geometric Shapes Extended
+    "\u1f7b8",     # Geometric Shapes Extended
+    "\u1f7b9",     # Geometric Shapes Extended
+    "\u1f7ba",     # Geometric Shapes Extended
+    "\u1f7bb",     # Geometric Shapes Extended
+    "\u1f7bc",     # Geometric Shapes Extended
+    "\u1f7bd",     # Geometric Shapes Extended
+    "\u1f7be",     # Geometric Shapes Extended
+    "\u1f7bf",     # Geometric Shapes Extended
+    "\u1f7c0",     # Geometric Shapes Extended
+    "\u1f7c1",     # Geometric Shapes Extended
+    "\u1f7c2",     # Geometric Shapes Extended
+    "\u1f7c3",     # Geometric Shapes Extended
+    "\u1f7c4",     # Geometric Shapes Extended
+    "\u1f7c5",     # Geometric Shapes Extended
+    "\u1f7c6",     # Geometric Shapes Extended
+    "\u1f7c7",     # Geometric Shapes Extended
+    "\u1f7c8",     # Geometric Shapes Extended
+    "\u1f7c9",     # Geometric Shapes Extended
+    "\u1f7ca",     # Geometric Shapes Extended
+    "\u1f7cb",     # Geometric Shapes Extended
+    "\u1f7cc",     # Geometric Shapes Extended
+    "\u1f7cd",     # Geometric Shapes Extended
+    "\u1f7ce",     # Geometric Shapes Extended
+    "\u1f7cf",     # Geometric Shapes Extended
+    "\u1f7d0",     # Geometric Shapes Extended
+    "\u1f7d1",     # Geometric Shapes Extended
+    "\u1f7d2",     # Geometric Shapes Extended
+    "\u1f7d3",     # Geometric Shapes Extended
+    "\u1f7d4",     # Geometric Shapes Extended
+    "\u1f7d5",     # Geometric Shapes Extended
+    "\u1f7d6",     # Geometric Shapes Extended
+    "\u1f7d7",     # Geometric Shapes Extended
+    "\u1f7d8",     # Geometric Shapes Extended
+    "\u1f7d9",     # Geometric Shapes Extended
+    "\u1f7da",     # Geometric Shapes Extended
+    "\u1f7db",     # Geometric Shapes Extended
+    "\u1f7dc",     # Geometric Shapes Extended
+    "\u1f7dd",     # Geometric Shapes Extended
+    "\u1f7de",     # Geometric Shapes Extended
+    "\u1f7df",     # Geometric Shapes Extended
+    "\u1f7e0",     # Geometric Shapes Extended
+    "\u1f7e1",     # Geometric Shapes Extended
+    "\u1f7e2",     # Geometric Shapes Extended
+    "\u1f7e3",     # Geometric Shapes Extended
+    "\u1f7e4",     # Geometric Shapes Extended
+    "\u1f7e5",     # Geometric Shapes Extended
+    "\u1f7e6",     # Geometric Shapes Extended
+    "\u1f7e7",     # Geometric Shapes Extended
+    "\u1f7e8",     # Geometric Shapes Extended
+    "\u1f7e9",     # Geometric Shapes Extended
+    "\u1f7ea",     # Geometric Shapes Extended
+    "\u1f7eb",     # Geometric Shapes Extended
+    "\u1f7ec",     # Geometric Shapes Extended
+    "\u1f7ed",     # Geometric Shapes Extended
+    "\u1f7ee",     # Geometric Shapes Extended
+    "\u1f7ef",     # Geometric Shapes Extended
+    "\u1f7f0",     # Geometric Shapes Extended
+    "\u1f7f1",     # Geometric Shapes Extended
+    "\u1f7f2",     # Geometric Shapes Extended
+    "\u1f7f3",     # Geometric Shapes Extended
+    "\u1f7f4",     # Geometric Shapes Extended
+    "\u1f7f5",     # Geometric Shapes Extended
+    "\u1f7f6",     # Geometric Shapes Extended
+    "\u1f7f7",     # Geometric Shapes Extended
+    "\u1f7f8",     # Geometric Shapes Extended
+    "\u1f7f9",     # Geometric Shapes Extended
+    "\u1f7fa",     # Geometric Shapes Extended
+    "\u1f7fb",     # Geometric Shapes Extended
+    "\u1f7fc",     # Geometric Shapes Extended
+    "\u1f7fd",     # Geometric Shapes Extended
+    "\u1f7fe",     # Geometric Shapes Extended
+    "\u1f7ff",     # Geometric Shapes Extended
+    "\u1f800",     # Supplemental Arrows-C
+    "\u1f801",     # Supplemental Arrows-C
+    "\u1f802",     # Supplemental Arrows-C
+    "\u1f803",     # Supplemental Arrows-C
+    "\u1f804",     # Supplemental Arrows-C
+    "\u1f805",     # Supplemental Arrows-C
+    "\u1f806",     # Supplemental Arrows-C
+    "\u1f807",     # Supplemental Arrows-C
+    "\u1f808",     # Supplemental Arrows-C
+    "\u1f809",     # Supplemental Arrows-C
+    "\u1f80a",     # Supplemental Arrows-C
+    "\u1f80b",     # Supplemental Arrows-C
+    "\u1f80c",     # Supplemental Arrows-C
+    "\u1f80d",     # Supplemental Arrows-C
+    "\u1f80e",     # Supplemental Arrows-C
+    "\u1f80f",     # Supplemental Arrows-C
+    "\u1f810",     # Supplemental Arrows-C
+    "\u1f811",     # Supplemental Arrows-C
+    "\u1f812",     # Supplemental Arrows-C
+    "\u1f813",     # Supplemental Arrows-C
+    "\u1f814",     # Supplemental Arrows-C
+    "\u1f815",     # Supplemental Arrows-C
+    "\u1f816",     # Supplemental Arrows-C
+    "\u1f817",     # Supplemental Arrows-C
+    "\u1f818",     # Supplemental Arrows-C
+    "\u1f819",     # Supplemental Arrows-C
+    "\u1f81a",     # Supplemental Arrows-C
+    "\u1f81b",     # Supplemental Arrows-C
+    "\u1f81c",     # Supplemental Arrows-C
+    "\u1f81d",     # Supplemental Arrows-C
+    "\u1f81e",     # Supplemental Arrows-C
+    "\u1f81f",     # Supplemental Arrows-C
+    "\u1f820",     # Supplemental Arrows-C
+    "\u1f821",     # Supplemental Arrows-C
+    "\u1f822",     # Supplemental Arrows-C
+    "\u1f823",     # Supplemental Arrows-C
+    "\u1f824",     # Supplemental Arrows-C
+    "\u1f825",     # Supplemental Arrows-C
+    "\u1f826",     # Supplemental Arrows-C
+    "\u1f827",     # Supplemental Arrows-C
+    "\u1f828",     # Supplemental Arrows-C
+    "\u1f829",     # Supplemental Arrows-C
+    "\u1f82a",     # Supplemental Arrows-C
+    "\u1f82b",     # Supplemental Arrows-C
+    "\u1f82c",     # Supplemental Arrows-C
+    "\u1f82d",     # Supplemental Arrows-C
+    "\u1f82e",     # Supplemental Arrows-C
+    "\u1f82f",     # Supplemental Arrows-C
+    "\u1f830",     # Supplemental Arrows-C
+    "\u1f831",     # Supplemental Arrows-C
+    "\u1f832",     # Supplemental Arrows-C
+    "\u1f833",     # Supplemental Arrows-C
+    "\u1f834",     # Supplemental Arrows-C
+    "\u1f835",     # Supplemental Arrows-C
+    "\u1f836",     # Supplemental Arrows-C
+    "\u1f837",     # Supplemental Arrows-C
+    "\u1f838",     # Supplemental Arrows-C
+    "\u1f839",     # Supplemental Arrows-C
+    "\u1f83a",     # Supplemental Arrows-C
+    "\u1f83b",     # Supplemental Arrows-C
+    "\u1f83c",     # Supplemental Arrows-C
+    "\u1f83d",     # Supplemental Arrows-C
+    "\u1f83e",     # Supplemental Arrows-C
+    "\u1f83f",     # Supplemental Arrows-C
+    "\u1f840",     # Supplemental Arrows-C
+    "\u1f841",     # Supplemental Arrows-C
+    "\u1f842",     # Supplemental Arrows-C
+    "\u1f843",     # Supplemental Arrows-C
+    "\u1f844",     # Supplemental Arrows-C
+    "\u1f845",     # Supplemental Arrows-C
+    "\u1f846",     # Supplemental Arrows-C
+    "\u1f847",     # Supplemental Arrows-C
+    "\u1f848",     # Supplemental Arrows-C
+    "\u1f849",     # Supplemental Arrows-C
+    "\u1f84a",     # Supplemental Arrows-C
+    "\u1f84b",     # Supplemental Arrows-C
+    "\u1f84c",     # Supplemental Arrows-C
+    "\u1f84d",     # Supplemental Arrows-C
+    "\u1f84e",     # Supplemental Arrows-C
+    "\u1f84f",     # Supplemental Arrows-C
+    "\u1f850",     # Supplemental Arrows-C
+    "\u1f851",     # Supplemental Arrows-C
+    "\u1f852",     # Supplemental Arrows-C
+    "\u1f853",     # Supplemental Arrows-C
+    "\u1f854",     # Supplemental Arrows-C
+    "\u1f855",     # Supplemental Arrows-C
+    "\u1f856",     # Supplemental Arrows-C
+    "\u1f857",     # Supplemental Arrows-C
+    "\u1f858",     # Supplemental Arrows-C
+    "\u1f859",     # Supplemental Arrows-C
+    "\u1f85a",     # Supplemental Arrows-C
+    "\u1f85b",     # Supplemental Arrows-C
+    "\u1f85c",     # Supplemental Arrows-C
+    "\u1f85d",     # Supplemental Arrows-C
+    "\u1f85e",     # Supplemental Arrows-C
+    "\u1f85f",     # Supplemental Arrows-C
+    "\u1f860",     # Supplemental Arrows-C
+    "\u1f861",     # Supplemental Arrows-C
+    "\u1f862",     # Supplemental Arrows-C
+    "\u1f863",     # Supplemental Arrows-C
+    "\u1f864",     # Supplemental Arrows-C
+    "\u1f865",     # Supplemental Arrows-C
+    "\u1f866",     # Supplemental Arrows-C
+    "\u1f867",     # Supplemental Arrows-C
+    "\u1f868",     # Supplemental Arrows-C
+    "\u1f869",     # Supplemental Arrows-C
+    "\u1f86a",     # Supplemental Arrows-C
+    "\u1f86b",     # Supplemental Arrows-C
+    "\u1f86c",     # Supplemental Arrows-C
+    "\u1f86d",     # Supplemental Arrows-C
+    "\u1f86e",     # Supplemental Arrows-C
+    "\u1f86f",     # Supplemental Arrows-C
+    "\u1f870",     # Supplemental Arrows-C
+    "\u1f871",     # Supplemental Arrows-C
+    "\u1f872",     # Supplemental Arrows-C
+    "\u1f873",     # Supplemental Arrows-C
+    "\u1f874",     # Supplemental Arrows-C
+    "\u1f875",     # Supplemental Arrows-C
+    "\u1f876",     # Supplemental Arrows-C
+    "\u1f877",     # Supplemental Arrows-C
+    "\u1f878",     # Supplemental Arrows-C
+    "\u1f879",     # Supplemental Arrows-C
+    "\u1f87a",     # Supplemental Arrows-C
+    "\u1f87b",     # Supplemental Arrows-C
+    "\u1f87c",     # Supplemental Arrows-C
+    "\u1f87d",     # Supplemental Arrows-C
+    "\u1f87e",     # Supplemental Arrows-C
+    "\u1f87f",     # Supplemental Arrows-C
+    "\u1f880",     # Supplemental Arrows-C
+    "\u1f881",     # Supplemental Arrows-C
+    "\u1f882",     # Supplemental Arrows-C
+    "\u1f883",     # Supplemental Arrows-C
+    "\u1f884",     # Supplemental Arrows-C
+    "\u1f885",     # Supplemental Arrows-C
+    "\u1f886",     # Supplemental Arrows-C
+    "\u1f887",     # Supplemental Arrows-C
+    "\u1f888",     # Supplemental Arrows-C
+    "\u1f889",     # Supplemental Arrows-C
+    "\u1f88a",     # Supplemental Arrows-C
+    "\u1f88b",     # Supplemental Arrows-C
+    "\u1f88c",     # Supplemental Arrows-C
+    "\u1f88d",     # Supplemental Arrows-C
+    "\u1f88e",     # Supplemental Arrows-C
+    "\u1f88f",     # Supplemental Arrows-C
+    "\u1f890",     # Supplemental Arrows-C
+    "\u1f891",     # Supplemental Arrows-C
+    "\u1f892",     # Supplemental Arrows-C
+    "\u1f893",     # Supplemental Arrows-C
+    "\u1f894",     # Supplemental Arrows-C
+    "\u1f895",     # Supplemental Arrows-C
+    "\u1f896",     # Supplemental Arrows-C
+    "\u1f897",     # Supplemental Arrows-C
+    "\u1f898",     # Supplemental Arrows-C
+    "\u1f899",     # Supplemental Arrows-C
+    "\u1f89a",     # Supplemental Arrows-C
+    "\u1f89b",     # Supplemental Arrows-C
+    "\u1f89c",     # Supplemental Arrows-C
+    "\u1f89d",     # Supplemental Arrows-C
+    "\u1f89e",     # Supplemental Arrows-C
+    "\u1f89f",     # Supplemental Arrows-C
+    "\u1f8a0",     # Supplemental Arrows-C
+    "\u1f8a1",     # Supplemental Arrows-C
+    "\u1f8a2",     # Supplemental Arrows-C
+    "\u1f8a3",     # Supplemental Arrows-C
+    "\u1f8a4",     # Supplemental Arrows-C
+    "\u1f8a5",     # Supplemental Arrows-C
+    "\u1f8a6",     # Supplemental Arrows-C
+    "\u1f8a7",     # Supplemental Arrows-C
+    "\u1f8a8",     # Supplemental Arrows-C
+    "\u1f8a9",     # Supplemental Arrows-C
+    "\u1f8aa",     # Supplemental Arrows-C
+    "\u1f8ab",     # Supplemental Arrows-C
+    "\u1f8ac",     # Supplemental Arrows-C
+    "\u1f8ad",     # Supplemental Arrows-C
+    "\u1f8ae",     # Supplemental Arrows-C
+    "\u1f8af",     # Supplemental Arrows-C
+    "\u1f8b0",     # Supplemental Arrows-C
+    "\u1f8b1",     # Supplemental Arrows-C
+    "\u1f8b2",     # Supplemental Arrows-C
+    "\u1f8b3",     # Supplemental Arrows-C
+    "\u1f8b4",     # Supplemental Arrows-C
+    "\u1f8b5",     # Supplemental Arrows-C
+    "\u1f8b6",     # Supplemental Arrows-C
+    "\u1f8b7",     # Supplemental Arrows-C
+    "\u1f8b8",     # Supplemental Arrows-C
+    "\u1f8b9",     # Supplemental Arrows-C
+    "\u1f8ba",     # Supplemental Arrows-C
+    "\u1f8bb",     # Supplemental Arrows-C
+    "\u1f8bc",     # Supplemental Arrows-C
+    "\u1f8bd",     # Supplemental Arrows-C
+    "\u1f8be",     # Supplemental Arrows-C
+    "\u1f8bf",     # Supplemental Arrows-C
+    "\u1f8c0",     # Supplemental Arrows-C
+    "\u1f8c1",     # Supplemental Arrows-C
+    "\u1f8c2",     # Supplemental Arrows-C
+    "\u1f8c3",     # Supplemental Arrows-C
+    "\u1f8c4",     # Supplemental Arrows-C
+    "\u1f8c5",     # Supplemental Arrows-C
+    "\u1f8c6",     # Supplemental Arrows-C
+    "\u1f8c7",     # Supplemental Arrows-C
+    "\u1f8c8",     # Supplemental Arrows-C
+    "\u1f8c9",     # Supplemental Arrows-C
+    "\u1f8ca",     # Supplemental Arrows-C
+    "\u1f8cb",     # Supplemental Arrows-C
+    "\u1f8cc",     # Supplemental Arrows-C
+    "\u1f8cd",     # Supplemental Arrows-C
+    "\u1f8ce",     # Supplemental Arrows-C
+    "\u1f8cf",     # Supplemental Arrows-C
+    "\u1f8d0",     # Supplemental Arrows-C
+    "\u1f8d1",     # Supplemental Arrows-C
+    "\u1f8d2",     # Supplemental Arrows-C
+    "\u1f8d3",     # Supplemental Arrows-C
+    "\u1f8d4",     # Supplemental Arrows-C
+    "\u1f8d5",     # Supplemental Arrows-C
+    "\u1f8d6",     # Supplemental Arrows-C
+    "\u1f8d7",     # Supplemental Arrows-C
+    "\u1f8d8",     # Supplemental Arrows-C
+    "\u1f8d9",     # Supplemental Arrows-C
+    "\u1f8da",     # Supplemental Arrows-C
+    "\u1f8db",     # Supplemental Arrows-C
+    "\u1f8dc",     # Supplemental Arrows-C
+    "\u1f8dd",     # Supplemental Arrows-C
+    "\u1f8de",     # Supplemental Arrows-C
+    "\u1f8df",     # Supplemental Arrows-C
+    "\u1f8e0",     # Supplemental Arrows-C
+    "\u1f8e1",     # Supplemental Arrows-C
+    "\u1f8e2",     # Supplemental Arrows-C
+    "\u1f8e3",     # Supplemental Arrows-C
+    "\u1f8e4",     # Supplemental Arrows-C
+    "\u1f8e5",     # Supplemental Arrows-C
+    "\u1f8e6",     # Supplemental Arrows-C
+    "\u1f8e7",     # Supplemental Arrows-C
+    "\u1f8e8",     # Supplemental Arrows-C
+    "\u1f8e9",     # Supplemental Arrows-C
+    "\u1f8ea",     # Supplemental Arrows-C
+    "\u1f8eb",     # Supplemental Arrows-C
+    "\u1f8ec",     # Supplemental Arrows-C
+    "\u1f8ed",     # Supplemental Arrows-C
+    "\u1f8ee",     # Supplemental Arrows-C
+    "\u1f8ef",     # Supplemental Arrows-C
+    "\u1f8f0",     # Supplemental Arrows-C
+    "\u1f8f1",     # Supplemental Arrows-C
+    "\u1f8f2",     # Supplemental Arrows-C
+    "\u1f8f3",     # Supplemental Arrows-C
+    "\u1f8f4",     # Supplemental Arrows-C
+    "\u1f8f5",     # Supplemental Arrows-C
+    "\u1f8f6",     # Supplemental Arrows-C
+    "\u1f8f7",     # Supplemental Arrows-C
+    "\u1f8f8",     # Supplemental Arrows-C
+    "\u1f8f9",     # Supplemental Arrows-C
+    "\u1f8fa",     # Supplemental Arrows-C
+    "\u1f8fb",     # Supplemental Arrows-C
+    "\u1f8fc",     # Supplemental Arrows-C
+    "\u1f8fd",     # Supplemental Arrows-C
+    "\u1f8fe",     # Supplemental Arrows-C
+    "\u1f8ff",     # Supplemental Arrows-C
+    ]
+    test_data.each do |string|
+      assert @validator.valid_encoding?(string), "good unicode specs 04: #{string}"
+      assert string.force_encoding("UTF-8").valid_encoding?,
+        "good unicode specs 04 19: #{string}"  if @vercheck
+    end
+
+  end
+
 end
 
