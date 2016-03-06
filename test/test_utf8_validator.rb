@@ -135,6 +135,33 @@ class TestUtf8Validator < Test::Unit::TestCase
     end
   end
 
+  # Runes, reference:
+  # http://en.wikipedia.org/wiki/Runes
+  def test_0090_runes
+    test_data = [
+      "\u1680","\u1681","\u1682","\u1683","\u1684","\u1685","\u1686","\u1687",
+      "\u1688","\u1689","\u168a","\u168b","\u168c","\u168d","\u168e","\u168f",
+      "\u1690","\u1691","\u1692","\u1693","\u1694","\u1695","\u1696","\u1697",
+      "\u1698","\u1699","\u169a","\u169b","\u169c","\u169d","\u169e","\u169f",
+      "\u16a0","\u16a1","\u16a2","\u16a3","\u16a4","\u16a5","\u16a6","\u16a7",
+      "\u16a8","\u16a9","\u16aa","\u16ab","\u16ac","\u16ad","\u16ae","\u16af",
+      "\u16b0","\u16b1","\u16b2","\u16b3","\u16b4","\u16b5","\u16b6","\u16b7",
+      "\u16b8","\u16b9","\u16ba","\u16bb","\u16bc","\u16bd","\u16be","\u16bf",
+      "\u16c0","\u16c1","\u16c2","\u16c3","\u16c4","\u16c5","\u16c6","\u16c7",
+      "\u16c8","\u16c9","\u16ca","\u16cb","\u16cc","\u16cd","\u16ce","\u16cf",
+      "\u16d0","\u16d1","\u16d2","\u16d3","\u16d4","\u16d5","\u16d6","\u16d7",
+      "\u16d8","\u16d9","\u16da","\u16db","\u16dc","\u16dd","\u16de","\u16df",
+      "\u16e0","\u16e1","\u16e2","\u16e3","\u16e4","\u16e5","\u16e6","\u16e7",
+      "\u16e8","\u16e9","\u16ea","\u16eb","\u16ec","\u16ed","\u16ee","\u16ef",
+      "\u16f0",
+
+    ]
+    test_data.each do |string|
+      assert @validator.valid_encoding?(string), "interesting valid strings: #{string}"
+      assert string.force_encoding("UTF-8").valid_encoding?, "interesting valid strings 19: #{string}"  if @vercheck
+    end
+  end
+
   #--
   # Validation should fail for the following tests
   #--

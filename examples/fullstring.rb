@@ -3,7 +3,7 @@
 # Show how to parse a full string with multiple UTF8 validation failures.
 # Accumulate error information, and report it.
 #
-require 'rubygems' unless RUBY_VERSION =~ /1\.9/
+require 'rubygems' if RUBY_VERSION =~ /1\.8/
 require 'utf8_validator'
 #
 # = Purpose
