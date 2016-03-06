@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{utf8_validator}
-  s.version = "1.0.8"
+  s.version = "1.0.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Guy Allard"]
-  s.date = %q{2014-06-18}
+  s.date = %q{2016-03-06}
   s.description = %q{A State Machine implementation of a UTF-8 Encoding 
 Validation algorithm.}
   s.email = %q{allard.guy.m@gmail.com}
