@@ -6165,7 +6165,20 @@ http://www.unicode.org/versions/Unicode7.0.0/
       assert string.force_encoding("UTF-8").valid_encoding?,
         "good unicode specs 04 19: #{string}"  if @vercheck
     end
+  end
 
+  # Test \u3164 (0xe385a4)
+  def test_0800_hangul_filler
+    test_data = [
+    "a\u3164b",           # The 0 length filler
+    "a\xe3\x85\xa4b",     # The 0 length filler
+    "\u3163\u3164\u3165", # The 0 length filler
+    ]
+    test_data.each do |string|
+      assert @validator.valid_encoding?(string), "hangul filler A: #{string}"
+      assert string.force_encoding("UTF-8").valid_encoding?,
+        "hangul filler B: #{string}"  if @vercheck
+    end
   end
 
 end
