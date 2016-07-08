@@ -194,7 +194,7 @@ class TestUtf8Validator < Test::Unit::TestCase
 
   #--
   # I do not see a need to test UTF-16 surrogate pairs.  They are guaranteed
-  # to always fail if the preceding test succeeds.  This is because the 
+  # to always fail if the preceding test succeeds.  This is because the
   # preceeding test data values are always the first surrogate of the pair.
   #
   # UTF-16 surrogates are clearly something I do not understand.
@@ -384,7 +384,7 @@ straight from the Unicode 6.0 spec.  See page 92.
     ]
     good_data.each do |string|
       assert @validator.valid_encoding?(string), "good unicode specs 01: #{string}"
-      assert string.force_encoding("UTF-8").valid_encoding?, 
+      assert string.force_encoding("UTF-8").valid_encoding?,
         "good unicode specs 01 19: #{string}"  if @vercheck
     end
 
@@ -6181,5 +6181,68 @@ http://www.unicode.org/versions/Unicode7.0.0/
     end
   end
 
-end
+  def test_0810_zero_len_fillers
+    test_data = [
+    "A\u200bZ",     # zero len filler ?
+    "A\u200cZ",     # zero len filler ?
+    "A\u200dZ",     # zero len filler ?
+    ]
+    test_data.each do |string|
+      assert @validator.valid_encoding?(string), "zero_len_fillers A: #{string}"
+      assert string.force_encoding("UTF-8").valid_encoding?,
+        "zero_len_fillers B: #{string}"  if @vercheck
+    end
+  end
 
+  # grapheme clusters
+  def test_0850_grapheme_clusters
+    test_data = [
+    "\u0067",                # 0067 ( g ) LATIN SMALL LETTER G
+    "\u0308",                # 0308 ( ◌̈ ) COMBINING DIAERESIS
+    "\u0067\u0308",     # Combined
+    "\uac01",                 # AC01 ( 각 ) HANGUL SYLLABLE GAG
+    "\u1100",               # 1100 ( ᄀ ) HANGUL CHOSEONG KIYEOK
+    "\u1161",               # 1161 ( ᅡ ) HANGUL JUNGSEONG A
+    "\u11a8",               # 11A8 ( ᆨ ) HANGUL JONGSEONG KIYEOK
+    "\uac01\u1100\u1161\u11a8",  # Combined
+    # THAI
+    "\u0e01",               # ก 	0E01 ( ก ) THAI CHARACTER KO KAI 	Thai ko
+    # THAI
+    "\u0e01",               # ก 	0E01 ( ก ) THAI CHARACTER KO KAI 	Thai ko
+    "\u0e33",               # 0E33 ( ำ ) THAI CHARACTER SARA AM
+    "\u0e01\u0e33",
+    # Extended grapheme clusters
+    "\u0ba8",             # நி 	0BA8 ( ந ) TAMIL LETTER NA
+    "\u0bbf",             # 0BBF ( ி ) TAMIL VOWEL SIGN I 	Tamil ni
+    "\u0e40",             # เ 	0E40 ( เ ) THAI CHARACTER SARA E 	Thai e
+    "\u0e01",             # กำ 	0E01 ( ก ) THAI CHARACTER KO KAI
+    "\u0e33",             # 0E33 ( ำ ) THAI CHARACTER SARA AM 	Thai kam
+    "\u0937",             # षि 	0937 ( ष ) DEVANAGARI LETTER SSA
+    "\u093f",             # 093F ( ि ) DEVANAGARI VOWEL SIGN I 	Devanagari ssi
+    "\u0ba8\u0bbf\u0e40\u0e01\u0e33\u0937\u093f", # Combined
+    # Legacy grapheme clusters
+    "\u0e33",             # ำ 	0E33 ( ำ ) THAI CHARACTER SARA AM 	Thai am
+    "\u0937",             # ष 	0937 ( ष ) DEVANAGARI LETTER SSA 	Devanagari ssa
+    "\u093f",             # ि 	093F ( ि ) DEVANAGARI VOWEL SIGN I 	Devanagari i
+    "\u0e33\u0937\u093f", # Combined
+    # Tailored grapheme clusters
+    "\u0063",             # ch 	0063 ( c ) LATIN SMALL LETTER C
+    "\u0068",             # 0068 ( h ) LATIN SMALL LETTER H 	Slovak ch digraph
+    "\u0063\u0068",  # Combined
+    "\u006b",             # kw 	006B ( k ) LATIN SMALL LETTER K
+    "\u02b7",             # 02B7 ( ʷ ) MODIFIER LETTER SMALL W 	sequence with letter modifier
+    "\u006b\u02b7",  # Combined
+    "\u0915",             # क्षि 	0915 ( क ) DEVANAGARI LETTER KA
+    "\u094d",             # 094D ( ् ) DEVANAGARI SIGN VIRAMA
+    "\u0937",             # 0937 ( ष ) DEVANAGARI LETTER SSA
+    "\u093f",             # 093F ( ि ) DEVANAGARI VOWEL SIGN I 	Devanagari kshi
+    "\u0915\u094d\u0937\u093f",
+  ]
+    test_data.each do |string|
+      assert @validator.valid_encoding?(string), "grapheme clusters A: #{string}"
+      assert string.force_encoding("UTF-8").valid_encoding?,
+        "grapheme clusters B: #{string}"  if @vercheck
+    end
+  end # of method
+
+end # of class
