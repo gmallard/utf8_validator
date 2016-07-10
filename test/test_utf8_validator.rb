@@ -6245,4 +6245,513 @@ http://www.unicode.org/versions/Unicode7.0.0/
     end
   end # of method
 
+  def test_0890_named_sequences
+    test_data = [
+      # NamedSequences-9.0.0.txt
+      # Date: 2016-05-26, 00:00:00 GMT [KW, LI]
+      # © 2016 Unicode®, Inc.
+      # For terms of use, see http://www.unicode.org/terms_of_use.html
+      #
+      # Unicode Character Database
+      # For documentation, see http://www.unicode.org/reports/tr44/
+      #
+      # Unicode Named Character Sequences
+      #
+      # This file is a normative contributory data file in the Unicode
+      # Character Database.
+      #
+      # Format:
+      # Name of Sequence; Code Point Sequence for USI
+      #
+      # Code point sequences in the Unicode Character Database
+      # use spaces as delimiters. The corresponding format for a
+      # UCS Sequence Identifier (USI) in ISO/IEC 10646 uses
+      # comma delimitation and angle brackets. Thus, a Unicode
+      # named character sequence of the form:
+      #
+      # EXAMPLE NAME;1000 1001 1002
+      #
+      # in this data file, would correspond to an ISO/IEC 10646 USI
+      # as follows:
+      #
+      # <1000, 1001, 1002>
+      #
+      # For more information, see UAX #34: Unicode Named Character
+      # Sequences, at http://www.unicode.org/unicode/reports/tr34/
+      #
+      # Note: The order of entries in this file is not significant.
+      # However, entries are generally in script order corresponding
+      # to block order in the Unicode Standard, to make it easier
+      # to find entries in the list.
+      # ================================================
+      # Latin letter plus accent combinations.
+      # These are part of the original set of approved named sequences
+      # for Unicode 4.1. 2005.
+           "\u0100\u0300",            #    LATIN CAPITAL LETTER A WITH MACRON AND GRAVE
+           "\u0101\u0300",            #    LATIN SMALL LETTER A WITH MACRON AND GRAVE
+           "\u0045\u0329",            #    LATIN CAPITAL LETTER E WITH VERTICAL LINE BELOW
+           "\u0065\u0329",            #    LATIN SMALL LETTER E WITH VERTICAL LINE BELOW
+           "\u00C8\u0329",            #    LATIN CAPITAL LETTER E WITH VERTICAL LINE BELOW AND GRAVE
+           "\u00E8\u0329",            #    LATIN SMALL LETTER E WITH VERTICAL LINE BELOW AND GRAVE
+           "\u00C9\u0329",            #    LATIN CAPITAL LETTER E WITH VERTICAL LINE BELOW AND ACUTE
+           "\u00E9\u0329",            #    LATIN SMALL LETTER E WITH VERTICAL LINE BELOW AND ACUTE
+           "\u00CA\u0304",            #    LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND MACRON
+           "\u00EA\u0304",            #    LATIN SMALL LETTER E WITH CIRCUMFLEX AND MACRON
+           "\u00CA\u030C",            #    LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND CARON
+           "\u00EA\u030C",            #    LATIN SMALL LETTER E WITH CIRCUMFLEX AND CARON
+           "\u012A\u0300",            #    LATIN CAPITAL LETTER I WITH MACRON AND GRAVE
+           "\u012B\u0300",            #    LATIN SMALL LETTER I WITH MACRON AND GRAVE
+           "\u0069\u0307",            #    LATIN SMALL LETTER I WITH DOT ABOVE AND ACUTE
+           "\u006E\u0360",            #    LATIN SMALL LETTER NG WITH TILDE ABOVE
+           "\u004F\u0329",            #    LATIN CAPITAL LETTER O WITH VERTICAL LINE BELOW
+           "\u006F\u0329",            #    LATIN SMALL LETTER O WITH VERTICAL LINE BELOW
+           "\u00D2\u0329",            #    LATIN CAPITAL LETTER O WITH VERTICAL LINE BELOW AND GRAVE
+           "\u00F2\u0329",            #    LATIN SMALL LETTER O WITH VERTICAL LINE BELOW AND GRAVE
+           "\u00D3\u0329",            #    LATIN CAPITAL LETTER O WITH VERTICAL LINE BELOW AND ACUTE
+           "\u00F3\u0329",            #    LATIN SMALL LETTER O WITH VERTICAL LINE BELOW AND ACUTE
+           "\u0053\u0329",            #    LATIN CAPITAL LETTER S WITH VERTICAL LINE BELOW
+           "\u0073\u0329",            #    LATIN SMALL LETTER S WITH VERTICAL LINE BELOW
+           "\u016A\u0300",            #    LATIN CAPITAL LETTER U WITH MACRON AND GRAVE
+           "\u016B\u0300",            #    LATIN SMALL LETTER U WITH MACRON AND GRAVE
+      # Additions for Lithuanian.
+      # Provisional 2006-05-18, Approved 2007-10-19
+           "\u0104\u0301",            #    LATIN CAPITAL LETTER A WITH OGONEK AND ACUTE
+           "\u0105\u0301",            #    LATIN SMALL LETTER A WITH OGONEK AND ACUTE
+           "\u0104\u0303",            #    LATIN CAPITAL LETTER A WITH OGONEK AND TILDE
+           "\u0105\u0303",            #    LATIN SMALL LETTER A WITH OGONEK AND TILDE
+           "\u0118\u0301",            #    LATIN CAPITAL LETTER E WITH OGONEK AND ACUTE
+           "\u0119\u0301",            #    LATIN SMALL LETTER E WITH OGONEK AND ACUTE
+           "\u0118\u0303",            #    LATIN CAPITAL LETTER E WITH OGONEK AND TILDE
+           "\u0119\u0303",            #    LATIN SMALL LETTER E WITH OGONEK AND TILDE
+           "\u0116\u0301",            #    LATIN CAPITAL LETTER E WITH DOT ABOVE AND ACUTE
+           "\u0117\u0301",            #    LATIN SMALL LETTER E WITH DOT ABOVE AND ACUTE
+           "\u0116\u0303",            #    LATIN CAPITAL LETTER E WITH DOT ABOVE AND TILDE
+           "\u0117\u0303",            #    LATIN SMALL LETTER E WITH DOT ABOVE AND TILDE
+           "\u0069\u0307",            #    LATIN SMALL LETTER I WITH DOT ABOVE AND GRAVE
+           "\u0069\u0307",            #    LATIN SMALL LETTER I WITH DOT ABOVE AND TILDE
+           "\u012E\u0301",            #    LATIN CAPITAL LETTER I WITH OGONEK AND ACUTE
+           "\u012F\u0307",            #    LATIN SMALL LETTER I WITH OGONEK AND DOT ABOVE AND ACUTE
+           "\u012E\u0303",            #    LATIN CAPITAL LETTER I WITH OGONEK AND TILDE
+           "\u012F\u0307",            #    LATIN SMALL LETTER I WITH OGONEK AND DOT ABOVE AND TILDE
+           "\u004A\u0303",            #    LATIN CAPITAL LETTER J WITH TILDE
+           "\u006A\u0307",            #    LATIN SMALL LETTER J WITH DOT ABOVE AND TILDE
+           "\u004C\u0303",            #    LATIN CAPITAL LETTER L WITH TILDE
+           "\u006C\u0303",            #    LATIN SMALL LETTER L WITH TILDE
+           "\u004D\u0303",            #    LATIN CAPITAL LETTER M WITH TILDE
+           "\u006D\u0303",            #    LATIN SMALL LETTER M WITH TILDE
+           "\u0052\u0303",            #    LATIN CAPITAL LETTER R WITH TILDE
+           "\u0072\u0303",            #    LATIN SMALL LETTER R WITH TILDE
+           "\u0172\u0301",            #    LATIN CAPITAL LETTER U WITH OGONEK AND ACUTE
+           "\u0173\u0301",            #    LATIN SMALL LETTER U WITH OGONEK AND ACUTE
+           "\u0172\u0303",            #    LATIN CAPITAL LETTER U WITH OGONEK AND TILDE
+           "\u0173\u0303",            #    LATIN SMALL LETTER U WITH OGONEK AND TILDE
+           "\u016A\u0301",            #    LATIN CAPITAL LETTER U WITH MACRON AND ACUTE
+           "\u016B\u0301",            #    LATIN SMALL LETTER U WITH MACRON AND ACUTE
+           "\u016A\u0303",            #    LATIN CAPITAL LETTER U WITH MACRON AND TILDE
+           "\u016B\u0303",            #    LATIN SMALL LETTER U WITH MACRON AND TILDE
+      # Entries for JIS X 0213 compatibility mapping.
+      # Provisional 2008-11-07, Approved 2010-05-14
+           "\u00E6\u0300",            #    LATIN SMALL LETTER AE WITH GRAVE
+           "\u0254\u0300",            #    LATIN SMALL LETTER OPEN O WITH GRAVE
+           "\u0254\u0301",            #    LATIN SMALL LETTER OPEN O WITH ACUTE
+           "\u028C\u0300",            #    LATIN SMALL LETTER TURNED V WITH GRAVE
+           "\u028C\u0301",            #    LATIN SMALL LETTER TURNED V WITH ACUTE
+           "\u0259\u0300",            #    LATIN SMALL LETTER SCHWA WITH GRAVE
+           "\u0259\u0301",            #    LATIN SMALL LETTER SCHWA WITH ACUTE
+           "\u025A\u0300",            #    LATIN SMALL LETTER HOOKED SCHWA WITH GRAVE
+           "\u025A\u0301",            #    LATIN SMALL LETTER HOOKED SCHWA WITH ACUTE
+      # Entries for Uyghur and Chagatai.
+      # Provisional N/A, Approved 2012-11-08
+           "\u0626\u0627",            #    ARABIC SEQUENCE YEH WITH HAMZA ABOVE WITH ALEF
+           "\u0626\u0648",            #    ARABIC SEQUENCE YEH WITH HAMZA ABOVE WITH WAW
+           "\u0626\u0649",            #    ARABIC SEQUENCE YEH WITH HAMZA ABOVE WITH ALEF MAKSURA
+           "\u0626\u06C6",            #    ARABIC SEQUENCE YEH WITH HAMZA ABOVE WITH OE
+           "\u0626\u06C7",            #    ARABIC SEQUENCE YEH WITH HAMZA ABOVE WITH U
+           "\u0626\u06C8",            #    ARABIC SEQUENCE YEH WITH HAMZA ABOVE WITH YU
+           "\u0626\u06D0",            #    ARABIC SEQUENCE YEH WITH HAMZA ABOVE WITH E
+           "\u0626\u06D5",            #    ARABIC SEQUENCE YEH WITH HAMZA ABOVE WITH AE
+           "\u0646\u06A9",            #    ARABIC SEQUENCE NOON WITH KEHEH
+      # Entry for a Bangla entity.
+      # Provisional 2009-08-10, Approved 2010-05-14
+      #
+      # Note that this same sequence is also used for the ASSAMESE LETTER KSSA.
+           "\u0995\u09CD",            #    BENGALI LETTER KHINYA
+      # Additions for Tamil.
+      # Provisional 2008-02-08, Approved 2009-08-14
+      #
+      # A visual display of the Tamil named character sequences is available
+      # in the documentation for the Unicode Standard. See Section 12.6, Tamil in
+      # http://www.unicode.org/versions/latest/
+           "\u0B95\u0BCD",            #    TAMIL CONSONANT K
+           "\u0B99\u0BCD",            #    TAMIL CONSONANT NG
+           "\u0B9A\u0BCD",            #    TAMIL CONSONANT C
+           "\u0B9E\u0BCD",            #    TAMIL CONSONANT NY
+           "\u0B9F\u0BCD",            #    TAMIL CONSONANT TT
+           "\u0BA3\u0BCD",            #    TAMIL CONSONANT NN
+           "\u0BA4\u0BCD",            #    TAMIL CONSONANT T
+           "\u0BA8\u0BCD",            #    TAMIL CONSONANT N
+           "\u0BAA\u0BCD",            #    TAMIL CONSONANT P
+           "\u0BAE\u0BCD",            #    TAMIL CONSONANT M
+           "\u0BAF\u0BCD",            #    TAMIL CONSONANT Y
+           "\u0BB0\u0BCD",            #    TAMIL CONSONANT R
+           "\u0BB2\u0BCD",            #    TAMIL CONSONANT L
+           "\u0BB5\u0BCD",            #    TAMIL CONSONANT V
+           "\u0BB4\u0BCD",            #    TAMIL CONSONANT LLL
+           "\u0BB3\u0BCD",            #    TAMIL CONSONANT LL
+           "\u0BB1\u0BCD",            #    TAMIL CONSONANT RR
+           "\u0BA9\u0BCD",            #    TAMIL CONSONANT NNN
+           "\u0B9C\u0BCD",            #    TAMIL CONSONANT J
+           "\u0BB6\u0BCD",            #    TAMIL CONSONANT SH
+           "\u0BB7\u0BCD",            #    TAMIL CONSONANT SS
+           "\u0BB8\u0BCD",            #    TAMIL CONSONANT S
+           "\u0BB9\u0BCD",            #    TAMIL CONSONANT H
+           "\u0B95\u0BCD",            #    TAMIL CONSONANT KSS
+           "\u0B95\u0BBE",            #    TAMIL SYLLABLE KAA
+           "\u0B95\u0BBF",            #    TAMIL SYLLABLE KI
+           "\u0B95\u0BC0",            #    TAMIL SYLLABLE KII
+           "\u0B95\u0BC1",            #    TAMIL SYLLABLE KU
+           "\u0B95\u0BC2",            #    TAMIL SYLLABLE KUU
+           "\u0B95\u0BC6",            #    TAMIL SYLLABLE KE
+           "\u0B95\u0BC7",            #    TAMIL SYLLABLE KEE
+           "\u0B95\u0BC8",            #    TAMIL SYLLABLE KAI
+           "\u0B95\u0BCA",            #    TAMIL SYLLABLE KO
+           "\u0B95\u0BCB",            #    TAMIL SYLLABLE KOO
+           "\u0B95\u0BCC",            #    TAMIL SYLLABLE KAU
+           "\u0B99\u0BBE",            #    TAMIL SYLLABLE NGAA
+           "\u0B99\u0BBF",            #    TAMIL SYLLABLE NGI
+           "\u0B99\u0BC0",            #    TAMIL SYLLABLE NGII
+           "\u0B99\u0BC1",            #    TAMIL SYLLABLE NGU
+           "\u0B99\u0BC2",            #    TAMIL SYLLABLE NGUU
+           "\u0B99\u0BC6",            #    TAMIL SYLLABLE NGE
+           "\u0B99\u0BC7",            #    TAMIL SYLLABLE NGEE
+           "\u0B99\u0BC8",            #    TAMIL SYLLABLE NGAI
+           "\u0B99\u0BCA",            #    TAMIL SYLLABLE NGO
+           "\u0B99\u0BCB",            #    TAMIL SYLLABLE NGOO
+           "\u0B99\u0BCC",            #    TAMIL SYLLABLE NGAU
+           "\u0B9A\u0BBE",            #    TAMIL SYLLABLE CAA
+           "\u0B9A\u0BBF",            #    TAMIL SYLLABLE CI
+           "\u0B9A\u0BC0",            #    TAMIL SYLLABLE CII
+           "\u0B9A\u0BC1",            #    TAMIL SYLLABLE CU
+           "\u0B9A\u0BC2",            #    TAMIL SYLLABLE CUU
+           "\u0B9A\u0BC6",            #    TAMIL SYLLABLE CE
+           "\u0B9A\u0BC7",            #    TAMIL SYLLABLE CEE
+           "\u0B9A\u0BC8",            #    TAMIL SYLLABLE CAI
+           "\u0B9A\u0BCA",            #    TAMIL SYLLABLE CO
+           "\u0B9A\u0BCB",            #    TAMIL SYLLABLE COO
+           "\u0B9A\u0BCC",            #    TAMIL SYLLABLE CAU
+           "\u0B9E\u0BBE",            #    TAMIL SYLLABLE NYAA
+           "\u0B9E\u0BBF",            #    TAMIL SYLLABLE NYI
+           "\u0B9E\u0BC0",            #    TAMIL SYLLABLE NYII
+           "\u0B9E\u0BC1",            #    TAMIL SYLLABLE NYU
+           "\u0B9E\u0BC2",            #    TAMIL SYLLABLE NYUU
+           "\u0B9E\u0BC6",            #    TAMIL SYLLABLE NYE
+           "\u0B9E\u0BC7",            #    TAMIL SYLLABLE NYEE
+           "\u0B9E\u0BC8",            #    TAMIL SYLLABLE NYAI
+           "\u0B9E\u0BCA",            #    TAMIL SYLLABLE NYO
+           "\u0B9E\u0BCB",            #    TAMIL SYLLABLE NYOO
+           "\u0B9E\u0BCC",            #    TAMIL SYLLABLE NYAU
+           "\u0B9F\u0BBE",            #    TAMIL SYLLABLE TTAA
+           "\u0B9F\u0BBF",            #    TAMIL SYLLABLE TTI
+           "\u0B9F\u0BC0",            #    TAMIL SYLLABLE TTII
+           "\u0B9F\u0BC1",            #    TAMIL SYLLABLE TTU
+           "\u0B9F\u0BC2",            #    TAMIL SYLLABLE TTUU
+           "\u0B9F\u0BC6",            #    TAMIL SYLLABLE TTE
+           "\u0B9F\u0BC7",            #    TAMIL SYLLABLE TTEE
+           "\u0B9F\u0BC8",            #    TAMIL SYLLABLE TTAI
+           "\u0B9F\u0BCA",            #    TAMIL SYLLABLE TTO
+           "\u0B9F\u0BCB",            #    TAMIL SYLLABLE TTOO
+           "\u0B9F\u0BCC",            #    TAMIL SYLLABLE TTAU
+           "\u0BA3\u0BBE",            #    TAMIL SYLLABLE NNAA
+           "\u0BA3\u0BBF",            #    TAMIL SYLLABLE NNI
+           "\u0BA3\u0BC0",            #    TAMIL SYLLABLE NNII
+           "\u0BA3\u0BC1",            #    TAMIL SYLLABLE NNU
+           "\u0BA3\u0BC2",            #    TAMIL SYLLABLE NNUU
+           "\u0BA3\u0BC6",            #    TAMIL SYLLABLE NNE
+           "\u0BA3\u0BC7",            #    TAMIL SYLLABLE NNEE
+           "\u0BA3\u0BC8",            #    TAMIL SYLLABLE NNAI
+           "\u0BA3\u0BCA",            #    TAMIL SYLLABLE NNO
+           "\u0BA3\u0BCB",            #    TAMIL SYLLABLE NNOO
+           "\u0BA3\u0BCC",            #    TAMIL SYLLABLE NNAU
+           "\u0BA4\u0BBE",            #    TAMIL SYLLABLE TAA
+           "\u0BA4\u0BBF",            #    TAMIL SYLLABLE TI
+           "\u0BA4\u0BC0",            #    TAMIL SYLLABLE TII
+           "\u0BA4\u0BC1",            #    TAMIL SYLLABLE TU
+           "\u0BA4\u0BC2",            #    TAMIL SYLLABLE TUU
+           "\u0BA4\u0BC6",            #    TAMIL SYLLABLE TE
+           "\u0BA4\u0BC7",            #    TAMIL SYLLABLE TEE
+           "\u0BA4\u0BC8",            #    TAMIL SYLLABLE TAI
+           "\u0BA4\u0BCA",            #    TAMIL SYLLABLE TO
+           "\u0BA4\u0BCB",            #    TAMIL SYLLABLE TOO
+           "\u0BA4\u0BCC",            #    TAMIL SYLLABLE TAU
+           "\u0BA8\u0BBE",            #    TAMIL SYLLABLE NAA
+           "\u0BA8\u0BBF",            #    TAMIL SYLLABLE NI
+           "\u0BA8\u0BC0",            #    TAMIL SYLLABLE NII
+           "\u0BA8\u0BC1",            #    TAMIL SYLLABLE NU
+           "\u0BA8\u0BC2",            #    TAMIL SYLLABLE NUU
+           "\u0BA8\u0BC6",            #    TAMIL SYLLABLE NE
+           "\u0BA8\u0BC7",            #    TAMIL SYLLABLE NEE
+           "\u0BA8\u0BC8",            #    TAMIL SYLLABLE NAI
+           "\u0BA8\u0BCA",            #    TAMIL SYLLABLE NO
+           "\u0BA8\u0BCB",            #    TAMIL SYLLABLE NOO
+           "\u0BA8\u0BCC",            #    TAMIL SYLLABLE NAU
+           "\u0BAA\u0BBE",            #    TAMIL SYLLABLE PAA
+           "\u0BAA\u0BBF",            #    TAMIL SYLLABLE PI
+           "\u0BAA\u0BC0",            #    TAMIL SYLLABLE PII
+           "\u0BAA\u0BC1",            #    TAMIL SYLLABLE PU
+           "\u0BAA\u0BC2",            #    TAMIL SYLLABLE PUU
+           "\u0BAA\u0BC6",            #    TAMIL SYLLABLE PE
+           "\u0BAA\u0BC7",            #    TAMIL SYLLABLE PEE
+           "\u0BAA\u0BC8",            #    TAMIL SYLLABLE PAI
+           "\u0BAA\u0BCA",            #    TAMIL SYLLABLE PO
+           "\u0BAA\u0BCB",            #    TAMIL SYLLABLE POO
+           "\u0BAA\u0BCC",            #    TAMIL SYLLABLE PAU
+           "\u0BAE\u0BBE",            #    TAMIL SYLLABLE MAA
+           "\u0BAE\u0BBF",            #    TAMIL SYLLABLE MI
+           "\u0BAE\u0BC0",            #    TAMIL SYLLABLE MII
+           "\u0BAE\u0BC1",            #    TAMIL SYLLABLE MU
+           "\u0BAE\u0BC2",            #    TAMIL SYLLABLE MUU
+           "\u0BAE\u0BC6",            #    TAMIL SYLLABLE ME
+           "\u0BAE\u0BC7",            #    TAMIL SYLLABLE MEE
+           "\u0BAE\u0BC8",            #    TAMIL SYLLABLE MAI
+           "\u0BAE\u0BCA",            #    TAMIL SYLLABLE MO
+           "\u0BAE\u0BCB",            #    TAMIL SYLLABLE MOO
+           "\u0BAE\u0BCC",            #    TAMIL SYLLABLE MAU
+           "\u0BAF\u0BBE",            #    TAMIL SYLLABLE YAA
+           "\u0BAF\u0BBF",            #    TAMIL SYLLABLE YI
+           "\u0BAF\u0BC0",            #    TAMIL SYLLABLE YII
+           "\u0BAF\u0BC1",            #    TAMIL SYLLABLE YU
+           "\u0BAF\u0BC2",            #    TAMIL SYLLABLE YUU
+           "\u0BAF\u0BC6",            #    TAMIL SYLLABLE YE
+           "\u0BAF\u0BC7",            #    TAMIL SYLLABLE YEE
+           "\u0BAF\u0BC8",            #    TAMIL SYLLABLE YAI
+           "\u0BAF\u0BCA",            #    TAMIL SYLLABLE YO
+           "\u0BAF\u0BCB",            #    TAMIL SYLLABLE YOO
+           "\u0BAF\u0BCC",            #    TAMIL SYLLABLE YAU
+           "\u0BB0\u0BBE",            #    TAMIL SYLLABLE RAA
+           "\u0BB0\u0BBF",            #    TAMIL SYLLABLE RI
+           "\u0BB0\u0BC0",            #    TAMIL SYLLABLE RII
+           "\u0BB0\u0BC1",            #    TAMIL SYLLABLE RU
+           "\u0BB0\u0BC2",            #    TAMIL SYLLABLE RUU
+           "\u0BB0\u0BC6",            #    TAMIL SYLLABLE RE
+           "\u0BB0\u0BC7",            #    TAMIL SYLLABLE REE
+           "\u0BB0\u0BC8",            #    TAMIL SYLLABLE RAI
+           "\u0BB0\u0BCA",            #    TAMIL SYLLABLE RO
+           "\u0BB0\u0BCB",            #    TAMIL SYLLABLE ROO
+           "\u0BB0\u0BCC",            #    TAMIL SYLLABLE RAU
+           "\u0BB2\u0BBE",            #    TAMIL SYLLABLE LAA
+           "\u0BB2\u0BBF",            #    TAMIL SYLLABLE LI
+           "\u0BB2\u0BC0",            #    TAMIL SYLLABLE LII
+           "\u0BB2\u0BC1",            #    TAMIL SYLLABLE LU
+           "\u0BB2\u0BC2",            #    TAMIL SYLLABLE LUU
+           "\u0BB2\u0BC6",            #    TAMIL SYLLABLE LE
+           "\u0BB2\u0BC7",            #    TAMIL SYLLABLE LEE
+           "\u0BB2\u0BC8",            #    TAMIL SYLLABLE LAI
+           "\u0BB2\u0BCA",            #    TAMIL SYLLABLE LO
+           "\u0BB2\u0BCB",            #    TAMIL SYLLABLE LOO
+           "\u0BB2\u0BCC",            #    TAMIL SYLLABLE LAU
+           "\u0BB5\u0BBE",            #    TAMIL SYLLABLE VAA
+           "\u0BB5\u0BBF",            #    TAMIL SYLLABLE VI
+           "\u0BB5\u0BC0",            #    TAMIL SYLLABLE VII
+           "\u0BB5\u0BC1",            #    TAMIL SYLLABLE VU
+           "\u0BB5\u0BC2",            #    TAMIL SYLLABLE VUU
+           "\u0BB5\u0BC6",            #    TAMIL SYLLABLE VE
+           "\u0BB5\u0BC7",            #    TAMIL SYLLABLE VEE
+           "\u0BB5\u0BC8",            #    TAMIL SYLLABLE VAI
+           "\u0BB5\u0BCA",            #    TAMIL SYLLABLE VO
+           "\u0BB5\u0BCB",            #    TAMIL SYLLABLE VOO
+           "\u0BB5\u0BCC",            #    TAMIL SYLLABLE VAU
+           "\u0BB4\u0BBE",            #    TAMIL SYLLABLE LLLAA
+           "\u0BB4\u0BBF",            #    TAMIL SYLLABLE LLLI
+           "\u0BB4\u0BC0",            #    TAMIL SYLLABLE LLLII
+           "\u0BB4\u0BC1",            #    TAMIL SYLLABLE LLLU
+           "\u0BB4\u0BC2",            #    TAMIL SYLLABLE LLLUU
+           "\u0BB4\u0BC6",            #    TAMIL SYLLABLE LLLE
+           "\u0BB4\u0BC7",            #    TAMIL SYLLABLE LLLEE
+           "\u0BB4\u0BC8",            #    TAMIL SYLLABLE LLLAI
+           "\u0BB4\u0BCA",            #    TAMIL SYLLABLE LLLO
+           "\u0BB4\u0BCB",            #    TAMIL SYLLABLE LLLOO
+           "\u0BB4\u0BCC",            #    TAMIL SYLLABLE LLLAU
+           "\u0BB3\u0BBE",            #    TAMIL SYLLABLE LLAA
+           "\u0BB3\u0BBF",            #    TAMIL SYLLABLE LLI
+           "\u0BB3\u0BC0",            #    TAMIL SYLLABLE LLII
+           "\u0BB3\u0BC1",            #    TAMIL SYLLABLE LLU
+           "\u0BB3\u0BC2",            #    TAMIL SYLLABLE LLUU
+           "\u0BB3\u0BC6",            #    TAMIL SYLLABLE LLE
+           "\u0BB3\u0BC7",            #    TAMIL SYLLABLE LLEE
+           "\u0BB3\u0BC8",            #    TAMIL SYLLABLE LLAI
+           "\u0BB3\u0BCA",            #    TAMIL SYLLABLE LLO
+           "\u0BB3\u0BCB",            #    TAMIL SYLLABLE LLOO
+           "\u0BB3\u0BCC",            #    TAMIL SYLLABLE LLAU
+           "\u0BB1\u0BBE",            #    TAMIL SYLLABLE RRAA
+           "\u0BB1\u0BBF",            #    TAMIL SYLLABLE RRI
+           "\u0BB1\u0BC0",            #    TAMIL SYLLABLE RRII
+           "\u0BB1\u0BC1",            #    TAMIL SYLLABLE RRU
+           "\u0BB1\u0BC2",            #    TAMIL SYLLABLE RRUU
+           "\u0BB1\u0BC6",            #    TAMIL SYLLABLE RRE
+           "\u0BB1\u0BC7",            #    TAMIL SYLLABLE RREE
+           "\u0BB1\u0BC8",            #    TAMIL SYLLABLE RRAI
+           "\u0BB1\u0BCA",            #    TAMIL SYLLABLE RRO
+           "\u0BB1\u0BCB",            #    TAMIL SYLLABLE RROO
+           "\u0BB1\u0BCC",            #    TAMIL SYLLABLE RRAU
+           "\u0BA9\u0BBE",            #    TAMIL SYLLABLE NNNAA
+           "\u0BA9\u0BBF",            #    TAMIL SYLLABLE NNNI
+           "\u0BA9\u0BC0",            #    TAMIL SYLLABLE NNNII
+           "\u0BA9\u0BC1",            #    TAMIL SYLLABLE NNNU
+           "\u0BA9\u0BC2",            #    TAMIL SYLLABLE NNNUU
+           "\u0BA9\u0BC6",            #    TAMIL SYLLABLE NNNE
+           "\u0BA9\u0BC7",            #    TAMIL SYLLABLE NNNEE
+           "\u0BA9\u0BC8",            #    TAMIL SYLLABLE NNNAI
+           "\u0BA9\u0BCA",            #    TAMIL SYLLABLE NNNO
+           "\u0BA9\u0BCB",            #    TAMIL SYLLABLE NNNOO
+           "\u0BA9\u0BCC",            #    TAMIL SYLLABLE NNNAU
+           "\u0B9C\u0BBE",            #    TAMIL SYLLABLE JAA
+           "\u0B9C\u0BBF",            #    TAMIL SYLLABLE JI
+           "\u0B9C\u0BC0",            #    TAMIL SYLLABLE JII
+           "\u0B9C\u0BC1",            #    TAMIL SYLLABLE JU
+           "\u0B9C\u0BC2",            #    TAMIL SYLLABLE JUU
+           "\u0B9C\u0BC6",            #    TAMIL SYLLABLE JE
+           "\u0B9C\u0BC7",            #    TAMIL SYLLABLE JEE
+           "\u0B9C\u0BC8",            #    TAMIL SYLLABLE JAI
+           "\u0B9C\u0BCA",            #    TAMIL SYLLABLE JO
+           "\u0B9C\u0BCB",            #    TAMIL SYLLABLE JOO
+           "\u0B9C\u0BCC",            #    TAMIL SYLLABLE JAU
+           "\u0BB6\u0BBE",            #    TAMIL SYLLABLE SHAA
+           "\u0BB6\u0BBF",            #    TAMIL SYLLABLE SHI
+           "\u0BB6\u0BC0",            #    TAMIL SYLLABLE SHII
+           "\u0BB6\u0BC1",            #    TAMIL SYLLABLE SHU
+           "\u0BB6\u0BC2",            #    TAMIL SYLLABLE SHUU
+           "\u0BB6\u0BC6",            #    TAMIL SYLLABLE SHE
+           "\u0BB6\u0BC7",            #    TAMIL SYLLABLE SHEE
+           "\u0BB6\u0BC8",            #    TAMIL SYLLABLE SHAI
+           "\u0BB6\u0BCA",            #    TAMIL SYLLABLE SHO
+           "\u0BB6\u0BCB",            #    TAMIL SYLLABLE SHOO
+           "\u0BB6\u0BCC",            #    TAMIL SYLLABLE SHAU
+           "\u0BB7\u0BBE",            #    TAMIL SYLLABLE SSAA
+           "\u0BB7\u0BBF",            #    TAMIL SYLLABLE SSI
+           "\u0BB7\u0BC0",            #    TAMIL SYLLABLE SSII
+           "\u0BB7\u0BC1",            #    TAMIL SYLLABLE SSU
+           "\u0BB7\u0BC2",            #    TAMIL SYLLABLE SSUU
+           "\u0BB7\u0BC6",            #    TAMIL SYLLABLE SSE
+           "\u0BB7\u0BC7",            #    TAMIL SYLLABLE SSEE
+           "\u0BB7\u0BC8",            #    TAMIL SYLLABLE SSAI
+           "\u0BB7\u0BCA",            #    TAMIL SYLLABLE SSO
+           "\u0BB7\u0BCB",            #    TAMIL SYLLABLE SSOO
+           "\u0BB7\u0BCC",            #    TAMIL SYLLABLE SSAU
+           "\u0BB8\u0BBE",            #    TAMIL SYLLABLE SAA
+           "\u0BB8\u0BBF",            #    TAMIL SYLLABLE SI
+           "\u0BB8\u0BC0",            #    TAMIL SYLLABLE SII
+           "\u0BB8\u0BC1",            #    TAMIL SYLLABLE SU
+           "\u0BB8\u0BC2",            #    TAMIL SYLLABLE SUU
+           "\u0BB8\u0BC6",            #    TAMIL SYLLABLE SE
+           "\u0BB8\u0BC7",            #    TAMIL SYLLABLE SEE
+           "\u0BB8\u0BC8",            #    TAMIL SYLLABLE SAI
+           "\u0BB8\u0BCA",            #    TAMIL SYLLABLE SO
+           "\u0BB8\u0BCB",            #    TAMIL SYLLABLE SOO
+           "\u0BB8\u0BCC",            #    TAMIL SYLLABLE SAU
+           "\u0BB9\u0BBE",            #    TAMIL SYLLABLE HAA
+           "\u0BB9\u0BBF",            #    TAMIL SYLLABLE HI
+           "\u0BB9\u0BC0",            #    TAMIL SYLLABLE HII
+           "\u0BB9\u0BC1",            #    TAMIL SYLLABLE HU
+           "\u0BB9\u0BC2",            #    TAMIL SYLLABLE HUU
+           "\u0BB9\u0BC6",            #    TAMIL SYLLABLE HE
+           "\u0BB9\u0BC7",            #    TAMIL SYLLABLE HEE
+           "\u0BB9\u0BC8",            #    TAMIL SYLLABLE HAI
+           "\u0BB9\u0BCA",            #    TAMIL SYLLABLE HO
+           "\u0BB9\u0BCB",            #    TAMIL SYLLABLE HOO
+           "\u0BB9\u0BCC",            #    TAMIL SYLLABLE HAU
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSA
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSAA
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSI
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSII
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSU
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSUU
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSE
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSEE
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSAI
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSO
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSOO
+           "\u0B95\u0BCD",            #    TAMIL SYLLABLE KSSAU
+           "\u0BB6\u0BCD",            #    TAMIL SYLLABLE SHRII
+      # Sinhala medial consonants and "reph" form.
+      # Provisional 2010-05-13, Approved 2011-08-05
+           "\u0DCA\u200D",            #    SINHALA CONSONANT SIGN YANSAYA
+           "\u0DCA\u200D",            #    SINHALA CONSONANT SIGN RAKAARAANSAYA
+           "\u0DBB\u0DCA",            #    SINHALA CONSONANT SIGN REPAYA
+      # Georgian letter plus accent sequence.
+      # This is part of the original set of approved named sequences
+      # for Unicode 4.1. 2005.
+           "\u10E3\u0302",            #    GEORGIAN LETTER U-BRJGU
+      # Khmer subjoined forms and other sequences.
+      # These are part of the original set of approved named sequences
+      # for Unicode 4.1. 2005.
+           "\u17D2\u1780",            #    KHMER CONSONANT SIGN COENG KA
+           "\u17D2\u1781",            #    KHMER CONSONANT SIGN COENG KHA
+           "\u17D2\u1782",            #    KHMER CONSONANT SIGN COENG KO
+           "\u17D2\u1783",            #    KHMER CONSONANT SIGN COENG KHO
+           "\u17D2\u1784",            #    KHMER CONSONANT SIGN COENG NGO
+           "\u17D2\u1785",            #    KHMER CONSONANT SIGN COENG CA
+           "\u17D2\u1786",            #    KHMER CONSONANT SIGN COENG CHA
+           "\u17D2\u1787",            #    KHMER CONSONANT SIGN COENG CO
+           "\u17D2\u1788",            #    KHMER CONSONANT SIGN COENG CHO
+           "\u17D2\u1789",            #    KHMER CONSONANT SIGN COENG NYO
+           "\u17D2\u178A",            #    KHMER CONSONANT SIGN COENG DA
+           "\u17D2\u178B",            #    KHMER CONSONANT SIGN COENG TTHA
+           "\u17D2\u178C",            #    KHMER CONSONANT SIGN COENG DO
+           "\u17D2\u178D",            #    KHMER CONSONANT SIGN COENG TTHO
+           "\u17D2\u178E",            #    KHMER CONSONANT SIGN COENG NA
+           "\u17D2\u178F",            #    KHMER CONSONANT SIGN COENG TA
+           "\u17D2\u1790",            #    KHMER CONSONANT SIGN COENG THA
+           "\u17D2\u1791",            #    KHMER CONSONANT SIGN COENG TO
+           "\u17D2\u1792",            #    KHMER CONSONANT SIGN COENG THO
+           "\u17D2\u1793",            #    KHMER CONSONANT SIGN COENG NO
+           "\u17D2\u1794",            #    KHMER CONSONANT SIGN COENG BA
+           "\u17D2\u1795",            #    KHMER CONSONANT SIGN COENG PHA
+           "\u17D2\u1796",            #    KHMER CONSONANT SIGN COENG PO
+           "\u17D2\u1797",            #    KHMER CONSONANT SIGN COENG PHO
+           "\u17D2\u1798",            #    KHMER CONSONANT SIGN COENG MO
+           "\u17D2\u1799",            #    KHMER CONSONANT SIGN COENG YO
+           "\u17D2\u179A",            #    KHMER CONSONANT SIGN COENG RO
+           "\u17D2\u179B",            #    KHMER CONSONANT SIGN COENG LO
+           "\u17D2\u179C",            #    KHMER CONSONANT SIGN COENG VO
+           "\u17D2\u179D",            #    KHMER CONSONANT SIGN COENG SHA
+           "\u17D2\u179E",            #    KHMER CONSONANT SIGN COENG SSA
+           "\u17D2\u179F",            #    KHMER CONSONANT SIGN COENG SA
+           "\u17D2\u17A0",            #    KHMER CONSONANT SIGN COENG HA
+           "\u17D2\u17A1",            #    KHMER CONSONANT SIGN COENG LA
+           "\u17D2\u17A2",            #    KHMER VOWEL SIGN COENG QA
+           "\u17D2\u17A7",            #    KHMER INDEPENDENT VOWEL SIGN COENG QU
+           "\u17D2\u17AB",            #    KHMER INDEPENDENT VOWEL SIGN COENG RY
+           "\u17D2\u17AC",            #    KHMER INDEPENDENT VOWEL SIGN COENG RYY
+           "\u17D2\u17AF",            #    KHMER INDEPENDENT VOWEL SIGN COENG QE
+           "\u17BB\u17C6",            #    KHMER VOWEL SIGN OM
+           "\u17B6\u17C6",            #    KHMER VOWEL SIGN AAM
+      # Entries for JIS X 0213 compatibility mapping.
+      # Provisional 2008-11-07, Approved 2010-05-14
+      #
+      # Two of these were part of the original set of approved named sequences
+      # for Unicode 4.1. 2005.
+           "\u304B\u309A",            #    HIRAGANA LETTER BIDAKUON NGA
+           "\u304D\u309A",            #    HIRAGANA LETTER BIDAKUON NGI
+           "\u304F\u309A",            #    HIRAGANA LETTER BIDAKUON NGU
+           "\u3051\u309A",            #    HIRAGANA LETTER BIDAKUON NGE
+           "\u3053\u309A",            #    HIRAGANA LETTER BIDAKUON NGO
+           "\u30AB\u309A",            #    KATAKANA LETTER BIDAKUON NGA
+           "\u30AD\u309A",            #    KATAKANA LETTER BIDAKUON NGI
+           "\u30AF\u309A",            #    KATAKANA LETTER BIDAKUON NGU
+           "\u30B1\u309A",            #    KATAKANA LETTER BIDAKUON NGE
+           "\u30B3\u309A",            #    KATAKANA LETTER BIDAKUON NGO
+           "\u30BB\u309A",            #    KATAKANA LETTER AINU CE
+           "\u30C4\u309A",            #    KATAKANA LETTER AINU TU
+           "\u30C8\u309A",            #    KATAKANA LETTER AINU TO
+           "\u31F7\u309A",            #    KATAKANA LETTER AINU P
+           "\u02E5\u02E9",            #    MODIFIER LETTER EXTRA-HIGH EXTRA-LOW CONTOUR TONE BAR
+           "\u02E9\u02E5",            #    MODIFIER LETTER EXTRA-LOW EXTRA-HIGH CONTOUR TONE BAR
+    ]
+    test_data.each do |string|
+      assert @validator.valid_encoding?(string), "_named_sequences A: #{string}"
+      assert string.force_encoding("UTF-8").valid_encoding?,
+        "_named_sequences B: #{string}"  if @vercheck
+    end
+  end
+
 end # of class
