@@ -1,5 +1,7 @@
+# encoding: utf-8
+#
 #--
-# Copyright (c) 2011-2013 Guy Allard
+# Copyright (c) 2011-2016 Guy Allard
 #--
 module UTF8
   #

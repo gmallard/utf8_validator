@@ -1,5 +1,8 @@
 # encoding: utf-8
 #
+#--
+# Copyright (c) 2016 Guy Allard
+#--
 =begin
 
 http://unicode.org/mail-arch/unicode-ml/y2003-m02/att-0467/01-The_Algorithm_to_Valide_an_UTF-8_String

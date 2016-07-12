@@ -1,5 +1,8 @@
 # encoding: utf-8
 #
+#--
+# Copyright (c) 2016 Guy Allard
+#--
 if Kernel.respond_to?(:require_relative)
   require_relative("./helper")
 else
