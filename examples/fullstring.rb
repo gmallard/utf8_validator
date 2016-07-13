@@ -1,5 +1,9 @@
 # encoding: utf-8
 #
+#--
+# Copyright (c) 2016 Guy Allard
+#--
+#
 # Show how to parse a full string with multiple UTF8 validation failures.
 # Accumulate error information, and report it.
 #
