@@ -31,24 +31,12 @@ class TestUnicode10NormalizationCorrections < Test::Unit::TestCase
 
   def test_unicode10_NormalizationCorrections
     test_data = [
-      "\dF951",  # Corrigendum 3
-      "\d96FB",  # Corrigendum 3
-      "\d964B",  # Corrigendum 3
-      "\d2F868",  # Corrigendum 4
-      "\d2136A",  # Corrigendum 4
-      "\d36FC",  # Corrigendum 4
-      "\d2F874",  # Corrigendum 4
-      "\d5F33",  # Corrigendum 4
-      "\d5F53",  # Corrigendum 4
-      "\d2F91F",  # Corrigendum 4
-      "\d43AB",  # Corrigendum 4
-      "\d243AB",  # Corrigendum 4
-      "\d2F95F",  # Corrigendum 4
-      "\d7AAE",  # Corrigendum 4
-      "\d7AEE",  # Corrigendum 4
-      "\d2F9BF",  # Corrigendum 4
-      "\d4D57",  # Corrigendum 4
-      "\d45D7",  # Corrigendum 4
+      "\uF951",  # Corrigendum 3
+      "\u2F868",  # Corrigendum 4
+      "\u2F874",  # Corrigendum 4
+      "\u2F91F",  # Corrigendum 4
+      "\u2F95F",  # Corrigendum 4
+      "\u2F9BF",  # Corrigendum 4
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "U10_NormalizationCorrections: #{string}"

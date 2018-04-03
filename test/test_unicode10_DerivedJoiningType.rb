@@ -31,448 +31,448 @@ class TestUnicode10DerivedJoiningType < Test::Unit::TestCase
 
   def test_unicode10_DerivedJoiningType
     test_data = [
-        "\d0640",  # ; C # Lm       ARABIC TATWEEL
-        "\d07FA",  # ; C # Lm       NKO LAJANYALAN
-        "\d180A",  # ; C # Po       MONGOLIAN NIRUGU
-        "\d200D",  # ; C # Cf       ZERO WIDTH JOINER
-        "\d0620",  # ; D # Lo       ARABIC LETTER KASHMIRI YEH
-        "\d0626",  # ; D # Lo       ARABIC LETTER YEH WITH HAMZA ABOVE
-        "\d0628",  # ; D # Lo       ARABIC LETTER BEH
-        "\d062a","\d062b","\d062c","\d062d","\d062e",  # ; D # Lo   [5] ARABIC LETTER TEH..ARABIC LETTER KHAH
-        "\d0633","\d0634","\d0635","\d0636","\d0637","\d0638","\d0639","\d063a","\d063b","\d063c","\d063d","\d063e","\d063f",  # ; D # Lo  [13] ARABIC LETTER SEEN..ARABIC LETTER FARSI YEH WITH THREE DOTS ABOVE
-        "\d0641","\d0642","\d0643","\d0644","\d0645","\d0646","\d0647",  # ; D # Lo   [7] ARABIC LETTER FEH..ARABIC LETTER HEH
-        "\d0649","\d064a",  # ; D # Lo   [2] ARABIC LETTER ALEF MAKSURA..ARABIC LETTER YEH
-        "\d066e","\d066f",  # ; D # Lo   [2] ARABIC LETTER DOTLESS BEH..ARABIC LETTER DOTLESS QAF
-        "\d0678","\d0679","\d067a","\d067b","\d067c","\d067d","\d067e","\d067f","\d0680","\d0681","\d0682","\d0683","\d0684","\d0685","\d0686","\d0687",  # ; D # Lo  [16] ARABIC LETTER HIGH HAMZA YEH..ARABIC LETTER TCHEHEH
-        "\d069a","\d069b","\d069c","\d069d","\d069e","\d069f","\d06a0","\d06a1","\d06a2","\d06a3","\d06a4","\d06a5","\d06a6","\d06a7","\d06a8","\d06a9","\d06aa","\d06ab","\d06ac","\d06ad","\d06ae","\d06af","\d06b0","\d06b1","\d06b2","\d06b3","\d06b4","\d06b5","\d06b6","\d06b7","\d06b8","\d06b9","\d06ba","\d06bb","\d06bc","\d06bd","\d06be","\d06bf",  # ; D # Lo  [38] ARABIC LETTER SEEN WITH DOT BELOW AND DOT ABOVE..ARABIC LETTER TCHEH WITH DOT ABOVE
-        "\d06c1","\d06c2",  # ; D # Lo   [2] ARABIC LETTER HEH GOAL..ARABIC LETTER HEH GOAL WITH HAMZA ABOVE
-        "\d06CC",  # ; D # Lo       ARABIC LETTER FARSI YEH
-        "\d06CE",  # ; D # Lo       ARABIC LETTER YEH WITH SMALL V
-        "\d06d0","\d06d1",  # ; D # Lo   [2] ARABIC LETTER E..ARABIC LETTER YEH WITH THREE DOTS BELOW
-        "\d06fa","\d06fb","\d06fc",  # ; D # Lo   [3] ARABIC LETTER SHEEN WITH DOT BELOW..ARABIC LETTER GHAIN WITH DOT BELOW
-        "\d06FF",  # ; D # Lo       ARABIC LETTER HEH WITH INVERTED V
-        "\d0712","\d0713","\d0714",  # ; D # Lo   [3] SYRIAC LETTER BETH..SYRIAC LETTER GAMAL GARSHUNI
-        "\d071a","\d071b","\d071c","\d071d",  # ; D # Lo   [4] SYRIAC LETTER HETH..SYRIAC LETTER YUDH
-        "\d071f","\d0720","\d0721","\d0722","\d0723","\d0724","\d0725","\d0726","\d0727",  # ; D # Lo   [9] SYRIAC LETTER KAPH..SYRIAC LETTER REVERSED PE
-        "\d0729",  # ; D # Lo       SYRIAC LETTER QAPH
-        "\d072B",  # ; D # Lo       SYRIAC LETTER SHIN
-        "\d072d","\d072e",  # ; D # Lo   [2] SYRIAC LETTER PERSIAN BHETH..SYRIAC LETTER PERSIAN GHAMAL
-        "\d074e","\d074f","\d0750","\d0751","\d0752","\d0753","\d0754","\d0755","\d0756","\d0757","\d0758",  # ; D # Lo  [11] SYRIAC LETTER SOGDIAN KHAPH..ARABIC LETTER HAH WITH THREE DOTS POINTING UPWARDS BELOW
-        "\d075c","\d075d","\d075e","\d075f","\d0760","\d0761","\d0762","\d0763","\d0764","\d0765","\d0766","\d0767","\d0768","\d0769","\d076a",  # ; D # Lo  [15] ARABIC LETTER SEEN WITH FOUR DOTS ABOVE..ARABIC LETTER LAM WITH BAR
-        "\d076d","\d076e","\d076f","\d0770",  # ; D # Lo   [4] ARABIC LETTER SEEN WITH TWO DOTS VERTICALLY ABOVE..ARABIC LETTER SEEN WITH SMALL ARABIC LETTER TAH AND TWO DOTS
-        "\d0772",  # ; D # Lo       ARABIC LETTER HAH WITH SMALL ARABIC LETTER TAH ABOVE
-        "\d0775","\d0776","\d0777",  # ; D # Lo   [3] ARABIC LETTER FARSI YEH WITH EXTENDED ARABIC-INDIC DIGIT TWO ABOVE..ARABIC LETTER FARSI YEH WITH EXTENDED ARABIC-INDIC DIGIT FOUR BELOW
-        "\d077a","\d077b","\d077c","\d077d","\d077e","\d077f",  # ; D # Lo   [6] ARABIC LETTER YEH BARREE WITH EXTENDED ARABIC-INDIC DIGIT TWO ABOVE..ARABIC LETTER KAF WITH TWO DOTS ABOVE
-        "\d07ca","\d07cb","\d07cc","\d07cd","\d07ce","\d07cf","\d07d0","\d07d1","\d07d2","\d07d3","\d07d4","\d07d5","\d07d6","\d07d7","\d07d8","\d07d9","\d07da","\d07db","\d07dc","\d07dd","\d07de","\d07df","\d07e0","\d07e1","\d07e2","\d07e3","\d07e4","\d07e5","\d07e6","\d07e7","\d07e8","\d07e9","\d07ea",  # ; D # Lo  [33] NKO LETTER A..NKO LETTER JONA RA
-        "\d0841","\d0842","\d0843","\d0844","\d0845",  # ; D # Lo   [5] MANDAIC LETTER AB..MANDAIC LETTER USHENNA
-        "\d0848",  # ; D # Lo       MANDAIC LETTER ATT
-        "\d084a","\d084b","\d084c","\d084d","\d084e","\d084f","\d0850","\d0851","\d0852","\d0853",  # ; D # Lo  [10] MANDAIC LETTER AK..MANDAIC LETTER AR
-        "\d0855",  # ; D # Lo       MANDAIC LETTER AT
-        "\d0860",  # ; D # Lo       SYRIAC LETTER MALAYALAM NGA
-        "\d0862","\d0863","\d0864","\d0865",  # ; D # Lo   [4] SYRIAC LETTER MALAYALAM NYA..SYRIAC LETTER MALAYALAM NNNA
-        "\d0868",  # ; D # Lo       SYRIAC LETTER MALAYALAM LLA
-        "\d08a0","\d08a1","\d08a2","\d08a3","\d08a4","\d08a5","\d08a6","\d08a7","\d08a8","\d08a9",  # ; D # Lo  [10] ARABIC LETTER BEH WITH SMALL V BELOW..ARABIC LETTER YEH WITH TWO DOTS BELOW AND DOT ABOVE
-        "\d08af","\d08b0",  # ; D # Lo   [2] ARABIC LETTER SAD WITH THREE DOTS BELOW..ARABIC LETTER GAF WITH INVERTED STROKE
-        "\d08b3","\d08b4",  # ; D # Lo   [2] ARABIC LETTER AIN WITH THREE DOTS BELOW..ARABIC LETTER KAF WITH DOT BELOW
-        "\d08b6","\d08b7","\d08b8",  # ; D # Lo   [3] ARABIC LETTER BEH WITH SMALL MEEM ABOVE..ARABIC LETTER TEH WITH SMALL TEH ABOVE
-        "\d08ba","\d08bb","\d08bc","\d08bd",  # ; D # Lo   [4] ARABIC LETTER YEH WITH TWO DOTS BELOW AND SMALL NOON ABOVE..ARABIC LETTER AFRICAN NOON
-        "\d1807",  # ; D # Po       MONGOLIAN SIBE SYLLABLE BOUNDARY MARKER
-        "\d1820","\d1821","\d1822","\d1823","\d1824","\d1825","\d1826","\d1827","\d1828","\d1829","\d182a","\d182b","\d182c","\d182d","\d182e","\d182f","\d1830","\d1831","\d1832","\d1833","\d1834","\d1835","\d1836","\d1837","\d1838","\d1839","\d183a","\d183b","\d183c","\d183d","\d183e","\d183f","\d1840","\d1841","\d1842",  # ; D # Lo  [35] MONGOLIAN LETTER A..MONGOLIAN LETTER CHI
-        "\d1843",  # ; D # Lm       MONGOLIAN LETTER TODO LONG VOWEL SIGN
-        "\d1844","\d1845","\d1846","\d1847","\d1848","\d1849","\d184a","\d184b","\d184c","\d184d","\d184e","\d184f","\d1850","\d1851","\d1852","\d1853","\d1854","\d1855","\d1856","\d1857","\d1858","\d1859","\d185a","\d185b","\d185c","\d185d","\d185e","\d185f","\d1860","\d1861","\d1862","\d1863","\d1864","\d1865","\d1866","\d1867","\d1868","\d1869","\d186a","\d186b","\d186c","\d186d","\d186e","\d186f","\d1870","\d1871","\d1872","\d1873","\d1874","\d1875","\d1876","\d1877",  # ; D # Lo  [52] MONGOLIAN LETTER TODO E..MONGOLIAN LETTER MANCHU ZHA
-        "\d1887","\d1888","\d1889","\d188a","\d188b","\d188c","\d188d","\d188e","\d188f","\d1890","\d1891","\d1892","\d1893","\d1894","\d1895","\d1896","\d1897","\d1898","\d1899","\d189a","\d189b","\d189c","\d189d","\d189e","\d189f","\d18a0","\d18a1","\d18a2","\d18a3","\d18a4","\d18a5","\d18a6","\d18a7","\d18a8",  # ; D # Lo  [34] MONGOLIAN LETTER ALI GALI A..MONGOLIAN LETTER MANCHU ALI GALI BHA
-        "\d18AA",  # ; D # Lo       MONGOLIAN LETTER MANCHU ALI GALI LHA
-        "\da840","\da841","\da842","\da843","\da844","\da845","\da846","\da847","\da848","\da849","\da84a","\da84b","\da84c","\da84d","\da84e","\da84f","\da850","\da851","\da852","\da853","\da854","\da855","\da856","\da857","\da858","\da859","\da85a","\da85b","\da85c","\da85d","\da85e","\da85f","\da860","\da861","\da862","\da863","\da864","\da865","\da866","\da867","\da868","\da869","\da86a","\da86b","\da86c","\da86d","\da86e","\da86f","\da870","\da871",  # ; D # Lo  [50] PHAGS-PA LETTER KA..PHAGS-PA SUBJOINED LETTER RA
-        "\d10ac0","\d10ac1","\d10ac2","\d10ac3","\d10ac4",  # ; D # Lo   [5] MANICHAEAN LETTER ALEPH..MANICHAEAN LETTER GHIMEL
-        "\d10ad3","\d10ad4","\d10ad5","\d10ad6",  # ; D # Lo   [4] MANICHAEAN LETTER LAMEDH..MANICHAEAN LETTER MEM
-        "\d10ad8","\d10ad9","\d10ada","\d10adb","\d10adc",  # ; D # Lo   [5] MANICHAEAN LETTER SAMEKH..MANICHAEAN LETTER FE
-        "\d10ade","\d10adf","\d10ae0",  # ; D # Lo   [3] MANICHAEAN LETTER QOPH..MANICHAEAN LETTER QHOPH
-        "\d10aeb","\d10aec","\d10aed","\d10aee",  # ; D # No   [4] MANICHAEAN NUMBER ONE..MANICHAEAN NUMBER TWENTY
-        "\d10B80",  # ; D # Lo       PSALTER PAHLAVI LETTER ALEPH
-        "\d10B82",  # ; D # Lo       PSALTER PAHLAVI LETTER GIMEL
-        "\d10b86","\d10b87","\d10b88",  # ; D # Lo   [3] PSALTER PAHLAVI LETTER ZAYIN..PSALTER PAHLAVI LETTER YODH
-        "\d10b8a","\d10b8b",  # ; D # Lo   [2] PSALTER PAHLAVI LETTER LAMEDH..PSALTER PAHLAVI LETTER MEM-QOPH
-        "\d10B8D",  # ; D # Lo       PSALTER PAHLAVI LETTER SAMEKH
-        "\d10B90",  # ; D # Lo       PSALTER PAHLAVI LETTER SHIN
-        "\d10bad","\d10bae",  # ; D # No   [2] PSALTER PAHLAVI NUMBER TEN..PSALTER PAHLAVI NUMBER TWENTY
-        "\d1e900","\d1e901","\d1e902","\d1e903","\d1e904","\d1e905","\d1e906","\d1e907","\d1e908","\d1e909","\d1e90a","\d1e90b","\d1e90c","\d1e90d","\d1e90e","\d1e90f","\d1e910","\d1e911","\d1e912","\d1e913","\d1e914","\d1e915","\d1e916","\d1e917","\d1e918","\d1e919","\d1e91a","\d1e91b","\d1e91c","\d1e91d","\d1e91e","\d1e91f","\d1e920","\d1e921","\d1e922","\d1e923","\d1e924","\d1e925","\d1e926","\d1e927","\d1e928","\d1e929","\d1e92a","\d1e92b","\d1e92c","\d1e92d","\d1e92e","\d1e92f","\d1e930","\d1e931","\d1e932","\d1e933","\d1e934","\d1e935","\d1e936","\d1e937","\d1e938","\d1e939","\d1e93a","\d1e93b","\d1e93c","\d1e93d","\d1e93e","\d1e93f","\d1e940","\d1e941","\d1e942","\d1e943",  # ; D # L&  [68] ADLAM CAPITAL LETTER ALIF..ADLAM SMALL LETTER SHA
-        "\d0622","\d0623","\d0624","\d0625",  # ; R # Lo   [4] ARABIC LETTER ALEF WITH MADDA ABOVE..ARABIC LETTER ALEF WITH HAMZA BELOW
-        "\d0627",  # ; R # Lo       ARABIC LETTER ALEF
-        "\d0629",  # ; R # Lo       ARABIC LETTER TEH MARBUTA
-        "\d062f","\d0630","\d0631","\d0632",  # ; R # Lo   [4] ARABIC LETTER DAL..ARABIC LETTER ZAIN
-        "\d0648",  # ; R # Lo       ARABIC LETTER WAW
-        "\d0671","\d0672","\d0673",  # ; R # Lo   [3] ARABIC LETTER ALEF WASLA..ARABIC LETTER ALEF WITH WAVY HAMZA BELOW
-        "\d0675","\d0676","\d0677",  # ; R # Lo   [3] ARABIC LETTER HIGH HAMZA ALEF..ARABIC LETTER U WITH HAMZA ABOVE
-        "\d0688","\d0689","\d068a","\d068b","\d068c","\d068d","\d068e","\d068f","\d0690","\d0691","\d0692","\d0693","\d0694","\d0695","\d0696","\d0697","\d0698","\d0699",  # ; R # Lo  [18] ARABIC LETTER DDAL..ARABIC LETTER REH WITH FOUR DOTS ABOVE
-        "\d06C0",  # ; R # Lo       ARABIC LETTER HEH WITH YEH ABOVE
-        "\d06c3","\d06c4","\d06c5","\d06c6","\d06c7","\d06c8","\d06c9","\d06ca","\d06cb",  # ; R # Lo   [9] ARABIC LETTER TEH MARBUTA GOAL..ARABIC LETTER VE
-        "\d06CD",  # ; R # Lo       ARABIC LETTER YEH WITH TAIL
-        "\d06CF",  # ; R # Lo       ARABIC LETTER WAW WITH DOT ABOVE
-        "\d06d2","\d06d3",  # ; R # Lo   [2] ARABIC LETTER YEH BARREE..ARABIC LETTER YEH BARREE WITH HAMZA ABOVE
-        "\d06D5",  # ; R # Lo       ARABIC LETTER AE
-        "\d06ee","\d06ef",  # ; R # Lo   [2] ARABIC LETTER DAL WITH INVERTED V..ARABIC LETTER REH WITH INVERTED V
-        "\d0710",  # ; R # Lo       SYRIAC LETTER ALAPH
-        "\d0715","\d0716","\d0717","\d0718","\d0719",  # ; R # Lo   [5] SYRIAC LETTER DALATH..SYRIAC LETTER ZAIN
-        "\d071E",  # ; R # Lo       SYRIAC LETTER YUDH HE
-        "\d0728",  # ; R # Lo       SYRIAC LETTER SADHE
-        "\d072A",  # ; R # Lo       SYRIAC LETTER RISH
-        "\d072C",  # ; R # Lo       SYRIAC LETTER TAW
-        "\d072F",  # ; R # Lo       SYRIAC LETTER PERSIAN DHALATH
-        "\d074D",  # ; R # Lo       SYRIAC LETTER SOGDIAN ZHAIN
-        "\d0759","\d075a","\d075b",  # ; R # Lo   [3] ARABIC LETTER DAL WITH TWO DOTS VERTICALLY BELOW AND SMALL TAH..ARABIC LETTER REH WITH STROKE
-        "\d076b","\d076c",  # ; R # Lo   [2] ARABIC LETTER REH WITH TWO DOTS VERTICALLY ABOVE..ARABIC LETTER REH WITH HAMZA ABOVE
-        "\d0771",  # ; R # Lo       ARABIC LETTER REH WITH SMALL ARABIC LETTER TAH AND TWO DOTS
-        "\d0773","\d0774",  # ; R # Lo   [2] ARABIC LETTER ALEF WITH EXTENDED ARABIC-INDIC DIGIT TWO ABOVE..ARABIC LETTER ALEF WITH EXTENDED ARABIC-INDIC DIGIT THREE ABOVE
-        "\d0778","\d0779",  # ; R # Lo   [2] ARABIC LETTER WAW WITH EXTENDED ARABIC-INDIC DIGIT TWO ABOVE..ARABIC LETTER WAW WITH EXTENDED ARABIC-INDIC DIGIT THREE ABOVE
-        "\d0840",  # ; R # Lo       MANDAIC LETTER HALQA
-        "\d0846","\d0847",  # ; R # Lo   [2] MANDAIC LETTER AZ..MANDAIC LETTER IT
-        "\d0849",  # ; R # Lo       MANDAIC LETTER AKSA
-        "\d0854",  # ; R # Lo       MANDAIC LETTER ASH
-        "\d0867",  # ; R # Lo       SYRIAC LETTER MALAYALAM RA
-        "\d0869","\d086a",  # ; R # Lo   [2] SYRIAC LETTER MALAYALAM LLLA..SYRIAC LETTER MALAYALAM SSA
-        "\d08aa","\d08ab","\d08ac",  # ; R # Lo   [3] ARABIC LETTER REH WITH LOOP..ARABIC LETTER ROHINGYA YEH
-        "\d08AE",  # ; R # Lo       ARABIC LETTER DAL WITH THREE DOTS BELOW
-        "\d08b1","\d08b2",  # ; R # Lo   [2] ARABIC LETTER STRAIGHT WAW..ARABIC LETTER ZAIN WITH INVERTED V ABOVE
-        "\d08B9",  # ; R # Lo       ARABIC LETTER REH WITH SMALL NOON ABOVE
-        "\d10AC5",  # ; R # Lo       MANICHAEAN LETTER DALETH
-        "\d10AC7",  # ; R # Lo       MANICHAEAN LETTER WAW
-        "\d10ac9","\d10aca",  # ; R # Lo   [2] MANICHAEAN LETTER ZAYIN..MANICHAEAN LETTER ZHAYIN
-        "\d10ace","\d10acf","\d10ad0","\d10ad1","\d10ad2",  # ; R # Lo   [5] MANICHAEAN LETTER TETH..MANICHAEAN LETTER KHAPH
-        "\d10ADD",  # ; R # Lo       MANICHAEAN LETTER SADHE
-        "\d10AE1",  # ; R # Lo       MANICHAEAN LETTER RESH
-        "\d10AE4",  # ; R # Lo       MANICHAEAN LETTER TAW
-        "\d10AEF",  # ; R # No       MANICHAEAN NUMBER ONE HUNDRED
-        "\d10B81",  # ; R # Lo       PSALTER PAHLAVI LETTER BETH
-        "\d10b83","\d10b84","\d10b85",  # ; R # Lo   [3] PSALTER PAHLAVI LETTER DALETH..PSALTER PAHLAVI LETTER WAW-AYIN-RESH
-        "\d10B89",  # ; R # Lo       PSALTER PAHLAVI LETTER KAPH
-        "\d10B8C",  # ; R # Lo       PSALTER PAHLAVI LETTER NUN
-        "\d10b8e","\d10b8f",  # ; R # Lo   [2] PSALTER PAHLAVI LETTER PE..PSALTER PAHLAVI LETTER SADHE
-        "\d10B91",  # ; R # Lo       PSALTER PAHLAVI LETTER TAW
-        "\d10ba9","\d10baa","\d10bab","\d10bac",  # ; R # No   [4] PSALTER PAHLAVI NUMBER ONE..PSALTER PAHLAVI NUMBER FOUR
-        "\dA872",  # ; L # Lo       PHAGS-PA SUPERFIXED LETTER RA
-        "\d10ACD",  # ; L # Lo       MANICHAEAN LETTER HETH
-        "\d10AD7",  # ; L # Lo       MANICHAEAN LETTER NUN
-        "\d00AD",  # ; T # Cf       SOFT HYPHEN
-        "\d0300","\d0301","\d0302","\d0303","\d0304","\d0305","\d0306","\d0307","\d0308","\d0309","\d030a","\d030b","\d030c","\d030d","\d030e","\d030f","\d0310","\d0311","\d0312","\d0313","\d0314","\d0315","\d0316","\d0317","\d0318","\d0319","\d031a","\d031b","\d031c","\d031d","\d031e","\d031f","\d0320","\d0321","\d0322","\d0323","\d0324","\d0325","\d0326","\d0327","\d0328","\d0329","\d032a","\d032b","\d032c","\d032d","\d032e","\d032f","\d0330","\d0331","\d0332","\d0333","\d0334","\d0335","\d0336","\d0337","\d0338","\d0339","\d033a","\d033b","\d033c","\d033d","\d033e","\d033f","\d0340","\d0341","\d0342","\d0343","\d0344","\d0345","\d0346","\d0347","\d0348","\d0349","\d034a","\d034b","\d034c","\d034d","\d034e","\d034f","\d0350","\d0351","\d0352","\d0353","\d0354","\d0355","\d0356","\d0357","\d0358","\d0359","\d035a","\d035b","\d035c","\d035d","\d035e","\d035f","\d0360","\d0361","\d0362","\d0363","\d0364","\d0365","\d0366","\d0367","\d0368","\d0369","\d036a","\d036b","\d036c","\d036d","\d036e","\d036f",  # ; T # Mn [112] COMBINING GRAVE ACCENT..COMBINING LATIN SMALL LETTER X
-        "\d0483","\d0484","\d0485","\d0486","\d0487",  # ; T # Mn   [5] COMBINING CYRILLIC TITLO..COMBINING CYRILLIC POKRYTIE
-        "\d0488","\d0489",  # ; T # Me   [2] COMBINING CYRILLIC HUNDRED THOUSANDS SIGN..COMBINING CYRILLIC MILLIONS SIGN
-        "\d0591","\d0592","\d0593","\d0594","\d0595","\d0596","\d0597","\d0598","\d0599","\d059a","\d059b","\d059c","\d059d","\d059e","\d059f","\d05a0","\d05a1","\d05a2","\d05a3","\d05a4","\d05a5","\d05a6","\d05a7","\d05a8","\d05a9","\d05aa","\d05ab","\d05ac","\d05ad","\d05ae","\d05af","\d05b0","\d05b1","\d05b2","\d05b3","\d05b4","\d05b5","\d05b6","\d05b7","\d05b8","\d05b9","\d05ba","\d05bb","\d05bc","\d05bd",  # ; T # Mn  [45] HEBREW ACCENT ETNAHTA..HEBREW POINT METEG
-        "\d05BF",  # ; T # Mn       HEBREW POINT RAFE
-        "\d05c1","\d05c2",  # ; T # Mn   [2] HEBREW POINT SHIN DOT..HEBREW POINT SIN DOT
-        "\d05c4","\d05c5",  # ; T # Mn   [2] HEBREW MARK UPPER DOT..HEBREW MARK LOWER DOT
-        "\d05C7",  # ; T # Mn       HEBREW POINT QAMATS QATAN
-        "\d0610","\d0611","\d0612","\d0613","\d0614","\d0615","\d0616","\d0617","\d0618","\d0619","\d061a",  # ; T # Mn  [11] ARABIC SIGN SALLALLAHOU ALAYHE WASSALLAM..ARABIC SMALL KASRA
-        "\d061C",  # ; T # Cf       ARABIC LETTER MARK
-        "\d064b","\d064c","\d064d","\d064e","\d064f","\d0650","\d0651","\d0652","\d0653","\d0654","\d0655","\d0656","\d0657","\d0658","\d0659","\d065a","\d065b","\d065c","\d065d","\d065e","\d065f",  # ; T # Mn  [21] ARABIC FATHATAN..ARABIC WAVY HAMZA BELOW
-        "\d0670",  # ; T # Mn       ARABIC LETTER SUPERSCRIPT ALEF
-        "\d06d6","\d06d7","\d06d8","\d06d9","\d06da","\d06db","\d06dc",  # ; T # Mn   [7] ARABIC SMALL HIGH LIGATURE SAD WITH LAM WITH ALEF MAKSURA..ARABIC SMALL HIGH SEEN
-        "\d06df","\d06e0","\d06e1","\d06e2","\d06e3","\d06e4",  # ; T # Mn   [6] ARABIC SMALL HIGH ROUNDED ZERO..ARABIC SMALL HIGH MADDA
-        "\d06e7","\d06e8",  # ; T # Mn   [2] ARABIC SMALL HIGH YEH..ARABIC SMALL HIGH NOON
-        "\d06ea","\d06eb","\d06ec","\d06ed",  # ; T # Mn   [4] ARABIC EMPTY CENTRE LOW STOP..ARABIC SMALL LOW MEEM
-        "\d070F",  # ; T # Cf       SYRIAC ABBREVIATION MARK
-        "\d0711",  # ; T # Mn       SYRIAC LETTER SUPERSCRIPT ALAPH
-        "\d0730","\d0731","\d0732","\d0733","\d0734","\d0735","\d0736","\d0737","\d0738","\d0739","\d073a","\d073b","\d073c","\d073d","\d073e","\d073f","\d0740","\d0741","\d0742","\d0743","\d0744","\d0745","\d0746","\d0747","\d0748","\d0749","\d074a",  # ; T # Mn  [27] SYRIAC PTHAHA ABOVE..SYRIAC BARREKH
-        "\d07a6","\d07a7","\d07a8","\d07a9","\d07aa","\d07ab","\d07ac","\d07ad","\d07ae","\d07af","\d07b0",  # ; T # Mn  [11] THAANA ABAFILI..THAANA SUKUN
-        "\d07eb","\d07ec","\d07ed","\d07ee","\d07ef","\d07f0","\d07f1","\d07f2","\d07f3",  # ; T # Mn   [9] NKO COMBINING SHORT HIGH TONE..NKO COMBINING DOUBLE DOT ABOVE
-        "\d0816","\d0817","\d0818","\d0819",  # ; T # Mn   [4] SAMARITAN MARK IN..SAMARITAN MARK DAGESH
-        "\d081b","\d081c","\d081d","\d081e","\d081f","\d0820","\d0821","\d0822","\d0823",  # ; T # Mn   [9] SAMARITAN MARK EPENTHETIC YUT..SAMARITAN VOWEL SIGN A
-        "\d0825","\d0826","\d0827",  # ; T # Mn   [3] SAMARITAN VOWEL SIGN SHORT A..SAMARITAN VOWEL SIGN U
-        "\d0829","\d082a","\d082b","\d082c","\d082d",  # ; T # Mn   [5] SAMARITAN VOWEL SIGN LONG I..SAMARITAN MARK NEQUDAA
-        "\d0859","\d085a","\d085b",  # ; T # Mn   [3] MANDAIC AFFRICATION MARK..MANDAIC GEMINATION MARK
-        "\d08d4","\d08d5","\d08d6","\d08d7","\d08d8","\d08d9","\d08da","\d08db","\d08dc","\d08dd","\d08de","\d08df","\d08e0","\d08e1",  # ; T # Mn  [14] ARABIC SMALL HIGH WORD AR-RUB..ARABIC SMALL HIGH SIGN SAFHA
-        "\d08e3","\d08e4","\d08e5","\d08e6","\d08e7","\d08e8","\d08e9","\d08ea","\d08eb","\d08ec","\d08ed","\d08ee","\d08ef","\d08f0","\d08f1","\d08f2","\d08f3","\d08f4","\d08f5","\d08f6","\d08f7","\d08f8","\d08f9","\d08fa","\d08fb","\d08fc","\d08fd","\d08fe","\d08ff","\d0900","\d0901","\d0902",  # ; T # Mn  [32] ARABIC TURNED DAMMA BELOW..DEVANAGARI SIGN ANUSVARA
-        "\d093A",  # ; T # Mn       DEVANAGARI VOWEL SIGN OE
-        "\d093C",  # ; T # Mn       DEVANAGARI SIGN NUKTA
-        "\d0941","\d0942","\d0943","\d0944","\d0945","\d0946","\d0947","\d0948",  # ; T # Mn   [8] DEVANAGARI VOWEL SIGN U..DEVANAGARI VOWEL SIGN AI
-        "\d094D",  # ; T # Mn       DEVANAGARI SIGN VIRAMA
-        "\d0951","\d0952","\d0953","\d0954","\d0955","\d0956","\d0957",  # ; T # Mn   [7] DEVANAGARI STRESS SIGN UDATTA..DEVANAGARI VOWEL SIGN UUE
-        "\d0962","\d0963",  # ; T # Mn   [2] DEVANAGARI VOWEL SIGN VOCALIC L..DEVANAGARI VOWEL SIGN VOCALIC LL
-        "\d0981",  # ; T # Mn       BENGALI SIGN CANDRABINDU
-        "\d09BC",  # ; T # Mn       BENGALI SIGN NUKTA
-        "\d09c1","\d09c2","\d09c3","\d09c4",  # ; T # Mn   [4] BENGALI VOWEL SIGN U..BENGALI VOWEL SIGN VOCALIC RR
-        "\d09CD",  # ; T # Mn       BENGALI SIGN VIRAMA
-        "\d09e2","\d09e3",  # ; T # Mn   [2] BENGALI VOWEL SIGN VOCALIC L..BENGALI VOWEL SIGN VOCALIC LL
-        "\d0a01","\d0a02",  # ; T # Mn   [2] GURMUKHI SIGN ADAK BINDI..GURMUKHI SIGN BINDI
-        "\d0A3C",  # ; T # Mn       GURMUKHI SIGN NUKTA
-        "\d0a41","\d0a42",  # ; T # Mn   [2] GURMUKHI VOWEL SIGN U..GURMUKHI VOWEL SIGN UU
-        "\d0a47","\d0a48",  # ; T # Mn   [2] GURMUKHI VOWEL SIGN EE..GURMUKHI VOWEL SIGN AI
-        "\d0a4b","\d0a4c","\d0a4d",  # ; T # Mn   [3] GURMUKHI VOWEL SIGN OO..GURMUKHI SIGN VIRAMA
-        "\d0A51",  # ; T # Mn       GURMUKHI SIGN UDAAT
-        "\d0a70","\d0a71",  # ; T # Mn   [2] GURMUKHI TIPPI..GURMUKHI ADDAK
-        "\d0A75",  # ; T # Mn       GURMUKHI SIGN YAKASH
-        "\d0a81","\d0a82",  # ; T # Mn   [2] GUJARATI SIGN CANDRABINDU..GUJARATI SIGN ANUSVARA
-        "\d0ABC",  # ; T # Mn       GUJARATI SIGN NUKTA
-        "\d0ac1","\d0ac2","\d0ac3","\d0ac4","\d0ac5",  # ; T # Mn   [5] GUJARATI VOWEL SIGN U..GUJARATI VOWEL SIGN CANDRA E
-        "\d0ac7","\d0ac8",  # ; T # Mn   [2] GUJARATI VOWEL SIGN E..GUJARATI VOWEL SIGN AI
-        "\d0ACD",  # ; T # Mn       GUJARATI SIGN VIRAMA
-        "\d0ae2","\d0ae3",  # ; T # Mn   [2] GUJARATI VOWEL SIGN VOCALIC L..GUJARATI VOWEL SIGN VOCALIC LL
-        "\d0afa","\d0afb","\d0afc","\d0afd","\d0afe","\d0aff",  # ; T # Mn   [6] GUJARATI SIGN SUKUN..GUJARATI SIGN TWO-CIRCLE NUKTA ABOVE
-        "\d0B01",  # ; T # Mn       ORIYA SIGN CANDRABINDU
-        "\d0B3C",  # ; T # Mn       ORIYA SIGN NUKTA
-        "\d0B3F",  # ; T # Mn       ORIYA VOWEL SIGN I
-        "\d0b41","\d0b42","\d0b43","\d0b44",  # ; T # Mn   [4] ORIYA VOWEL SIGN U..ORIYA VOWEL SIGN VOCALIC RR
-        "\d0B4D",  # ; T # Mn       ORIYA SIGN VIRAMA
-        "\d0B56",  # ; T # Mn       ORIYA AI LENGTH MARK
-        "\d0b62","\d0b63",  # ; T # Mn   [2] ORIYA VOWEL SIGN VOCALIC L..ORIYA VOWEL SIGN VOCALIC LL
-        "\d0B82",  # ; T # Mn       TAMIL SIGN ANUSVARA
-        "\d0BC0",  # ; T # Mn       TAMIL VOWEL SIGN II
-        "\d0BCD",  # ; T # Mn       TAMIL SIGN VIRAMA
-        "\d0C00",  # ; T # Mn       TELUGU SIGN COMBINING CANDRABINDU ABOVE
-        "\d0c3e","\d0c3f","\d0c40",  # ; T # Mn   [3] TELUGU VOWEL SIGN AA..TELUGU VOWEL SIGN II
-        "\d0c46","\d0c47","\d0c48",  # ; T # Mn   [3] TELUGU VOWEL SIGN E..TELUGU VOWEL SIGN AI
-        "\d0c4a","\d0c4b","\d0c4c","\d0c4d",  # ; T # Mn   [4] TELUGU VOWEL SIGN O..TELUGU SIGN VIRAMA
-        "\d0c55","\d0c56",  # ; T # Mn   [2] TELUGU LENGTH MARK..TELUGU AI LENGTH MARK
-        "\d0c62","\d0c63",  # ; T # Mn   [2] TELUGU VOWEL SIGN VOCALIC L..TELUGU VOWEL SIGN VOCALIC LL
-        "\d0C81",  # ; T # Mn       KANNADA SIGN CANDRABINDU
-        "\d0CBC",  # ; T # Mn       KANNADA SIGN NUKTA
-        "\d0CBF",  # ; T # Mn       KANNADA VOWEL SIGN I
-        "\d0CC6",  # ; T # Mn       KANNADA VOWEL SIGN E
-        "\d0ccc","\d0ccd",  # ; T # Mn   [2] KANNADA VOWEL SIGN AU..KANNADA SIGN VIRAMA
-        "\d0ce2","\d0ce3",  # ; T # Mn   [2] KANNADA VOWEL SIGN VOCALIC L..KANNADA VOWEL SIGN VOCALIC LL
-        "\d0d00","\d0d01",  # ; T # Mn   [2] MALAYALAM SIGN COMBINING ANUSVARA ABOVE..MALAYALAM SIGN CANDRABINDU
-        "\d0d3b","\d0d3c",  # ; T # Mn   [2] MALAYALAM SIGN VERTICAL BAR VIRAMA..MALAYALAM SIGN CIRCULAR VIRAMA
-        "\d0d41","\d0d42","\d0d43","\d0d44",  # ; T # Mn   [4] MALAYALAM VOWEL SIGN U..MALAYALAM VOWEL SIGN VOCALIC RR
-        "\d0D4D",  # ; T # Mn       MALAYALAM SIGN VIRAMA
-        "\d0d62","\d0d63",  # ; T # Mn   [2] MALAYALAM VOWEL SIGN VOCALIC L..MALAYALAM VOWEL SIGN VOCALIC LL
-        "\d0DCA",  # ; T # Mn       SINHALA SIGN AL-LAKUNA
-        "\d0dd2","\d0dd3","\d0dd4",  # ; T # Mn   [3] SINHALA VOWEL SIGN KETTI IS-PILLA..SINHALA VOWEL SIGN KETTI PAA-PILLA
-        "\d0DD6",  # ; T # Mn       SINHALA VOWEL SIGN DIGA PAA-PILLA
-        "\d0E31",  # ; T # Mn       THAI CHARACTER MAI HAN-AKAT
-        "\d0e34","\d0e35","\d0e36","\d0e37","\d0e38","\d0e39","\d0e3a",  # ; T # Mn   [7] THAI CHARACTER SARA I..THAI CHARACTER PHINTHU
-        "\d0e47","\d0e48","\d0e49","\d0e4a","\d0e4b","\d0e4c","\d0e4d","\d0e4e",  # ; T # Mn   [8] THAI CHARACTER MAITAIKHU..THAI CHARACTER YAMAKKAN
-        "\d0EB1",  # ; T # Mn       LAO VOWEL SIGN MAI KAN
-        "\d0eb4","\d0eb5","\d0eb6","\d0eb7","\d0eb8","\d0eb9",  # ; T # Mn   [6] LAO VOWEL SIGN I..LAO VOWEL SIGN UU
-        "\d0ebb","\d0ebc",  # ; T # Mn   [2] LAO VOWEL SIGN MAI KON..LAO SEMIVOWEL SIGN LO
-        "\d0ec8","\d0ec9","\d0eca","\d0ecb","\d0ecc","\d0ecd",  # ; T # Mn   [6] LAO TONE MAI EK..LAO NIGGAHITA
-        "\d0f18","\d0f19",  # ; T # Mn   [2] TIBETAN ASTROLOGICAL SIGN -KHYUD PA..TIBETAN ASTROLOGICAL SIGN SDONG TSHUGS
-        "\d0F35",  # ; T # Mn       TIBETAN MARK NGAS BZUNG NYI ZLA
-        "\d0F37",  # ; T # Mn       TIBETAN MARK NGAS BZUNG SGOR RTAGS
-        "\d0F39",  # ; T # Mn       TIBETAN MARK TSA -PHRU
-        "\d0f71","\d0f72","\d0f73","\d0f74","\d0f75","\d0f76","\d0f77","\d0f78","\d0f79","\d0f7a","\d0f7b","\d0f7c","\d0f7d","\d0f7e",  # ; T # Mn  [14] TIBETAN VOWEL SIGN AA..TIBETAN SIGN RJES SU NGA RO
-        "\d0f80","\d0f81","\d0f82","\d0f83","\d0f84",  # ; T # Mn   [5] TIBETAN VOWEL SIGN REVERSED I..TIBETAN MARK HALANTA
-        "\d0f86","\d0f87",  # ; T # Mn   [2] TIBETAN SIGN LCI RTAGS..TIBETAN SIGN YANG RTAGS
-        "\d0f8d","\d0f8e","\d0f8f","\d0f90","\d0f91","\d0f92","\d0f93","\d0f94","\d0f95","\d0f96","\d0f97",  # ; T # Mn  [11] TIBETAN SUBJOINED SIGN LCE TSA CAN..TIBETAN SUBJOINED LETTER JA
-        "\d0f99","\d0f9a","\d0f9b","\d0f9c","\d0f9d","\d0f9e","\d0f9f","\d0fa0","\d0fa1","\d0fa2","\d0fa3","\d0fa4","\d0fa5","\d0fa6","\d0fa7","\d0fa8","\d0fa9","\d0faa","\d0fab","\d0fac","\d0fad","\d0fae","\d0faf","\d0fb0","\d0fb1","\d0fb2","\d0fb3","\d0fb4","\d0fb5","\d0fb6","\d0fb7","\d0fb8","\d0fb9","\d0fba","\d0fbb","\d0fbc",  # ; T # Mn  [36] TIBETAN SUBJOINED LETTER NYA..TIBETAN SUBJOINED LETTER FIXED-FORM RA
-        "\d0FC6",  # ; T # Mn       TIBETAN SYMBOL PADMA GDAN
-        "\d102d","\d102e","\d102f","\d1030",  # ; T # Mn   [4] MYANMAR VOWEL SIGN I..MYANMAR VOWEL SIGN UU
-        "\d1032","\d1033","\d1034","\d1035","\d1036","\d1037",  # ; T # Mn   [6] MYANMAR VOWEL SIGN AI..MYANMAR SIGN DOT BELOW
-        "\d1039","\d103a",  # ; T # Mn   [2] MYANMAR SIGN VIRAMA..MYANMAR SIGN ASAT
-        "\d103d","\d103e",  # ; T # Mn   [2] MYANMAR CONSONANT SIGN MEDIAL WA..MYANMAR CONSONANT SIGN MEDIAL HA
-        "\d1058","\d1059",  # ; T # Mn   [2] MYANMAR VOWEL SIGN VOCALIC L..MYANMAR VOWEL SIGN VOCALIC LL
-        "\d105e","\d105f","\d1060",  # ; T # Mn   [3] MYANMAR CONSONANT SIGN MON MEDIAL NA..MYANMAR CONSONANT SIGN MON MEDIAL LA
-        "\d1071","\d1072","\d1073","\d1074",  # ; T # Mn   [4] MYANMAR VOWEL SIGN GEBA KAREN I..MYANMAR VOWEL SIGN KAYAH EE
-        "\d1082",  # ; T # Mn       MYANMAR CONSONANT SIGN SHAN MEDIAL WA
-        "\d1085","\d1086",  # ; T # Mn   [2] MYANMAR VOWEL SIGN SHAN E ABOVE..MYANMAR VOWEL SIGN SHAN FINAL Y
-        "\d108D",  # ; T # Mn       MYANMAR SIGN SHAN COUNCIL EMPHATIC TONE
-        "\d109D",  # ; T # Mn       MYANMAR VOWEL SIGN AITON AI
-        "\d135d","\d135e","\d135f",  # ; T # Mn   [3] ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK..ETHIOPIC COMBINING GEMINATION MARK
-        "\d1712","\d1713","\d1714",  # ; T # Mn   [3] TAGALOG VOWEL SIGN I..TAGALOG SIGN VIRAMA
-        "\d1732","\d1733","\d1734",  # ; T # Mn   [3] HANUNOO VOWEL SIGN I..HANUNOO SIGN PAMUDPOD
-        "\d1752","\d1753",  # ; T # Mn   [2] BUHID VOWEL SIGN I..BUHID VOWEL SIGN U
-        "\d1772","\d1773",  # ; T # Mn   [2] TAGBANWA VOWEL SIGN I..TAGBANWA VOWEL SIGN U
-        "\d17b4","\d17b5",  # ; T # Mn   [2] KHMER VOWEL INHERENT AQ..KHMER VOWEL INHERENT AA
-        "\d17b7","\d17b8","\d17b9","\d17ba","\d17bb","\d17bc","\d17bd",  # ; T # Mn   [7] KHMER VOWEL SIGN I..KHMER VOWEL SIGN UA
-        "\d17C6",  # ; T # Mn       KHMER SIGN NIKAHIT
-        "\d17c9","\d17ca","\d17cb","\d17cc","\d17cd","\d17ce","\d17cf","\d17d0","\d17d1","\d17d2","\d17d3",  # ; T # Mn  [11] KHMER SIGN MUUSIKATOAN..KHMER SIGN BATHAMASAT
-        "\d17DD",  # ; T # Mn       KHMER SIGN ATTHACAN
-        "\d180b","\d180c","\d180d",  # ; T # Mn   [3] MONGOLIAN FREE VARIATION SELECTOR ONE..MONGOLIAN FREE VARIATION SELECTOR THREE
-        "\d1885","\d1886",  # ; T # Mn   [2] MONGOLIAN LETTER ALI GALI BALUDA..MONGOLIAN LETTER ALI GALI THREE BALUDA
-        "\d18A9",  # ; T # Mn       MONGOLIAN LETTER ALI GALI DAGALGA
-        "\d1920","\d1921","\d1922",  # ; T # Mn   [3] LIMBU VOWEL SIGN A..LIMBU VOWEL SIGN U
-        "\d1927","\d1928",  # ; T # Mn   [2] LIMBU VOWEL SIGN E..LIMBU VOWEL SIGN O
-        "\d1932",  # ; T # Mn       LIMBU SMALL LETTER ANUSVARA
-        "\d1939","\d193a","\d193b",  # ; T # Mn   [3] LIMBU SIGN MUKPHRENG..LIMBU SIGN SA-I
-        "\d1a17","\d1a18",  # ; T # Mn   [2] BUGINESE VOWEL SIGN I..BUGINESE VOWEL SIGN U
-        "\d1A1B",  # ; T # Mn       BUGINESE VOWEL SIGN AE
-        "\d1A56",  # ; T # Mn       TAI THAM CONSONANT SIGN MEDIAL LA
-        "\d1a58","\d1a59","\d1a5a","\d1a5b","\d1a5c","\d1a5d","\d1a5e",  # ; T # Mn   [7] TAI THAM SIGN MAI KANG LAI..TAI THAM CONSONANT SIGN SA
-        "\d1A60",  # ; T # Mn       TAI THAM SIGN SAKOT
-        "\d1A62",  # ; T # Mn       TAI THAM VOWEL SIGN MAI SAT
-        "\d1a65","\d1a66","\d1a67","\d1a68","\d1a69","\d1a6a","\d1a6b","\d1a6c",  # ; T # Mn   [8] TAI THAM VOWEL SIGN I..TAI THAM VOWEL SIGN OA BELOW
-        "\d1a73","\d1a74","\d1a75","\d1a76","\d1a77","\d1a78","\d1a79","\d1a7a","\d1a7b","\d1a7c",  # ; T # Mn  [10] TAI THAM VOWEL SIGN OA ABOVE..TAI THAM SIGN KHUEN-LUE KARAN
-        "\d1A7F",  # ; T # Mn       TAI THAM COMBINING CRYPTOGRAMMIC DOT
-        "\d1ab0","\d1ab1","\d1ab2","\d1ab3","\d1ab4","\d1ab5","\d1ab6","\d1ab7","\d1ab8","\d1ab9","\d1aba","\d1abb","\d1abc","\d1abd",  # ; T # Mn  [14] COMBINING DOUBLED CIRCUMFLEX ACCENT..COMBINING PARENTHESES BELOW
-        "\d1ABE",  # ; T # Me       COMBINING PARENTHESES OVERLAY
-        "\d1b00","\d1b01","\d1b02","\d1b03",  # ; T # Mn   [4] BALINESE SIGN ULU RICEM..BALINESE SIGN SURANG
-        "\d1B34",  # ; T # Mn       BALINESE SIGN REREKAN
-        "\d1b36","\d1b37","\d1b38","\d1b39","\d1b3a",  # ; T # Mn   [5] BALINESE VOWEL SIGN ULU..BALINESE VOWEL SIGN RA REPA
-        "\d1B3C",  # ; T # Mn       BALINESE VOWEL SIGN LA LENGA
-        "\d1B42",  # ; T # Mn       BALINESE VOWEL SIGN PEPET
-        "\d1b6b","\d1b6c","\d1b6d","\d1b6e","\d1b6f","\d1b70","\d1b71","\d1b72","\d1b73",  # ; T # Mn   [9] BALINESE MUSICAL SYMBOL COMBINING TEGEH..BALINESE MUSICAL SYMBOL COMBINING GONG
-        "\d1b80","\d1b81",  # ; T # Mn   [2] SUNDANESE SIGN PANYECEK..SUNDANESE SIGN PANGLAYAR
-        "\d1ba2","\d1ba3","\d1ba4","\d1ba5",  # ; T # Mn   [4] SUNDANESE CONSONANT SIGN PANYAKRA..SUNDANESE VOWEL SIGN PANYUKU
-        "\d1ba8","\d1ba9",  # ; T # Mn   [2] SUNDANESE VOWEL SIGN PAMEPET..SUNDANESE VOWEL SIGN PANEULEUNG
-        "\d1bab","\d1bac","\d1bad",  # ; T # Mn   [3] SUNDANESE SIGN VIRAMA..SUNDANESE CONSONANT SIGN PASANGAN WA
-        "\d1BE6",  # ; T # Mn       BATAK SIGN TOMPI
-        "\d1be8","\d1be9",  # ; T # Mn   [2] BATAK VOWEL SIGN PAKPAK E..BATAK VOWEL SIGN EE
-        "\d1BED",  # ; T # Mn       BATAK VOWEL SIGN KARO O
-        "\d1bef","\d1bf0","\d1bf1",  # ; T # Mn   [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
-        "\d1c2c","\d1c2d","\d1c2e","\d1c2f","\d1c30","\d1c31","\d1c32","\d1c33",  # ; T # Mn   [8] LEPCHA VOWEL SIGN E..LEPCHA CONSONANT SIGN T
-        "\d1c36","\d1c37",  # ; T # Mn   [2] LEPCHA SIGN RAN..LEPCHA SIGN NUKTA
-        "\d1cd0","\d1cd1","\d1cd2",  # ; T # Mn   [3] VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
-        "\d1cd4","\d1cd5","\d1cd6","\d1cd7","\d1cd8","\d1cd9","\d1cda","\d1cdb","\d1cdc","\d1cdd","\d1cde","\d1cdf","\d1ce0",  # ; T # Mn  [13] VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC TONE RIGVEDIC KASHMIRI INDEPENDENT SVARITA
-        "\d1ce2","\d1ce3","\d1ce4","\d1ce5","\d1ce6","\d1ce7","\d1ce8",  # ; T # Mn   [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
-        "\d1CED",  # ; T # Mn       VEDIC SIGN TIRYAK
-        "\d1CF4",  # ; T # Mn       VEDIC TONE CANDRA ABOVE
-        "\d1cf8","\d1cf9",  # ; T # Mn   [2] VEDIC TONE RING ABOVE..VEDIC TONE DOUBLE RING ABOVE
-        "\d1dc0","\d1dc1","\d1dc2","\d1dc3","\d1dc4","\d1dc5","\d1dc6","\d1dc7","\d1dc8","\d1dc9","\d1dca","\d1dcb","\d1dcc","\d1dcd","\d1dce","\d1dcf","\d1dd0","\d1dd1","\d1dd2","\d1dd3","\d1dd4","\d1dd5","\d1dd6","\d1dd7","\d1dd8","\d1dd9","\d1dda","\d1ddb","\d1ddc","\d1ddd","\d1dde","\d1ddf","\d1de0","\d1de1","\d1de2","\d1de3","\d1de4","\d1de5","\d1de6","\d1de7","\d1de8","\d1de9","\d1dea","\d1deb","\d1dec","\d1ded","\d1dee","\d1def","\d1df0","\d1df1","\d1df2","\d1df3","\d1df4","\d1df5","\d1df6","\d1df7","\d1df8","\d1df9",  # ; T # Mn  [58] COMBINING DOTTED GRAVE ACCENT..COMBINING WIDE INVERTED BRIDGE BELOW
-        "\d1dfb","\d1dfc","\d1dfd","\d1dfe","\d1dff",  # ; T # Mn   [5] COMBINING DELETION MARK..COMBINING RIGHT ARROWHEAD AND DOWN ARROWHEAD BELOW
-        "\d200B",  # ; T # Cf       ZERO WIDTH SPACE
-        "\d200e","\d200f",  # ; T # Cf   [2] LEFT-TO-RIGHT MARK..RIGHT-TO-LEFT MARK
-        "\d202a","\d202b","\d202c","\d202d","\d202e",  # ; T # Cf   [5] LEFT-TO-RIGHT EMBEDDING..RIGHT-TO-LEFT OVERRIDE
-        "\d2060","\d2061","\d2062","\d2063","\d2064",  # ; T # Cf   [5] WORD JOINER..INVISIBLE PLUS
-        "\d206a","\d206b","\d206c","\d206d","\d206e","\d206f",  # ; T # Cf   [6] INHIBIT SYMMETRIC SWAPPING..NOMINAL DIGIT SHAPES
-        "\d20d0","\d20d1","\d20d2","\d20d3","\d20d4","\d20d5","\d20d6","\d20d7","\d20d8","\d20d9","\d20da","\d20db","\d20dc",  # ; T # Mn  [13] COMBINING LEFT HARPOON ABOVE..COMBINING FOUR DOTS ABOVE
-        "\d20dd","\d20de","\d20df","\d20e0",  # ; T # Me   [4] COMBINING ENCLOSING CIRCLE..COMBINING ENCLOSING CIRCLE BACKSLASH
-        "\d20E1",  # ; T # Mn       COMBINING LEFT RIGHT ARROW ABOVE
-        "\d20e2","\d20e3","\d20e4",  # ; T # Me   [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
-        "\d20e5","\d20e6","\d20e7","\d20e8","\d20e9","\d20ea","\d20eb","\d20ec","\d20ed","\d20ee","\d20ef","\d20f0",  # ; T # Mn  [12] COMBINING REVERSE SOLIDUS OVERLAY..COMBINING ASTERISK ABOVE
-        "\d2cef","\d2cf0","\d2cf1",  # ; T # Mn   [3] COPTIC COMBINING NI ABOVE..COPTIC COMBINING SPIRITUS LENIS
-        "\d2D7F",  # ; T # Mn       TIFINAGH CONSONANT JOINER
-        "\d2de0","\d2de1","\d2de2","\d2de3","\d2de4","\d2de5","\d2de6","\d2de7","\d2de8","\d2de9","\d2dea","\d2deb","\d2dec","\d2ded","\d2dee","\d2def","\d2df0","\d2df1","\d2df2","\d2df3","\d2df4","\d2df5","\d2df6","\d2df7","\d2df8","\d2df9","\d2dfa","\d2dfb","\d2dfc","\d2dfd","\d2dfe","\d2dff",  # ; T # Mn  [32] COMBINING CYRILLIC LETTER BE..COMBINING CYRILLIC LETTER IOTIFIED BIG YUS
-        "\d302a","\d302b","\d302c","\d302d",  # ; T # Mn   [4] IDEOGRAPHIC LEVEL TONE MARK..IDEOGRAPHIC ENTERING TONE MARK
-        "\d3099","\d309a",  # ; T # Mn   [2] COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK..COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
-        "\dA66F",  # ; T # Mn       COMBINING CYRILLIC VZMET
-        "\da670","\da671","\da672",  # ; T # Me   [3] COMBINING CYRILLIC TEN MILLIONS SIGN..COMBINING CYRILLIC THOUSAND MILLIONS SIGN
-        "\da674","\da675","\da676","\da677","\da678","\da679","\da67a","\da67b","\da67c","\da67d",  # ; T # Mn  [10] COMBINING CYRILLIC LETTER UKRAINIAN IE..COMBINING CYRILLIC PAYEROK
-        "\da69e","\da69f",  # ; T # Mn   [2] COMBINING CYRILLIC LETTER EF..COMBINING CYRILLIC LETTER IOTIFIED E
-        "\da6f0","\da6f1",  # ; T # Mn   [2] BAMUM COMBINING MARK KOQNDON..BAMUM COMBINING MARK TUKWENTIS
-        "\dA802",  # ; T # Mn       SYLOTI NAGRI SIGN DVISVARA
-        "\dA806",  # ; T # Mn       SYLOTI NAGRI SIGN HASANTA
-        "\dA80B",  # ; T # Mn       SYLOTI NAGRI SIGN ANUSVARA
-        "\da825","\da826",  # ; T # Mn   [2] SYLOTI NAGRI VOWEL SIGN U..SYLOTI NAGRI VOWEL SIGN E
-        "\da8c4","\da8c5",  # ; T # Mn   [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
-        "\da8e0","\da8e1","\da8e2","\da8e3","\da8e4","\da8e5","\da8e6","\da8e7","\da8e8","\da8e9","\da8ea","\da8eb","\da8ec","\da8ed","\da8ee","\da8ef","\da8f0","\da8f1",  # ; T # Mn  [18] COMBINING DEVANAGARI DIGIT ZERO..COMBINING DEVANAGARI SIGN AVAGRAHA
-        "\da926","\da927","\da928","\da929","\da92a","\da92b","\da92c","\da92d",  # ; T # Mn   [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
-        "\da947","\da948","\da949","\da94a","\da94b","\da94c","\da94d","\da94e","\da94f","\da950","\da951",  # ; T # Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
-        "\da980","\da981","\da982",  # ; T # Mn   [3] JAVANESE SIGN PANYANGGA..JAVANESE SIGN LAYAR
-        "\dA9B3",  # ; T # Mn       JAVANESE SIGN CECAK TELU
-        "\da9b6","\da9b7","\da9b8","\da9b9",  # ; T # Mn   [4] JAVANESE VOWEL SIGN WULU..JAVANESE VOWEL SIGN SUKU MENDUT
-        "\dA9BC",  # ; T # Mn       JAVANESE VOWEL SIGN PEPET
-        "\dA9E5",  # ; T # Mn       MYANMAR SIGN SHAN SAW
-        "\daa29","\daa2a","\daa2b","\daa2c","\daa2d","\daa2e",  # ; T # Mn   [6] CHAM VOWEL SIGN AA..CHAM VOWEL SIGN OE
-        "\daa31","\daa32",  # ; T # Mn   [2] CHAM VOWEL SIGN AU..CHAM VOWEL SIGN UE
-        "\daa35","\daa36",  # ; T # Mn   [2] CHAM CONSONANT SIGN LA..CHAM CONSONANT SIGN WA
-        "\dAA43",  # ; T # Mn       CHAM CONSONANT SIGN FINAL NG
-        "\dAA4C",  # ; T # Mn       CHAM CONSONANT SIGN FINAL M
-        "\dAA7C",  # ; T # Mn       MYANMAR SIGN TAI LAING TONE-2
-        "\dAAB0",  # ; T # Mn       TAI VIET MAI KANG
-        "\daab2","\daab3","\daab4",  # ; T # Mn   [3] TAI VIET VOWEL I..TAI VIET VOWEL U
-        "\daab7","\daab8",  # ; T # Mn   [2] TAI VIET MAI KHIT..TAI VIET VOWEL IA
-        "\daabe","\daabf",  # ; T # Mn   [2] TAI VIET VOWEL AM..TAI VIET TONE MAI EK
-        "\dAAC1",  # ; T # Mn       TAI VIET TONE MAI THO
-        "\daaec","\daaed",  # ; T # Mn   [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
-        "\dAAF6",  # ; T # Mn       MEETEI MAYEK VIRAMA
-        "\dABE5",  # ; T # Mn       MEETEI MAYEK VOWEL SIGN ANAP
-        "\dABE8",  # ; T # Mn       MEETEI MAYEK VOWEL SIGN UNAP
-        "\dABED",  # ; T # Mn       MEETEI MAYEK APUN IYEK
-        "\dFB1E",  # ; T # Mn       HEBREW POINT JUDEO-SPANISH VARIKA
-        "\dfe00","\dfe01","\dfe02","\dfe03","\dfe04","\dfe05","\dfe06","\dfe07","\dfe08","\dfe09","\dfe0a","\dfe0b","\dfe0c","\dfe0d","\dfe0e","\dfe0f",  # ; T # Mn  [16] VARIATION SELECTOR-1..VARIATION SELECTOR-16
-        "\dfe20","\dfe21","\dfe22","\dfe23","\dfe24","\dfe25","\dfe26","\dfe27","\dfe28","\dfe29","\dfe2a","\dfe2b","\dfe2c","\dfe2d","\dfe2e","\dfe2f",  # ; T # Mn  [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
-        "\dFEFF",  # ; T # Cf       ZERO WIDTH NO-BREAK SPACE
-        "\dfff9","\dfffa","\dfffb",  # ; T # Cf   [3] INTERLINEAR ANNOTATION ANCHOR..INTERLINEAR ANNOTATION TERMINATOR
-        "\d101FD",  # ; T # Mn       PHAISTOS DISC SIGN COMBINING OBLIQUE STROKE
-        "\d102E0",  # ; T # Mn       COPTIC EPACT THOUSANDS MARK
-        "\d10376","\d10377","\d10378","\d10379","\d1037a",  # ; T # Mn   [5] COMBINING OLD PERMIC LETTER AN..COMBINING OLD PERMIC LETTER SII
-        "\d10a01","\d10a02","\d10a03",  # ; T # Mn   [3] KHAROSHTHI VOWEL SIGN I..KHAROSHTHI VOWEL SIGN VOCALIC R
-        "\d10a05","\d10a06",  # ; T # Mn   [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
-        "\d10a0c","\d10a0d","\d10a0e","\d10a0f",  # ; T # Mn   [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
-        "\d10a38","\d10a39","\d10a3a",  # ; T # Mn   [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
-        "\d10A3F",  # ; T # Mn       KHAROSHTHI VIRAMA
-        "\d10ae5","\d10ae6",  # ; T # Mn   [2] MANICHAEAN ABBREVIATION MARK ABOVE..MANICHAEAN ABBREVIATION MARK BELOW
-        "\d11001",  # ; T # Mn       BRAHMI SIGN ANUSVARA
-        "\d11038","\d11039","\d1103a","\d1103b","\d1103c","\d1103d","\d1103e","\d1103f","\d11040","\d11041","\d11042","\d11043","\d11044","\d11045","\d11046",  # ; T # Mn  [15] BRAHMI VOWEL SIGN AA..BRAHMI VIRAMA
-        "\d1107f","\d11080","\d11081",  # ; T # Mn   [3] BRAHMI NUMBER JOINER..KAITHI SIGN ANUSVARA
-        "\d110b3","\d110b4","\d110b5","\d110b6",  # ; T # Mn   [4] KAITHI VOWEL SIGN U..KAITHI VOWEL SIGN AI
-        "\d110b9","\d110ba",  # ; T # Mn   [2] KAITHI SIGN VIRAMA..KAITHI SIGN NUKTA
-        "\d110BD",  # ; T # Cf       KAITHI NUMBER SIGN
-        "\d11100","\d11101","\d11102",  # ; T # Mn   [3] CHAKMA SIGN CANDRABINDU..CHAKMA SIGN VISARGA
-        "\d11127","\d11128","\d11129","\d1112a","\d1112b",  # ; T # Mn   [5] CHAKMA VOWEL SIGN A..CHAKMA VOWEL SIGN UU
-        "\d1112d","\d1112e","\d1112f","\d11130","\d11131","\d11132","\d11133","\d11134",  # ; T # Mn   [8] CHAKMA VOWEL SIGN AI..CHAKMA MAAYYAA
-        "\d11173",  # ; T # Mn       MAHAJANI SIGN NUKTA
-        "\d11180","\d11181",  # ; T # Mn   [2] SHARADA SIGN CANDRABINDU..SHARADA SIGN ANUSVARA
-        "\d111b6","\d111b7","\d111b8","\d111b9","\d111ba","\d111bb","\d111bc","\d111bd","\d111be",  # ; T # Mn   [9] SHARADA VOWEL SIGN U..SHARADA VOWEL SIGN O
-        "\d111ca","\d111cb","\d111cc",  # ; T # Mn   [3] SHARADA SIGN NUKTA..SHARADA EXTRA SHORT VOWEL MARK
-        "\d1122f","\d11230","\d11231",  # ; T # Mn   [3] KHOJKI VOWEL SIGN U..KHOJKI VOWEL SIGN AI
-        "\d11234",  # ; T # Mn       KHOJKI SIGN ANUSVARA
-        "\d11236","\d11237",  # ; T # Mn   [2] KHOJKI SIGN NUKTA..KHOJKI SIGN SHADDA
-        "\d1123E",  # ; T # Mn       KHOJKI SIGN SUKUN
-        "\d112DF",  # ; T # Mn       KHUDAWADI SIGN ANUSVARA
-        "\d112e3","\d112e4","\d112e5","\d112e6","\d112e7","\d112e8","\d112e9","\d112ea",  # ; T # Mn   [8] KHUDAWADI VOWEL SIGN U..KHUDAWADI SIGN VIRAMA
-        "\d11300","\d11301",  # ; T # Mn   [2] GRANTHA SIGN COMBINING ANUSVARA ABOVE..GRANTHA SIGN CANDRABINDU
-        "\d1133C",  # ; T # Mn       GRANTHA SIGN NUKTA
-        "\d11340",  # ; T # Mn       GRANTHA VOWEL SIGN II
-        "\d11366","\d11367","\d11368","\d11369","\d1136a","\d1136b","\d1136c",  # ; T # Mn   [7] COMBINING GRANTHA DIGIT ZERO..COMBINING GRANTHA DIGIT SIX
-        "\d11370","\d11371","\d11372","\d11373","\d11374",  # ; T # Mn   [5] COMBINING GRANTHA LETTER A..COMBINING GRANTHA LETTER PA
-        "\d11438","\d11439","\d1143a","\d1143b","\d1143c","\d1143d","\d1143e","\d1143f",  # ; T # Mn   [8] NEWA VOWEL SIGN U..NEWA VOWEL SIGN AI
-        "\d11442","\d11443","\d11444",  # ; T # Mn   [3] NEWA SIGN VIRAMA..NEWA SIGN ANUSVARA
-        "\d11446",  # ; T # Mn       NEWA SIGN NUKTA
-        "\d114b3","\d114b4","\d114b5","\d114b6","\d114b7","\d114b8",  # ; T # Mn   [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
-        "\d114BA",  # ; T # Mn       TIRHUTA VOWEL SIGN SHORT E
-        "\d114bf","\d114c0",  # ; T # Mn   [2] TIRHUTA SIGN CANDRABINDU..TIRHUTA SIGN ANUSVARA
-        "\d114c2","\d114c3",  # ; T # Mn   [2] TIRHUTA SIGN VIRAMA..TIRHUTA SIGN NUKTA
-        "\d115b2","\d115b3","\d115b4","\d115b5",  # ; T # Mn   [4] SIDDHAM VOWEL SIGN U..SIDDHAM VOWEL SIGN VOCALIC RR
-        "\d115bc","\d115bd",  # ; T # Mn   [2] SIDDHAM SIGN CANDRABINDU..SIDDHAM SIGN ANUSVARA
-        "\d115bf","\d115c0",  # ; T # Mn   [2] SIDDHAM SIGN VIRAMA..SIDDHAM SIGN NUKTA
-        "\d115dc","\d115dd",  # ; T # Mn   [2] SIDDHAM VOWEL SIGN ALTERNATE U..SIDDHAM VOWEL SIGN ALTERNATE UU
-        "\d11633","\d11634","\d11635","\d11636","\d11637","\d11638","\d11639","\d1163a",  # ; T # Mn   [8] MODI VOWEL SIGN U..MODI VOWEL SIGN AI
-        "\d1163D",  # ; T # Mn       MODI SIGN ANUSVARA
-        "\d1163f","\d11640",  # ; T # Mn   [2] MODI SIGN VIRAMA..MODI SIGN ARDHACANDRA
-        "\d116AB",  # ; T # Mn       TAKRI SIGN ANUSVARA
-        "\d116AD",  # ; T # Mn       TAKRI VOWEL SIGN AA
-        "\d116b0","\d116b1","\d116b2","\d116b3","\d116b4","\d116b5",  # ; T # Mn   [6] TAKRI VOWEL SIGN U..TAKRI VOWEL SIGN AU
-        "\d116B7",  # ; T # Mn       TAKRI SIGN NUKTA
-        "\d1171d","\d1171e","\d1171f",  # ; T # Mn   [3] AHOM CONSONANT SIGN MEDIAL LA..AHOM CONSONANT SIGN MEDIAL LIGATING RA
-        "\d11722","\d11723","\d11724","\d11725",  # ; T # Mn   [4] AHOM VOWEL SIGN I..AHOM VOWEL SIGN UU
-        "\d11727","\d11728","\d11729","\d1172a","\d1172b",  # ; T # Mn   [5] AHOM VOWEL SIGN AW..AHOM SIGN KILLER
-        "\d11a01","\d11a02","\d11a03","\d11a04","\d11a05","\d11a06",  # ; T # Mn   [6] ZANABAZAR SQUARE VOWEL SIGN I..ZANABAZAR SQUARE VOWEL SIGN O
-        "\d11a09","\d11a0a",  # ; T # Mn   [2] ZANABAZAR SQUARE VOWEL SIGN REVERSED I..ZANABAZAR SQUARE VOWEL LENGTH MARK
-        "\d11a33","\d11a34","\d11a35","\d11a36","\d11a37","\d11a38",  # ; T # Mn   [6] ZANABAZAR SQUARE FINAL CONSONANT MARK..ZANABAZAR SQUARE SIGN ANUSVARA
-        "\d11a3b","\d11a3c","\d11a3d","\d11a3e",  # ; T # Mn   [4] ZANABAZAR SQUARE CLUSTER-FINAL LETTER YA..ZANABAZAR SQUARE CLUSTER-FINAL LETTER VA
-        "\d11A47",  # ; T # Mn       ZANABAZAR SQUARE SUBJOINER
-        "\d11a51","\d11a52","\d11a53","\d11a54","\d11a55","\d11a56",  # ; T # Mn   [6] SOYOMBO VOWEL SIGN I..SOYOMBO VOWEL SIGN OE
-        "\d11a59","\d11a5a","\d11a5b",  # ; T # Mn   [3] SOYOMBO VOWEL SIGN VOCALIC R..SOYOMBO VOWEL LENGTH MARK
-        "\d11a8a","\d11a8b","\d11a8c","\d11a8d","\d11a8e","\d11a8f","\d11a90","\d11a91","\d11a92","\d11a93","\d11a94","\d11a95","\d11a96",  # ; T # Mn  [13] SOYOMBO FINAL CONSONANT SIGN G..SOYOMBO SIGN ANUSVARA
-        "\d11a98","\d11a99",  # ; T # Mn   [2] SOYOMBO GEMINATION MARK..SOYOMBO SUBJOINER
-        "\d11c30","\d11c31","\d11c32","\d11c33","\d11c34","\d11c35","\d11c36",  # ; T # Mn   [7] BHAIKSUKI VOWEL SIGN I..BHAIKSUKI VOWEL SIGN VOCALIC L
-        "\d11c38","\d11c39","\d11c3a","\d11c3b","\d11c3c","\d11c3d",  # ; T # Mn   [6] BHAIKSUKI VOWEL SIGN E..BHAIKSUKI SIGN ANUSVARA
-        "\d11C3F",  # ; T # Mn       BHAIKSUKI SIGN VIRAMA
-        "\d11c92","\d11c93","\d11c94","\d11c95","\d11c96","\d11c97","\d11c98","\d11c99","\d11c9a","\d11c9b","\d11c9c","\d11c9d","\d11c9e","\d11c9f","\d11ca0","\d11ca1","\d11ca2","\d11ca3","\d11ca4","\d11ca5","\d11ca6","\d11ca7",  # ; T # Mn  [22] MARCHEN SUBJOINED LETTER KA..MARCHEN SUBJOINED LETTER ZA
-        "\d11caa","\d11cab","\d11cac","\d11cad","\d11cae","\d11caf","\d11cb0",  # ; T # Mn   [7] MARCHEN SUBJOINED LETTER RA..MARCHEN VOWEL SIGN AA
-        "\d11cb2","\d11cb3",  # ; T # Mn   [2] MARCHEN VOWEL SIGN U..MARCHEN VOWEL SIGN E
-        "\d11cb5","\d11cb6",  # ; T # Mn   [2] MARCHEN SIGN ANUSVARA..MARCHEN SIGN CANDRABINDU
-        "\d11d31","\d11d32","\d11d33","\d11d34","\d11d35","\d11d36",  # ; T # Mn   [6] MASARAM GONDI VOWEL SIGN AA..MASARAM GONDI VOWEL SIGN VOCALIC R
-        "\d11D3A",  # ; T # Mn       MASARAM GONDI VOWEL SIGN E
-        "\d11d3c","\d11d3d",  # ; T # Mn   [2] MASARAM GONDI VOWEL SIGN AI..MASARAM GONDI VOWEL SIGN O
-        "\d11d3f","\d11d40","\d11d41","\d11d42","\d11d43","\d11d44","\d11d45",  # ; T # Mn   [7] MASARAM GONDI VOWEL SIGN AU..MASARAM GONDI VIRAMA
-        "\d11D47",  # ; T # Mn       MASARAM GONDI RA-KARA
-        "\d16af0","\d16af1","\d16af2","\d16af3","\d16af4",  # ; T # Mn   [5] BASSA VAH COMBINING HIGH TONE..BASSA VAH COMBINING HIGH-LOW TONE
-        "\d16b30","\d16b31","\d16b32","\d16b33","\d16b34","\d16b35","\d16b36",  # ; T # Mn   [7] PAHAWH HMONG MARK CIM TUB..PAHAWH HMONG MARK CIM TAUM
-        "\d16f8f","\d16f90","\d16f91","\d16f92",  # ; T # Mn   [4] MIAO TONE RIGHT..MIAO TONE BELOW
-        "\d1bc9d","\d1bc9e",  # ; T # Mn   [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
-        "\d1bca0","\d1bca1","\d1bca2","\d1bca3",  # ; T # Cf   [4] SHORTHAND FORMAT LETTER OVERLAP..SHORTHAND FORMAT UP STEP
-        "\d1d167","\d1d168","\d1d169",  # ; T # Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
-        "\d1d173","\d1d174","\d1d175","\d1d176","\d1d177","\d1d178","\d1d179","\d1d17a",  # ; T # Cf   [8] MUSICAL SYMBOL BEGIN BEAM..MUSICAL SYMBOL END PHRASE
-        "\d1d17b","\d1d17c","\d1d17d","\d1d17e","\d1d17f","\d1d180","\d1d181","\d1d182",  # ; T # Mn   [8] MUSICAL SYMBOL COMBINING ACCENT..MUSICAL SYMBOL COMBINING LOURE
-        "\d1d185","\d1d186","\d1d187","\d1d188","\d1d189","\d1d18a","\d1d18b",  # ; T # Mn   [7] MUSICAL SYMBOL COMBINING DOIT..MUSICAL SYMBOL COMBINING TRIPLE TONGUE
-        "\d1d1aa","\d1d1ab","\d1d1ac","\d1d1ad",  # ; T # Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
-        "\d1d242","\d1d243","\d1d244",  # ; T # Mn   [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
-        "\d1da00","\d1da01","\d1da02","\d1da03","\d1da04","\d1da05","\d1da06","\d1da07","\d1da08","\d1da09","\d1da0a","\d1da0b","\d1da0c","\d1da0d","\d1da0e","\d1da0f","\d1da10","\d1da11","\d1da12","\d1da13","\d1da14","\d1da15","\d1da16","\d1da17","\d1da18","\d1da19","\d1da1a","\d1da1b","\d1da1c","\d1da1d","\d1da1e","\d1da1f","\d1da20","\d1da21","\d1da22","\d1da23","\d1da24","\d1da25","\d1da26","\d1da27","\d1da28","\d1da29","\d1da2a","\d1da2b","\d1da2c","\d1da2d","\d1da2e","\d1da2f","\d1da30","\d1da31","\d1da32","\d1da33","\d1da34","\d1da35","\d1da36",  # ; T # Mn  [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
-        "\d1da3b","\d1da3c","\d1da3d","\d1da3e","\d1da3f","\d1da40","\d1da41","\d1da42","\d1da43","\d1da44","\d1da45","\d1da46","\d1da47","\d1da48","\d1da49","\d1da4a","\d1da4b","\d1da4c","\d1da4d","\d1da4e","\d1da4f","\d1da50","\d1da51","\d1da52","\d1da53","\d1da54","\d1da55","\d1da56","\d1da57","\d1da58","\d1da59","\d1da5a","\d1da5b","\d1da5c","\d1da5d","\d1da5e","\d1da5f","\d1da60","\d1da61","\d1da62","\d1da63","\d1da64","\d1da65","\d1da66","\d1da67","\d1da68","\d1da69","\d1da6a","\d1da6b","\d1da6c",  # ; T # Mn  [50] SIGNWRITING MOUTH CLOSED NEUTRAL..SIGNWRITING EXCITEMENT
-        "\d1DA75",  # ; T # Mn       SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
-        "\d1DA84",  # ; T # Mn       SIGNWRITING LOCATION HEAD NECK
-        "\d1da9b","\d1da9c","\d1da9d","\d1da9e","\d1da9f",  # ; T # Mn   [5] SIGNWRITING FILL MODIFIER-2..SIGNWRITING FILL MODIFIER-6
-        "\d1daa1","\d1daa2","\d1daa3","\d1daa4","\d1daa5","\d1daa6","\d1daa7","\d1daa8","\d1daa9","\d1daaa","\d1daab","\d1daac","\d1daad","\d1daae","\d1daaf",  # ; T # Mn  [15] SIGNWRITING ROTATION MODIFIER-2..SIGNWRITING ROTATION MODIFIER-16
-        "\d1e000","\d1e001","\d1e002","\d1e003","\d1e004","\d1e005","\d1e006",  # ; T # Mn   [7] COMBINING GLAGOLITIC LETTER AZU..COMBINING GLAGOLITIC LETTER ZHIVETE
-        "\d1e008","\d1e009","\d1e00a","\d1e00b","\d1e00c","\d1e00d","\d1e00e","\d1e00f","\d1e010","\d1e011","\d1e012","\d1e013","\d1e014","\d1e015","\d1e016","\d1e017","\d1e018",  # ; T # Mn  [17] COMBINING GLAGOLITIC LETTER ZEMLJA..COMBINING GLAGOLITIC LETTER HERU
-        "\d1e01b","\d1e01c","\d1e01d","\d1e01e","\d1e01f","\d1e020","\d1e021",  # ; T # Mn   [7] COMBINING GLAGOLITIC LETTER SHTA..COMBINING GLAGOLITIC LETTER YATI
-        "\d1e023","\d1e024",  # ; T # Mn   [2] COMBINING GLAGOLITIC LETTER YU..COMBINING GLAGOLITIC LETTER SMALL YUS
-        "\d1e026","\d1e027","\d1e028","\d1e029","\d1e02a",  # ; T # Mn   [5] COMBINING GLAGOLITIC LETTER YO..COMBINING GLAGOLITIC LETTER FITA
-        "\d1e8d0","\d1e8d1","\d1e8d2","\d1e8d3","\d1e8d4","\d1e8d5","\d1e8d6",  # ; T # Mn   [7] MENDE KIKAKUI COMBINING NUMBER TEENS..MENDE KIKAKUI COMBINING NUMBER MILLIONS
-        "\d1e944","\d1e945","\d1e946","\d1e947","\d1e948","\d1e949","\d1e94a",  # ; T # Mn   [7] ADLAM ALIF LENGTHENER..ADLAM NUKTA
-        "\dE0001",  # ; T # Cf       LANGUAGE TAG
-        "\de0020","\de0021","\de0022","\de0023","\de0024","\de0025","\de0026","\de0027","\de0028","\de0029","\de002a","\de002b","\de002c","\de002d","\de002e","\de002f","\de0030","\de0031","\de0032","\de0033","\de0034","\de0035","\de0036","\de0037","\de0038","\de0039","\de003a","\de003b","\de003c","\de003d","\de003e","\de003f","\de0040","\de0041","\de0042","\de0043","\de0044","\de0045","\de0046","\de0047","\de0048","\de0049","\de004a","\de004b","\de004c","\de004d","\de004e","\de004f","\de0050","\de0051","\de0052","\de0053","\de0054","\de0055","\de0056","\de0057","\de0058","\de0059","\de005a","\de005b","\de005c","\de005d","\de005e","\de005f","\de0060","\de0061","\de0062","\de0063","\de0064","\de0065","\de0066","\de0067","\de0068","\de0069","\de006a","\de006b","\de006c","\de006d","\de006e","\de006f","\de0070","\de0071","\de0072","\de0073","\de0074","\de0075","\de0076","\de0077","\de0078","\de0079","\de007a","\de007b","\de007c","\de007d","\de007e","\de007f",  # ; T # Cf  [96] TAG SPACE..CANCEL TAG
-        "\de0100","\de0101","\de0102","\de0103","\de0104","\de0105","\de0106","\de0107","\de0108","\de0109","\de010a","\de010b","\de010c","\de010d","\de010e","\de010f","\de0110","\de0111","\de0112","\de0113","\de0114","\de0115","\de0116","\de0117","\de0118","\de0119","\de011a","\de011b","\de011c","\de011d","\de011e","\de011f","\de0120","\de0121","\de0122","\de0123","\de0124","\de0125","\de0126","\de0127","\de0128","\de0129","\de012a","\de012b","\de012c","\de012d","\de012e","\de012f","\de0130","\de0131","\de0132","\de0133","\de0134","\de0135","\de0136","\de0137","\de0138","\de0139","\de013a","\de013b","\de013c","\de013d","\de013e","\de013f","\de0140","\de0141","\de0142","\de0143","\de0144","\de0145","\de0146","\de0147","\de0148","\de0149","\de014a","\de014b","\de014c","\de014d","\de014e","\de014f","\de0150","\de0151","\de0152","\de0153","\de0154","\de0155","\de0156","\de0157","\de0158","\de0159","\de015a","\de015b","\de015c","\de015d","\de015e","\de015f","\de0160","\de0161","\de0162","\de0163","\de0164","\de0165","\de0166","\de0167","\de0168","\de0169","\de016a","\de016b","\de016c","\de016d","\de016e","\de016f","\de0170","\de0171","\de0172","\de0173","\de0174","\de0175","\de0176","\de0177","\de0178","\de0179","\de017a","\de017b","\de017c","\de017d","\de017e","\de017f","\de0180","\de0181","\de0182","\de0183","\de0184","\de0185","\de0186","\de0187","\de0188","\de0189","\de018a","\de018b","\de018c","\de018d","\de018e","\de018f","\de0190","\de0191","\de0192","\de0193","\de0194","\de0195","\de0196","\de0197","\de0198","\de0199","\de019a","\de019b","\de019c","\de019d","\de019e","\de019f","\de01a0","\de01a1","\de01a2","\de01a3","\de01a4","\de01a5","\de01a6","\de01a7","\de01a8","\de01a9","\de01aa","\de01ab","\de01ac","\de01ad","\de01ae","\de01af","\de01b0","\de01b1","\de01b2","\de01b3","\de01b4","\de01b5","\de01b6","\de01b7","\de01b8","\de01b9","\de01ba","\de01bb","\de01bc","\de01bd","\de01be","\de01bf","\de01c0","\de01c1","\de01c2","\de01c3","\de01c4","\de01c5","\de01c6","\de01c7","\de01c8","\de01c9","\de01ca","\de01cb","\de01cc","\de01cd","\de01ce","\de01cf","\de01d0","\de01d1","\de01d2","\de01d3","\de01d4","\de01d5","\de01d6","\de01d7","\de01d8","\de01d9","\de01da","\de01db","\de01dc","\de01dd","\de01de","\de01df","\de01e0","\de01e1","\de01e2","\de01e3","\de01e4","\de01e5","\de01e6","\de01e7","\de01e8","\de01e9","\de01ea","\de01eb","\de01ec","\de01ed","\de01ee","\de01ef",  # ; T # Mn [240] VARIATION SELECTOR-17..VARIATION SELECTOR-256
+        "\u0640",  # ; C # Lm       ARABIC TATWEEL
+        "\u07FA",  # ; C # Lm       NKO LAJANYALAN
+        "\u180A",  # ; C # Po       MONGOLIAN NIRUGU
+        "\u200D",  # ; C # Cf       ZERO WIDTH JOINER
+        "\u0620",  # ; D # Lo       ARABIC LETTER KASHMIRI YEH
+        "\u0626",  # ; D # Lo       ARABIC LETTER YEH WITH HAMZA ABOVE
+        "\u0628",  # ; D # Lo       ARABIC LETTER BEH
+        "\u062a","\u062b","\u062c","\u062d","\u062e",  # ; D # Lo   [5] ARABIC LETTER TEH..ARABIC LETTER KHAH
+        "\u0633","\u0634","\u0635","\u0636","\u0637","\u0638","\u0639","\u063a","\u063b","\u063c","\u063d","\u063e","\u063f",  # ; D # Lo  [13] ARABIC LETTER SEEN..ARABIC LETTER FARSI YEH WITH THREE DOTS ABOVE
+        "\u0641","\u0642","\u0643","\u0644","\u0645","\u0646","\u0647",  # ; D # Lo   [7] ARABIC LETTER FEH..ARABIC LETTER HEH
+        "\u0649","\u064a",  # ; D # Lo   [2] ARABIC LETTER ALEF MAKSURA..ARABIC LETTER YEH
+        "\u066e","\u066f",  # ; D # Lo   [2] ARABIC LETTER DOTLESS BEH..ARABIC LETTER DOTLESS QAF
+        "\u0678","\u0679","\u067a","\u067b","\u067c","\u067d","\u067e","\u067f","\u0680","\u0681","\u0682","\u0683","\u0684","\u0685","\u0686","\u0687",  # ; D # Lo  [16] ARABIC LETTER HIGH HAMZA YEH..ARABIC LETTER TCHEHEH
+        "\u069a","\u069b","\u069c","\u069d","\u069e","\u069f","\u06a0","\u06a1","\u06a2","\u06a3","\u06a4","\u06a5","\u06a6","\u06a7","\u06a8","\u06a9","\u06aa","\u06ab","\u06ac","\u06ad","\u06ae","\u06af","\u06b0","\u06b1","\u06b2","\u06b3","\u06b4","\u06b5","\u06b6","\u06b7","\u06b8","\u06b9","\u06ba","\u06bb","\u06bc","\u06bd","\u06be","\u06bf",  # ; D # Lo  [38] ARABIC LETTER SEEN WITH DOT BELOW AND DOT ABOVE..ARABIC LETTER TCHEH WITH DOT ABOVE
+        "\u06c1","\u06c2",  # ; D # Lo   [2] ARABIC LETTER HEH GOAL..ARABIC LETTER HEH GOAL WITH HAMZA ABOVE
+        "\u06CC",  # ; D # Lo       ARABIC LETTER FARSI YEH
+        "\u06CE",  # ; D # Lo       ARABIC LETTER YEH WITH SMALL V
+        "\u06d0","\u06d1",  # ; D # Lo   [2] ARABIC LETTER E..ARABIC LETTER YEH WITH THREE DOTS BELOW
+        "\u06fa","\u06fb","\u06fc",  # ; D # Lo   [3] ARABIC LETTER SHEEN WITH DOT BELOW..ARABIC LETTER GHAIN WITH DOT BELOW
+        "\u06FF",  # ; D # Lo       ARABIC LETTER HEH WITH INVERTED V
+        "\u0712","\u0713","\u0714",  # ; D # Lo   [3] SYRIAC LETTER BETH..SYRIAC LETTER GAMAL GARSHUNI
+        "\u071a","\u071b","\u071c","\u071d",  # ; D # Lo   [4] SYRIAC LETTER HETH..SYRIAC LETTER YUDH
+        "\u071f","\u0720","\u0721","\u0722","\u0723","\u0724","\u0725","\u0726","\u0727",  # ; D # Lo   [9] SYRIAC LETTER KAPH..SYRIAC LETTER REVERSED PE
+        "\u0729",  # ; D # Lo       SYRIAC LETTER QAPH
+        "\u072B",  # ; D # Lo       SYRIAC LETTER SHIN
+        "\u072d","\u072e",  # ; D # Lo   [2] SYRIAC LETTER PERSIAN BHETH..SYRIAC LETTER PERSIAN GHAMAL
+        "\u074e","\u074f","\u0750","\u0751","\u0752","\u0753","\u0754","\u0755","\u0756","\u0757","\u0758",  # ; D # Lo  [11] SYRIAC LETTER SOGDIAN KHAPH..ARABIC LETTER HAH WITH THREE DOTS POINTING UPWARDS BELOW
+        "\u075c","\u075d","\u075e","\u075f","\u0760","\u0761","\u0762","\u0763","\u0764","\u0765","\u0766","\u0767","\u0768","\u0769","\u076a",  # ; D # Lo  [15] ARABIC LETTER SEEN WITH FOUR DOTS ABOVE..ARABIC LETTER LAM WITH BAR
+        "\u076d","\u076e","\u076f","\u0770",  # ; D # Lo   [4] ARABIC LETTER SEEN WITH TWO DOTS VERTICALLY ABOVE..ARABIC LETTER SEEN WITH SMALL ARABIC LETTER TAH AND TWO DOTS
+        "\u0772",  # ; D # Lo       ARABIC LETTER HAH WITH SMALL ARABIC LETTER TAH ABOVE
+        "\u0775","\u0776","\u0777",  # ; D # Lo   [3] ARABIC LETTER FARSI YEH WITH EXTENDED ARABIC-INDIC DIGIT TWO ABOVE..ARABIC LETTER FARSI YEH WITH EXTENDED ARABIC-INDIC DIGIT FOUR BELOW
+        "\u077a","\u077b","\u077c","\u077d","\u077e","\u077f",  # ; D # Lo   [6] ARABIC LETTER YEH BARREE WITH EXTENDED ARABIC-INDIC DIGIT TWO ABOVE..ARABIC LETTER KAF WITH TWO DOTS ABOVE
+        "\u07ca","\u07cb","\u07cc","\u07cd","\u07ce","\u07cf","\u07d0","\u07d1","\u07d2","\u07d3","\u07d4","\u07d5","\u07d6","\u07d7","\u07d8","\u07d9","\u07da","\u07db","\u07dc","\u07dd","\u07de","\u07df","\u07e0","\u07e1","\u07e2","\u07e3","\u07e4","\u07e5","\u07e6","\u07e7","\u07e8","\u07e9","\u07ea",  # ; D # Lo  [33] NKO LETTER A..NKO LETTER JONA RA
+        "\u0841","\u0842","\u0843","\u0844","\u0845",  # ; D # Lo   [5] MANDAIC LETTER AB..MANDAIC LETTER USHENNA
+        "\u0848",  # ; D # Lo       MANDAIC LETTER ATT
+        "\u084a","\u084b","\u084c","\u084d","\u084e","\u084f","\u0850","\u0851","\u0852","\u0853",  # ; D # Lo  [10] MANDAIC LETTER AK..MANDAIC LETTER AR
+        "\u0855",  # ; D # Lo       MANDAIC LETTER AT
+        "\u0860",  # ; D # Lo       SYRIAC LETTER MALAYALAM NGA
+        "\u0862","\u0863","\u0864","\u0865",  # ; D # Lo   [4] SYRIAC LETTER MALAYALAM NYA..SYRIAC LETTER MALAYALAM NNNA
+        "\u0868",  # ; D # Lo       SYRIAC LETTER MALAYALAM LLA
+        "\u08a0","\u08a1","\u08a2","\u08a3","\u08a4","\u08a5","\u08a6","\u08a7","\u08a8","\u08a9",  # ; D # Lo  [10] ARABIC LETTER BEH WITH SMALL V BELOW..ARABIC LETTER YEH WITH TWO DOTS BELOW AND DOT ABOVE
+        "\u08af","\u08b0",  # ; D # Lo   [2] ARABIC LETTER SAD WITH THREE DOTS BELOW..ARABIC LETTER GAF WITH INVERTED STROKE
+        "\u08b3","\u08b4",  # ; D # Lo   [2] ARABIC LETTER AIN WITH THREE DOTS BELOW..ARABIC LETTER KAF WITH DOT BELOW
+        "\u08b6","\u08b7","\u08b8",  # ; D # Lo   [3] ARABIC LETTER BEH WITH SMALL MEEM ABOVE..ARABIC LETTER TEH WITH SMALL TEH ABOVE
+        "\u08ba","\u08bb","\u08bc","\u08bd",  # ; D # Lo   [4] ARABIC LETTER YEH WITH TWO DOTS BELOW AND SMALL NOON ABOVE..ARABIC LETTER AFRICAN NOON
+        "\u1807",  # ; D # Po       MONGOLIAN SIBE SYLLABLE BOUNDARY MARKER
+        "\u1820","\u1821","\u1822","\u1823","\u1824","\u1825","\u1826","\u1827","\u1828","\u1829","\u182a","\u182b","\u182c","\u182d","\u182e","\u182f","\u1830","\u1831","\u1832","\u1833","\u1834","\u1835","\u1836","\u1837","\u1838","\u1839","\u183a","\u183b","\u183c","\u183d","\u183e","\u183f","\u1840","\u1841","\u1842",  # ; D # Lo  [35] MONGOLIAN LETTER A..MONGOLIAN LETTER CHI
+        "\u1843",  # ; D # Lm       MONGOLIAN LETTER TODO LONG VOWEL SIGN
+        "\u1844","\u1845","\u1846","\u1847","\u1848","\u1849","\u184a","\u184b","\u184c","\u184d","\u184e","\u184f","\u1850","\u1851","\u1852","\u1853","\u1854","\u1855","\u1856","\u1857","\u1858","\u1859","\u185a","\u185b","\u185c","\u185d","\u185e","\u185f","\u1860","\u1861","\u1862","\u1863","\u1864","\u1865","\u1866","\u1867","\u1868","\u1869","\u186a","\u186b","\u186c","\u186d","\u186e","\u186f","\u1870","\u1871","\u1872","\u1873","\u1874","\u1875","\u1876","\u1877",  # ; D # Lo  [52] MONGOLIAN LETTER TODO E..MONGOLIAN LETTER MANCHU ZHA
+        "\u1887","\u1888","\u1889","\u188a","\u188b","\u188c","\u188d","\u188e","\u188f","\u1890","\u1891","\u1892","\u1893","\u1894","\u1895","\u1896","\u1897","\u1898","\u1899","\u189a","\u189b","\u189c","\u189d","\u189e","\u189f","\u18a0","\u18a1","\u18a2","\u18a3","\u18a4","\u18a5","\u18a6","\u18a7","\u18a8",  # ; D # Lo  [34] MONGOLIAN LETTER ALI GALI A..MONGOLIAN LETTER MANCHU ALI GALI BHA
+        "\u18AA",  # ; D # Lo       MONGOLIAN LETTER MANCHU ALI GALI LHA
+        "\ua840","\ua841","\ua842","\ua843","\ua844","\ua845","\ua846","\ua847","\ua848","\ua849","\ua84a","\ua84b","\ua84c","\ua84d","\ua84e","\ua84f","\ua850","\ua851","\ua852","\ua853","\ua854","\ua855","\ua856","\ua857","\ua858","\ua859","\ua85a","\ua85b","\ua85c","\ua85d","\ua85e","\ua85f","\ua860","\ua861","\ua862","\ua863","\ua864","\ua865","\ua866","\ua867","\ua868","\ua869","\ua86a","\ua86b","\ua86c","\ua86d","\ua86e","\ua86f","\ua870","\ua871",  # ; D # Lo  [50] PHAGS-PA LETTER KA..PHAGS-PA SUBJOINED LETTER RA
+        "\u10ac0","\u10ac1","\u10ac2","\u10ac3","\u10ac4",  # ; D # Lo   [5] MANICHAEAN LETTER ALEPH..MANICHAEAN LETTER GHIMEL
+        "\u10ad3","\u10ad4","\u10ad5","\u10ad6",  # ; D # Lo   [4] MANICHAEAN LETTER LAMEDH..MANICHAEAN LETTER MEM
+        "\u10ad8","\u10ad9","\u10ada","\u10adb","\u10adc",  # ; D # Lo   [5] MANICHAEAN LETTER SAMEKH..MANICHAEAN LETTER FE
+        "\u10ade","\u10adf","\u10ae0",  # ; D # Lo   [3] MANICHAEAN LETTER QOPH..MANICHAEAN LETTER QHOPH
+        "\u10aeb","\u10aec","\u10aed","\u10aee",  # ; D # No   [4] MANICHAEAN NUMBER ONE..MANICHAEAN NUMBER TWENTY
+        "\u10B80",  # ; D # Lo       PSALTER PAHLAVI LETTER ALEPH
+        "\u10B82",  # ; D # Lo       PSALTER PAHLAVI LETTER GIMEL
+        "\u10b86","\u10b87","\u10b88",  # ; D # Lo   [3] PSALTER PAHLAVI LETTER ZAYIN..PSALTER PAHLAVI LETTER YODH
+        "\u10b8a","\u10b8b",  # ; D # Lo   [2] PSALTER PAHLAVI LETTER LAMEDH..PSALTER PAHLAVI LETTER MEM-QOPH
+        "\u10B8D",  # ; D # Lo       PSALTER PAHLAVI LETTER SAMEKH
+        "\u10B90",  # ; D # Lo       PSALTER PAHLAVI LETTER SHIN
+        "\u10bad","\u10bae",  # ; D # No   [2] PSALTER PAHLAVI NUMBER TEN..PSALTER PAHLAVI NUMBER TWENTY
+        "\u1e900","\u1e901","\u1e902","\u1e903","\u1e904","\u1e905","\u1e906","\u1e907","\u1e908","\u1e909","\u1e90a","\u1e90b","\u1e90c","\u1e90d","\u1e90e","\u1e90f","\u1e910","\u1e911","\u1e912","\u1e913","\u1e914","\u1e915","\u1e916","\u1e917","\u1e918","\u1e919","\u1e91a","\u1e91b","\u1e91c","\u1e91d","\u1e91e","\u1e91f","\u1e920","\u1e921","\u1e922","\u1e923","\u1e924","\u1e925","\u1e926","\u1e927","\u1e928","\u1e929","\u1e92a","\u1e92b","\u1e92c","\u1e92d","\u1e92e","\u1e92f","\u1e930","\u1e931","\u1e932","\u1e933","\u1e934","\u1e935","\u1e936","\u1e937","\u1e938","\u1e939","\u1e93a","\u1e93b","\u1e93c","\u1e93d","\u1e93e","\u1e93f","\u1e940","\u1e941","\u1e942","\u1e943",  # ; D # L&  [68] ADLAM CAPITAL LETTER ALIF..ADLAM SMALL LETTER SHA
+        "\u0622","\u0623","\u0624","\u0625",  # ; R # Lo   [4] ARABIC LETTER ALEF WITH MADDA ABOVE..ARABIC LETTER ALEF WITH HAMZA BELOW
+        "\u0627",  # ; R # Lo       ARABIC LETTER ALEF
+        "\u0629",  # ; R # Lo       ARABIC LETTER TEH MARBUTA
+        "\u062f","\u0630","\u0631","\u0632",  # ; R # Lo   [4] ARABIC LETTER DAL..ARABIC LETTER ZAIN
+        "\u0648",  # ; R # Lo       ARABIC LETTER WAW
+        "\u0671","\u0672","\u0673",  # ; R # Lo   [3] ARABIC LETTER ALEF WASLA..ARABIC LETTER ALEF WITH WAVY HAMZA BELOW
+        "\u0675","\u0676","\u0677",  # ; R # Lo   [3] ARABIC LETTER HIGH HAMZA ALEF..ARABIC LETTER U WITH HAMZA ABOVE
+        "\u0688","\u0689","\u068a","\u068b","\u068c","\u068d","\u068e","\u068f","\u0690","\u0691","\u0692","\u0693","\u0694","\u0695","\u0696","\u0697","\u0698","\u0699",  # ; R # Lo  [18] ARABIC LETTER DDAL..ARABIC LETTER REH WITH FOUR DOTS ABOVE
+        "\u06C0",  # ; R # Lo       ARABIC LETTER HEH WITH YEH ABOVE
+        "\u06c3","\u06c4","\u06c5","\u06c6","\u06c7","\u06c8","\u06c9","\u06ca","\u06cb",  # ; R # Lo   [9] ARABIC LETTER TEH MARBUTA GOAL..ARABIC LETTER VE
+        "\u06CD",  # ; R # Lo       ARABIC LETTER YEH WITH TAIL
+        "\u06CF",  # ; R # Lo       ARABIC LETTER WAW WITH DOT ABOVE
+        "\u06d2","\u06d3",  # ; R # Lo   [2] ARABIC LETTER YEH BARREE..ARABIC LETTER YEH BARREE WITH HAMZA ABOVE
+        "\u06D5",  # ; R # Lo       ARABIC LETTER AE
+        "\u06ee","\u06ef",  # ; R # Lo   [2] ARABIC LETTER DAL WITH INVERTED V..ARABIC LETTER REH WITH INVERTED V
+        "\u0710",  # ; R # Lo       SYRIAC LETTER ALAPH
+        "\u0715","\u0716","\u0717","\u0718","\u0719",  # ; R # Lo   [5] SYRIAC LETTER DALATH..SYRIAC LETTER ZAIN
+        "\u071E",  # ; R # Lo       SYRIAC LETTER YUDH HE
+        "\u0728",  # ; R # Lo       SYRIAC LETTER SADHE
+        "\u072A",  # ; R # Lo       SYRIAC LETTER RISH
+        "\u072C",  # ; R # Lo       SYRIAC LETTER TAW
+        "\u072F",  # ; R # Lo       SYRIAC LETTER PERSIAN DHALATH
+        "\u074D",  # ; R # Lo       SYRIAC LETTER SOGDIAN ZHAIN
+        "\u0759","\u075a","\u075b",  # ; R # Lo   [3] ARABIC LETTER DAL WITH TWO DOTS VERTICALLY BELOW AND SMALL TAH..ARABIC LETTER REH WITH STROKE
+        "\u076b","\u076c",  # ; R # Lo   [2] ARABIC LETTER REH WITH TWO DOTS VERTICALLY ABOVE..ARABIC LETTER REH WITH HAMZA ABOVE
+        "\u0771",  # ; R # Lo       ARABIC LETTER REH WITH SMALL ARABIC LETTER TAH AND TWO DOTS
+        "\u0773","\u0774",  # ; R # Lo   [2] ARABIC LETTER ALEF WITH EXTENDED ARABIC-INDIC DIGIT TWO ABOVE..ARABIC LETTER ALEF WITH EXTENDED ARABIC-INDIC DIGIT THREE ABOVE
+        "\u0778","\u0779",  # ; R # Lo   [2] ARABIC LETTER WAW WITH EXTENDED ARABIC-INDIC DIGIT TWO ABOVE..ARABIC LETTER WAW WITH EXTENDED ARABIC-INDIC DIGIT THREE ABOVE
+        "\u0840",  # ; R # Lo       MANDAIC LETTER HALQA
+        "\u0846","\u0847",  # ; R # Lo   [2] MANDAIC LETTER AZ..MANDAIC LETTER IT
+        "\u0849",  # ; R # Lo       MANDAIC LETTER AKSA
+        "\u0854",  # ; R # Lo       MANDAIC LETTER ASH
+        "\u0867",  # ; R # Lo       SYRIAC LETTER MALAYALAM RA
+        "\u0869","\u086a",  # ; R # Lo   [2] SYRIAC LETTER MALAYALAM LLLA..SYRIAC LETTER MALAYALAM SSA
+        "\u08aa","\u08ab","\u08ac",  # ; R # Lo   [3] ARABIC LETTER REH WITH LOOP..ARABIC LETTER ROHINGYA YEH
+        "\u08AE",  # ; R # Lo       ARABIC LETTER DAL WITH THREE DOTS BELOW
+        "\u08b1","\u08b2",  # ; R # Lo   [2] ARABIC LETTER STRAIGHT WAW..ARABIC LETTER ZAIN WITH INVERTED V ABOVE
+        "\u08B9",  # ; R # Lo       ARABIC LETTER REH WITH SMALL NOON ABOVE
+        "\u10AC5",  # ; R # Lo       MANICHAEAN LETTER DALETH
+        "\u10AC7",  # ; R # Lo       MANICHAEAN LETTER WAW
+        "\u10ac9","\u10aca",  # ; R # Lo   [2] MANICHAEAN LETTER ZAYIN..MANICHAEAN LETTER ZHAYIN
+        "\u10ace","\u10acf","\u10ad0","\u10ad1","\u10ad2",  # ; R # Lo   [5] MANICHAEAN LETTER TETH..MANICHAEAN LETTER KHAPH
+        "\u10ADD",  # ; R # Lo       MANICHAEAN LETTER SADHE
+        "\u10AE1",  # ; R # Lo       MANICHAEAN LETTER RESH
+        "\u10AE4",  # ; R # Lo       MANICHAEAN LETTER TAW
+        "\u10AEF",  # ; R # No       MANICHAEAN NUMBER ONE HUNDRED
+        "\u10B81",  # ; R # Lo       PSALTER PAHLAVI LETTER BETH
+        "\u10b83","\u10b84","\u10b85",  # ; R # Lo   [3] PSALTER PAHLAVI LETTER DALETH..PSALTER PAHLAVI LETTER WAW-AYIN-RESH
+        "\u10B89",  # ; R # Lo       PSALTER PAHLAVI LETTER KAPH
+        "\u10B8C",  # ; R # Lo       PSALTER PAHLAVI LETTER NUN
+        "\u10b8e","\u10b8f",  # ; R # Lo   [2] PSALTER PAHLAVI LETTER PE..PSALTER PAHLAVI LETTER SADHE
+        "\u10B91",  # ; R # Lo       PSALTER PAHLAVI LETTER TAW
+        "\u10ba9","\u10baa","\u10bab","\u10bac",  # ; R # No   [4] PSALTER PAHLAVI NUMBER ONE..PSALTER PAHLAVI NUMBER FOUR
+        "\uA872",  # ; L # Lo       PHAGS-PA SUPERFIXED LETTER RA
+        "\u10ACD",  # ; L # Lo       MANICHAEAN LETTER HETH
+        "\u10AD7",  # ; L # Lo       MANICHAEAN LETTER NUN
+        "\u00AD",  # ; T # Cf       SOFT HYPHEN
+        "\u0300","\u0301","\u0302","\u0303","\u0304","\u0305","\u0306","\u0307","\u0308","\u0309","\u030a","\u030b","\u030c","\u030d","\u030e","\u030f","\u0310","\u0311","\u0312","\u0313","\u0314","\u0315","\u0316","\u0317","\u0318","\u0319","\u031a","\u031b","\u031c","\u031d","\u031e","\u031f","\u0320","\u0321","\u0322","\u0323","\u0324","\u0325","\u0326","\u0327","\u0328","\u0329","\u032a","\u032b","\u032c","\u032d","\u032e","\u032f","\u0330","\u0331","\u0332","\u0333","\u0334","\u0335","\u0336","\u0337","\u0338","\u0339","\u033a","\u033b","\u033c","\u033d","\u033e","\u033f","\u0340","\u0341","\u0342","\u0343","\u0344","\u0345","\u0346","\u0347","\u0348","\u0349","\u034a","\u034b","\u034c","\u034d","\u034e","\u034f","\u0350","\u0351","\u0352","\u0353","\u0354","\u0355","\u0356","\u0357","\u0358","\u0359","\u035a","\u035b","\u035c","\u035d","\u035e","\u035f","\u0360","\u0361","\u0362","\u0363","\u0364","\u0365","\u0366","\u0367","\u0368","\u0369","\u036a","\u036b","\u036c","\u036d","\u036e","\u036f",  # ; T # Mn [112] COMBINING GRAVE ACCENT..COMBINING LATIN SMALL LETTER X
+        "\u0483","\u0484","\u0485","\u0486","\u0487",  # ; T # Mn   [5] COMBINING CYRILLIC TITLO..COMBINING CYRILLIC POKRYTIE
+        "\u0488","\u0489",  # ; T # Me   [2] COMBINING CYRILLIC HUNDRED THOUSANDS SIGN..COMBINING CYRILLIC MILLIONS SIGN
+        "\u0591","\u0592","\u0593","\u0594","\u0595","\u0596","\u0597","\u0598","\u0599","\u059a","\u059b","\u059c","\u059d","\u059e","\u059f","\u05a0","\u05a1","\u05a2","\u05a3","\u05a4","\u05a5","\u05a6","\u05a7","\u05a8","\u05a9","\u05aa","\u05ab","\u05ac","\u05ad","\u05ae","\u05af","\u05b0","\u05b1","\u05b2","\u05b3","\u05b4","\u05b5","\u05b6","\u05b7","\u05b8","\u05b9","\u05ba","\u05bb","\u05bc","\u05bd",  # ; T # Mn  [45] HEBREW ACCENT ETNAHTA..HEBREW POINT METEG
+        "\u05BF",  # ; T # Mn       HEBREW POINT RAFE
+        "\u05c1","\u05c2",  # ; T # Mn   [2] HEBREW POINT SHIN DOT..HEBREW POINT SIN DOT
+        "\u05c4","\u05c5",  # ; T # Mn   [2] HEBREW MARK UPPER DOT..HEBREW MARK LOWER DOT
+        "\u05C7",  # ; T # Mn       HEBREW POINT QAMATS QATAN
+        "\u0610","\u0611","\u0612","\u0613","\u0614","\u0615","\u0616","\u0617","\u0618","\u0619","\u061a",  # ; T # Mn  [11] ARABIC SIGN SALLALLAHOU ALAYHE WASSALLAM..ARABIC SMALL KASRA
+        "\u061C",  # ; T # Cf       ARABIC LETTER MARK
+        "\u064b","\u064c","\u064d","\u064e","\u064f","\u0650","\u0651","\u0652","\u0653","\u0654","\u0655","\u0656","\u0657","\u0658","\u0659","\u065a","\u065b","\u065c","\u065d","\u065e","\u065f",  # ; T # Mn  [21] ARABIC FATHATAN..ARABIC WAVY HAMZA BELOW
+        "\u0670",  # ; T # Mn       ARABIC LETTER SUPERSCRIPT ALEF
+        "\u06d6","\u06d7","\u06d8","\u06d9","\u06da","\u06db","\u06dc",  # ; T # Mn   [7] ARABIC SMALL HIGH LIGATURE SAD WITH LAM WITH ALEF MAKSURA..ARABIC SMALL HIGH SEEN
+        "\u06df","\u06e0","\u06e1","\u06e2","\u06e3","\u06e4",  # ; T # Mn   [6] ARABIC SMALL HIGH ROUNDED ZERO..ARABIC SMALL HIGH MADDA
+        "\u06e7","\u06e8",  # ; T # Mn   [2] ARABIC SMALL HIGH YEH..ARABIC SMALL HIGH NOON
+        "\u06ea","\u06eb","\u06ec","\u06ed",  # ; T # Mn   [4] ARABIC EMPTY CENTRE LOW STOP..ARABIC SMALL LOW MEEM
+        "\u070F",  # ; T # Cf       SYRIAC ABBREVIATION MARK
+        "\u0711",  # ; T # Mn       SYRIAC LETTER SUPERSCRIPT ALAPH
+        "\u0730","\u0731","\u0732","\u0733","\u0734","\u0735","\u0736","\u0737","\u0738","\u0739","\u073a","\u073b","\u073c","\u073d","\u073e","\u073f","\u0740","\u0741","\u0742","\u0743","\u0744","\u0745","\u0746","\u0747","\u0748","\u0749","\u074a",  # ; T # Mn  [27] SYRIAC PTHAHA ABOVE..SYRIAC BARREKH
+        "\u07a6","\u07a7","\u07a8","\u07a9","\u07aa","\u07ab","\u07ac","\u07ad","\u07ae","\u07af","\u07b0",  # ; T # Mn  [11] THAANA ABAFILI..THAANA SUKUN
+        "\u07eb","\u07ec","\u07ed","\u07ee","\u07ef","\u07f0","\u07f1","\u07f2","\u07f3",  # ; T # Mn   [9] NKO COMBINING SHORT HIGH TONE..NKO COMBINING DOUBLE DOT ABOVE
+        "\u0816","\u0817","\u0818","\u0819",  # ; T # Mn   [4] SAMARITAN MARK IN..SAMARITAN MARK DAGESH
+        "\u081b","\u081c","\u081d","\u081e","\u081f","\u0820","\u0821","\u0822","\u0823",  # ; T # Mn   [9] SAMARITAN MARK EPENTHETIC YUT..SAMARITAN VOWEL SIGN A
+        "\u0825","\u0826","\u0827",  # ; T # Mn   [3] SAMARITAN VOWEL SIGN SHORT A..SAMARITAN VOWEL SIGN U
+        "\u0829","\u082a","\u082b","\u082c","\u082d",  # ; T # Mn   [5] SAMARITAN VOWEL SIGN LONG I..SAMARITAN MARK NEQUDAA
+        "\u0859","\u085a","\u085b",  # ; T # Mn   [3] MANDAIC AFFRICATION MARK..MANDAIC GEMINATION MARK
+        "\u08d4","\u08d5","\u08d6","\u08d7","\u08d8","\u08d9","\u08da","\u08db","\u08dc","\u08dd","\u08de","\u08df","\u08e0","\u08e1",  # ; T # Mn  [14] ARABIC SMALL HIGH WORD AR-RUB..ARABIC SMALL HIGH SIGN SAFHA
+        "\u08e3","\u08e4","\u08e5","\u08e6","\u08e7","\u08e8","\u08e9","\u08ea","\u08eb","\u08ec","\u08ed","\u08ee","\u08ef","\u08f0","\u08f1","\u08f2","\u08f3","\u08f4","\u08f5","\u08f6","\u08f7","\u08f8","\u08f9","\u08fa","\u08fb","\u08fc","\u08fd","\u08fe","\u08ff","\u0900","\u0901","\u0902",  # ; T # Mn  [32] ARABIC TURNED DAMMA BELOW..DEVANAGARI SIGN ANUSVARA
+        "\u093A",  # ; T # Mn       DEVANAGARI VOWEL SIGN OE
+        "\u093C",  # ; T # Mn       DEVANAGARI SIGN NUKTA
+        "\u0941","\u0942","\u0943","\u0944","\u0945","\u0946","\u0947","\u0948",  # ; T # Mn   [8] DEVANAGARI VOWEL SIGN U..DEVANAGARI VOWEL SIGN AI
+        "\u094D",  # ; T # Mn       DEVANAGARI SIGN VIRAMA
+        "\u0951","\u0952","\u0953","\u0954","\u0955","\u0956","\u0957",  # ; T # Mn   [7] DEVANAGARI STRESS SIGN UDATTA..DEVANAGARI VOWEL SIGN UUE
+        "\u0962","\u0963",  # ; T # Mn   [2] DEVANAGARI VOWEL SIGN VOCALIC L..DEVANAGARI VOWEL SIGN VOCALIC LL
+        "\u0981",  # ; T # Mn       BENGALI SIGN CANDRABINDU
+        "\u09BC",  # ; T # Mn       BENGALI SIGN NUKTA
+        "\u09c1","\u09c2","\u09c3","\u09c4",  # ; T # Mn   [4] BENGALI VOWEL SIGN U..BENGALI VOWEL SIGN VOCALIC RR
+        "\u09CD",  # ; T # Mn       BENGALI SIGN VIRAMA
+        "\u09e2","\u09e3",  # ; T # Mn   [2] BENGALI VOWEL SIGN VOCALIC L..BENGALI VOWEL SIGN VOCALIC LL
+        "\u0a01","\u0a02",  # ; T # Mn   [2] GURMUKHI SIGN ADAK BINDI..GURMUKHI SIGN BINDI
+        "\u0A3C",  # ; T # Mn       GURMUKHI SIGN NUKTA
+        "\u0a41","\u0a42",  # ; T # Mn   [2] GURMUKHI VOWEL SIGN U..GURMUKHI VOWEL SIGN UU
+        "\u0a47","\u0a48",  # ; T # Mn   [2] GURMUKHI VOWEL SIGN EE..GURMUKHI VOWEL SIGN AI
+        "\u0a4b","\u0a4c","\u0a4d",  # ; T # Mn   [3] GURMUKHI VOWEL SIGN OO..GURMUKHI SIGN VIRAMA
+        "\u0A51",  # ; T # Mn       GURMUKHI SIGN UDAAT
+        "\u0a70","\u0a71",  # ; T # Mn   [2] GURMUKHI TIPPI..GURMUKHI ADDAK
+        "\u0A75",  # ; T # Mn       GURMUKHI SIGN YAKASH
+        "\u0a81","\u0a82",  # ; T # Mn   [2] GUJARATI SIGN CANDRABINDU..GUJARATI SIGN ANUSVARA
+        "\u0ABC",  # ; T # Mn       GUJARATI SIGN NUKTA
+        "\u0ac1","\u0ac2","\u0ac3","\u0ac4","\u0ac5",  # ; T # Mn   [5] GUJARATI VOWEL SIGN U..GUJARATI VOWEL SIGN CANDRA E
+        "\u0ac7","\u0ac8",  # ; T # Mn   [2] GUJARATI VOWEL SIGN E..GUJARATI VOWEL SIGN AI
+        "\u0ACD",  # ; T # Mn       GUJARATI SIGN VIRAMA
+        "\u0ae2","\u0ae3",  # ; T # Mn   [2] GUJARATI VOWEL SIGN VOCALIC L..GUJARATI VOWEL SIGN VOCALIC LL
+        "\u0afa","\u0afb","\u0afc","\u0afd","\u0afe","\u0aff",  # ; T # Mn   [6] GUJARATI SIGN SUKUN..GUJARATI SIGN TWO-CIRCLE NUKTA ABOVE
+        "\u0B01",  # ; T # Mn       ORIYA SIGN CANDRABINDU
+        "\u0B3C",  # ; T # Mn       ORIYA SIGN NUKTA
+        "\u0B3F",  # ; T # Mn       ORIYA VOWEL SIGN I
+        "\u0b41","\u0b42","\u0b43","\u0b44",  # ; T # Mn   [4] ORIYA VOWEL SIGN U..ORIYA VOWEL SIGN VOCALIC RR
+        "\u0B4D",  # ; T # Mn       ORIYA SIGN VIRAMA
+        "\u0B56",  # ; T # Mn       ORIYA AI LENGTH MARK
+        "\u0b62","\u0b63",  # ; T # Mn   [2] ORIYA VOWEL SIGN VOCALIC L..ORIYA VOWEL SIGN VOCALIC LL
+        "\u0B82",  # ; T # Mn       TAMIL SIGN ANUSVARA
+        "\u0BC0",  # ; T # Mn       TAMIL VOWEL SIGN II
+        "\u0BCD",  # ; T # Mn       TAMIL SIGN VIRAMA
+        "\u0C00",  # ; T # Mn       TELUGU SIGN COMBINING CANDRABINDU ABOVE
+        "\u0c3e","\u0c3f","\u0c40",  # ; T # Mn   [3] TELUGU VOWEL SIGN AA..TELUGU VOWEL SIGN II
+        "\u0c46","\u0c47","\u0c48",  # ; T # Mn   [3] TELUGU VOWEL SIGN E..TELUGU VOWEL SIGN AI
+        "\u0c4a","\u0c4b","\u0c4c","\u0c4d",  # ; T # Mn   [4] TELUGU VOWEL SIGN O..TELUGU SIGN VIRAMA
+        "\u0c55","\u0c56",  # ; T # Mn   [2] TELUGU LENGTH MARK..TELUGU AI LENGTH MARK
+        "\u0c62","\u0c63",  # ; T # Mn   [2] TELUGU VOWEL SIGN VOCALIC L..TELUGU VOWEL SIGN VOCALIC LL
+        "\u0C81",  # ; T # Mn       KANNADA SIGN CANDRABINDU
+        "\u0CBC",  # ; T # Mn       KANNADA SIGN NUKTA
+        "\u0CBF",  # ; T # Mn       KANNADA VOWEL SIGN I
+        "\u0CC6",  # ; T # Mn       KANNADA VOWEL SIGN E
+        "\u0ccc","\u0ccd",  # ; T # Mn   [2] KANNADA VOWEL SIGN AU..KANNADA SIGN VIRAMA
+        "\u0ce2","\u0ce3",  # ; T # Mn   [2] KANNADA VOWEL SIGN VOCALIC L..KANNADA VOWEL SIGN VOCALIC LL
+        "\u0d00","\u0d01",  # ; T # Mn   [2] MALAYALAM SIGN COMBINING ANUSVARA ABOVE..MALAYALAM SIGN CANDRABINDU
+        "\u0d3b","\u0d3c",  # ; T # Mn   [2] MALAYALAM SIGN VERTICAL BAR VIRAMA..MALAYALAM SIGN CIRCULAR VIRAMA
+        "\u0d41","\u0d42","\u0d43","\u0d44",  # ; T # Mn   [4] MALAYALAM VOWEL SIGN U..MALAYALAM VOWEL SIGN VOCALIC RR
+        "\u0D4D",  # ; T # Mn       MALAYALAM SIGN VIRAMA
+        "\u0d62","\u0d63",  # ; T # Mn   [2] MALAYALAM VOWEL SIGN VOCALIC L..MALAYALAM VOWEL SIGN VOCALIC LL
+        "\u0DCA",  # ; T # Mn       SINHALA SIGN AL-LAKUNA
+        "\u0dd2","\u0dd3","\u0dd4",  # ; T # Mn   [3] SINHALA VOWEL SIGN KETTI IS-PILLA..SINHALA VOWEL SIGN KETTI PAA-PILLA
+        "\u0DD6",  # ; T # Mn       SINHALA VOWEL SIGN DIGA PAA-PILLA
+        "\u0E31",  # ; T # Mn       THAI CHARACTER MAI HAN-AKAT
+        "\u0e34","\u0e35","\u0e36","\u0e37","\u0e38","\u0e39","\u0e3a",  # ; T # Mn   [7] THAI CHARACTER SARA I..THAI CHARACTER PHINTHU
+        "\u0e47","\u0e48","\u0e49","\u0e4a","\u0e4b","\u0e4c","\u0e4d","\u0e4e",  # ; T # Mn   [8] THAI CHARACTER MAITAIKHU..THAI CHARACTER YAMAKKAN
+        "\u0EB1",  # ; T # Mn       LAO VOWEL SIGN MAI KAN
+        "\u0eb4","\u0eb5","\u0eb6","\u0eb7","\u0eb8","\u0eb9",  # ; T # Mn   [6] LAO VOWEL SIGN I..LAO VOWEL SIGN UU
+        "\u0ebb","\u0ebc",  # ; T # Mn   [2] LAO VOWEL SIGN MAI KON..LAO SEMIVOWEL SIGN LO
+        "\u0ec8","\u0ec9","\u0eca","\u0ecb","\u0ecc","\u0ecd",  # ; T # Mn   [6] LAO TONE MAI EK..LAO NIGGAHITA
+        "\u0f18","\u0f19",  # ; T # Mn   [2] TIBETAN ASTROLOGICAL SIGN -KHYUD PA..TIBETAN ASTROLOGICAL SIGN SDONG TSHUGS
+        "\u0F35",  # ; T # Mn       TIBETAN MARK NGAS BZUNG NYI ZLA
+        "\u0F37",  # ; T # Mn       TIBETAN MARK NGAS BZUNG SGOR RTAGS
+        "\u0F39",  # ; T # Mn       TIBETAN MARK TSA -PHRU
+        "\u0f71","\u0f72","\u0f73","\u0f74","\u0f75","\u0f76","\u0f77","\u0f78","\u0f79","\u0f7a","\u0f7b","\u0f7c","\u0f7d","\u0f7e",  # ; T # Mn  [14] TIBETAN VOWEL SIGN AA..TIBETAN SIGN RJES SU NGA RO
+        "\u0f80","\u0f81","\u0f82","\u0f83","\u0f84",  # ; T # Mn   [5] TIBETAN VOWEL SIGN REVERSED I..TIBETAN MARK HALANTA
+        "\u0f86","\u0f87",  # ; T # Mn   [2] TIBETAN SIGN LCI RTAGS..TIBETAN SIGN YANG RTAGS
+        "\u0f8d","\u0f8e","\u0f8f","\u0f90","\u0f91","\u0f92","\u0f93","\u0f94","\u0f95","\u0f96","\u0f97",  # ; T # Mn  [11] TIBETAN SUBJOINED SIGN LCE TSA CAN..TIBETAN SUBJOINED LETTER JA
+        "\u0f99","\u0f9a","\u0f9b","\u0f9c","\u0f9d","\u0f9e","\u0f9f","\u0fa0","\u0fa1","\u0fa2","\u0fa3","\u0fa4","\u0fa5","\u0fa6","\u0fa7","\u0fa8","\u0fa9","\u0faa","\u0fab","\u0fac","\u0fad","\u0fae","\u0faf","\u0fb0","\u0fb1","\u0fb2","\u0fb3","\u0fb4","\u0fb5","\u0fb6","\u0fb7","\u0fb8","\u0fb9","\u0fba","\u0fbb","\u0fbc",  # ; T # Mn  [36] TIBETAN SUBJOINED LETTER NYA..TIBETAN SUBJOINED LETTER FIXED-FORM RA
+        "\u0FC6",  # ; T # Mn       TIBETAN SYMBOL PADMA GDAN
+        "\u102d","\u102e","\u102f","\u1030",  # ; T # Mn   [4] MYANMAR VOWEL SIGN I..MYANMAR VOWEL SIGN UU
+        "\u1032","\u1033","\u1034","\u1035","\u1036","\u1037",  # ; T # Mn   [6] MYANMAR VOWEL SIGN AI..MYANMAR SIGN DOT BELOW
+        "\u1039","\u103a",  # ; T # Mn   [2] MYANMAR SIGN VIRAMA..MYANMAR SIGN ASAT
+        "\u103d","\u103e",  # ; T # Mn   [2] MYANMAR CONSONANT SIGN MEDIAL WA..MYANMAR CONSONANT SIGN MEDIAL HA
+        "\u1058","\u1059",  # ; T # Mn   [2] MYANMAR VOWEL SIGN VOCALIC L..MYANMAR VOWEL SIGN VOCALIC LL
+        "\u105e","\u105f","\u1060",  # ; T # Mn   [3] MYANMAR CONSONANT SIGN MON MEDIAL NA..MYANMAR CONSONANT SIGN MON MEDIAL LA
+        "\u1071","\u1072","\u1073","\u1074",  # ; T # Mn   [4] MYANMAR VOWEL SIGN GEBA KAREN I..MYANMAR VOWEL SIGN KAYAH EE
+        "\u1082",  # ; T # Mn       MYANMAR CONSONANT SIGN SHAN MEDIAL WA
+        "\u1085","\u1086",  # ; T # Mn   [2] MYANMAR VOWEL SIGN SHAN E ABOVE..MYANMAR VOWEL SIGN SHAN FINAL Y
+        "\u108D",  # ; T # Mn       MYANMAR SIGN SHAN COUNCIL EMPHATIC TONE
+        "\u109D",  # ; T # Mn       MYANMAR VOWEL SIGN AITON AI
+        "\u135d","\u135e","\u135f",  # ; T # Mn   [3] ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK..ETHIOPIC COMBINING GEMINATION MARK
+        "\u1712","\u1713","\u1714",  # ; T # Mn   [3] TAGALOG VOWEL SIGN I..TAGALOG SIGN VIRAMA
+        "\u1732","\u1733","\u1734",  # ; T # Mn   [3] HANUNOO VOWEL SIGN I..HANUNOO SIGN PAMUDPOD
+        "\u1752","\u1753",  # ; T # Mn   [2] BUHID VOWEL SIGN I..BUHID VOWEL SIGN U
+        "\u1772","\u1773",  # ; T # Mn   [2] TAGBANWA VOWEL SIGN I..TAGBANWA VOWEL SIGN U
+        "\u17b4","\u17b5",  # ; T # Mn   [2] KHMER VOWEL INHERENT AQ..KHMER VOWEL INHERENT AA
+        "\u17b7","\u17b8","\u17b9","\u17ba","\u17bb","\u17bc","\u17bd",  # ; T # Mn   [7] KHMER VOWEL SIGN I..KHMER VOWEL SIGN UA
+        "\u17C6",  # ; T # Mn       KHMER SIGN NIKAHIT
+        "\u17c9","\u17ca","\u17cb","\u17cc","\u17cd","\u17ce","\u17cf","\u17d0","\u17d1","\u17d2","\u17d3",  # ; T # Mn  [11] KHMER SIGN MUUSIKATOAN..KHMER SIGN BATHAMASAT
+        "\u17DD",  # ; T # Mn       KHMER SIGN ATTHACAN
+        "\u180b","\u180c","\u180d",  # ; T # Mn   [3] MONGOLIAN FREE VARIATION SELECTOR ONE..MONGOLIAN FREE VARIATION SELECTOR THREE
+        "\u1885","\u1886",  # ; T # Mn   [2] MONGOLIAN LETTER ALI GALI BALUDA..MONGOLIAN LETTER ALI GALI THREE BALUDA
+        "\u18A9",  # ; T # Mn       MONGOLIAN LETTER ALI GALI DAGALGA
+        "\u1920","\u1921","\u1922",  # ; T # Mn   [3] LIMBU VOWEL SIGN A..LIMBU VOWEL SIGN U
+        "\u1927","\u1928",  # ; T # Mn   [2] LIMBU VOWEL SIGN E..LIMBU VOWEL SIGN O
+        "\u1932",  # ; T # Mn       LIMBU SMALL LETTER ANUSVARA
+        "\u1939","\u193a","\u193b",  # ; T # Mn   [3] LIMBU SIGN MUKPHRENG..LIMBU SIGN SA-I
+        "\u1a17","\u1a18",  # ; T # Mn   [2] BUGINESE VOWEL SIGN I..BUGINESE VOWEL SIGN U
+        "\u1A1B",  # ; T # Mn       BUGINESE VOWEL SIGN AE
+        "\u1A56",  # ; T # Mn       TAI THAM CONSONANT SIGN MEDIAL LA
+        "\u1a58","\u1a59","\u1a5a","\u1a5b","\u1a5c","\u1a5d","\u1a5e",  # ; T # Mn   [7] TAI THAM SIGN MAI KANG LAI..TAI THAM CONSONANT SIGN SA
+        "\u1A60",  # ; T # Mn       TAI THAM SIGN SAKOT
+        "\u1A62",  # ; T # Mn       TAI THAM VOWEL SIGN MAI SAT
+        "\u1a65","\u1a66","\u1a67","\u1a68","\u1a69","\u1a6a","\u1a6b","\u1a6c",  # ; T # Mn   [8] TAI THAM VOWEL SIGN I..TAI THAM VOWEL SIGN OA BELOW
+        "\u1a73","\u1a74","\u1a75","\u1a76","\u1a77","\u1a78","\u1a79","\u1a7a","\u1a7b","\u1a7c",  # ; T # Mn  [10] TAI THAM VOWEL SIGN OA ABOVE..TAI THAM SIGN KHUEN-LUE KARAN
+        "\u1A7F",  # ; T # Mn       TAI THAM COMBINING CRYPTOGRAMMIC DOT
+        "\u1ab0","\u1ab1","\u1ab2","\u1ab3","\u1ab4","\u1ab5","\u1ab6","\u1ab7","\u1ab8","\u1ab9","\u1aba","\u1abb","\u1abc","\u1abd",  # ; T # Mn  [14] COMBINING DOUBLED CIRCUMFLEX ACCENT..COMBINING PARENTHESES BELOW
+        "\u1ABE",  # ; T # Me       COMBINING PARENTHESES OVERLAY
+        "\u1b00","\u1b01","\u1b02","\u1b03",  # ; T # Mn   [4] BALINESE SIGN ULU RICEM..BALINESE SIGN SURANG
+        "\u1B34",  # ; T # Mn       BALINESE SIGN REREKAN
+        "\u1b36","\u1b37","\u1b38","\u1b39","\u1b3a",  # ; T # Mn   [5] BALINESE VOWEL SIGN ULU..BALINESE VOWEL SIGN RA REPA
+        "\u1B3C",  # ; T # Mn       BALINESE VOWEL SIGN LA LENGA
+        "\u1B42",  # ; T # Mn       BALINESE VOWEL SIGN PEPET
+        "\u1b6b","\u1b6c","\u1b6d","\u1b6e","\u1b6f","\u1b70","\u1b71","\u1b72","\u1b73",  # ; T # Mn   [9] BALINESE MUSICAL SYMBOL COMBINING TEGEH..BALINESE MUSICAL SYMBOL COMBINING GONG
+        "\u1b80","\u1b81",  # ; T # Mn   [2] SUNDANESE SIGN PANYECEK..SUNDANESE SIGN PANGLAYAR
+        "\u1ba2","\u1ba3","\u1ba4","\u1ba5",  # ; T # Mn   [4] SUNDANESE CONSONANT SIGN PANYAKRA..SUNDANESE VOWEL SIGN PANYUKU
+        "\u1ba8","\u1ba9",  # ; T # Mn   [2] SUNDANESE VOWEL SIGN PAMEPET..SUNDANESE VOWEL SIGN PANEULEUNG
+        "\u1bab","\u1bac","\u1bad",  # ; T # Mn   [3] SUNDANESE SIGN VIRAMA..SUNDANESE CONSONANT SIGN PASANGAN WA
+        "\u1BE6",  # ; T # Mn       BATAK SIGN TOMPI
+        "\u1be8","\u1be9",  # ; T # Mn   [2] BATAK VOWEL SIGN PAKPAK E..BATAK VOWEL SIGN EE
+        "\u1BED",  # ; T # Mn       BATAK VOWEL SIGN KARO O
+        "\u1bef","\u1bf0","\u1bf1",  # ; T # Mn   [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
+        "\u1c2c","\u1c2d","\u1c2e","\u1c2f","\u1c30","\u1c31","\u1c32","\u1c33",  # ; T # Mn   [8] LEPCHA VOWEL SIGN E..LEPCHA CONSONANT SIGN T
+        "\u1c36","\u1c37",  # ; T # Mn   [2] LEPCHA SIGN RAN..LEPCHA SIGN NUKTA
+        "\u1cd0","\u1cd1","\u1cd2",  # ; T # Mn   [3] VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
+        "\u1cd4","\u1cd5","\u1cd6","\u1cd7","\u1cd8","\u1cd9","\u1cda","\u1cdb","\u1cdc","\u1cdd","\u1cde","\u1cdf","\u1ce0",  # ; T # Mn  [13] VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC TONE RIGVEDIC KASHMIRI INDEPENDENT SVARITA
+        "\u1ce2","\u1ce3","\u1ce4","\u1ce5","\u1ce6","\u1ce7","\u1ce8",  # ; T # Mn   [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
+        "\u1CED",  # ; T # Mn       VEDIC SIGN TIRYAK
+        "\u1CF4",  # ; T # Mn       VEDIC TONE CANDRA ABOVE
+        "\u1cf8","\u1cf9",  # ; T # Mn   [2] VEDIC TONE RING ABOVE..VEDIC TONE DOUBLE RING ABOVE
+        "\u1dc0","\u1dc1","\u1dc2","\u1dc3","\u1dc4","\u1dc5","\u1dc6","\u1dc7","\u1dc8","\u1dc9","\u1dca","\u1dcb","\u1dcc","\u1dcd","\u1dce","\u1dcf","\u1dd0","\u1dd1","\u1dd2","\u1dd3","\u1dd4","\u1dd5","\u1dd6","\u1dd7","\u1dd8","\u1dd9","\u1dda","\u1ddb","\u1ddc","\u1ddd","\u1dde","\u1ddf","\u1de0","\u1de1","\u1de2","\u1de3","\u1de4","\u1de5","\u1de6","\u1de7","\u1de8","\u1de9","\u1dea","\u1deb","\u1dec","\u1ded","\u1dee","\u1def","\u1df0","\u1df1","\u1df2","\u1df3","\u1df4","\u1df5","\u1df6","\u1df7","\u1df8","\u1df9",  # ; T # Mn  [58] COMBINING DOTTED GRAVE ACCENT..COMBINING WIDE INVERTED BRIDGE BELOW
+        "\u1dfb","\u1dfc","\u1dfd","\u1dfe","\u1dff",  # ; T # Mn   [5] COMBINING DELETION MARK..COMBINING RIGHT ARROWHEAD AND DOWN ARROWHEAD BELOW
+        "\u200B",  # ; T # Cf       ZERO WIDTH SPACE
+        "\u200e","\u200f",  # ; T # Cf   [2] LEFT-TO-RIGHT MARK..RIGHT-TO-LEFT MARK
+        "\u202a","\u202b","\u202c","\u202d","\u202e",  # ; T # Cf   [5] LEFT-TO-RIGHT EMBEDDING..RIGHT-TO-LEFT OVERRIDE
+        "\u2060","\u2061","\u2062","\u2063","\u2064",  # ; T # Cf   [5] WORD JOINER..INVISIBLE PLUS
+        "\u206a","\u206b","\u206c","\u206d","\u206e","\u206f",  # ; T # Cf   [6] INHIBIT SYMMETRIC SWAPPING..NOMINAL DIGIT SHAPES
+        "\u20d0","\u20d1","\u20d2","\u20d3","\u20d4","\u20d5","\u20d6","\u20d7","\u20d8","\u20d9","\u20da","\u20db","\u20dc",  # ; T # Mn  [13] COMBINING LEFT HARPOON ABOVE..COMBINING FOUR DOTS ABOVE
+        "\u20dd","\u20de","\u20df","\u20e0",  # ; T # Me   [4] COMBINING ENCLOSING CIRCLE..COMBINING ENCLOSING CIRCLE BACKSLASH
+        "\u20E1",  # ; T # Mn       COMBINING LEFT RIGHT ARROW ABOVE
+        "\u20e2","\u20e3","\u20e4",  # ; T # Me   [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
+        "\u20e5","\u20e6","\u20e7","\u20e8","\u20e9","\u20ea","\u20eb","\u20ec","\u20ed","\u20ee","\u20ef","\u20f0",  # ; T # Mn  [12] COMBINING REVERSE SOLIDUS OVERLAY..COMBINING ASTERISK ABOVE
+        "\u2cef","\u2cf0","\u2cf1",  # ; T # Mn   [3] COPTIC COMBINING NI ABOVE..COPTIC COMBINING SPIRITUS LENIS
+        "\u2D7F",  # ; T # Mn       TIFINAGH CONSONANT JOINER
+        "\u2de0","\u2de1","\u2de2","\u2de3","\u2de4","\u2de5","\u2de6","\u2de7","\u2de8","\u2de9","\u2dea","\u2deb","\u2dec","\u2ded","\u2dee","\u2def","\u2df0","\u2df1","\u2df2","\u2df3","\u2df4","\u2df5","\u2df6","\u2df7","\u2df8","\u2df9","\u2dfa","\u2dfb","\u2dfc","\u2dfd","\u2dfe","\u2dff",  # ; T # Mn  [32] COMBINING CYRILLIC LETTER BE..COMBINING CYRILLIC LETTER IOTIFIED BIG YUS
+        "\u302a","\u302b","\u302c","\u302d",  # ; T # Mn   [4] IDEOGRAPHIC LEVEL TONE MARK..IDEOGRAPHIC ENTERING TONE MARK
+        "\u3099","\u309a",  # ; T # Mn   [2] COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK..COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
+        "\uA66F",  # ; T # Mn       COMBINING CYRILLIC VZMET
+        "\ua670","\ua671","\ua672",  # ; T # Me   [3] COMBINING CYRILLIC TEN MILLIONS SIGN..COMBINING CYRILLIC THOUSAND MILLIONS SIGN
+        "\ua674","\ua675","\ua676","\ua677","\ua678","\ua679","\ua67a","\ua67b","\ua67c","\ua67d",  # ; T # Mn  [10] COMBINING CYRILLIC LETTER UKRAINIAN IE..COMBINING CYRILLIC PAYEROK
+        "\ua69e","\ua69f",  # ; T # Mn   [2] COMBINING CYRILLIC LETTER EF..COMBINING CYRILLIC LETTER IOTIFIED E
+        "\ua6f0","\ua6f1",  # ; T # Mn   [2] BAMUM COMBINING MARK KOQNDON..BAMUM COMBINING MARK TUKWENTIS
+        "\uA802",  # ; T # Mn       SYLOTI NAGRI SIGN DVISVARA
+        "\uA806",  # ; T # Mn       SYLOTI NAGRI SIGN HASANTA
+        "\uA80B",  # ; T # Mn       SYLOTI NAGRI SIGN ANUSVARA
+        "\ua825","\ua826",  # ; T # Mn   [2] SYLOTI NAGRI VOWEL SIGN U..SYLOTI NAGRI VOWEL SIGN E
+        "\ua8c4","\ua8c5",  # ; T # Mn   [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
+        "\ua8e0","\ua8e1","\ua8e2","\ua8e3","\ua8e4","\ua8e5","\ua8e6","\ua8e7","\ua8e8","\ua8e9","\ua8ea","\ua8eb","\ua8ec","\ua8ed","\ua8ee","\ua8ef","\ua8f0","\ua8f1",  # ; T # Mn  [18] COMBINING DEVANAGARI DIGIT ZERO..COMBINING DEVANAGARI SIGN AVAGRAHA
+        "\ua926","\ua927","\ua928","\ua929","\ua92a","\ua92b","\ua92c","\ua92d",  # ; T # Mn   [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
+        "\ua947","\ua948","\ua949","\ua94a","\ua94b","\ua94c","\ua94d","\ua94e","\ua94f","\ua950","\ua951",  # ; T # Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
+        "\ua980","\ua981","\ua982",  # ; T # Mn   [3] JAVANESE SIGN PANYANGGA..JAVANESE SIGN LAYAR
+        "\uA9B3",  # ; T # Mn       JAVANESE SIGN CECAK TELU
+        "\ua9b6","\ua9b7","\ua9b8","\ua9b9",  # ; T # Mn   [4] JAVANESE VOWEL SIGN WULU..JAVANESE VOWEL SIGN SUKU MENDUT
+        "\uA9BC",  # ; T # Mn       JAVANESE VOWEL SIGN PEPET
+        "\uA9E5",  # ; T # Mn       MYANMAR SIGN SHAN SAW
+        "\uaa29","\uaa2a","\uaa2b","\uaa2c","\uaa2d","\uaa2e",  # ; T # Mn   [6] CHAM VOWEL SIGN AA..CHAM VOWEL SIGN OE
+        "\uaa31","\uaa32",  # ; T # Mn   [2] CHAM VOWEL SIGN AU..CHAM VOWEL SIGN UE
+        "\uaa35","\uaa36",  # ; T # Mn   [2] CHAM CONSONANT SIGN LA..CHAM CONSONANT SIGN WA
+        "\uAA43",  # ; T # Mn       CHAM CONSONANT SIGN FINAL NG
+        "\uAA4C",  # ; T # Mn       CHAM CONSONANT SIGN FINAL M
+        "\uAA7C",  # ; T # Mn       MYANMAR SIGN TAI LAING TONE-2
+        "\uAAB0",  # ; T # Mn       TAI VIET MAI KANG
+        "\uaab2","\uaab3","\uaab4",  # ; T # Mn   [3] TAI VIET VOWEL I..TAI VIET VOWEL U
+        "\uaab7","\uaab8",  # ; T # Mn   [2] TAI VIET MAI KHIT..TAI VIET VOWEL IA
+        "\uaabe","\uaabf",  # ; T # Mn   [2] TAI VIET VOWEL AM..TAI VIET TONE MAI EK
+        "\uAAC1",  # ; T # Mn       TAI VIET TONE MAI THO
+        "\uaaec","\uaaed",  # ; T # Mn   [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
+        "\uAAF6",  # ; T # Mn       MEETEI MAYEK VIRAMA
+        "\uABE5",  # ; T # Mn       MEETEI MAYEK VOWEL SIGN ANAP
+        "\uABE8",  # ; T # Mn       MEETEI MAYEK VOWEL SIGN UNAP
+        "\uABED",  # ; T # Mn       MEETEI MAYEK APUN IYEK
+        "\uFB1E",  # ; T # Mn       HEBREW POINT JUDEO-SPANISH VARIKA
+        "\ufe00","\ufe01","\ufe02","\ufe03","\ufe04","\ufe05","\ufe06","\ufe07","\ufe08","\ufe09","\ufe0a","\ufe0b","\ufe0c","\ufe0d","\ufe0e","\ufe0f",  # ; T # Mn  [16] VARIATION SELECTOR-1..VARIATION SELECTOR-16
+        "\ufe20","\ufe21","\ufe22","\ufe23","\ufe24","\ufe25","\ufe26","\ufe27","\ufe28","\ufe29","\ufe2a","\ufe2b","\ufe2c","\ufe2d","\ufe2e","\ufe2f",  # ; T # Mn  [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
+        "\uFEFF",  # ; T # Cf       ZERO WIDTH NO-BREAK SPACE
+        "\ufff9","\ufffa","\ufffb",  # ; T # Cf   [3] INTERLINEAR ANNOTATION ANCHOR..INTERLINEAR ANNOTATION TERMINATOR
+        "\u101FD",  # ; T # Mn       PHAISTOS DISC SIGN COMBINING OBLIQUE STROKE
+        "\u102E0",  # ; T # Mn       COPTIC EPACT THOUSANDS MARK
+        "\u10376","\u10377","\u10378","\u10379","\u1037a",  # ; T # Mn   [5] COMBINING OLD PERMIC LETTER AN..COMBINING OLD PERMIC LETTER SII
+        "\u10a01","\u10a02","\u10a03",  # ; T # Mn   [3] KHAROSHTHI VOWEL SIGN I..KHAROSHTHI VOWEL SIGN VOCALIC R
+        "\u10a05","\u10a06",  # ; T # Mn   [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
+        "\u10a0c","\u10a0d","\u10a0e","\u10a0f",  # ; T # Mn   [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
+        "\u10a38","\u10a39","\u10a3a",  # ; T # Mn   [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
+        "\u10A3F",  # ; T # Mn       KHAROSHTHI VIRAMA
+        "\u10ae5","\u10ae6",  # ; T # Mn   [2] MANICHAEAN ABBREVIATION MARK ABOVE..MANICHAEAN ABBREVIATION MARK BELOW
+        "\u11001",  # ; T # Mn       BRAHMI SIGN ANUSVARA
+        "\u11038","\u11039","\u1103a","\u1103b","\u1103c","\u1103d","\u1103e","\u1103f","\u11040","\u11041","\u11042","\u11043","\u11044","\u11045","\u11046",  # ; T # Mn  [15] BRAHMI VOWEL SIGN AA..BRAHMI VIRAMA
+        "\u1107f","\u11080","\u11081",  # ; T # Mn   [3] BRAHMI NUMBER JOINER..KAITHI SIGN ANUSVARA
+        "\u110b3","\u110b4","\u110b5","\u110b6",  # ; T # Mn   [4] KAITHI VOWEL SIGN U..KAITHI VOWEL SIGN AI
+        "\u110b9","\u110ba",  # ; T # Mn   [2] KAITHI SIGN VIRAMA..KAITHI SIGN NUKTA
+        "\u110BD",  # ; T # Cf       KAITHI NUMBER SIGN
+        "\u11100","\u11101","\u11102",  # ; T # Mn   [3] CHAKMA SIGN CANDRABINDU..CHAKMA SIGN VISARGA
+        "\u11127","\u11128","\u11129","\u1112a","\u1112b",  # ; T # Mn   [5] CHAKMA VOWEL SIGN A..CHAKMA VOWEL SIGN UU
+        "\u1112d","\u1112e","\u1112f","\u11130","\u11131","\u11132","\u11133","\u11134",  # ; T # Mn   [8] CHAKMA VOWEL SIGN AI..CHAKMA MAAYYAA
+        "\u11173",  # ; T # Mn       MAHAJANI SIGN NUKTA
+        "\u11180","\u11181",  # ; T # Mn   [2] SHARADA SIGN CANDRABINDU..SHARADA SIGN ANUSVARA
+        "\u111b6","\u111b7","\u111b8","\u111b9","\u111ba","\u111bb","\u111bc","\u111bd","\u111be",  # ; T # Mn   [9] SHARADA VOWEL SIGN U..SHARADA VOWEL SIGN O
+        "\u111ca","\u111cb","\u111cc",  # ; T # Mn   [3] SHARADA SIGN NUKTA..SHARADA EXTRA SHORT VOWEL MARK
+        "\u1122f","\u11230","\u11231",  # ; T # Mn   [3] KHOJKI VOWEL SIGN U..KHOJKI VOWEL SIGN AI
+        "\u11234",  # ; T # Mn       KHOJKI SIGN ANUSVARA
+        "\u11236","\u11237",  # ; T # Mn   [2] KHOJKI SIGN NUKTA..KHOJKI SIGN SHADDA
+        "\u1123E",  # ; T # Mn       KHOJKI SIGN SUKUN
+        "\u112DF",  # ; T # Mn       KHUDAWADI SIGN ANUSVARA
+        "\u112e3","\u112e4","\u112e5","\u112e6","\u112e7","\u112e8","\u112e9","\u112ea",  # ; T # Mn   [8] KHUDAWADI VOWEL SIGN U..KHUDAWADI SIGN VIRAMA
+        "\u11300","\u11301",  # ; T # Mn   [2] GRANTHA SIGN COMBINING ANUSVARA ABOVE..GRANTHA SIGN CANDRABINDU
+        "\u1133C",  # ; T # Mn       GRANTHA SIGN NUKTA
+        "\u11340",  # ; T # Mn       GRANTHA VOWEL SIGN II
+        "\u11366","\u11367","\u11368","\u11369","\u1136a","\u1136b","\u1136c",  # ; T # Mn   [7] COMBINING GRANTHA DIGIT ZERO..COMBINING GRANTHA DIGIT SIX
+        "\u11370","\u11371","\u11372","\u11373","\u11374",  # ; T # Mn   [5] COMBINING GRANTHA LETTER A..COMBINING GRANTHA LETTER PA
+        "\u11438","\u11439","\u1143a","\u1143b","\u1143c","\u1143d","\u1143e","\u1143f",  # ; T # Mn   [8] NEWA VOWEL SIGN U..NEWA VOWEL SIGN AI
+        "\u11442","\u11443","\u11444",  # ; T # Mn   [3] NEWA SIGN VIRAMA..NEWA SIGN ANUSVARA
+        "\u11446",  # ; T # Mn       NEWA SIGN NUKTA
+        "\u114b3","\u114b4","\u114b5","\u114b6","\u114b7","\u114b8",  # ; T # Mn   [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
+        "\u114BA",  # ; T # Mn       TIRHUTA VOWEL SIGN SHORT E
+        "\u114bf","\u114c0",  # ; T # Mn   [2] TIRHUTA SIGN CANDRABINDU..TIRHUTA SIGN ANUSVARA
+        "\u114c2","\u114c3",  # ; T # Mn   [2] TIRHUTA SIGN VIRAMA..TIRHUTA SIGN NUKTA
+        "\u115b2","\u115b3","\u115b4","\u115b5",  # ; T # Mn   [4] SIDDHAM VOWEL SIGN U..SIDDHAM VOWEL SIGN VOCALIC RR
+        "\u115bc","\u115bd",  # ; T # Mn   [2] SIDDHAM SIGN CANDRABINDU..SIDDHAM SIGN ANUSVARA
+        "\u115bf","\u115c0",  # ; T # Mn   [2] SIDDHAM SIGN VIRAMA..SIDDHAM SIGN NUKTA
+        "\u115dc","\u115dd",  # ; T # Mn   [2] SIDDHAM VOWEL SIGN ALTERNATE U..SIDDHAM VOWEL SIGN ALTERNATE UU
+        "\u11633","\u11634","\u11635","\u11636","\u11637","\u11638","\u11639","\u1163a",  # ; T # Mn   [8] MODI VOWEL SIGN U..MODI VOWEL SIGN AI
+        "\u1163D",  # ; T # Mn       MODI SIGN ANUSVARA
+        "\u1163f","\u11640",  # ; T # Mn   [2] MODI SIGN VIRAMA..MODI SIGN ARDHACANDRA
+        "\u116AB",  # ; T # Mn       TAKRI SIGN ANUSVARA
+        "\u116AD",  # ; T # Mn       TAKRI VOWEL SIGN AA
+        "\u116b0","\u116b1","\u116b2","\u116b3","\u116b4","\u116b5",  # ; T # Mn   [6] TAKRI VOWEL SIGN U..TAKRI VOWEL SIGN AU
+        "\u116B7",  # ; T # Mn       TAKRI SIGN NUKTA
+        "\u1171d","\u1171e","\u1171f",  # ; T # Mn   [3] AHOM CONSONANT SIGN MEDIAL LA..AHOM CONSONANT SIGN MEDIAL LIGATING RA
+        "\u11722","\u11723","\u11724","\u11725",  # ; T # Mn   [4] AHOM VOWEL SIGN I..AHOM VOWEL SIGN UU
+        "\u11727","\u11728","\u11729","\u1172a","\u1172b",  # ; T # Mn   [5] AHOM VOWEL SIGN AW..AHOM SIGN KILLER
+        "\u11a01","\u11a02","\u11a03","\u11a04","\u11a05","\u11a06",  # ; T # Mn   [6] ZANABAZAR SQUARE VOWEL SIGN I..ZANABAZAR SQUARE VOWEL SIGN O
+        "\u11a09","\u11a0a",  # ; T # Mn   [2] ZANABAZAR SQUARE VOWEL SIGN REVERSED I..ZANABAZAR SQUARE VOWEL LENGTH MARK
+        "\u11a33","\u11a34","\u11a35","\u11a36","\u11a37","\u11a38",  # ; T # Mn   [6] ZANABAZAR SQUARE FINAL CONSONANT MARK..ZANABAZAR SQUARE SIGN ANUSVARA
+        "\u11a3b","\u11a3c","\u11a3d","\u11a3e",  # ; T # Mn   [4] ZANABAZAR SQUARE CLUSTER-FINAL LETTER YA..ZANABAZAR SQUARE CLUSTER-FINAL LETTER VA
+        "\u11A47",  # ; T # Mn       ZANABAZAR SQUARE SUBJOINER
+        "\u11a51","\u11a52","\u11a53","\u11a54","\u11a55","\u11a56",  # ; T # Mn   [6] SOYOMBO VOWEL SIGN I..SOYOMBO VOWEL SIGN OE
+        "\u11a59","\u11a5a","\u11a5b",  # ; T # Mn   [3] SOYOMBO VOWEL SIGN VOCALIC R..SOYOMBO VOWEL LENGTH MARK
+        "\u11a8a","\u11a8b","\u11a8c","\u11a8d","\u11a8e","\u11a8f","\u11a90","\u11a91","\u11a92","\u11a93","\u11a94","\u11a95","\u11a96",  # ; T # Mn  [13] SOYOMBO FINAL CONSONANT SIGN G..SOYOMBO SIGN ANUSVARA
+        "\u11a98","\u11a99",  # ; T # Mn   [2] SOYOMBO GEMINATION MARK..SOYOMBO SUBJOINER
+        "\u11c30","\u11c31","\u11c32","\u11c33","\u11c34","\u11c35","\u11c36",  # ; T # Mn   [7] BHAIKSUKI VOWEL SIGN I..BHAIKSUKI VOWEL SIGN VOCALIC L
+        "\u11c38","\u11c39","\u11c3a","\u11c3b","\u11c3c","\u11c3d",  # ; T # Mn   [6] BHAIKSUKI VOWEL SIGN E..BHAIKSUKI SIGN ANUSVARA
+        "\u11C3F",  # ; T # Mn       BHAIKSUKI SIGN VIRAMA
+        "\u11c92","\u11c93","\u11c94","\u11c95","\u11c96","\u11c97","\u11c98","\u11c99","\u11c9a","\u11c9b","\u11c9c","\u11c9d","\u11c9e","\u11c9f","\u11ca0","\u11ca1","\u11ca2","\u11ca3","\u11ca4","\u11ca5","\u11ca6","\u11ca7",  # ; T # Mn  [22] MARCHEN SUBJOINED LETTER KA..MARCHEN SUBJOINED LETTER ZA
+        "\u11caa","\u11cab","\u11cac","\u11cad","\u11cae","\u11caf","\u11cb0",  # ; T # Mn   [7] MARCHEN SUBJOINED LETTER RA..MARCHEN VOWEL SIGN AA
+        "\u11cb2","\u11cb3",  # ; T # Mn   [2] MARCHEN VOWEL SIGN U..MARCHEN VOWEL SIGN E
+        "\u11cb5","\u11cb6",  # ; T # Mn   [2] MARCHEN SIGN ANUSVARA..MARCHEN SIGN CANDRABINDU
+        "\u11d31","\u11d32","\u11d33","\u11d34","\u11d35","\u11d36",  # ; T # Mn   [6] MASARAM GONDI VOWEL SIGN AA..MASARAM GONDI VOWEL SIGN VOCALIC R
+        "\u11D3A",  # ; T # Mn       MASARAM GONDI VOWEL SIGN E
+        "\u11d3c","\u11d3d",  # ; T # Mn   [2] MASARAM GONDI VOWEL SIGN AI..MASARAM GONDI VOWEL SIGN O
+        "\u11d3f","\u11d40","\u11d41","\u11d42","\u11d43","\u11d44","\u11d45",  # ; T # Mn   [7] MASARAM GONDI VOWEL SIGN AU..MASARAM GONDI VIRAMA
+        "\u11D47",  # ; T # Mn       MASARAM GONDI RA-KARA
+        "\u16af0","\u16af1","\u16af2","\u16af3","\u16af4",  # ; T # Mn   [5] BASSA VAH COMBINING HIGH TONE..BASSA VAH COMBINING HIGH-LOW TONE
+        "\u16b30","\u16b31","\u16b32","\u16b33","\u16b34","\u16b35","\u16b36",  # ; T # Mn   [7] PAHAWH HMONG MARK CIM TUB..PAHAWH HMONG MARK CIM TAUM
+        "\u16f8f","\u16f90","\u16f91","\u16f92",  # ; T # Mn   [4] MIAO TONE RIGHT..MIAO TONE BELOW
+        "\u1bc9d","\u1bc9e",  # ; T # Mn   [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
+        "\u1bca0","\u1bca1","\u1bca2","\u1bca3",  # ; T # Cf   [4] SHORTHAND FORMAT LETTER OVERLAP..SHORTHAND FORMAT UP STEP
+        "\u1d167","\u1d168","\u1d169",  # ; T # Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
+        "\u1d173","\u1d174","\u1d175","\u1d176","\u1d177","\u1d178","\u1d179","\u1d17a",  # ; T # Cf   [8] MUSICAL SYMBOL BEGIN BEAM..MUSICAL SYMBOL END PHRASE
+        "\u1d17b","\u1d17c","\u1d17d","\u1d17e","\u1d17f","\u1d180","\u1d181","\u1d182",  # ; T # Mn   [8] MUSICAL SYMBOL COMBINING ACCENT..MUSICAL SYMBOL COMBINING LOURE
+        "\u1d185","\u1d186","\u1d187","\u1d188","\u1d189","\u1d18a","\u1d18b",  # ; T # Mn   [7] MUSICAL SYMBOL COMBINING DOIT..MUSICAL SYMBOL COMBINING TRIPLE TONGUE
+        "\u1d1aa","\u1d1ab","\u1d1ac","\u1d1ad",  # ; T # Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
+        "\u1d242","\u1d243","\u1d244",  # ; T # Mn   [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
+        "\u1da00","\u1da01","\u1da02","\u1da03","\u1da04","\u1da05","\u1da06","\u1da07","\u1da08","\u1da09","\u1da0a","\u1da0b","\u1da0c","\u1da0d","\u1da0e","\u1da0f","\u1da10","\u1da11","\u1da12","\u1da13","\u1da14","\u1da15","\u1da16","\u1da17","\u1da18","\u1da19","\u1da1a","\u1da1b","\u1da1c","\u1da1d","\u1da1e","\u1da1f","\u1da20","\u1da21","\u1da22","\u1da23","\u1da24","\u1da25","\u1da26","\u1da27","\u1da28","\u1da29","\u1da2a","\u1da2b","\u1da2c","\u1da2d","\u1da2e","\u1da2f","\u1da30","\u1da31","\u1da32","\u1da33","\u1da34","\u1da35","\u1da36",  # ; T # Mn  [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
+        "\u1da3b","\u1da3c","\u1da3d","\u1da3e","\u1da3f","\u1da40","\u1da41","\u1da42","\u1da43","\u1da44","\u1da45","\u1da46","\u1da47","\u1da48","\u1da49","\u1da4a","\u1da4b","\u1da4c","\u1da4d","\u1da4e","\u1da4f","\u1da50","\u1da51","\u1da52","\u1da53","\u1da54","\u1da55","\u1da56","\u1da57","\u1da58","\u1da59","\u1da5a","\u1da5b","\u1da5c","\u1da5d","\u1da5e","\u1da5f","\u1da60","\u1da61","\u1da62","\u1da63","\u1da64","\u1da65","\u1da66","\u1da67","\u1da68","\u1da69","\u1da6a","\u1da6b","\u1da6c",  # ; T # Mn  [50] SIGNWRITING MOUTH CLOSED NEUTRAL..SIGNWRITING EXCITEMENT
+        "\u1DA75",  # ; T # Mn       SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
+        "\u1DA84",  # ; T # Mn       SIGNWRITING LOCATION HEAD NECK
+        "\u1da9b","\u1da9c","\u1da9d","\u1da9e","\u1da9f",  # ; T # Mn   [5] SIGNWRITING FILL MODIFIER-2..SIGNWRITING FILL MODIFIER-6
+        "\u1daa1","\u1daa2","\u1daa3","\u1daa4","\u1daa5","\u1daa6","\u1daa7","\u1daa8","\u1daa9","\u1daaa","\u1daab","\u1daac","\u1daad","\u1daae","\u1daaf",  # ; T # Mn  [15] SIGNWRITING ROTATION MODIFIER-2..SIGNWRITING ROTATION MODIFIER-16
+        "\u1e000","\u1e001","\u1e002","\u1e003","\u1e004","\u1e005","\u1e006",  # ; T # Mn   [7] COMBINING GLAGOLITIC LETTER AZU..COMBINING GLAGOLITIC LETTER ZHIVETE
+        "\u1e008","\u1e009","\u1e00a","\u1e00b","\u1e00c","\u1e00d","\u1e00e","\u1e00f","\u1e010","\u1e011","\u1e012","\u1e013","\u1e014","\u1e015","\u1e016","\u1e017","\u1e018",  # ; T # Mn  [17] COMBINING GLAGOLITIC LETTER ZEMLJA..COMBINING GLAGOLITIC LETTER HERU
+        "\u1e01b","\u1e01c","\u1e01d","\u1e01e","\u1e01f","\u1e020","\u1e021",  # ; T # Mn   [7] COMBINING GLAGOLITIC LETTER SHTA..COMBINING GLAGOLITIC LETTER YATI
+        "\u1e023","\u1e024",  # ; T # Mn   [2] COMBINING GLAGOLITIC LETTER YU..COMBINING GLAGOLITIC LETTER SMALL YUS
+        "\u1e026","\u1e027","\u1e028","\u1e029","\u1e02a",  # ; T # Mn   [5] COMBINING GLAGOLITIC LETTER YO..COMBINING GLAGOLITIC LETTER FITA
+        "\u1e8d0","\u1e8d1","\u1e8d2","\u1e8d3","\u1e8d4","\u1e8d5","\u1e8d6",  # ; T # Mn   [7] MENDE KIKAKUI COMBINING NUMBER TEENS..MENDE KIKAKUI COMBINING NUMBER MILLIONS
+        "\u1e944","\u1e945","\u1e946","\u1e947","\u1e948","\u1e949","\u1e94a",  # ; T # Mn   [7] ADLAM ALIF LENGTHENER..ADLAM NUKTA
+        "\uE0001",  # ; T # Cf       LANGUAGE TAG
+        "\ue0020","\ue0021","\ue0022","\ue0023","\ue0024","\ue0025","\ue0026","\ue0027","\ue0028","\ue0029","\ue002a","\ue002b","\ue002c","\ue002d","\ue002e","\ue002f","\ue0030","\ue0031","\ue0032","\ue0033","\ue0034","\ue0035","\ue0036","\ue0037","\ue0038","\ue0039","\ue003a","\ue003b","\ue003c","\ue003d","\ue003e","\ue003f","\ue0040","\ue0041","\ue0042","\ue0043","\ue0044","\ue0045","\ue0046","\ue0047","\ue0048","\ue0049","\ue004a","\ue004b","\ue004c","\ue004d","\ue004e","\ue004f","\ue0050","\ue0051","\ue0052","\ue0053","\ue0054","\ue0055","\ue0056","\ue0057","\ue0058","\ue0059","\ue005a","\ue005b","\ue005c","\ue005d","\ue005e","\ue005f","\ue0060","\ue0061","\ue0062","\ue0063","\ue0064","\ue0065","\ue0066","\ue0067","\ue0068","\ue0069","\ue006a","\ue006b","\ue006c","\ue006d","\ue006e","\ue006f","\ue0070","\ue0071","\ue0072","\ue0073","\ue0074","\ue0075","\ue0076","\ue0077","\ue0078","\ue0079","\ue007a","\ue007b","\ue007c","\ue007d","\ue007e","\ue007f",  # ; T # Cf  [96] TAG SPACE..CANCEL TAG
+        "\ue0100","\ue0101","\ue0102","\ue0103","\ue0104","\ue0105","\ue0106","\ue0107","\ue0108","\ue0109","\ue010a","\ue010b","\ue010c","\ue010d","\ue010e","\ue010f","\ue0110","\ue0111","\ue0112","\ue0113","\ue0114","\ue0115","\ue0116","\ue0117","\ue0118","\ue0119","\ue011a","\ue011b","\ue011c","\ue011d","\ue011e","\ue011f","\ue0120","\ue0121","\ue0122","\ue0123","\ue0124","\ue0125","\ue0126","\ue0127","\ue0128","\ue0129","\ue012a","\ue012b","\ue012c","\ue012d","\ue012e","\ue012f","\ue0130","\ue0131","\ue0132","\ue0133","\ue0134","\ue0135","\ue0136","\ue0137","\ue0138","\ue0139","\ue013a","\ue013b","\ue013c","\ue013d","\ue013e","\ue013f","\ue0140","\ue0141","\ue0142","\ue0143","\ue0144","\ue0145","\ue0146","\ue0147","\ue0148","\ue0149","\ue014a","\ue014b","\ue014c","\ue014d","\ue014e","\ue014f","\ue0150","\ue0151","\ue0152","\ue0153","\ue0154","\ue0155","\ue0156","\ue0157","\ue0158","\ue0159","\ue015a","\ue015b","\ue015c","\ue015d","\ue015e","\ue015f","\ue0160","\ue0161","\ue0162","\ue0163","\ue0164","\ue0165","\ue0166","\ue0167","\ue0168","\ue0169","\ue016a","\ue016b","\ue016c","\ue016d","\ue016e","\ue016f","\ue0170","\ue0171","\ue0172","\ue0173","\ue0174","\ue0175","\ue0176","\ue0177","\ue0178","\ue0179","\ue017a","\ue017b","\ue017c","\ue017d","\ue017e","\ue017f","\ue0180","\ue0181","\ue0182","\ue0183","\ue0184","\ue0185","\ue0186","\ue0187","\ue0188","\ue0189","\ue018a","\ue018b","\ue018c","\ue018d","\ue018e","\ue018f","\ue0190","\ue0191","\ue0192","\ue0193","\ue0194","\ue0195","\ue0196","\ue0197","\ue0198","\ue0199","\ue019a","\ue019b","\ue019c","\ue019d","\ue019e","\ue019f","\ue01a0","\ue01a1","\ue01a2","\ue01a3","\ue01a4","\ue01a5","\ue01a6","\ue01a7","\ue01a8","\ue01a9","\ue01aa","\ue01ab","\ue01ac","\ue01ad","\ue01ae","\ue01af","\ue01b0","\ue01b1","\ue01b2","\ue01b3","\ue01b4","\ue01b5","\ue01b6","\ue01b7","\ue01b8","\ue01b9","\ue01ba","\ue01bb","\ue01bc","\ue01bd","\ue01be","\ue01bf","\ue01c0","\ue01c1","\ue01c2","\ue01c3","\ue01c4","\ue01c5","\ue01c6","\ue01c7","\ue01c8","\ue01c9","\ue01ca","\ue01cb","\ue01cc","\ue01cd","\ue01ce","\ue01cf","\ue01d0","\ue01d1","\ue01d2","\ue01d3","\ue01d4","\ue01d5","\ue01d6","\ue01d7","\ue01d8","\ue01d9","\ue01da","\ue01db","\ue01dc","\ue01dd","\ue01de","\ue01df","\ue01e0","\ue01e1","\ue01e2","\ue01e3","\ue01e4","\ue01e5","\ue01e6","\ue01e7","\ue01e8","\ue01e9","\ue01ea","\ue01eb","\ue01ec","\ue01ed","\ue01ee","\ue01ef",  # ; T # Mn [240] VARIATION SELECTOR-17..VARIATION SELECTOR-256
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "U10_DerivedJoiningType: #{string}"

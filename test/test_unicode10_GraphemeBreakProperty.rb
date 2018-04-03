@@ -31,1377 +31,1376 @@ class TestUnicode10GraphemeBreakProperty < Test::Unit::TestCase
 
   def test_unicode10_GraphemeBreakProperty
     test_data = [
-        "\d0600","\d0601","\d0602","\d0603","\d0604","\d0605",  # ; Prepend # Cf   [6] ARABIC NUMBER SIGN..ARABIC NUMBER MARK ABOVE
-        "\d06DD",  # ; Prepend # Cf       ARABIC END OF AYAH
-        "\d070F",  # ; Prepend # Cf       SYRIAC ABBREVIATION MARK
-        "\d08E2",  # ; Prepend # Cf       ARABIC DISPUTED END OF AYAH
-        "\d0D4E",  # ; Prepend # Lo       MALAYALAM LETTER DOT REPH
-        "\d110BD",  # ; Prepend # Cf       KAITHI NUMBER SIGN
-        "\d111c2","\d111c3",  # ; Prepend # Lo   [2] SHARADA SIGN JIHVAMULIYA..SHARADA SIGN UPADHMANIYA
-        "\d11A3A",  # ; Prepend # Lo       ZANABAZAR SQUARE CLUSTER-INITIAL LETTER RA
-        "\d11a86","\d11a87","\d11a88","\d11a89",  # ; Prepend # Lo   [4] SOYOMBO CLUSTER-INITIAL LETTER RA..SOYOMBO CLUSTER-INITIAL LETTER SA
-        "\d11D46",  # ; Prepend # Lo       MASARAM GONDI REPHA
-        "\d000D",  # ; CR # Cc       <control-000D>
-        "\d000A",  # ; LF # Cc       <control-000A>
-        "\d0000","\d0001","\d0002","\d0003","\d0004","\d0005","\d0006","\d0007","\d0008","\d0009",  # ; Control # Cc  [10] <control-0000>..<control-0009>
-        "\d000b","\d000c",  # ; Control # Cc   [2] <control-000B>..<control-000C>
-        "\d000e","\d000f","\d0010","\d0011","\d0012","\d0013","\d0014","\d0015","\d0016","\d0017","\d0018","\d0019","\d001a","\d001b","\d001c","\d001d","\d001e","\d001f",  # ; Control # Cc  [18] <control-000E>..<control-001F>
-        "\d007f","\d0080","\d0081","\d0082","\d0083","\d0084","\d0085","\d0086","\d0087","\d0088","\d0089","\d008a","\d008b","\d008c","\d008d","\d008e","\d008f","\d0090","\d0091","\d0092","\d0093","\d0094","\d0095","\d0096","\d0097","\d0098","\d0099","\d009a","\d009b","\d009c","\d009d","\d009e","\d009f",  # ; Control # Cc  [33] <control-007F>..<control-009F>
-        "\d00AD",  # ; Control # Cf       SOFT HYPHEN
-        "\d061C",  # ; Control # Cf       ARABIC LETTER MARK
-        "\d180E",  # ; Control # Cf       MONGOLIAN VOWEL SEPARATOR
-        "\d200B",  # ; Control # Cf       ZERO WIDTH SPACE
-        "\d200e","\d200f",  # ; Control # Cf   [2] LEFT-TO-RIGHT MARK..RIGHT-TO-LEFT MARK
-        "\d2028",  # ; Control # Zl       LINE SEPARATOR
-        "\d2029",  # ; Control # Zp       PARAGRAPH SEPARATOR
-        "\d202a","\d202b","\d202c","\d202d","\d202e",  # ; Control # Cf   [5] LEFT-TO-RIGHT EMBEDDING..RIGHT-TO-LEFT OVERRIDE
-        "\d2060","\d2061","\d2062","\d2063","\d2064",  # ; Control # Cf   [5] WORD JOINER..INVISIBLE PLUS
-        "\d2065",  # ; Control # Cn       <reserved-2065>
-        "\d2066","\d2067","\d2068","\d2069","\d206a","\d206b","\d206c","\d206d","\d206e","\d206f",  # ; Control # Cf  [10] LEFT-TO-RIGHT ISOLATE..NOMINAL DIGIT SHAPES
-        "\dd800","\dd801","\dd802","\dd803","\dd804","\dd805","\dd806","\dd807","\dd808","\dd809","\dd80a","\dd80b","\dd80c","\dd80d","\dd80e","\dd80f","\dd810","\dd811","\dd812","\dd813","\dd814","\dd815","\dd816","\dd817","\dd818","\dd819","\dd81a","\dd81b","\dd81c","\dd81d","\dd81e","\dd81f","\dd820","\dd821","\dd822","\dd823","\dd824","\dd825","\dd826","\dd827","\dd828","\dd829","\dd82a","\dd82b","\dd82c","\dd82d","\dd82e","\dd82f","\dd830","\dd831","\dd832","\dd833","\dd834","\dd835","\dd836","\dd837","\dd838","\dd839","\dd83a","\dd83b","\dd83c","\dd83d","\dd83e","\dd83f","\dd840","\dd841","\dd842","\dd843","\dd844","\dd845","\dd846","\dd847","\dd848","\dd849","\dd84a","\dd84b","\dd84c","\dd84d","\dd84e","\dd84f","\dd850","\dd851","\dd852","\dd853","\dd854","\dd855","\dd856","\dd857","\dd858","\dd859","\dd85a","\dd85b","\dd85c","\dd85d","\dd85e","\dd85f","\dd860","\dd861","\dd862","\dd863","\dd864","\dd865","\dd866","\dd867","\dd868","\dd869","\dd86a","\dd86b","\dd86c","\dd86d","\dd86e","\dd86f","\dd870","\dd871","\dd872","\dd873","\dd874","\dd875","\dd876","\dd877","\dd878","\dd879","\dd87a","\dd87b","\dd87c","\dd87d","\dd87e","\dd87f","\dd880","\dd881","\dd882","\dd883","\dd884","\dd885","\dd886","\dd887","\dd888","\dd889","\dd88a","\dd88b","\dd88c","\dd88d","\dd88e","\dd88f","\dd890","\dd891","\dd892","\dd893","\dd894","\dd895","\dd896","\dd897","\dd898","\dd899","\dd89a","\dd89b","\dd89c","\dd89d","\dd89e","\dd89f","\dd8a0","\dd8a1","\dd8a2","\dd8a3","\dd8a4","\dd8a5","\dd8a6","\dd8a7","\dd8a8","\dd8a9","\dd8aa","\dd8ab","\dd8ac","\dd8ad","\dd8ae","\dd8af","\dd8b0","\dd8b1","\dd8b2","\dd8b3","\dd8b4","\dd8b5","\dd8b6","\dd8b7","\dd8b8","\dd8b9","\dd8ba","\dd8bb","\dd8bc","\dd8bd","\dd8be","\dd8bf","\dd8c0","\dd8c1","\dd8c2","\dd8c3","\dd8c4","\dd8c5","\dd8c6","\dd8c7","\dd8c8","\dd8c9","\dd8ca","\dd8cb","\dd8cc","\dd8cd","\dd8ce","\dd8cf","\dd8d0","\dd8d1","\dd8d2","\dd8d3","\dd8d4","\dd8d5","\dd8d6","\dd8d7","\dd8d8","\dd8d9","\dd8da","\dd8db","\dd8dc","\dd8dd","\dd8de","\dd8df","\dd8e0","\dd8e1","\dd8e2","\dd8e3","\dd8e4","\dd8e5","\dd8e6","\dd8e7","\dd8e8","\dd8e9","\dd8ea","\dd8eb","\dd8ec","\dd8ed","\dd8ee","\dd8ef","\dd8f0","\dd8f1","\dd8f2","\dd8f3","\dd8f4","\dd8f5","\dd8f6","\dd8f7","\dd8f8","\dd8f9","\dd8fa","\dd8fb","\dd8fc","\dd8fd","\dd8fe","\dd8ff","\dd900","\dd901","\dd902","\dd903","\dd904","\dd905","\dd906","\dd907","\dd908","\dd909","\dd90a","\dd90b","\dd90c","\dd90d","\dd90e","\dd90f","\dd910","\dd911","\dd912","\dd913","\dd914","\dd915","\dd916","\dd917","\dd918","\dd919","\dd91a","\dd91b","\dd91c","\dd91d","\dd91e","\dd91f","\dd920","\dd921","\dd922","\dd923","\dd924","\dd925","\dd926","\dd927","\dd928","\dd929","\dd92a","\dd92b","\dd92c","\dd92d","\dd92e","\dd92f","\dd930","\dd931","\dd932","\dd933","\dd934","\dd935","\dd936","\dd937","\dd938","\dd939","\dd93a","\dd93b","\dd93c","\dd93d","\dd93e","\dd93f","\dd940","\dd941","\dd942","\dd943","\dd944","\dd945","\dd946","\dd947","\dd948","\dd949","\dd94a","\dd94b","\dd94c","\dd94d","\dd94e","\dd94f","\dd950","\dd951","\dd952","\dd953","\dd954","\dd955","\dd956","\dd957","\dd958","\dd959","\dd95a","\dd95b","\dd95c","\dd95d","\dd95e","\dd95f","\dd960","\dd961","\dd962","\dd963","\dd964","\dd965","\dd966","\dd967","\dd968","\dd969","\dd96a","\dd96b","\dd96c","\dd96d","\dd96e","\dd96f","\dd970","\dd971","\dd972","\dd973","\dd974","\dd975","\dd976","\dd977","\dd978","\dd979","\dd97a","\dd97b","\dd97c","\dd97d","\dd97e","\dd97f","\dd980","\dd981","\dd982","\dd983","\dd984","\dd985","\dd986","\dd987","\dd988","\dd989","\dd98a","\dd98b","\dd98c","\dd98d","\dd98e","\dd98f","\dd990","\dd991","\dd992","\dd993","\dd994","\dd995","\dd996","\dd997","\dd998","\dd999","\dd99a","\dd99b","\dd99c","\dd99d","\dd99e","\dd99f","\dd9a0","\dd9a1","\dd9a2","\dd9a3","\dd9a4","\dd9a5","\dd9a6","\dd9a7","\dd9a8","\dd9a9","\dd9aa","\dd9ab","\dd9ac","\dd9ad","\dd9ae","\dd9af","\dd9b0","\dd9b1","\dd9b2","\dd9b3","\dd9b4","\dd9b5","\dd9b6","\dd9b7","\dd9b8","\dd9b9","\dd9ba","\dd9bb","\dd9bc","\dd9bd","\dd9be","\dd9bf","\dd9c0","\dd9c1","\dd9c2","\dd9c3","\dd9c4","\dd9c5","\dd9c6","\dd9c7","\dd9c8","\dd9c9","\dd9ca","\dd9cb","\dd9cc","\dd9cd","\dd9ce","\dd9cf","\dd9d0","\dd9d1","\dd9d2","\dd9d3","\dd9d4","\dd9d5","\dd9d6","\dd9d7","\dd9d8","\dd9d9","\dd9da","\dd9db","\dd9dc","\dd9dd","\dd9de","\dd9df","\dd9e0","\dd9e1","\dd9e2","\dd9e3","\dd9e4","\dd9e5","\dd9e6","\dd9e7","\dd9e8","\dd9e9","\dd9ea","\dd9eb","\dd9ec","\dd9ed","\dd9ee","\dd9ef","\dd9f0","\dd9f1","\dd9f2","\dd9f3","\dd9f4","\dd9f5","\dd9f6","\dd9f7","\dd9f8","\dd9f9","\dd9fa","\dd9fb","\dd9fc","\dd9fd","\dd9fe","\dd9ff","\dda00","\dda01","\dda02","\dda03","\dda04","\dda05","\dda06","\dda07","\dda08","\dda09","\dda0a","\dda0b","\dda0c","\dda0d","\dda0e","\dda0f","\dda10","\dda11","\dda12","\dda13","\dda14","\dda15","\dda16","\dda17","\dda18","\dda19","\dda1a","\dda1b","\dda1c","\dda1d","\dda1e","\dda1f","\dda20","\dda21","\dda22","\dda23","\dda24","\dda25","\dda26","\dda27","\dda28","\dda29","\dda2a","\dda2b","\dda2c","\dda2d","\dda2e","\dda2f","\dda30","\dda31","\dda32","\dda33","\dda34","\dda35","\dda36","\dda37","\dda38","\dda39","\dda3a","\dda3b","\dda3c","\dda3d","\dda3e","\dda3f","\dda40","\dda41","\dda42","\dda43","\dda44","\dda45","\dda46","\dda47","\dda48","\dda49","\dda4a","\dda4b","\dda4c","\dda4d","\dda4e","\dda4f","\dda50","\dda51","\dda52","\dda53","\dda54","\dda55","\dda56","\dda57","\dda58","\dda59","\dda5a","\dda5b","\dda5c","\dda5d","\dda5e","\dda5f","\dda60","\dda61","\dda62","\dda63","\dda64","\dda65","\dda66","\dda67","\dda68","\dda69","\dda6a","\dda6b","\dda6c","\dda6d","\dda6e","\dda6f","\dda70","\dda71","\dda72","\dda73","\dda74","\dda75","\dda76","\dda77","\dda78","\dda79","\dda7a","\dda7b","\dda7c","\dda7d","\dda7e","\dda7f","\dda80","\dda81","\dda82","\dda83","\dda84","\dda85","\dda86","\dda87","\dda88","\dda89","\dda8a","\dda8b","\dda8c","\dda8d","\dda8e","\dda8f","\dda90","\dda91","\dda92","\dda93","\dda94","\dda95","\dda96","\dda97","\dda98","\dda99","\dda9a","\dda9b","\dda9c","\dda9d","\dda9e","\dda9f","\ddaa0","\ddaa1","\ddaa2","\ddaa3","\ddaa4","\ddaa5","\ddaa6","\ddaa7","\ddaa8","\ddaa9","\ddaaa","\ddaab","\ddaac","\ddaad","\ddaae","\ddaaf","\ddab0","\ddab1","\ddab2","\ddab3","\ddab4","\ddab5","\ddab6","\ddab7","\ddab8","\ddab9","\ddaba","\ddabb","\ddabc","\ddabd","\ddabe","\ddabf","\ddac0","\ddac1","\ddac2","\ddac3","\ddac4","\ddac5","\ddac6","\ddac7","\ddac8","\ddac9","\ddaca","\ddacb","\ddacc","\ddacd","\ddace","\ddacf","\ddad0","\ddad1","\ddad2","\ddad3","\ddad4","\ddad5","\ddad6","\ddad7","\ddad8","\ddad9","\ddada","\ddadb","\ddadc","\ddadd","\ddade","\ddadf","\ddae0","\ddae1","\ddae2","\ddae3","\ddae4","\ddae5","\ddae6","\ddae7","\ddae8","\ddae9","\ddaea","\ddaeb","\ddaec","\ddaed","\ddaee","\ddaef","\ddaf0","\ddaf1","\ddaf2","\ddaf3","\ddaf4","\ddaf5","\ddaf6","\ddaf7","\ddaf8","\ddaf9","\ddafa","\ddafb","\ddafc","\ddafd","\ddafe","\ddaff","\ddb00","\ddb01","\ddb02","\ddb03","\ddb04","\ddb05","\ddb06","\ddb07","\ddb08","\ddb09","\ddb0a","\ddb0b","\ddb0c","\ddb0d","\ddb0e","\ddb0f","\ddb10","\ddb11","\ddb12","\ddb13","\ddb14","\ddb15","\ddb16","\ddb17","\ddb18","\ddb19","\ddb1a","\ddb1b","\ddb1c","\ddb1d","\ddb1e","\ddb1f","\ddb20","\ddb21","\ddb22","\ddb23","\ddb24","\ddb25","\ddb26","\ddb27","\ddb28","\ddb29","\ddb2a","\ddb2b","\ddb2c","\ddb2d","\ddb2e","\ddb2f","\ddb30","\ddb31","\ddb32","\ddb33","\ddb34","\ddb35","\ddb36","\ddb37","\ddb38","\ddb39","\ddb3a","\ddb3b","\ddb3c","\ddb3d","\ddb3e","\ddb3f","\ddb40","\ddb41","\ddb42","\ddb43","\ddb44","\ddb45","\ddb46","\ddb47","\ddb48","\ddb49","\ddb4a","\ddb4b","\ddb4c","\ddb4d","\ddb4e","\ddb4f","\ddb50","\ddb51","\ddb52","\ddb53","\ddb54","\ddb55","\ddb56","\ddb57","\ddb58","\ddb59","\ddb5a","\ddb5b","\ddb5c","\ddb5d","\ddb5e","\ddb5f","\ddb60","\ddb61","\ddb62","\ddb63","\ddb64","\ddb65","\ddb66","\ddb67","\ddb68","\ddb69","\ddb6a","\ddb6b","\ddb6c","\ddb6d","\ddb6e","\ddb6f","\ddb70","\ddb71","\ddb72","\ddb73","\ddb74","\ddb75","\ddb76","\ddb77","\ddb78","\ddb79","\ddb7a","\ddb7b","\ddb7c","\ddb7d","\ddb7e","\ddb7f","\ddb80","\ddb81","\ddb82","\ddb83","\ddb84","\ddb85","\ddb86","\ddb87","\ddb88","\ddb89","\ddb8a","\ddb8b","\ddb8c","\ddb8d","\ddb8e","\ddb8f","\ddb90","\ddb91","\ddb92","\ddb93","\ddb94","\ddb95","\ddb96","\ddb97","\ddb98","\ddb99","\ddb9a","\ddb9b","\ddb9c","\ddb9d","\ddb9e","\ddb9f","\ddba0","\ddba1","\ddba2","\ddba3","\ddba4","\ddba5","\ddba6","\ddba7","\ddba8","\ddba9","\ddbaa","\ddbab","\ddbac","\ddbad","\ddbae","\ddbaf","\ddbb0","\ddbb1","\ddbb2","\ddbb3","\ddbb4","\ddbb5","\ddbb6","\ddbb7","\ddbb8","\ddbb9","\ddbba","\ddbbb","\ddbbc","\ddbbd","\ddbbe","\ddbbf","\ddbc0","\ddbc1","\ddbc2","\ddbc3","\ddbc4","\ddbc5","\ddbc6","\ddbc7","\ddbc8","\ddbc9","\ddbca","\ddbcb","\ddbcc","\ddbcd","\ddbce","\ddbcf","\ddbd0","\ddbd1","\ddbd2","\ddbd3","\ddbd4","\ddbd5","\ddbd6","\ddbd7","\ddbd8","\ddbd9","\ddbda","\ddbdb","\ddbdc","\ddbdd","\ddbde","\ddbdf","\ddbe0","\ddbe1","\ddbe2","\ddbe3","\ddbe4","\ddbe5","\ddbe6","\ddbe7","\ddbe8","\ddbe9","\ddbea","\ddbeb","\ddbec","\ddbed","\ddbee","\ddbef","\ddbf0","\ddbf1","\ddbf2","\ddbf3","\ddbf4","\ddbf5","\ddbf6","\ddbf7","\ddbf8","\ddbf9","\ddbfa","\ddbfb","\ddbfc","\ddbfd","\ddbfe","\ddbff","\ddc00","\ddc01","\ddc02","\ddc03","\ddc04","\ddc05","\ddc06","\ddc07","\ddc08","\ddc09","\ddc0a","\ddc0b","\ddc0c","\ddc0d","\ddc0e","\ddc0f","\ddc10","\ddc11","\ddc12","\ddc13","\ddc14","\ddc15","\ddc16","\ddc17","\ddc18","\ddc19","\ddc1a","\ddc1b","\ddc1c","\ddc1d","\ddc1e","\ddc1f","\ddc20","\ddc21","\ddc22","\ddc23","\ddc24","\ddc25","\ddc26","\ddc27","\ddc28","\ddc29","\ddc2a","\ddc2b","\ddc2c","\ddc2d","\ddc2e","\ddc2f","\ddc30","\ddc31","\ddc32","\ddc33","\ddc34","\ddc35","\ddc36","\ddc37","\ddc38","\ddc39","\ddc3a","\ddc3b","\ddc3c","\ddc3d","\ddc3e","\ddc3f","\ddc40","\ddc41","\ddc42","\ddc43","\ddc44","\ddc45","\ddc46","\ddc47","\ddc48","\ddc49","\ddc4a","\ddc4b","\ddc4c","\ddc4d","\ddc4e","\ddc4f","\ddc50","\ddc51","\ddc52","\ddc53","\ddc54","\ddc55","\ddc56","\ddc57","\ddc58","\ddc59","\ddc5a","\ddc5b","\ddc5c","\ddc5d","\ddc5e","\ddc5f","\ddc60","\ddc61","\ddc62","\ddc63","\ddc64","\ddc65","\ddc66","\ddc67","\ddc68","\ddc69","\ddc6a","\ddc6b","\ddc6c","\ddc6d","\ddc6e","\ddc6f","\ddc70","\ddc71","\ddc72","\ddc73","\ddc74","\ddc75","\ddc76","\ddc77","\ddc78","\ddc79","\ddc7a","\ddc7b","\ddc7c","\ddc7d","\ddc7e","\ddc7f","\ddc80","\ddc81","\ddc82","\ddc83","\ddc84","\ddc85","\ddc86","\ddc87","\ddc88","\ddc89","\ddc8a","\ddc8b","\ddc8c","\ddc8d","\ddc8e","\ddc8f","\ddc90","\ddc91","\ddc92","\ddc93","\ddc94","\ddc95","\ddc96","\ddc97","\ddc98","\ddc99","\ddc9a","\ddc9b","\ddc9c","\ddc9d","\ddc9e","\ddc9f","\ddca0","\ddca1","\ddca2","\ddca3","\ddca4","\ddca5","\ddca6","\ddca7","\ddca8","\ddca9","\ddcaa","\ddcab","\ddcac","\ddcad","\ddcae","\ddcaf","\ddcb0","\ddcb1","\ddcb2","\ddcb3","\ddcb4","\ddcb5","\ddcb6","\ddcb7","\ddcb8","\ddcb9","\ddcba","\ddcbb","\ddcbc","\ddcbd","\ddcbe","\ddcbf","\ddcc0","\ddcc1","\ddcc2","\ddcc3","\ddcc4","\ddcc5","\ddcc6","\ddcc7","\ddcc8","\ddcc9","\ddcca","\ddccb","\ddccc","\ddccd","\ddcce","\ddccf","\ddcd0","\ddcd1","\ddcd2","\ddcd3","\ddcd4","\ddcd5","\ddcd6","\ddcd7","\ddcd8","\ddcd9","\ddcda","\ddcdb","\ddcdc","\ddcdd","\ddcde","\ddcdf","\ddce0","\ddce1","\ddce2","\ddce3","\ddce4","\ddce5","\ddce6","\ddce7","\ddce8","\ddce9","\ddcea","\ddceb","\ddcec","\ddced","\ddcee","\ddcef","\ddcf0","\ddcf1","\ddcf2","\ddcf3","\ddcf4","\ddcf5","\ddcf6","\ddcf7","\ddcf8","\ddcf9","\ddcfa","\ddcfb","\ddcfc","\ddcfd","\ddcfe","\ddcff","\ddd00","\ddd01","\ddd02","\ddd03","\ddd04","\ddd05","\ddd06","\ddd07","\ddd08","\ddd09","\ddd0a","\ddd0b","\ddd0c","\ddd0d","\ddd0e","\ddd0f","\ddd10","\ddd11","\ddd12","\ddd13","\ddd14","\ddd15","\ddd16","\ddd17","\ddd18","\ddd19","\ddd1a","\ddd1b","\ddd1c","\ddd1d","\ddd1e","\ddd1f","\ddd20","\ddd21","\ddd22","\ddd23","\ddd24","\ddd25","\ddd26","\ddd27","\ddd28","\ddd29","\ddd2a","\ddd2b","\ddd2c","\ddd2d","\ddd2e","\ddd2f","\ddd30","\ddd31","\ddd32","\ddd33","\ddd34","\ddd35","\ddd36","\ddd37","\ddd38","\ddd39","\ddd3a","\ddd3b","\ddd3c","\ddd3d","\ddd3e","\ddd3f","\ddd40","\ddd41","\ddd42","\ddd43","\ddd44","\ddd45","\ddd46","\ddd47","\ddd48","\ddd49","\ddd4a","\ddd4b","\ddd4c","\ddd4d","\ddd4e","\ddd4f","\ddd50","\ddd51","\ddd52","\ddd53","\ddd54","\ddd55","\ddd56","\ddd57","\ddd58","\ddd59","\ddd5a","\ddd5b","\ddd5c","\ddd5d","\ddd5e","\ddd5f","\ddd60","\ddd61","\ddd62","\ddd63","\ddd64","\ddd65","\ddd66","\ddd67","\ddd68","\ddd69","\ddd6a","\ddd6b","\ddd6c","\ddd6d","\ddd6e","\ddd6f","\ddd70","\ddd71","\ddd72","\ddd73","\ddd74","\ddd75","\ddd76","\ddd77","\ddd78","\ddd79","\ddd7a","\ddd7b","\ddd7c","\ddd7d","\ddd7e","\ddd7f","\ddd80","\ddd81","\ddd82","\ddd83","\ddd84","\ddd85","\ddd86","\ddd87","\ddd88","\ddd89","\ddd8a","\ddd8b","\ddd8c","\ddd8d","\ddd8e","\ddd8f","\ddd90","\ddd91","\ddd92","\ddd93","\ddd94","\ddd95","\ddd96","\ddd97","\ddd98","\ddd99","\ddd9a","\ddd9b","\ddd9c","\ddd9d","\ddd9e","\ddd9f","\ddda0","\ddda1","\ddda2","\ddda3","\ddda4","\ddda5","\ddda6","\ddda7","\ddda8","\ddda9","\dddaa","\dddab","\dddac","\dddad","\dddae","\dddaf","\dddb0","\dddb1","\dddb2","\dddb3","\dddb4","\dddb5","\dddb6","\dddb7","\dddb8","\dddb9","\dddba","\dddbb","\dddbc","\dddbd","\dddbe","\dddbf","\dddc0","\dddc1","\dddc2","\dddc3","\dddc4","\dddc5","\dddc6","\dddc7","\dddc8","\dddc9","\dddca","\dddcb","\dddcc","\dddcd","\dddce","\dddcf","\dddd0","\dddd1","\dddd2","\dddd3","\dddd4","\dddd5","\dddd6","\dddd7","\dddd8","\dddd9","\dddda","\ddddb","\ddddc","\ddddd","\dddde","\ddddf","\ddde0","\ddde1","\ddde2","\ddde3","\ddde4","\ddde5","\ddde6","\ddde7","\ddde8","\ddde9","\dddea","\dddeb","\dddec","\ddded","\dddee","\dddef","\dddf0","\dddf1","\dddf2","\dddf3","\dddf4","\dddf5","\dddf6","\dddf7","\dddf8","\dddf9","\dddfa","\dddfb","\dddfc","\dddfd","\dddfe","\dddff","\dde00","\dde01","\dde02","\dde03","\dde04","\dde05","\dde06","\dde07","\dde08","\dde09","\dde0a","\dde0b","\dde0c","\dde0d","\dde0e","\dde0f","\dde10","\dde11","\dde12","\dde13","\dde14","\dde15","\dde16","\dde17","\dde18","\dde19","\dde1a","\dde1b","\dde1c","\dde1d","\dde1e","\dde1f","\dde20","\dde21","\dde22","\dde23","\dde24","\dde25","\dde26","\dde27","\dde28","\dde29","\dde2a","\dde2b","\dde2c","\dde2d","\dde2e","\dde2f","\dde30","\dde31","\dde32","\dde33","\dde34","\dde35","\dde36","\dde37","\dde38","\dde39","\dde3a","\dde3b","\dde3c","\dde3d","\dde3e","\dde3f","\dde40","\dde41","\dde42","\dde43","\dde44","\dde45","\dde46","\dde47","\dde48","\dde49","\dde4a","\dde4b","\dde4c","\dde4d","\dde4e","\dde4f","\dde50","\dde51","\dde52","\dde53","\dde54","\dde55","\dde56","\dde57","\dde58","\dde59","\dde5a","\dde5b","\dde5c","\dde5d","\dde5e","\dde5f","\dde60","\dde61","\dde62","\dde63","\dde64","\dde65","\dde66","\dde67","\dde68","\dde69","\dde6a","\dde6b","\dde6c","\dde6d","\dde6e","\dde6f","\dde70","\dde71","\dde72","\dde73","\dde74","\dde75","\dde76","\dde77","\dde78","\dde79","\dde7a","\dde7b","\dde7c","\dde7d","\dde7e","\dde7f","\dde80","\dde81","\dde82","\dde83","\dde84","\dde85","\dde86","\dde87","\dde88","\dde89","\dde8a","\dde8b","\dde8c","\dde8d","\dde8e","\dde8f","\dde90","\dde91","\dde92","\dde93","\dde94","\dde95","\dde96","\dde97","\dde98","\dde99","\dde9a","\dde9b","\dde9c","\dde9d","\dde9e","\dde9f","\ddea0","\ddea1","\ddea2","\ddea3","\ddea4","\ddea5","\ddea6","\ddea7","\ddea8","\ddea9","\ddeaa","\ddeab","\ddeac","\ddead","\ddeae","\ddeaf","\ddeb0","\ddeb1","\ddeb2","\ddeb3","\ddeb4","\ddeb5","\ddeb6","\ddeb7","\ddeb8","\ddeb9","\ddeba","\ddebb","\ddebc","\ddebd","\ddebe","\ddebf","\ddec0","\ddec1","\ddec2","\ddec3","\ddec4","\ddec5","\ddec6","\ddec7","\ddec8","\ddec9","\ddeca","\ddecb","\ddecc","\ddecd","\ddece","\ddecf","\dded0","\dded1","\dded2","\dded3","\dded4","\dded5","\dded6","\dded7","\dded8","\dded9","\ddeda","\ddedb","\ddedc","\ddedd","\ddede","\ddedf","\ddee0","\ddee1","\ddee2","\ddee3","\ddee4","\ddee5","\ddee6","\ddee7","\ddee8","\ddee9","\ddeea","\ddeeb","\ddeec","\ddeed","\ddeee","\ddeef","\ddef0","\ddef1","\ddef2","\ddef3","\ddef4","\ddef5","\ddef6","\ddef7","\ddef8","\ddef9","\ddefa","\ddefb","\ddefc","\ddefd","\ddefe","\ddeff","\ddf00","\ddf01","\ddf02","\ddf03","\ddf04","\ddf05","\ddf06","\ddf07","\ddf08","\ddf09","\ddf0a","\ddf0b","\ddf0c","\ddf0d","\ddf0e","\ddf0f","\ddf10","\ddf11","\ddf12","\ddf13","\ddf14","\ddf15","\ddf16","\ddf17","\ddf18","\ddf19","\ddf1a","\ddf1b","\ddf1c","\ddf1d","\ddf1e","\ddf1f","\ddf20","\ddf21","\ddf22","\ddf23","\ddf24","\ddf25","\ddf26","\ddf27","\ddf28","\ddf29","\ddf2a","\ddf2b","\ddf2c","\ddf2d","\ddf2e","\ddf2f","\ddf30","\ddf31","\ddf32","\ddf33","\ddf34","\ddf35","\ddf36","\ddf37","\ddf38","\ddf39","\ddf3a","\ddf3b","\ddf3c","\ddf3d","\ddf3e","\ddf3f","\ddf40","\ddf41","\ddf42","\ddf43","\ddf44","\ddf45","\ddf46","\ddf47","\ddf48","\ddf49","\ddf4a","\ddf4b","\ddf4c","\ddf4d","\ddf4e","\ddf4f","\ddf50","\ddf51","\ddf52","\ddf53","\ddf54","\ddf55","\ddf56","\ddf57","\ddf58","\ddf59","\ddf5a","\ddf5b","\ddf5c","\ddf5d","\ddf5e","\ddf5f","\ddf60","\ddf61","\ddf62","\ddf63","\ddf64","\ddf65","\ddf66","\ddf67","\ddf68","\ddf69","\ddf6a","\ddf6b","\ddf6c","\ddf6d","\ddf6e","\ddf6f","\ddf70","\ddf71","\ddf72","\ddf73","\ddf74","\ddf75","\ddf76","\ddf77","\ddf78","\ddf79","\ddf7a","\ddf7b","\ddf7c","\ddf7d","\ddf7e","\ddf7f","\ddf80","\ddf81","\ddf82","\ddf83","\ddf84","\ddf85","\ddf86","\ddf87","\ddf88","\ddf89","\ddf8a","\ddf8b","\ddf8c","\ddf8d","\ddf8e","\ddf8f","\ddf90","\ddf91","\ddf92","\ddf93","\ddf94","\ddf95","\ddf96","\ddf97","\ddf98","\ddf99","\ddf9a","\ddf9b","\ddf9c","\ddf9d","\ddf9e","\ddf9f","\ddfa0","\ddfa1","\ddfa2","\ddfa3","\ddfa4","\ddfa5","\ddfa6","\ddfa7","\ddfa8","\ddfa9","\ddfaa","\ddfab","\ddfac","\ddfad","\ddfae","\ddfaf","\ddfb0","\ddfb1","\ddfb2","\ddfb3","\ddfb4","\ddfb5","\ddfb6","\ddfb7","\ddfb8","\ddfb9","\ddfba","\ddfbb","\ddfbc","\ddfbd","\ddfbe","\ddfbf","\ddfc0","\ddfc1","\ddfc2","\ddfc3","\ddfc4","\ddfc5","\ddfc6","\ddfc7","\ddfc8","\ddfc9","\ddfca","\ddfcb","\ddfcc","\ddfcd","\ddfce","\ddfcf","\ddfd0","\ddfd1","\ddfd2","\ddfd3","\ddfd4","\ddfd5","\ddfd6","\ddfd7","\ddfd8","\ddfd9","\ddfda","\ddfdb","\ddfdc","\ddfdd","\ddfde","\ddfdf","\ddfe0","\ddfe1","\ddfe2","\ddfe3","\ddfe4","\ddfe5","\ddfe6","\ddfe7","\ddfe8","\ddfe9","\ddfea","\ddfeb","\ddfec","\ddfed","\ddfee","\ddfef","\ddff0","\ddff1","\ddff2","\ddff3","\ddff4","\ddff5","\ddff6","\ddff7","\ddff8","\ddff9","\ddffa","\ddffb","\ddffc","\ddffd","\ddffe","\ddfff",  # ; Control # Cs [2048] <surrogate-D800>..<surrogate-DFFF>
-        "\dFEFF",  # ; Control # Cf       ZERO WIDTH NO-BREAK SPACE
-        "\dfff0","\dfff1","\dfff2","\dfff3","\dfff4","\dfff5","\dfff6","\dfff7","\dfff8",  # ; Control # Cn   [9] <reserved-FFF0>..<reserved-FFF8>
-        "\dfff9","\dfffa","\dfffb",  # ; Control # Cf   [3] INTERLINEAR ANNOTATION ANCHOR..INTERLINEAR ANNOTATION TERMINATOR
-        "\d1bca0","\d1bca1","\d1bca2","\d1bca3",  # ; Control # Cf   [4] SHORTHAND FORMAT LETTER OVERLAP..SHORTHAND FORMAT UP STEP
-        "\d1d173","\d1d174","\d1d175","\d1d176","\d1d177","\d1d178","\d1d179","\d1d17a",  # ; Control # Cf   [8] MUSICAL SYMBOL BEGIN BEAM..MUSICAL SYMBOL END PHRASE
-        "\dE0000",  # ; Control # Cn       <reserved-E0000>
-        "\dE0001",  # ; Control # Cf       LANGUAGE TAG
-        "\de0002","\de0003","\de0004","\de0005","\de0006","\de0007","\de0008","\de0009","\de000a","\de000b","\de000c","\de000d","\de000e","\de000f","\de0010","\de0011","\de0012","\de0013","\de0014","\de0015","\de0016","\de0017","\de0018","\de0019","\de001a","\de001b","\de001c","\de001d","\de001e","\de001f",  # ; Control # Cn  [30] <reserved-E0002>..<reserved-E001F>
-        "\de0080","\de0081","\de0082","\de0083","\de0084","\de0085","\de0086","\de0087","\de0088","\de0089","\de008a","\de008b","\de008c","\de008d","\de008e","\de008f","\de0090","\de0091","\de0092","\de0093","\de0094","\de0095","\de0096","\de0097","\de0098","\de0099","\de009a","\de009b","\de009c","\de009d","\de009e","\de009f","\de00a0","\de00a1","\de00a2","\de00a3","\de00a4","\de00a5","\de00a6","\de00a7","\de00a8","\de00a9","\de00aa","\de00ab","\de00ac","\de00ad","\de00ae","\de00af","\de00b0","\de00b1","\de00b2","\de00b3","\de00b4","\de00b5","\de00b6","\de00b7","\de00b8","\de00b9","\de00ba","\de00bb","\de00bc","\de00bd","\de00be","\de00bf","\de00c0","\de00c1","\de00c2","\de00c3","\de00c4","\de00c5","\de00c6","\de00c7","\de00c8","\de00c9","\de00ca","\de00cb","\de00cc","\de00cd","\de00ce","\de00cf","\de00d0","\de00d1","\de00d2","\de00d3","\de00d4","\de00d5","\de00d6","\de00d7","\de00d8","\de00d9","\de00da","\de00db","\de00dc","\de00dd","\de00de","\de00df","\de00e0","\de00e1","\de00e2","\de00e3","\de00e4","\de00e5","\de00e6","\de00e7","\de00e8","\de00e9","\de00ea","\de00eb","\de00ec","\de00ed","\de00ee","\de00ef","\de00f0","\de00f1","\de00f2","\de00f3","\de00f4","\de00f5","\de00f6","\de00f7","\de00f8","\de00f9","\de00fa","\de00fb","\de00fc","\de00fd","\de00fe","\de00ff",  # ; Control # Cn [128] <reserved-E0080>..<reserved-E00FF>
-        "\de01f0","\de01f1","\de01f2","\de01f3","\de01f4","\de01f5","\de01f6","\de01f7","\de01f8","\de01f9","\de01fa","\de01fb","\de01fc","\de01fd","\de01fe","\de01ff","\de0200","\de0201","\de0202","\de0203","\de0204","\de0205","\de0206","\de0207","\de0208","\de0209","\de020a","\de020b","\de020c","\de020d","\de020e","\de020f","\de0210","\de0211","\de0212","\de0213","\de0214","\de0215","\de0216","\de0217","\de0218","\de0219","\de021a","\de021b","\de021c","\de021d","\de021e","\de021f","\de0220","\de0221","\de0222","\de0223","\de0224","\de0225","\de0226","\de0227","\de0228","\de0229","\de022a","\de022b","\de022c","\de022d","\de022e","\de022f","\de0230","\de0231","\de0232","\de0233","\de0234","\de0235","\de0236","\de0237","\de0238","\de0239","\de023a","\de023b","\de023c","\de023d","\de023e","\de023f","\de0240","\de0241","\de0242","\de0243","\de0244","\de0245","\de0246","\de0247","\de0248","\de0249","\de024a","\de024b","\de024c","\de024d","\de024e","\de024f","\de0250","\de0251","\de0252","\de0253","\de0254","\de0255","\de0256","\de0257","\de0258","\de0259","\de025a","\de025b","\de025c","\de025d","\de025e","\de025f","\de0260","\de0261","\de0262","\de0263","\de0264","\de0265","\de0266","\de0267","\de0268","\de0269","\de026a","\de026b","\de026c","\de026d","\de026e","\de026f","\de0270","\de0271","\de0272","\de0273","\de0274","\de0275","\de0276","\de0277","\de0278","\de0279","\de027a","\de027b","\de027c","\de027d","\de027e","\de027f","\de0280","\de0281","\de0282","\de0283","\de0284","\de0285","\de0286","\de0287","\de0288","\de0289","\de028a","\de028b","\de028c","\de028d","\de028e","\de028f","\de0290","\de0291","\de0292","\de0293","\de0294","\de0295","\de0296","\de0297","\de0298","\de0299","\de029a","\de029b","\de029c","\de029d","\de029e","\de029f","\de02a0","\de02a1","\de02a2","\de02a3","\de02a4","\de02a5","\de02a6","\de02a7","\de02a8","\de02a9","\de02aa","\de02ab","\de02ac","\de02ad","\de02ae","\de02af","\de02b0","\de02b1","\de02b2","\de02b3","\de02b4","\de02b5","\de02b6","\de02b7","\de02b8","\de02b9","\de02ba","\de02bb","\de02bc","\de02bd","\de02be","\de02bf","\de02c0","\de02c1","\de02c2","\de02c3","\de02c4","\de02c5","\de02c6","\de02c7","\de02c8","\de02c9","\de02ca","\de02cb","\de02cc","\de02cd","\de02ce","\de02cf","\de02d0","\de02d1","\de02d2","\de02d3","\de02d4","\de02d5","\de02d6","\de02d7","\de02d8","\de02d9","\de02da","\de02db","\de02dc","\de02dd","\de02de","\de02df","\de02e0","\de02e1","\de02e2","\de02e3","\de02e4","\de02e5","\de02e6","\de02e7","\de02e8","\de02e9","\de02ea","\de02eb","\de02ec","\de02ed","\de02ee","\de02ef","\de02f0","\de02f1","\de02f2","\de02f3","\de02f4","\de02f5","\de02f6","\de02f7","\de02f8","\de02f9","\de02fa","\de02fb","\de02fc","\de02fd","\de02fe","\de02ff","\de0300","\de0301","\de0302","\de0303","\de0304","\de0305","\de0306","\de0307","\de0308","\de0309","\de030a","\de030b","\de030c","\de030d","\de030e","\de030f","\de0310","\de0311","\de0312","\de0313","\de0314","\de0315","\de0316","\de0317","\de0318","\de0319","\de031a","\de031b","\de031c","\de031d","\de031e","\de031f","\de0320","\de0321","\de0322","\de0323","\de0324","\de0325","\de0326","\de0327","\de0328","\de0329","\de032a","\de032b","\de032c","\de032d","\de032e","\de032f","\de0330","\de0331","\de0332","\de0333","\de0334","\de0335","\de0336","\de0337","\de0338","\de0339","\de033a","\de033b","\de033c","\de033d","\de033e","\de033f","\de0340","\de0341","\de0342","\de0343","\de0344","\de0345","\de0346","\de0347","\de0348","\de0349","\de034a","\de034b","\de034c","\de034d","\de034e","\de034f","\de0350","\de0351","\de0352","\de0353","\de0354","\de0355","\de0356","\de0357","\de0358","\de0359","\de035a","\de035b","\de035c","\de035d","\de035e","\de035f","\de0360","\de0361","\de0362","\de0363","\de0364","\de0365","\de0366","\de0367","\de0368","\de0369","\de036a","\de036b","\de036c","\de036d","\de036e","\de036f","\de0370","\de0371","\de0372","\de0373","\de0374","\de0375","\de0376","\de0377","\de0378","\de0379","\de037a","\de037b","\de037c","\de037d","\de037e","\de037f","\de0380","\de0381","\de0382","\de0383","\de0384","\de0385","\de0386","\de0387","\de0388","\de0389","\de038a","\de038b","\de038c","\de038d","\de038e","\de038f","\de0390","\de0391","\de0392","\de0393","\de0394","\de0395","\de0396","\de0397","\de0398","\de0399","\de039a","\de039b","\de039c","\de039d","\de039e","\de039f","\de03a0","\de03a1","\de03a2","\de03a3","\de03a4","\de03a5","\de03a6","\de03a7","\de03a8","\de03a9","\de03aa","\de03ab","\de03ac","\de03ad","\de03ae","\de03af","\de03b0","\de03b1","\de03b2","\de03b3","\de03b4","\de03b5","\de03b6","\de03b7","\de03b8","\de03b9","\de03ba","\de03bb","\de03bc","\de03bd","\de03be","\de03bf","\de03c0","\de03c1","\de03c2","\de03c3","\de03c4","\de03c5","\de03c6","\de03c7","\de03c8","\de03c9","\de03ca","\de03cb","\de03cc","\de03cd","\de03ce","\de03cf","\de03d0","\de03d1","\de03d2","\de03d3","\de03d4","\de03d5","\de03d6","\de03d7","\de03d8","\de03d9","\de03da","\de03db","\de03dc","\de03dd","\de03de","\de03df","\de03e0","\de03e1","\de03e2","\de03e3","\de03e4","\de03e5","\de03e6","\de03e7","\de03e8","\de03e9","\de03ea","\de03eb","\de03ec","\de03ed","\de03ee","\de03ef","\de03f0","\de03f1","\de03f2","\de03f3","\de03f4","\de03f5","\de03f6","\de03f7","\de03f8","\de03f9","\de03fa","\de03fb","\de03fc","\de03fd","\de03fe","\de03ff","\de0400","\de0401","\de0402","\de0403","\de0404","\de0405","\de0406","\de0407","\de0408","\de0409","\de040a","\de040b","\de040c","\de040d","\de040e","\de040f","\de0410","\de0411","\de0412","\de0413","\de0414","\de0415","\de0416","\de0417","\de0418","\de0419","\de041a","\de041b","\de041c","\de041d","\de041e","\de041f","\de0420","\de0421","\de0422","\de0423","\de0424","\de0425","\de0426","\de0427","\de0428","\de0429","\de042a","\de042b","\de042c","\de042d","\de042e","\de042f","\de0430","\de0431","\de0432","\de0433","\de0434","\de0435","\de0436","\de0437","\de0438","\de0439","\de043a","\de043b","\de043c","\de043d","\de043e","\de043f","\de0440","\de0441","\de0442","\de0443","\de0444","\de0445","\de0446","\de0447","\de0448","\de0449","\de044a","\de044b","\de044c","\de044d","\de044e","\de044f","\de0450","\de0451","\de0452","\de0453","\de0454","\de0455","\de0456","\de0457","\de0458","\de0459","\de045a","\de045b","\de045c","\de045d","\de045e","\de045f","\de0460","\de0461","\de0462","\de0463","\de0464","\de0465","\de0466","\de0467","\de0468","\de0469","\de046a","\de046b","\de046c","\de046d","\de046e","\de046f","\de0470","\de0471","\de0472","\de0473","\de0474","\de0475","\de0476","\de0477","\de0478","\de0479","\de047a","\de047b","\de047c","\de047d","\de047e","\de047f","\de0480","\de0481","\de0482","\de0483","\de0484","\de0485","\de0486","\de0487","\de0488","\de0489","\de048a","\de048b","\de048c","\de048d","\de048e","\de048f","\de0490","\de0491","\de0492","\de0493","\de0494","\de0495","\de0496","\de0497","\de0498","\de0499","\de049a","\de049b","\de049c","\de049d","\de049e","\de049f","\de04a0","\de04a1","\de04a2","\de04a3","\de04a4","\de04a5","\de04a6","\de04a7","\de04a8","\de04a9","\de04aa","\de04ab","\de04ac","\de04ad","\de04ae","\de04af","\de04b0","\de04b1","\de04b2","\de04b3","\de04b4","\de04b5","\de04b6","\de04b7","\de04b8","\de04b9","\de04ba","\de04bb","\de04bc","\de04bd","\de04be","\de04bf","\de04c0","\de04c1","\de04c2","\de04c3","\de04c4","\de04c5","\de04c6","\de04c7","\de04c8","\de04c9","\de04ca","\de04cb","\de04cc","\de04cd","\de04ce","\de04cf","\de04d0","\de04d1","\de04d2","\de04d3","\de04d4","\de04d5","\de04d6","\de04d7","\de04d8","\de04d9","\de04da","\de04db","\de04dc","\de04dd","\de04de","\de04df","\de04e0","\de04e1","\de04e2","\de04e3","\de04e4","\de04e5","\de04e6","\de04e7","\de04e8","\de04e9","\de04ea","\de04eb","\de04ec","\de04ed","\de04ee","\de04ef","\de04f0","\de04f1","\de04f2","\de04f3","\de04f4","\de04f5","\de04f6","\de04f7","\de04f8","\de04f9","\de04fa","\de04fb","\de04fc","\de04fd","\de04fe","\de04ff","\de0500","\de0501","\de0502","\de0503","\de0504","\de0505","\de0506","\de0507","\de0508","\de0509","\de050a","\de050b","\de050c","\de050d","\de050e","\de050f","\de0510","\de0511","\de0512","\de0513","\de0514","\de0515","\de0516","\de0517","\de0518","\de0519","\de051a","\de051b","\de051c","\de051d","\de051e","\de051f","\de0520","\de0521","\de0522","\de0523","\de0524","\de0525","\de0526","\de0527","\de0528","\de0529","\de052a","\de052b","\de052c","\de052d","\de052e","\de052f","\de0530","\de0531","\de0532","\de0533","\de0534","\de0535","\de0536","\de0537","\de0538","\de0539","\de053a","\de053b","\de053c","\de053d","\de053e","\de053f","\de0540","\de0541","\de0542","\de0543","\de0544","\de0545","\de0546","\de0547","\de0548","\de0549","\de054a","\de054b","\de054c","\de054d","\de054e","\de054f","\de0550","\de0551","\de0552","\de0553","\de0554","\de0555","\de0556","\de0557","\de0558","\de0559","\de055a","\de055b","\de055c","\de055d","\de055e","\de055f","\de0560","\de0561","\de0562","\de0563","\de0564","\de0565","\de0566","\de0567","\de0568","\de0569","\de056a","\de056b","\de056c","\de056d","\de056e","\de056f","\de0570","\de0571","\de0572","\de0573","\de0574","\de0575","\de0576","\de0577","\de0578","\de0579","\de057a","\de057b","\de057c","\de057d","\de057e","\de057f","\de0580","\de0581","\de0582","\de0583","\de0584","\de0585","\de0586","\de0587","\de0588","\de0589","\de058a","\de058b","\de058c","\de058d","\de058e","\de058f","\de0590","\de0591","\de0592","\de0593","\de0594","\de0595","\de0596","\de0597","\de0598","\de0599","\de059a","\de059b","\de059c","\de059d","\de059e","\de059f","\de05a0","\de05a1","\de05a2","\de05a3","\de05a4","\de05a5","\de05a6","\de05a7","\de05a8","\de05a9","\de05aa","\de05ab","\de05ac","\de05ad","\de05ae","\de05af","\de05b0","\de05b1","\de05b2","\de05b3","\de05b4","\de05b5","\de05b6","\de05b7","\de05b8","\de05b9","\de05ba","\de05bb","\de05bc","\de05bd","\de05be","\de05bf","\de05c0","\de05c1","\de05c2","\de05c3","\de05c4","\de05c5","\de05c6","\de05c7","\de05c8","\de05c9","\de05ca","\de05cb","\de05cc","\de05cd","\de05ce","\de05cf","\de05d0","\de05d1","\de05d2","\de05d3","\de05d4","\de05d5","\de05d6","\de05d7","\de05d8","\de05d9","\de05da","\de05db","\de05dc","\de05dd","\de05de","\de05df","\de05e0","\de05e1","\de05e2","\de05e3","\de05e4","\de05e5","\de05e6","\de05e7","\de05e8","\de05e9","\de05ea","\de05eb","\de05ec","\de05ed","\de05ee","\de05ef","\de05f0","\de05f1","\de05f2","\de05f3","\de05f4","\de05f5","\de05f6","\de05f7","\de05f8","\de05f9","\de05fa","\de05fb","\de05fc","\de05fd","\de05fe","\de05ff","\de0600","\de0601","\de0602","\de0603","\de0604","\de0605","\de0606","\de0607","\de0608","\de0609","\de060a","\de060b","\de060c","\de060d","\de060e","\de060f","\de0610","\de0611","\de0612","\de0613","\de0614","\de0615","\de0616","\de0617","\de0618","\de0619","\de061a","\de061b","\de061c","\de061d","\de061e","\de061f","\de0620","\de0621","\de0622","\de0623","\de0624","\de0625","\de0626","\de0627","\de0628","\de0629","\de062a","\de062b","\de062c","\de062d","\de062e","\de062f","\de0630","\de0631","\de0632","\de0633","\de0634","\de0635","\de0636","\de0637","\de0638","\de0639","\de063a","\de063b","\de063c","\de063d","\de063e","\de063f","\de0640","\de0641","\de0642","\de0643","\de0644","\de0645","\de0646","\de0647","\de0648","\de0649","\de064a","\de064b","\de064c","\de064d","\de064e","\de064f","\de0650","\de0651","\de0652","\de0653","\de0654","\de0655","\de0656","\de0657","\de0658","\de0659","\de065a","\de065b","\de065c","\de065d","\de065e","\de065f","\de0660","\de0661","\de0662","\de0663","\de0664","\de0665","\de0666","\de0667","\de0668","\de0669","\de066a","\de066b","\de066c","\de066d","\de066e","\de066f","\de0670","\de0671","\de0672","\de0673","\de0674","\de0675","\de0676","\de0677","\de0678","\de0679","\de067a","\de067b","\de067c","\de067d","\de067e","\de067f","\de0680","\de0681","\de0682","\de0683","\de0684","\de0685","\de0686","\de0687","\de0688","\de0689","\de068a","\de068b","\de068c","\de068d","\de068e","\de068f","\de0690","\de0691","\de0692","\de0693","\de0694","\de0695","\de0696","\de0697","\de0698","\de0699","\de069a","\de069b","\de069c","\de069d","\de069e","\de069f","\de06a0","\de06a1","\de06a2","\de06a3","\de06a4","\de06a5","\de06a6","\de06a7","\de06a8","\de06a9","\de06aa","\de06ab","\de06ac","\de06ad","\de06ae","\de06af","\de06b0","\de06b1","\de06b2","\de06b3","\de06b4","\de06b5","\de06b6","\de06b7","\de06b8","\de06b9","\de06ba","\de06bb","\de06bc","\de06bd","\de06be","\de06bf","\de06c0","\de06c1","\de06c2","\de06c3","\de06c4","\de06c5","\de06c6","\de06c7","\de06c8","\de06c9","\de06ca","\de06cb","\de06cc","\de06cd","\de06ce","\de06cf","\de06d0","\de06d1","\de06d2","\de06d3","\de06d4","\de06d5","\de06d6","\de06d7","\de06d8","\de06d9","\de06da","\de06db","\de06dc","\de06dd","\de06de","\de06df","\de06e0","\de06e1","\de06e2","\de06e3","\de06e4","\de06e5","\de06e6","\de06e7","\de06e8","\de06e9","\de06ea","\de06eb","\de06ec","\de06ed","\de06ee","\de06ef","\de06f0","\de06f1","\de06f2","\de06f3","\de06f4","\de06f5","\de06f6","\de06f7","\de06f8","\de06f9","\de06fa","\de06fb","\de06fc","\de06fd","\de06fe","\de06ff","\de0700","\de0701","\de0702","\de0703","\de0704","\de0705","\de0706","\de0707","\de0708","\de0709","\de070a","\de070b","\de070c","\de070d","\de070e","\de070f","\de0710","\de0711","\de0712","\de0713","\de0714","\de0715","\de0716","\de0717","\de0718","\de0719","\de071a","\de071b","\de071c","\de071d","\de071e","\de071f","\de0720","\de0721","\de0722","\de0723","\de0724","\de0725","\de0726","\de0727","\de0728","\de0729","\de072a","\de072b","\de072c","\de072d","\de072e","\de072f","\de0730","\de0731","\de0732","\de0733","\de0734","\de0735","\de0736","\de0737","\de0738","\de0739","\de073a","\de073b","\de073c","\de073d","\de073e","\de073f","\de0740","\de0741","\de0742","\de0743","\de0744","\de0745","\de0746","\de0747","\de0748","\de0749","\de074a","\de074b","\de074c","\de074d","\de074e","\de074f","\de0750","\de0751","\de0752","\de0753","\de0754","\de0755","\de0756","\de0757","\de0758","\de0759","\de075a","\de075b","\de075c","\de075d","\de075e","\de075f","\de0760","\de0761","\de0762","\de0763","\de0764","\de0765","\de0766","\de0767","\de0768","\de0769","\de076a","\de076b","\de076c","\de076d","\de076e","\de076f","\de0770","\de0771","\de0772","\de0773","\de0774","\de0775","\de0776","\de0777","\de0778","\de0779","\de077a","\de077b","\de077c","\de077d","\de077e","\de077f","\de0780","\de0781","\de0782","\de0783","\de0784","\de0785","\de0786","\de0787","\de0788","\de0789","\de078a","\de078b","\de078c","\de078d","\de078e","\de078f","\de0790","\de0791","\de0792","\de0793","\de0794","\de0795","\de0796","\de0797","\de0798","\de0799","\de079a","\de079b","\de079c","\de079d","\de079e","\de079f","\de07a0","\de07a1","\de07a2","\de07a3","\de07a4","\de07a5","\de07a6","\de07a7","\de07a8","\de07a9","\de07aa","\de07ab","\de07ac","\de07ad","\de07ae","\de07af","\de07b0","\de07b1","\de07b2","\de07b3","\de07b4","\de07b5","\de07b6","\de07b7","\de07b8","\de07b9","\de07ba","\de07bb","\de07bc","\de07bd","\de07be","\de07bf","\de07c0","\de07c1","\de07c2","\de07c3","\de07c4","\de07c5","\de07c6","\de07c7","\de07c8","\de07c9","\de07ca","\de07cb","\de07cc","\de07cd","\de07ce","\de07cf","\de07d0","\de07d1","\de07d2","\de07d3","\de07d4","\de07d5","\de07d6","\de07d7","\de07d8","\de07d9","\de07da","\de07db","\de07dc","\de07dd","\de07de","\de07df","\de07e0","\de07e1","\de07e2","\de07e3","\de07e4","\de07e5","\de07e6","\de07e7","\de07e8","\de07e9","\de07ea","\de07eb","\de07ec","\de07ed","\de07ee","\de07ef","\de07f0","\de07f1","\de07f2","\de07f3","\de07f4","\de07f5","\de07f6","\de07f7","\de07f8","\de07f9","\de07fa","\de07fb","\de07fc","\de07fd","\de07fe","\de07ff","\de0800","\de0801","\de0802","\de0803","\de0804","\de0805","\de0806","\de0807","\de0808","\de0809","\de080a","\de080b","\de080c","\de080d","\de080e","\de080f","\de0810","\de0811","\de0812","\de0813","\de0814","\de0815","\de0816","\de0817","\de0818","\de0819","\de081a","\de081b","\de081c","\de081d","\de081e","\de081f","\de0820","\de0821","\de0822","\de0823","\de0824","\de0825","\de0826","\de0827","\de0828","\de0829","\de082a","\de082b","\de082c","\de082d","\de082e","\de082f","\de0830","\de0831","\de0832","\de0833","\de0834","\de0835","\de0836","\de0837","\de0838","\de0839","\de083a","\de083b","\de083c","\de083d","\de083e","\de083f","\de0840","\de0841","\de0842","\de0843","\de0844","\de0845","\de0846","\de0847","\de0848","\de0849","\de084a","\de084b","\de084c","\de084d","\de084e","\de084f","\de0850","\de0851","\de0852","\de0853","\de0854","\de0855","\de0856","\de0857","\de0858","\de0859","\de085a","\de085b","\de085c","\de085d","\de085e","\de085f","\de0860","\de0861","\de0862","\de0863","\de0864","\de0865","\de0866","\de0867","\de0868","\de0869","\de086a","\de086b","\de086c","\de086d","\de086e","\de086f","\de0870","\de0871","\de0872","\de0873","\de0874","\de0875","\de0876","\de0877","\de0878","\de0879","\de087a","\de087b","\de087c","\de087d","\de087e","\de087f","\de0880","\de0881","\de0882","\de0883","\de0884","\de0885","\de0886","\de0887","\de0888","\de0889","\de088a","\de088b","\de088c","\de088d","\de088e","\de088f","\de0890","\de0891","\de0892","\de0893","\de0894","\de0895","\de0896","\de0897","\de0898","\de0899","\de089a","\de089b","\de089c","\de089d","\de089e","\de089f","\de08a0","\de08a1","\de08a2","\de08a3","\de08a4","\de08a5","\de08a6","\de08a7","\de08a8","\de08a9","\de08aa","\de08ab","\de08ac","\de08ad","\de08ae","\de08af","\de08b0","\de08b1","\de08b2","\de08b3","\de08b4","\de08b5","\de08b6","\de08b7","\de08b8","\de08b9","\de08ba","\de08bb","\de08bc","\de08bd","\de08be","\de08bf","\de08c0","\de08c1","\de08c2","\de08c3","\de08c4","\de08c5","\de08c6","\de08c7","\de08c8","\de08c9","\de08ca","\de08cb","\de08cc","\de08cd","\de08ce","\de08cf","\de08d0","\de08d1","\de08d2","\de08d3","\de08d4","\de08d5","\de08d6","\de08d7","\de08d8","\de08d9","\de08da","\de08db","\de08dc","\de08dd","\de08de","\de08df","\de08e0","\de08e1","\de08e2","\de08e3","\de08e4","\de08e5","\de08e6","\de08e7","\de08e8","\de08e9","\de08ea","\de08eb","\de08ec","\de08ed","\de08ee","\de08ef","\de08f0","\de08f1","\de08f2","\de08f3","\de08f4","\de08f5","\de08f6","\de08f7","\de08f8","\de08f9","\de08fa","\de08fb","\de08fc","\de08fd","\de08fe","\de08ff","\de0900","\de0901","\de0902","\de0903","\de0904","\de0905","\de0906","\de0907","\de0908","\de0909","\de090a","\de090b","\de090c","\de090d","\de090e","\de090f","\de0910","\de0911","\de0912","\de0913","\de0914","\de0915","\de0916","\de0917","\de0918","\de0919","\de091a","\de091b","\de091c","\de091d","\de091e","\de091f","\de0920","\de0921","\de0922","\de0923","\de0924","\de0925","\de0926","\de0927","\de0928","\de0929","\de092a","\de092b","\de092c","\de092d","\de092e","\de092f","\de0930","\de0931","\de0932","\de0933","\de0934","\de0935","\de0936","\de0937","\de0938","\de0939","\de093a","\de093b","\de093c","\de093d","\de093e","\de093f","\de0940","\de0941","\de0942","\de0943","\de0944","\de0945","\de0946","\de0947","\de0948","\de0949","\de094a","\de094b","\de094c","\de094d","\de094e","\de094f","\de0950","\de0951","\de0952","\de0953","\de0954","\de0955","\de0956","\de0957","\de0958","\de0959","\de095a","\de095b","\de095c","\de095d","\de095e","\de095f","\de0960","\de0961","\de0962","\de0963","\de0964","\de0965","\de0966","\de0967","\de0968","\de0969","\de096a","\de096b","\de096c","\de096d","\de096e","\de096f","\de0970","\de0971","\de0972","\de0973","\de0974","\de0975","\de0976","\de0977","\de0978","\de0979","\de097a","\de097b","\de097c","\de097d","\de097e","\de097f","\de0980","\de0981","\de0982","\de0983","\de0984","\de0985","\de0986","\de0987","\de0988","\de0989","\de098a","\de098b","\de098c","\de098d","\de098e","\de098f","\de0990","\de0991","\de0992","\de0993","\de0994","\de0995","\de0996","\de0997","\de0998","\de0999","\de099a","\de099b","\de099c","\de099d","\de099e","\de099f","\de09a0","\de09a1","\de09a2","\de09a3","\de09a4","\de09a5","\de09a6","\de09a7","\de09a8","\de09a9","\de09aa","\de09ab","\de09ac","\de09ad","\de09ae","\de09af","\de09b0","\de09b1","\de09b2","\de09b3","\de09b4","\de09b5","\de09b6","\de09b7","\de09b8","\de09b9","\de09ba","\de09bb","\de09bc","\de09bd","\de09be","\de09bf","\de09c0","\de09c1","\de09c2","\de09c3","\de09c4","\de09c5","\de09c6","\de09c7","\de09c8","\de09c9","\de09ca","\de09cb","\de09cc","\de09cd","\de09ce","\de09cf","\de09d0","\de09d1","\de09d2","\de09d3","\de09d4","\de09d5","\de09d6","\de09d7","\de09d8","\de09d9","\de09da","\de09db","\de09dc","\de09dd","\de09de","\de09df","\de09e0","\de09e1","\de09e2","\de09e3","\de09e4","\de09e5","\de09e6","\de09e7","\de09e8","\de09e9","\de09ea","\de09eb","\de09ec","\de09ed","\de09ee","\de09ef","\de09f0","\de09f1","\de09f2","\de09f3","\de09f4","\de09f5","\de09f6","\de09f7","\de09f8","\de09f9","\de09fa","\de09fb","\de09fc","\de09fd","\de09fe","\de09ff","\de0a00","\de0a01","\de0a02","\de0a03","\de0a04","\de0a05","\de0a06","\de0a07","\de0a08","\de0a09","\de0a0a","\de0a0b","\de0a0c","\de0a0d","\de0a0e","\de0a0f","\de0a10","\de0a11","\de0a12","\de0a13","\de0a14","\de0a15","\de0a16","\de0a17","\de0a18","\de0a19","\de0a1a","\de0a1b","\de0a1c","\de0a1d","\de0a1e","\de0a1f","\de0a20","\de0a21","\de0a22","\de0a23","\de0a24","\de0a25","\de0a26","\de0a27","\de0a28","\de0a29","\de0a2a","\de0a2b","\de0a2c","\de0a2d","\de0a2e","\de0a2f","\de0a30","\de0a31","\de0a32","\de0a33","\de0a34","\de0a35","\de0a36","\de0a37","\de0a38","\de0a39","\de0a3a","\de0a3b","\de0a3c","\de0a3d","\de0a3e","\de0a3f","\de0a40","\de0a41","\de0a42","\de0a43","\de0a44","\de0a45","\de0a46","\de0a47","\de0a48","\de0a49","\de0a4a","\de0a4b","\de0a4c","\de0a4d","\de0a4e","\de0a4f","\de0a50","\de0a51","\de0a52","\de0a53","\de0a54","\de0a55","\de0a56","\de0a57","\de0a58","\de0a59","\de0a5a","\de0a5b","\de0a5c","\de0a5d","\de0a5e","\de0a5f","\de0a60","\de0a61","\de0a62","\de0a63","\de0a64","\de0a65","\de0a66","\de0a67","\de0a68","\de0a69","\de0a6a","\de0a6b","\de0a6c","\de0a6d","\de0a6e","\de0a6f","\de0a70","\de0a71","\de0a72","\de0a73","\de0a74","\de0a75","\de0a76","\de0a77","\de0a78","\de0a79","\de0a7a","\de0a7b","\de0a7c","\de0a7d","\de0a7e","\de0a7f","\de0a80","\de0a81","\de0a82","\de0a83","\de0a84","\de0a85","\de0a86","\de0a87","\de0a88","\de0a89","\de0a8a","\de0a8b","\de0a8c","\de0a8d","\de0a8e","\de0a8f","\de0a90","\de0a91","\de0a92","\de0a93","\de0a94","\de0a95","\de0a96","\de0a97","\de0a98","\de0a99","\de0a9a","\de0a9b","\de0a9c","\de0a9d","\de0a9e","\de0a9f","\de0aa0","\de0aa1","\de0aa2","\de0aa3","\de0aa4","\de0aa5","\de0aa6","\de0aa7","\de0aa8","\de0aa9","\de0aaa","\de0aab","\de0aac","\de0aad","\de0aae","\de0aaf","\de0ab0","\de0ab1","\de0ab2","\de0ab3","\de0ab4","\de0ab5","\de0ab6","\de0ab7","\de0ab8","\de0ab9","\de0aba","\de0abb","\de0abc","\de0abd","\de0abe","\de0abf","\de0ac0","\de0ac1","\de0ac2","\de0ac3","\de0ac4","\de0ac5","\de0ac6","\de0ac7","\de0ac8","\de0ac9","\de0aca","\de0acb","\de0acc","\de0acd","\de0ace","\de0acf","\de0ad0","\de0ad1","\de0ad2","\de0ad3","\de0ad4","\de0ad5","\de0ad6","\de0ad7","\de0ad8","\de0ad9","\de0ada","\de0adb","\de0adc","\de0add","\de0ade","\de0adf","\de0ae0","\de0ae1","\de0ae2","\de0ae3","\de0ae4","\de0ae5","\de0ae6","\de0ae7","\de0ae8","\de0ae9","\de0aea","\de0aeb","\de0aec","\de0aed","\de0aee","\de0aef","\de0af0","\de0af1","\de0af2","\de0af3","\de0af4","\de0af5","\de0af6","\de0af7","\de0af8","\de0af9","\de0afa","\de0afb","\de0afc","\de0afd","\de0afe","\de0aff","\de0b00","\de0b01","\de0b02","\de0b03","\de0b04","\de0b05","\de0b06","\de0b07","\de0b08","\de0b09","\de0b0a","\de0b0b","\de0b0c","\de0b0d","\de0b0e","\de0b0f","\de0b10","\de0b11","\de0b12","\de0b13","\de0b14","\de0b15","\de0b16","\de0b17","\de0b18","\de0b19","\de0b1a","\de0b1b","\de0b1c","\de0b1d","\de0b1e","\de0b1f","\de0b20","\de0b21","\de0b22","\de0b23","\de0b24","\de0b25","\de0b26","\de0b27","\de0b28","\de0b29","\de0b2a","\de0b2b","\de0b2c","\de0b2d","\de0b2e","\de0b2f","\de0b30","\de0b31","\de0b32","\de0b33","\de0b34","\de0b35","\de0b36","\de0b37","\de0b38","\de0b39","\de0b3a","\de0b3b","\de0b3c","\de0b3d","\de0b3e","\de0b3f","\de0b40","\de0b41","\de0b42","\de0b43","\de0b44","\de0b45","\de0b46","\de0b47","\de0b48","\de0b49","\de0b4a","\de0b4b","\de0b4c","\de0b4d","\de0b4e","\de0b4f","\de0b50","\de0b51","\de0b52","\de0b53","\de0b54","\de0b55","\de0b56","\de0b57","\de0b58","\de0b59","\de0b5a","\de0b5b","\de0b5c","\de0b5d","\de0b5e","\de0b5f","\de0b60","\de0b61","\de0b62","\de0b63","\de0b64","\de0b65","\de0b66","\de0b67","\de0b68","\de0b69","\de0b6a","\de0b6b","\de0b6c","\de0b6d","\de0b6e","\de0b6f","\de0b70","\de0b71","\de0b72","\de0b73","\de0b74","\de0b75","\de0b76","\de0b77","\de0b78","\de0b79","\de0b7a","\de0b7b","\de0b7c","\de0b7d","\de0b7e","\de0b7f","\de0b80","\de0b81","\de0b82","\de0b83","\de0b84","\de0b85","\de0b86","\de0b87","\de0b88","\de0b89","\de0b8a","\de0b8b","\de0b8c","\de0b8d","\de0b8e","\de0b8f","\de0b90","\de0b91","\de0b92","\de0b93","\de0b94","\de0b95","\de0b96","\de0b97","\de0b98","\de0b99","\de0b9a","\de0b9b","\de0b9c","\de0b9d","\de0b9e","\de0b9f","\de0ba0","\de0ba1","\de0ba2","\de0ba3","\de0ba4","\de0ba5","\de0ba6","\de0ba7","\de0ba8","\de0ba9","\de0baa","\de0bab","\de0bac","\de0bad","\de0bae","\de0baf","\de0bb0","\de0bb1","\de0bb2","\de0bb3","\de0bb4","\de0bb5","\de0bb6","\de0bb7","\de0bb8","\de0bb9","\de0bba","\de0bbb","\de0bbc","\de0bbd","\de0bbe","\de0bbf","\de0bc0","\de0bc1","\de0bc2","\de0bc3","\de0bc4","\de0bc5","\de0bc6","\de0bc7","\de0bc8","\de0bc9","\de0bca","\de0bcb","\de0bcc","\de0bcd","\de0bce","\de0bcf","\de0bd0","\de0bd1","\de0bd2","\de0bd3","\de0bd4","\de0bd5","\de0bd6","\de0bd7","\de0bd8","\de0bd9","\de0bda","\de0bdb","\de0bdc","\de0bdd","\de0bde","\de0bdf","\de0be0","\de0be1","\de0be2","\de0be3","\de0be4","\de0be5","\de0be6","\de0be7","\de0be8","\de0be9","\de0bea","\de0beb","\de0bec","\de0bed","\de0bee","\de0bef","\de0bf0","\de0bf1","\de0bf2","\de0bf3","\de0bf4","\de0bf5","\de0bf6","\de0bf7","\de0bf8","\de0bf9","\de0bfa","\de0bfb","\de0bfc","\de0bfd","\de0bfe","\de0bff","\de0c00","\de0c01","\de0c02","\de0c03","\de0c04","\de0c05","\de0c06","\de0c07","\de0c08","\de0c09","\de0c0a","\de0c0b","\de0c0c","\de0c0d","\de0c0e","\de0c0f","\de0c10","\de0c11","\de0c12","\de0c13","\de0c14","\de0c15","\de0c16","\de0c17","\de0c18","\de0c19","\de0c1a","\de0c1b","\de0c1c","\de0c1d","\de0c1e","\de0c1f","\de0c20","\de0c21","\de0c22","\de0c23","\de0c24","\de0c25","\de0c26","\de0c27","\de0c28","\de0c29","\de0c2a","\de0c2b","\de0c2c","\de0c2d","\de0c2e","\de0c2f","\de0c30","\de0c31","\de0c32","\de0c33","\de0c34","\de0c35","\de0c36","\de0c37","\de0c38","\de0c39","\de0c3a","\de0c3b","\de0c3c","\de0c3d","\de0c3e","\de0c3f","\de0c40","\de0c41","\de0c42","\de0c43","\de0c44","\de0c45","\de0c46","\de0c47","\de0c48","\de0c49","\de0c4a","\de0c4b","\de0c4c","\de0c4d","\de0c4e","\de0c4f","\de0c50","\de0c51","\de0c52","\de0c53","\de0c54","\de0c55","\de0c56","\de0c57","\de0c58","\de0c59","\de0c5a","\de0c5b","\de0c5c","\de0c5d","\de0c5e","\de0c5f","\de0c60","\de0c61","\de0c62","\de0c63","\de0c64","\de0c65","\de0c66","\de0c67","\de0c68","\de0c69","\de0c6a","\de0c6b","\de0c6c","\de0c6d","\de0c6e","\de0c6f","\de0c70","\de0c71","\de0c72","\de0c73","\de0c74","\de0c75","\de0c76","\de0c77","\de0c78","\de0c79","\de0c7a","\de0c7b","\de0c7c","\de0c7d","\de0c7e","\de0c7f","\de0c80","\de0c81","\de0c82","\de0c83","\de0c84","\de0c85","\de0c86","\de0c87","\de0c88","\de0c89","\de0c8a","\de0c8b","\de0c8c","\de0c8d","\de0c8e","\de0c8f","\de0c90","\de0c91","\de0c92","\de0c93","\de0c94","\de0c95","\de0c96","\de0c97","\de0c98","\de0c99","\de0c9a","\de0c9b","\de0c9c","\de0c9d","\de0c9e","\de0c9f","\de0ca0","\de0ca1","\de0ca2","\de0ca3","\de0ca4","\de0ca5","\de0ca6","\de0ca7","\de0ca8","\de0ca9","\de0caa","\de0cab","\de0cac","\de0cad","\de0cae","\de0caf","\de0cb0","\de0cb1","\de0cb2","\de0cb3","\de0cb4","\de0cb5","\de0cb6","\de0cb7","\de0cb8","\de0cb9","\de0cba","\de0cbb","\de0cbc","\de0cbd","\de0cbe","\de0cbf","\de0cc0","\de0cc1","\de0cc2","\de0cc3","\de0cc4","\de0cc5","\de0cc6","\de0cc7","\de0cc8","\de0cc9","\de0cca","\de0ccb","\de0ccc","\de0ccd","\de0cce","\de0ccf","\de0cd0","\de0cd1","\de0cd2","\de0cd3","\de0cd4","\de0cd5","\de0cd6","\de0cd7","\de0cd8","\de0cd9","\de0cda","\de0cdb","\de0cdc","\de0cdd","\de0cde","\de0cdf","\de0ce0","\de0ce1","\de0ce2","\de0ce3","\de0ce4","\de0ce5","\de0ce6","\de0ce7","\de0ce8","\de0ce9","\de0cea","\de0ceb","\de0cec","\de0ced","\de0cee","\de0cef","\de0cf0","\de0cf1","\de0cf2","\de0cf3","\de0cf4","\de0cf5","\de0cf6","\de0cf7","\de0cf8","\de0cf9","\de0cfa","\de0cfb","\de0cfc","\de0cfd","\de0cfe","\de0cff","\de0d00","\de0d01","\de0d02","\de0d03","\de0d04","\de0d05","\de0d06","\de0d07","\de0d08","\de0d09","\de0d0a","\de0d0b","\de0d0c","\de0d0d","\de0d0e","\de0d0f","\de0d10","\de0d11","\de0d12","\de0d13","\de0d14","\de0d15","\de0d16","\de0d17","\de0d18","\de0d19","\de0d1a","\de0d1b","\de0d1c","\de0d1d","\de0d1e","\de0d1f","\de0d20","\de0d21","\de0d22","\de0d23","\de0d24","\de0d25","\de0d26","\de0d27","\de0d28","\de0d29","\de0d2a","\de0d2b","\de0d2c","\de0d2d","\de0d2e","\de0d2f","\de0d30","\de0d31","\de0d32","\de0d33","\de0d34","\de0d35","\de0d36","\de0d37","\de0d38","\de0d39","\de0d3a","\de0d3b","\de0d3c","\de0d3d","\de0d3e","\de0d3f","\de0d40","\de0d41","\de0d42","\de0d43","\de0d44","\de0d45","\de0d46","\de0d47","\de0d48","\de0d49","\de0d4a","\de0d4b","\de0d4c","\de0d4d","\de0d4e","\de0d4f","\de0d50","\de0d51","\de0d52","\de0d53","\de0d54","\de0d55","\de0d56","\de0d57","\de0d58","\de0d59","\de0d5a","\de0d5b","\de0d5c","\de0d5d","\de0d5e","\de0d5f","\de0d60","\de0d61","\de0d62","\de0d63","\de0d64","\de0d65","\de0d66","\de0d67","\de0d68","\de0d69","\de0d6a","\de0d6b","\de0d6c","\de0d6d","\de0d6e","\de0d6f","\de0d70","\de0d71","\de0d72","\de0d73","\de0d74","\de0d75","\de0d76","\de0d77","\de0d78","\de0d79","\de0d7a","\de0d7b","\de0d7c","\de0d7d","\de0d7e","\de0d7f","\de0d80","\de0d81","\de0d82","\de0d83","\de0d84","\de0d85","\de0d86","\de0d87","\de0d88","\de0d89","\de0d8a","\de0d8b","\de0d8c","\de0d8d","\de0d8e","\de0d8f","\de0d90","\de0d91","\de0d92","\de0d93","\de0d94","\de0d95","\de0d96","\de0d97","\de0d98","\de0d99","\de0d9a","\de0d9b","\de0d9c","\de0d9d","\de0d9e","\de0d9f","\de0da0","\de0da1","\de0da2","\de0da3","\de0da4","\de0da5","\de0da6","\de0da7","\de0da8","\de0da9","\de0daa","\de0dab","\de0dac","\de0dad","\de0dae","\de0daf","\de0db0","\de0db1","\de0db2","\de0db3","\de0db4","\de0db5","\de0db6","\de0db7","\de0db8","\de0db9","\de0dba","\de0dbb","\de0dbc","\de0dbd","\de0dbe","\de0dbf","\de0dc0","\de0dc1","\de0dc2","\de0dc3","\de0dc4","\de0dc5","\de0dc6","\de0dc7","\de0dc8","\de0dc9","\de0dca","\de0dcb","\de0dcc","\de0dcd","\de0dce","\de0dcf","\de0dd0","\de0dd1","\de0dd2","\de0dd3","\de0dd4","\de0dd5","\de0dd6","\de0dd7","\de0dd8","\de0dd9","\de0dda","\de0ddb","\de0ddc","\de0ddd","\de0dde","\de0ddf","\de0de0","\de0de1","\de0de2","\de0de3","\de0de4","\de0de5","\de0de6","\de0de7","\de0de8","\de0de9","\de0dea","\de0deb","\de0dec","\de0ded","\de0dee","\de0def","\de0df0","\de0df1","\de0df2","\de0df3","\de0df4","\de0df5","\de0df6","\de0df7","\de0df8","\de0df9","\de0dfa","\de0dfb","\de0dfc","\de0dfd","\de0dfe","\de0dff","\de0e00","\de0e01","\de0e02","\de0e03","\de0e04","\de0e05","\de0e06","\de0e07","\de0e08","\de0e09","\de0e0a","\de0e0b","\de0e0c","\de0e0d","\de0e0e","\de0e0f","\de0e10","\de0e11","\de0e12","\de0e13","\de0e14","\de0e15","\de0e16","\de0e17","\de0e18","\de0e19","\de0e1a","\de0e1b","\de0e1c","\de0e1d","\de0e1e","\de0e1f","\de0e20","\de0e21","\de0e22","\de0e23","\de0e24","\de0e25","\de0e26","\de0e27","\de0e28","\de0e29","\de0e2a","\de0e2b","\de0e2c","\de0e2d","\de0e2e","\de0e2f","\de0e30","\de0e31","\de0e32","\de0e33","\de0e34","\de0e35","\de0e36","\de0e37","\de0e38","\de0e39","\de0e3a","\de0e3b","\de0e3c","\de0e3d","\de0e3e","\de0e3f","\de0e40","\de0e41","\de0e42","\de0e43","\de0e44","\de0e45","\de0e46","\de0e47","\de0e48","\de0e49","\de0e4a","\de0e4b","\de0e4c","\de0e4d","\de0e4e","\de0e4f","\de0e50","\de0e51","\de0e52","\de0e53","\de0e54","\de0e55","\de0e56","\de0e57","\de0e58","\de0e59","\de0e5a","\de0e5b","\de0e5c","\de0e5d","\de0e5e","\de0e5f","\de0e60","\de0e61","\de0e62","\de0e63","\de0e64","\de0e65","\de0e66","\de0e67","\de0e68","\de0e69","\de0e6a","\de0e6b","\de0e6c","\de0e6d","\de0e6e","\de0e6f","\de0e70","\de0e71","\de0e72","\de0e73","\de0e74","\de0e75","\de0e76","\de0e77","\de0e78","\de0e79","\de0e7a","\de0e7b","\de0e7c","\de0e7d","\de0e7e","\de0e7f","\de0e80","\de0e81","\de0e82","\de0e83","\de0e84","\de0e85","\de0e86","\de0e87","\de0e88","\de0e89","\de0e8a","\de0e8b","\de0e8c","\de0e8d","\de0e8e","\de0e8f","\de0e90","\de0e91","\de0e92","\de0e93","\de0e94","\de0e95","\de0e96","\de0e97","\de0e98","\de0e99","\de0e9a","\de0e9b","\de0e9c","\de0e9d","\de0e9e","\de0e9f","\de0ea0","\de0ea1","\de0ea2","\de0ea3","\de0ea4","\de0ea5","\de0ea6","\de0ea7","\de0ea8","\de0ea9","\de0eaa","\de0eab","\de0eac","\de0ead","\de0eae","\de0eaf","\de0eb0","\de0eb1","\de0eb2","\de0eb3","\de0eb4","\de0eb5","\de0eb6","\de0eb7","\de0eb8","\de0eb9","\de0eba","\de0ebb","\de0ebc","\de0ebd","\de0ebe","\de0ebf","\de0ec0","\de0ec1","\de0ec2","\de0ec3","\de0ec4","\de0ec5","\de0ec6","\de0ec7","\de0ec8","\de0ec9","\de0eca","\de0ecb","\de0ecc","\de0ecd","\de0ece","\de0ecf","\de0ed0","\de0ed1","\de0ed2","\de0ed3","\de0ed4","\de0ed5","\de0ed6","\de0ed7","\de0ed8","\de0ed9","\de0eda","\de0edb","\de0edc","\de0edd","\de0ede","\de0edf","\de0ee0","\de0ee1","\de0ee2","\de0ee3","\de0ee4","\de0ee5","\de0ee6","\de0ee7","\de0ee8","\de0ee9","\de0eea","\de0eeb","\de0eec","\de0eed","\de0eee","\de0eef","\de0ef0","\de0ef1","\de0ef2","\de0ef3","\de0ef4","\de0ef5","\de0ef6","\de0ef7","\de0ef8","\de0ef9","\de0efa","\de0efb","\de0efc","\de0efd","\de0efe","\de0eff","\de0f00","\de0f01","\de0f02","\de0f03","\de0f04","\de0f05","\de0f06","\de0f07","\de0f08","\de0f09","\de0f0a","\de0f0b","\de0f0c","\de0f0d","\de0f0e","\de0f0f","\de0f10","\de0f11","\de0f12","\de0f13","\de0f14","\de0f15","\de0f16","\de0f17","\de0f18","\de0f19","\de0f1a","\de0f1b","\de0f1c","\de0f1d","\de0f1e","\de0f1f","\de0f20","\de0f21","\de0f22","\de0f23","\de0f24","\de0f25","\de0f26","\de0f27","\de0f28","\de0f29","\de0f2a","\de0f2b","\de0f2c","\de0f2d","\de0f2e","\de0f2f","\de0f30","\de0f31","\de0f32","\de0f33","\de0f34","\de0f35","\de0f36","\de0f37","\de0f38","\de0f39","\de0f3a","\de0f3b","\de0f3c","\de0f3d","\de0f3e","\de0f3f","\de0f40","\de0f41","\de0f42","\de0f43","\de0f44","\de0f45","\de0f46","\de0f47","\de0f48","\de0f49","\de0f4a","\de0f4b","\de0f4c","\de0f4d","\de0f4e","\de0f4f","\de0f50","\de0f51","\de0f52","\de0f53","\de0f54","\de0f55","\de0f56","\de0f57","\de0f58","\de0f59","\de0f5a","\de0f5b","\de0f5c","\de0f5d","\de0f5e","\de0f5f","\de0f60","\de0f61","\de0f62","\de0f63","\de0f64","\de0f65","\de0f66","\de0f67","\de0f68","\de0f69","\de0f6a","\de0f6b","\de0f6c","\de0f6d","\de0f6e","\de0f6f","\de0f70","\de0f71","\de0f72","\de0f73","\de0f74","\de0f75","\de0f76","\de0f77","\de0f78","\de0f79","\de0f7a","\de0f7b","\de0f7c","\de0f7d","\de0f7e","\de0f7f","\de0f80","\de0f81","\de0f82","\de0f83","\de0f84","\de0f85","\de0f86","\de0f87","\de0f88","\de0f89","\de0f8a","\de0f8b","\de0f8c","\de0f8d","\de0f8e","\de0f8f","\de0f90","\de0f91","\de0f92","\de0f93","\de0f94","\de0f95","\de0f96","\de0f97","\de0f98","\de0f99","\de0f9a","\de0f9b","\de0f9c","\de0f9d","\de0f9e","\de0f9f","\de0fa0","\de0fa1","\de0fa2","\de0fa3","\de0fa4","\de0fa5","\de0fa6","\de0fa7","\de0fa8","\de0fa9","\de0faa","\de0fab","\de0fac","\de0fad","\de0fae","\de0faf","\de0fb0","\de0fb1","\de0fb2","\de0fb3","\de0fb4","\de0fb5","\de0fb6","\de0fb7","\de0fb8","\de0fb9","\de0fba","\de0fbb","\de0fbc","\de0fbd","\de0fbe","\de0fbf","\de0fc0","\de0fc1","\de0fc2","\de0fc3","\de0fc4","\de0fc5","\de0fc6","\de0fc7","\de0fc8","\de0fc9","\de0fca","\de0fcb","\de0fcc","\de0fcd","\de0fce","\de0fcf","\de0fd0","\de0fd1","\de0fd2","\de0fd3","\de0fd4","\de0fd5","\de0fd6","\de0fd7","\de0fd8","\de0fd9","\de0fda","\de0fdb","\de0fdc","\de0fdd","\de0fde","\de0fdf","\de0fe0","\de0fe1","\de0fe2","\de0fe3","\de0fe4","\de0fe5","\de0fe6","\de0fe7","\de0fe8","\de0fe9","\de0fea","\de0feb","\de0fec","\de0fed","\de0fee","\de0fef","\de0ff0","\de0ff1","\de0ff2","\de0ff3","\de0ff4","\de0ff5","\de0ff6","\de0ff7","\de0ff8","\de0ff9","\de0ffa","\de0ffb","\de0ffc","\de0ffd","\de0ffe","\de0fff",  # ; Control # Cn [3600] <reserved-E01F0>..<reserved-E0FFF>
-        "\d0300","\d0301","\d0302","\d0303","\d0304","\d0305","\d0306","\d0307","\d0308","\d0309","\d030a","\d030b","\d030c","\d030d","\d030e","\d030f","\d0310","\d0311","\d0312","\d0313","\d0314","\d0315","\d0316","\d0317","\d0318","\d0319","\d031a","\d031b","\d031c","\d031d","\d031e","\d031f","\d0320","\d0321","\d0322","\d0323","\d0324","\d0325","\d0326","\d0327","\d0328","\d0329","\d032a","\d032b","\d032c","\d032d","\d032e","\d032f","\d0330","\d0331","\d0332","\d0333","\d0334","\d0335","\d0336","\d0337","\d0338","\d0339","\d033a","\d033b","\d033c","\d033d","\d033e","\d033f","\d0340","\d0341","\d0342","\d0343","\d0344","\d0345","\d0346","\d0347","\d0348","\d0349","\d034a","\d034b","\d034c","\d034d","\d034e","\d034f","\d0350","\d0351","\d0352","\d0353","\d0354","\d0355","\d0356","\d0357","\d0358","\d0359","\d035a","\d035b","\d035c","\d035d","\d035e","\d035f","\d0360","\d0361","\d0362","\d0363","\d0364","\d0365","\d0366","\d0367","\d0368","\d0369","\d036a","\d036b","\d036c","\d036d","\d036e","\d036f",  # ; Extend # Mn [112] COMBINING GRAVE ACCENT..COMBINING LATIN SMALL LETTER X
-        "\d0483","\d0484","\d0485","\d0486","\d0487",  # ; Extend # Mn   [5] COMBINING CYRILLIC TITLO..COMBINING CYRILLIC POKRYTIE
-        "\d0488","\d0489",  # ; Extend # Me   [2] COMBINING CYRILLIC HUNDRED THOUSANDS SIGN..COMBINING CYRILLIC MILLIONS SIGN
-        "\d0591","\d0592","\d0593","\d0594","\d0595","\d0596","\d0597","\d0598","\d0599","\d059a","\d059b","\d059c","\d059d","\d059e","\d059f","\d05a0","\d05a1","\d05a2","\d05a3","\d05a4","\d05a5","\d05a6","\d05a7","\d05a8","\d05a9","\d05aa","\d05ab","\d05ac","\d05ad","\d05ae","\d05af","\d05b0","\d05b1","\d05b2","\d05b3","\d05b4","\d05b5","\d05b6","\d05b7","\d05b8","\d05b9","\d05ba","\d05bb","\d05bc","\d05bd",  # ; Extend # Mn  [45] HEBREW ACCENT ETNAHTA..HEBREW POINT METEG
-        "\d05BF",  # ; Extend # Mn       HEBREW POINT RAFE
-        "\d05c1","\d05c2",  # ; Extend # Mn   [2] HEBREW POINT SHIN DOT..HEBREW POINT SIN DOT
-        "\d05c4","\d05c5",  # ; Extend # Mn   [2] HEBREW MARK UPPER DOT..HEBREW MARK LOWER DOT
-        "\d05C7",  # ; Extend # Mn       HEBREW POINT QAMATS QATAN
-        "\d0610","\d0611","\d0612","\d0613","\d0614","\d0615","\d0616","\d0617","\d0618","\d0619","\d061a",  # ; Extend # Mn  [11] ARABIC SIGN SALLALLAHOU ALAYHE WASSALLAM..ARABIC SMALL KASRA
-        "\d064b","\d064c","\d064d","\d064e","\d064f","\d0650","\d0651","\d0652","\d0653","\d0654","\d0655","\d0656","\d0657","\d0658","\d0659","\d065a","\d065b","\d065c","\d065d","\d065e","\d065f",  # ; Extend # Mn  [21] ARABIC FATHATAN..ARABIC WAVY HAMZA BELOW
-        "\d0670",  # ; Extend # Mn       ARABIC LETTER SUPERSCRIPT ALEF
-        "\d06d6","\d06d7","\d06d8","\d06d9","\d06da","\d06db","\d06dc",  # ; Extend # Mn   [7] ARABIC SMALL HIGH LIGATURE SAD WITH LAM WITH ALEF MAKSURA..ARABIC SMALL HIGH SEEN
-        "\d06df","\d06e0","\d06e1","\d06e2","\d06e3","\d06e4",  # ; Extend # Mn   [6] ARABIC SMALL HIGH ROUNDED ZERO..ARABIC SMALL HIGH MADDA
-        "\d06e7","\d06e8",  # ; Extend # Mn   [2] ARABIC SMALL HIGH YEH..ARABIC SMALL HIGH NOON
-        "\d06ea","\d06eb","\d06ec","\d06ed",  # ; Extend # Mn   [4] ARABIC EMPTY CENTRE LOW STOP..ARABIC SMALL LOW MEEM
-        "\d0711",  # ; Extend # Mn       SYRIAC LETTER SUPERSCRIPT ALAPH
-        "\d0730","\d0731","\d0732","\d0733","\d0734","\d0735","\d0736","\d0737","\d0738","\d0739","\d073a","\d073b","\d073c","\d073d","\d073e","\d073f","\d0740","\d0741","\d0742","\d0743","\d0744","\d0745","\d0746","\d0747","\d0748","\d0749","\d074a",  # ; Extend # Mn  [27] SYRIAC PTHAHA ABOVE..SYRIAC BARREKH
-        "\d07a6","\d07a7","\d07a8","\d07a9","\d07aa","\d07ab","\d07ac","\d07ad","\d07ae","\d07af","\d07b0",  # ; Extend # Mn  [11] THAANA ABAFILI..THAANA SUKUN
-        "\d07eb","\d07ec","\d07ed","\d07ee","\d07ef","\d07f0","\d07f1","\d07f2","\d07f3",  # ; Extend # Mn   [9] NKO COMBINING SHORT HIGH TONE..NKO COMBINING DOUBLE DOT ABOVE
-        "\d0816","\d0817","\d0818","\d0819",  # ; Extend # Mn   [4] SAMARITAN MARK IN..SAMARITAN MARK DAGESH
-        "\d081b","\d081c","\d081d","\d081e","\d081f","\d0820","\d0821","\d0822","\d0823",  # ; Extend # Mn   [9] SAMARITAN MARK EPENTHETIC YUT..SAMARITAN VOWEL SIGN A
-        "\d0825","\d0826","\d0827",  # ; Extend # Mn   [3] SAMARITAN VOWEL SIGN SHORT A..SAMARITAN VOWEL SIGN U
-        "\d0829","\d082a","\d082b","\d082c","\d082d",  # ; Extend # Mn   [5] SAMARITAN VOWEL SIGN LONG I..SAMARITAN MARK NEQUDAA
-        "\d0859","\d085a","\d085b",  # ; Extend # Mn   [3] MANDAIC AFFRICATION MARK..MANDAIC GEMINATION MARK
-        "\d08d4","\d08d5","\d08d6","\d08d7","\d08d8","\d08d9","\d08da","\d08db","\d08dc","\d08dd","\d08de","\d08df","\d08e0","\d08e1",  # ; Extend # Mn  [14] ARABIC SMALL HIGH WORD AR-RUB..ARABIC SMALL HIGH SIGN SAFHA
-        "\d08e3","\d08e4","\d08e5","\d08e6","\d08e7","\d08e8","\d08e9","\d08ea","\d08eb","\d08ec","\d08ed","\d08ee","\d08ef","\d08f0","\d08f1","\d08f2","\d08f3","\d08f4","\d08f5","\d08f6","\d08f7","\d08f8","\d08f9","\d08fa","\d08fb","\d08fc","\d08fd","\d08fe","\d08ff","\d0900","\d0901","\d0902",  # ; Extend # Mn  [32] ARABIC TURNED DAMMA BELOW..DEVANAGARI SIGN ANUSVARA
-        "\d093A",  # ; Extend # Mn       DEVANAGARI VOWEL SIGN OE
-        "\d093C",  # ; Extend # Mn       DEVANAGARI SIGN NUKTA
-        "\d0941","\d0942","\d0943","\d0944","\d0945","\d0946","\d0947","\d0948",  # ; Extend # Mn   [8] DEVANAGARI VOWEL SIGN U..DEVANAGARI VOWEL SIGN AI
-        "\d094D",  # ; Extend # Mn       DEVANAGARI SIGN VIRAMA
-        "\d0951","\d0952","\d0953","\d0954","\d0955","\d0956","\d0957",  # ; Extend # Mn   [7] DEVANAGARI STRESS SIGN UDATTA..DEVANAGARI VOWEL SIGN UUE
-        "\d0962","\d0963",  # ; Extend # Mn   [2] DEVANAGARI VOWEL SIGN VOCALIC L..DEVANAGARI VOWEL SIGN VOCALIC LL
-        "\d0981",  # ; Extend # Mn       BENGALI SIGN CANDRABINDU
-        "\d09BC",  # ; Extend # Mn       BENGALI SIGN NUKTA
-        "\d09BE",  # ; Extend # Mc       BENGALI VOWEL SIGN AA
-        "\d09c1","\d09c2","\d09c3","\d09c4",  # ; Extend # Mn   [4] BENGALI VOWEL SIGN U..BENGALI VOWEL SIGN VOCALIC RR
-        "\d09CD",  # ; Extend # Mn       BENGALI SIGN VIRAMA
-        "\d09D7",  # ; Extend # Mc       BENGALI AU LENGTH MARK
-        "\d09e2","\d09e3",  # ; Extend # Mn   [2] BENGALI VOWEL SIGN VOCALIC L..BENGALI VOWEL SIGN VOCALIC LL
-        "\d0a01","\d0a02",  # ; Extend # Mn   [2] GURMUKHI SIGN ADAK BINDI..GURMUKHI SIGN BINDI
-        "\d0A3C",  # ; Extend # Mn       GURMUKHI SIGN NUKTA
-        "\d0a41","\d0a42",  # ; Extend # Mn   [2] GURMUKHI VOWEL SIGN U..GURMUKHI VOWEL SIGN UU
-        "\d0a47","\d0a48",  # ; Extend # Mn   [2] GURMUKHI VOWEL SIGN EE..GURMUKHI VOWEL SIGN AI
-        "\d0a4b","\d0a4c","\d0a4d",  # ; Extend # Mn   [3] GURMUKHI VOWEL SIGN OO..GURMUKHI SIGN VIRAMA
-        "\d0A51",  # ; Extend # Mn       GURMUKHI SIGN UDAAT
-        "\d0a70","\d0a71",  # ; Extend # Mn   [2] GURMUKHI TIPPI..GURMUKHI ADDAK
-        "\d0A75",  # ; Extend # Mn       GURMUKHI SIGN YAKASH
-        "\d0a81","\d0a82",  # ; Extend # Mn   [2] GUJARATI SIGN CANDRABINDU..GUJARATI SIGN ANUSVARA
-        "\d0ABC",  # ; Extend # Mn       GUJARATI SIGN NUKTA
-        "\d0ac1","\d0ac2","\d0ac3","\d0ac4","\d0ac5",  # ; Extend # Mn   [5] GUJARATI VOWEL SIGN U..GUJARATI VOWEL SIGN CANDRA E
-        "\d0ac7","\d0ac8",  # ; Extend # Mn   [2] GUJARATI VOWEL SIGN E..GUJARATI VOWEL SIGN AI
-        "\d0ACD",  # ; Extend # Mn       GUJARATI SIGN VIRAMA
-        "\d0ae2","\d0ae3",  # ; Extend # Mn   [2] GUJARATI VOWEL SIGN VOCALIC L..GUJARATI VOWEL SIGN VOCALIC LL
-        "\d0afa","\d0afb","\d0afc","\d0afd","\d0afe","\d0aff",  # ; Extend # Mn   [6] GUJARATI SIGN SUKUN..GUJARATI SIGN TWO-CIRCLE NUKTA ABOVE
-        "\d0B01",  # ; Extend # Mn       ORIYA SIGN CANDRABINDU
-        "\d0B3C",  # ; Extend # Mn       ORIYA SIGN NUKTA
-        "\d0B3E",  # ; Extend # Mc       ORIYA VOWEL SIGN AA
-        "\d0B3F",  # ; Extend # Mn       ORIYA VOWEL SIGN I
-        "\d0b41","\d0b42","\d0b43","\d0b44",  # ; Extend # Mn   [4] ORIYA VOWEL SIGN U..ORIYA VOWEL SIGN VOCALIC RR
-        "\d0B4D",  # ; Extend # Mn       ORIYA SIGN VIRAMA
-        "\d0B56",  # ; Extend # Mn       ORIYA AI LENGTH MARK
-        "\d0B57",  # ; Extend # Mc       ORIYA AU LENGTH MARK
-        "\d0b62","\d0b63",  # ; Extend # Mn   [2] ORIYA VOWEL SIGN VOCALIC L..ORIYA VOWEL SIGN VOCALIC LL
-        "\d0B82",  # ; Extend # Mn       TAMIL SIGN ANUSVARA
-        "\d0BBE",  # ; Extend # Mc       TAMIL VOWEL SIGN AA
-        "\d0BC0",  # ; Extend # Mn       TAMIL VOWEL SIGN II
-        "\d0BCD",  # ; Extend # Mn       TAMIL SIGN VIRAMA
-        "\d0BD7",  # ; Extend # Mc       TAMIL AU LENGTH MARK
-        "\d0C00",  # ; Extend # Mn       TELUGU SIGN COMBINING CANDRABINDU ABOVE
-        "\d0c3e","\d0c3f","\d0c40",  # ; Extend # Mn   [3] TELUGU VOWEL SIGN AA..TELUGU VOWEL SIGN II
-        "\d0c46","\d0c47","\d0c48",  # ; Extend # Mn   [3] TELUGU VOWEL SIGN E..TELUGU VOWEL SIGN AI
-        "\d0c4a","\d0c4b","\d0c4c","\d0c4d",  # ; Extend # Mn   [4] TELUGU VOWEL SIGN O..TELUGU SIGN VIRAMA
-        "\d0c55","\d0c56",  # ; Extend # Mn   [2] TELUGU LENGTH MARK..TELUGU AI LENGTH MARK
-        "\d0c62","\d0c63",  # ; Extend # Mn   [2] TELUGU VOWEL SIGN VOCALIC L..TELUGU VOWEL SIGN VOCALIC LL
-        "\d0C81",  # ; Extend # Mn       KANNADA SIGN CANDRABINDU
-        "\d0CBC",  # ; Extend # Mn       KANNADA SIGN NUKTA
-        "\d0CBF",  # ; Extend # Mn       KANNADA VOWEL SIGN I
-        "\d0CC2",  # ; Extend # Mc       KANNADA VOWEL SIGN UU
-        "\d0CC6",  # ; Extend # Mn       KANNADA VOWEL SIGN E
-        "\d0ccc","\d0ccd",  # ; Extend # Mn   [2] KANNADA VOWEL SIGN AU..KANNADA SIGN VIRAMA
-        "\d0cd5","\d0cd6",  # ; Extend # Mc   [2] KANNADA LENGTH MARK..KANNADA AI LENGTH MARK
-        "\d0ce2","\d0ce3",  # ; Extend # Mn   [2] KANNADA VOWEL SIGN VOCALIC L..KANNADA VOWEL SIGN VOCALIC LL
-        "\d0d00","\d0d01",  # ; Extend # Mn   [2] MALAYALAM SIGN COMBINING ANUSVARA ABOVE..MALAYALAM SIGN CANDRABINDU
-        "\d0d3b","\d0d3c",  # ; Extend # Mn   [2] MALAYALAM SIGN VERTICAL BAR VIRAMA..MALAYALAM SIGN CIRCULAR VIRAMA
-        "\d0D3E",  # ; Extend # Mc       MALAYALAM VOWEL SIGN AA
-        "\d0d41","\d0d42","\d0d43","\d0d44",  # ; Extend # Mn   [4] MALAYALAM VOWEL SIGN U..MALAYALAM VOWEL SIGN VOCALIC RR
-        "\d0D4D",  # ; Extend # Mn       MALAYALAM SIGN VIRAMA
-        "\d0D57",  # ; Extend # Mc       MALAYALAM AU LENGTH MARK
-        "\d0d62","\d0d63",  # ; Extend # Mn   [2] MALAYALAM VOWEL SIGN VOCALIC L..MALAYALAM VOWEL SIGN VOCALIC LL
-        "\d0DCA",  # ; Extend # Mn       SINHALA SIGN AL-LAKUNA
-        "\d0DCF",  # ; Extend # Mc       SINHALA VOWEL SIGN AELA-PILLA
-        "\d0dd2","\d0dd3","\d0dd4",  # ; Extend # Mn   [3] SINHALA VOWEL SIGN KETTI IS-PILLA..SINHALA VOWEL SIGN KETTI PAA-PILLA
-        "\d0DD6",  # ; Extend # Mn       SINHALA VOWEL SIGN DIGA PAA-PILLA
-        "\d0DDF",  # ; Extend # Mc       SINHALA VOWEL SIGN GAYANUKITTA
-        "\d0E31",  # ; Extend # Mn       THAI CHARACTER MAI HAN-AKAT
-        "\d0e34","\d0e35","\d0e36","\d0e37","\d0e38","\d0e39","\d0e3a",  # ; Extend # Mn   [7] THAI CHARACTER SARA I..THAI CHARACTER PHINTHU
-        "\d0e47","\d0e48","\d0e49","\d0e4a","\d0e4b","\d0e4c","\d0e4d","\d0e4e",  # ; Extend # Mn   [8] THAI CHARACTER MAITAIKHU..THAI CHARACTER YAMAKKAN
-        "\d0EB1",  # ; Extend # Mn       LAO VOWEL SIGN MAI KAN
-        "\d0eb4","\d0eb5","\d0eb6","\d0eb7","\d0eb8","\d0eb9",  # ; Extend # Mn   [6] LAO VOWEL SIGN I..LAO VOWEL SIGN UU
-        "\d0ebb","\d0ebc",  # ; Extend # Mn   [2] LAO VOWEL SIGN MAI KON..LAO SEMIVOWEL SIGN LO
-        "\d0ec8","\d0ec9","\d0eca","\d0ecb","\d0ecc","\d0ecd",  # ; Extend # Mn   [6] LAO TONE MAI EK..LAO NIGGAHITA
-        "\d0f18","\d0f19",  # ; Extend # Mn   [2] TIBETAN ASTROLOGICAL SIGN -KHYUD PA..TIBETAN ASTROLOGICAL SIGN SDONG TSHUGS
-        "\d0F35",  # ; Extend # Mn       TIBETAN MARK NGAS BZUNG NYI ZLA
-        "\d0F37",  # ; Extend # Mn       TIBETAN MARK NGAS BZUNG SGOR RTAGS
-        "\d0F39",  # ; Extend # Mn       TIBETAN MARK TSA -PHRU
-        "\d0f71","\d0f72","\d0f73","\d0f74","\d0f75","\d0f76","\d0f77","\d0f78","\d0f79","\d0f7a","\d0f7b","\d0f7c","\d0f7d","\d0f7e",  # ; Extend # Mn  [14] TIBETAN VOWEL SIGN AA..TIBETAN SIGN RJES SU NGA RO
-        "\d0f80","\d0f81","\d0f82","\d0f83","\d0f84",  # ; Extend # Mn   [5] TIBETAN VOWEL SIGN REVERSED I..TIBETAN MARK HALANTA
-        "\d0f86","\d0f87",  # ; Extend # Mn   [2] TIBETAN SIGN LCI RTAGS..TIBETAN SIGN YANG RTAGS
-        "\d0f8d","\d0f8e","\d0f8f","\d0f90","\d0f91","\d0f92","\d0f93","\d0f94","\d0f95","\d0f96","\d0f97",  # ; Extend # Mn  [11] TIBETAN SUBJOINED SIGN LCE TSA CAN..TIBETAN SUBJOINED LETTER JA
-        "\d0f99","\d0f9a","\d0f9b","\d0f9c","\d0f9d","\d0f9e","\d0f9f","\d0fa0","\d0fa1","\d0fa2","\d0fa3","\d0fa4","\d0fa5","\d0fa6","\d0fa7","\d0fa8","\d0fa9","\d0faa","\d0fab","\d0fac","\d0fad","\d0fae","\d0faf","\d0fb0","\d0fb1","\d0fb2","\d0fb3","\d0fb4","\d0fb5","\d0fb6","\d0fb7","\d0fb8","\d0fb9","\d0fba","\d0fbb","\d0fbc",  # ; Extend # Mn  [36] TIBETAN SUBJOINED LETTER NYA..TIBETAN SUBJOINED LETTER FIXED-FORM RA
-        "\d0FC6",  # ; Extend # Mn       TIBETAN SYMBOL PADMA GDAN
-        "\d102d","\d102e","\d102f","\d1030",  # ; Extend # Mn   [4] MYANMAR VOWEL SIGN I..MYANMAR VOWEL SIGN UU
-        "\d1032","\d1033","\d1034","\d1035","\d1036","\d1037",  # ; Extend # Mn   [6] MYANMAR VOWEL SIGN AI..MYANMAR SIGN DOT BELOW
-        "\d1039","\d103a",  # ; Extend # Mn   [2] MYANMAR SIGN VIRAMA..MYANMAR SIGN ASAT
-        "\d103d","\d103e",  # ; Extend # Mn   [2] MYANMAR CONSONANT SIGN MEDIAL WA..MYANMAR CONSONANT SIGN MEDIAL HA
-        "\d1058","\d1059",  # ; Extend # Mn   [2] MYANMAR VOWEL SIGN VOCALIC L..MYANMAR VOWEL SIGN VOCALIC LL
-        "\d105e","\d105f","\d1060",  # ; Extend # Mn   [3] MYANMAR CONSONANT SIGN MON MEDIAL NA..MYANMAR CONSONANT SIGN MON MEDIAL LA
-        "\d1071","\d1072","\d1073","\d1074",  # ; Extend # Mn   [4] MYANMAR VOWEL SIGN GEBA KAREN I..MYANMAR VOWEL SIGN KAYAH EE
-        "\d1082",  # ; Extend # Mn       MYANMAR CONSONANT SIGN SHAN MEDIAL WA
-        "\d1085","\d1086",  # ; Extend # Mn   [2] MYANMAR VOWEL SIGN SHAN E ABOVE..MYANMAR VOWEL SIGN SHAN FINAL Y
-        "\d108D",  # ; Extend # Mn       MYANMAR SIGN SHAN COUNCIL EMPHATIC TONE
-        "\d109D",  # ; Extend # Mn       MYANMAR VOWEL SIGN AITON AI
-        "\d135d","\d135e","\d135f",  # ; Extend # Mn   [3] ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK..ETHIOPIC COMBINING GEMINATION MARK
-        "\d1712","\d1713","\d1714",  # ; Extend # Mn   [3] TAGALOG VOWEL SIGN I..TAGALOG SIGN VIRAMA
-        "\d1732","\d1733","\d1734",  # ; Extend # Mn   [3] HANUNOO VOWEL SIGN I..HANUNOO SIGN PAMUDPOD
-        "\d1752","\d1753",  # ; Extend # Mn   [2] BUHID VOWEL SIGN I..BUHID VOWEL SIGN U
-        "\d1772","\d1773",  # ; Extend # Mn   [2] TAGBANWA VOWEL SIGN I..TAGBANWA VOWEL SIGN U
-        "\d17b4","\d17b5",  # ; Extend # Mn   [2] KHMER VOWEL INHERENT AQ..KHMER VOWEL INHERENT AA
-        "\d17b7","\d17b8","\d17b9","\d17ba","\d17bb","\d17bc","\d17bd",  # ; Extend # Mn   [7] KHMER VOWEL SIGN I..KHMER VOWEL SIGN UA
-        "\d17C6",  # ; Extend # Mn       KHMER SIGN NIKAHIT
-        "\d17c9","\d17ca","\d17cb","\d17cc","\d17cd","\d17ce","\d17cf","\d17d0","\d17d1","\d17d2","\d17d3",  # ; Extend # Mn  [11] KHMER SIGN MUUSIKATOAN..KHMER SIGN BATHAMASAT
-        "\d17DD",  # ; Extend # Mn       KHMER SIGN ATTHACAN
-        "\d180b","\d180c","\d180d",  # ; Extend # Mn   [3] MONGOLIAN FREE VARIATION SELECTOR ONE..MONGOLIAN FREE VARIATION SELECTOR THREE
-        "\d1885","\d1886",  # ; Extend # Mn   [2] MONGOLIAN LETTER ALI GALI BALUDA..MONGOLIAN LETTER ALI GALI THREE BALUDA
-        "\d18A9",  # ; Extend # Mn       MONGOLIAN LETTER ALI GALI DAGALGA
-        "\d1920","\d1921","\d1922",  # ; Extend # Mn   [3] LIMBU VOWEL SIGN A..LIMBU VOWEL SIGN U
-        "\d1927","\d1928",  # ; Extend # Mn   [2] LIMBU VOWEL SIGN E..LIMBU VOWEL SIGN O
-        "\d1932",  # ; Extend # Mn       LIMBU SMALL LETTER ANUSVARA
-        "\d1939","\d193a","\d193b",  # ; Extend # Mn   [3] LIMBU SIGN MUKPHRENG..LIMBU SIGN SA-I
-        "\d1a17","\d1a18",  # ; Extend # Mn   [2] BUGINESE VOWEL SIGN I..BUGINESE VOWEL SIGN U
-        "\d1A1B",  # ; Extend # Mn       BUGINESE VOWEL SIGN AE
-        "\d1A56",  # ; Extend # Mn       TAI THAM CONSONANT SIGN MEDIAL LA
-        "\d1a58","\d1a59","\d1a5a","\d1a5b","\d1a5c","\d1a5d","\d1a5e",  # ; Extend # Mn   [7] TAI THAM SIGN MAI KANG LAI..TAI THAM CONSONANT SIGN SA
-        "\d1A60",  # ; Extend # Mn       TAI THAM SIGN SAKOT
-        "\d1A62",  # ; Extend # Mn       TAI THAM VOWEL SIGN MAI SAT
-        "\d1a65","\d1a66","\d1a67","\d1a68","\d1a69","\d1a6a","\d1a6b","\d1a6c",  # ; Extend # Mn   [8] TAI THAM VOWEL SIGN I..TAI THAM VOWEL SIGN OA BELOW
-        "\d1a73","\d1a74","\d1a75","\d1a76","\d1a77","\d1a78","\d1a79","\d1a7a","\d1a7b","\d1a7c",  # ; Extend # Mn  [10] TAI THAM VOWEL SIGN OA ABOVE..TAI THAM SIGN KHUEN-LUE KARAN
-        "\d1A7F",  # ; Extend # Mn       TAI THAM COMBINING CRYPTOGRAMMIC DOT
-        "\d1ab0","\d1ab1","\d1ab2","\d1ab3","\d1ab4","\d1ab5","\d1ab6","\d1ab7","\d1ab8","\d1ab9","\d1aba","\d1abb","\d1abc","\d1abd",  # ; Extend # Mn  [14] COMBINING DOUBLED CIRCUMFLEX ACCENT..COMBINING PARENTHESES BELOW
-        "\d1ABE",  # ; Extend # Me       COMBINING PARENTHESES OVERLAY
-        "\d1b00","\d1b01","\d1b02","\d1b03",  # ; Extend # Mn   [4] BALINESE SIGN ULU RICEM..BALINESE SIGN SURANG
-        "\d1B34",  # ; Extend # Mn       BALINESE SIGN REREKAN
-        "\d1b36","\d1b37","\d1b38","\d1b39","\d1b3a",  # ; Extend # Mn   [5] BALINESE VOWEL SIGN ULU..BALINESE VOWEL SIGN RA REPA
-        "\d1B3C",  # ; Extend # Mn       BALINESE VOWEL SIGN LA LENGA
-        "\d1B42",  # ; Extend # Mn       BALINESE VOWEL SIGN PEPET
-        "\d1b6b","\d1b6c","\d1b6d","\d1b6e","\d1b6f","\d1b70","\d1b71","\d1b72","\d1b73",  # ; Extend # Mn   [9] BALINESE MUSICAL SYMBOL COMBINING TEGEH..BALINESE MUSICAL SYMBOL COMBINING GONG
-        "\d1b80","\d1b81",  # ; Extend # Mn   [2] SUNDANESE SIGN PANYECEK..SUNDANESE SIGN PANGLAYAR
-        "\d1ba2","\d1ba3","\d1ba4","\d1ba5",  # ; Extend # Mn   [4] SUNDANESE CONSONANT SIGN PANYAKRA..SUNDANESE VOWEL SIGN PANYUKU
-        "\d1ba8","\d1ba9",  # ; Extend # Mn   [2] SUNDANESE VOWEL SIGN PAMEPET..SUNDANESE VOWEL SIGN PANEULEUNG
-        "\d1bab","\d1bac","\d1bad",  # ; Extend # Mn   [3] SUNDANESE SIGN VIRAMA..SUNDANESE CONSONANT SIGN PASANGAN WA
-        "\d1BE6",  # ; Extend # Mn       BATAK SIGN TOMPI
-        "\d1be8","\d1be9",  # ; Extend # Mn   [2] BATAK VOWEL SIGN PAKPAK E..BATAK VOWEL SIGN EE
-        "\d1BED",  # ; Extend # Mn       BATAK VOWEL SIGN KARO O
-        "\d1bef","\d1bf0","\d1bf1",  # ; Extend # Mn   [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
-        "\d1c2c","\d1c2d","\d1c2e","\d1c2f","\d1c30","\d1c31","\d1c32","\d1c33",  # ; Extend # Mn   [8] LEPCHA VOWEL SIGN E..LEPCHA CONSONANT SIGN T
-        "\d1c36","\d1c37",  # ; Extend # Mn   [2] LEPCHA SIGN RAN..LEPCHA SIGN NUKTA
-        "\d1cd0","\d1cd1","\d1cd2",  # ; Extend # Mn   [3] VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
-        "\d1cd4","\d1cd5","\d1cd6","\d1cd7","\d1cd8","\d1cd9","\d1cda","\d1cdb","\d1cdc","\d1cdd","\d1cde","\d1cdf","\d1ce0",  # ; Extend # Mn  [13] VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC TONE RIGVEDIC KASHMIRI INDEPENDENT SVARITA
-        "\d1ce2","\d1ce3","\d1ce4","\d1ce5","\d1ce6","\d1ce7","\d1ce8",  # ; Extend # Mn   [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
-        "\d1CED",  # ; Extend # Mn       VEDIC SIGN TIRYAK
-        "\d1CF4",  # ; Extend # Mn       VEDIC TONE CANDRA ABOVE
-        "\d1cf8","\d1cf9",  # ; Extend # Mn   [2] VEDIC TONE RING ABOVE..VEDIC TONE DOUBLE RING ABOVE
-        "\d1dc0","\d1dc1","\d1dc2","\d1dc3","\d1dc4","\d1dc5","\d1dc6","\d1dc7","\d1dc8","\d1dc9","\d1dca","\d1dcb","\d1dcc","\d1dcd","\d1dce","\d1dcf","\d1dd0","\d1dd1","\d1dd2","\d1dd3","\d1dd4","\d1dd5","\d1dd6","\d1dd7","\d1dd8","\d1dd9","\d1dda","\d1ddb","\d1ddc","\d1ddd","\d1dde","\d1ddf","\d1de0","\d1de1","\d1de2","\d1de3","\d1de4","\d1de5","\d1de6","\d1de7","\d1de8","\d1de9","\d1dea","\d1deb","\d1dec","\d1ded","\d1dee","\d1def","\d1df0","\d1df1","\d1df2","\d1df3","\d1df4","\d1df5","\d1df6","\d1df7","\d1df8","\d1df9",  # ; Extend # Mn  [58] COMBINING DOTTED GRAVE ACCENT..COMBINING WIDE INVERTED BRIDGE BELOW
-        "\d1dfb","\d1dfc","\d1dfd","\d1dfe","\d1dff",  # ; Extend # Mn   [5] COMBINING DELETION MARK..COMBINING RIGHT ARROWHEAD AND DOWN ARROWHEAD BELOW
-        "\d200C",  # ; Extend # Cf       ZERO WIDTH NON-JOINER
-        "\d20d0","\d20d1","\d20d2","\d20d3","\d20d4","\d20d5","\d20d6","\d20d7","\d20d8","\d20d9","\d20da","\d20db","\d20dc",  # ; Extend # Mn  [13] COMBINING LEFT HARPOON ABOVE..COMBINING FOUR DOTS ABOVE
-        "\d20dd","\d20de","\d20df","\d20e0",  # ; Extend # Me   [4] COMBINING ENCLOSING CIRCLE..COMBINING ENCLOSING CIRCLE BACKSLASH
-        "\d20E1",  # ; Extend # Mn       COMBINING LEFT RIGHT ARROW ABOVE
-        "\d20e2","\d20e3","\d20e4",  # ; Extend # Me   [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
-        "\d20e5","\d20e6","\d20e7","\d20e8","\d20e9","\d20ea","\d20eb","\d20ec","\d20ed","\d20ee","\d20ef","\d20f0",  # ; Extend # Mn  [12] COMBINING REVERSE SOLIDUS OVERLAY..COMBINING ASTERISK ABOVE
-        "\d2cef","\d2cf0","\d2cf1",  # ; Extend # Mn   [3] COPTIC COMBINING NI ABOVE..COPTIC COMBINING SPIRITUS LENIS
-        "\d2D7F",  # ; Extend # Mn       TIFINAGH CONSONANT JOINER
-        "\d2de0","\d2de1","\d2de2","\d2de3","\d2de4","\d2de5","\d2de6","\d2de7","\d2de8","\d2de9","\d2dea","\d2deb","\d2dec","\d2ded","\d2dee","\d2def","\d2df0","\d2df1","\d2df2","\d2df3","\d2df4","\d2df5","\d2df6","\d2df7","\d2df8","\d2df9","\d2dfa","\d2dfb","\d2dfc","\d2dfd","\d2dfe","\d2dff",  # ; Extend # Mn  [32] COMBINING CYRILLIC LETTER BE..COMBINING CYRILLIC LETTER IOTIFIED BIG YUS
-        "\d302a","\d302b","\d302c","\d302d",  # ; Extend # Mn   [4] IDEOGRAPHIC LEVEL TONE MARK..IDEOGRAPHIC ENTERING TONE MARK
-        "\d302e","\d302f",  # ; Extend # Mc   [2] HANGUL SINGLE DOT TONE MARK..HANGUL DOUBLE DOT TONE MARK
-        "\d3099","\d309a",  # ; Extend # Mn   [2] COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK..COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
-        "\dA66F",  # ; Extend # Mn       COMBINING CYRILLIC VZMET
-        "\da670","\da671","\da672",  # ; Extend # Me   [3] COMBINING CYRILLIC TEN MILLIONS SIGN..COMBINING CYRILLIC THOUSAND MILLIONS SIGN
-        "\da674","\da675","\da676","\da677","\da678","\da679","\da67a","\da67b","\da67c","\da67d",  # ; Extend # Mn  [10] COMBINING CYRILLIC LETTER UKRAINIAN IE..COMBINING CYRILLIC PAYEROK
-        "\da69e","\da69f",  # ; Extend # Mn   [2] COMBINING CYRILLIC LETTER EF..COMBINING CYRILLIC LETTER IOTIFIED E
-        "\da6f0","\da6f1",  # ; Extend # Mn   [2] BAMUM COMBINING MARK KOQNDON..BAMUM COMBINING MARK TUKWENTIS
-        "\dA802",  # ; Extend # Mn       SYLOTI NAGRI SIGN DVISVARA
-        "\dA806",  # ; Extend # Mn       SYLOTI NAGRI SIGN HASANTA
-        "\dA80B",  # ; Extend # Mn       SYLOTI NAGRI SIGN ANUSVARA
-        "\da825","\da826",  # ; Extend # Mn   [2] SYLOTI NAGRI VOWEL SIGN U..SYLOTI NAGRI VOWEL SIGN E
-        "\da8c4","\da8c5",  # ; Extend # Mn   [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
-        "\da8e0","\da8e1","\da8e2","\da8e3","\da8e4","\da8e5","\da8e6","\da8e7","\da8e8","\da8e9","\da8ea","\da8eb","\da8ec","\da8ed","\da8ee","\da8ef","\da8f0","\da8f1",  # ; Extend # Mn  [18] COMBINING DEVANAGARI DIGIT ZERO..COMBINING DEVANAGARI SIGN AVAGRAHA
-        "\da926","\da927","\da928","\da929","\da92a","\da92b","\da92c","\da92d",  # ; Extend # Mn   [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
-        "\da947","\da948","\da949","\da94a","\da94b","\da94c","\da94d","\da94e","\da94f","\da950","\da951",  # ; Extend # Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
-        "\da980","\da981","\da982",  # ; Extend # Mn   [3] JAVANESE SIGN PANYANGGA..JAVANESE SIGN LAYAR
-        "\dA9B3",  # ; Extend # Mn       JAVANESE SIGN CECAK TELU
-        "\da9b6","\da9b7","\da9b8","\da9b9",  # ; Extend # Mn   [4] JAVANESE VOWEL SIGN WULU..JAVANESE VOWEL SIGN SUKU MENDUT
-        "\dA9BC",  # ; Extend # Mn       JAVANESE VOWEL SIGN PEPET
-        "\dA9E5",  # ; Extend # Mn       MYANMAR SIGN SHAN SAW
-        "\daa29","\daa2a","\daa2b","\daa2c","\daa2d","\daa2e",  # ; Extend # Mn   [6] CHAM VOWEL SIGN AA..CHAM VOWEL SIGN OE
-        "\daa31","\daa32",  # ; Extend # Mn   [2] CHAM VOWEL SIGN AU..CHAM VOWEL SIGN UE
-        "\daa35","\daa36",  # ; Extend # Mn   [2] CHAM CONSONANT SIGN LA..CHAM CONSONANT SIGN WA
-        "\dAA43",  # ; Extend # Mn       CHAM CONSONANT SIGN FINAL NG
-        "\dAA4C",  # ; Extend # Mn       CHAM CONSONANT SIGN FINAL M
-        "\dAA7C",  # ; Extend # Mn       MYANMAR SIGN TAI LAING TONE-2
-        "\dAAB0",  # ; Extend # Mn       TAI VIET MAI KANG
-        "\daab2","\daab3","\daab4",  # ; Extend # Mn   [3] TAI VIET VOWEL I..TAI VIET VOWEL U
-        "\daab7","\daab8",  # ; Extend # Mn   [2] TAI VIET MAI KHIT..TAI VIET VOWEL IA
-        "\daabe","\daabf",  # ; Extend # Mn   [2] TAI VIET VOWEL AM..TAI VIET TONE MAI EK
-        "\dAAC1",  # ; Extend # Mn       TAI VIET TONE MAI THO
-        "\daaec","\daaed",  # ; Extend # Mn   [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
-        "\dAAF6",  # ; Extend # Mn       MEETEI MAYEK VIRAMA
-        "\dABE5",  # ; Extend # Mn       MEETEI MAYEK VOWEL SIGN ANAP
-        "\dABE8",  # ; Extend # Mn       MEETEI MAYEK VOWEL SIGN UNAP
-        "\dABED",  # ; Extend # Mn       MEETEI MAYEK APUN IYEK
-        "\dFB1E",  # ; Extend # Mn       HEBREW POINT JUDEO-SPANISH VARIKA
-        "\dfe00","\dfe01","\dfe02","\dfe03","\dfe04","\dfe05","\dfe06","\dfe07","\dfe08","\dfe09","\dfe0a","\dfe0b","\dfe0c","\dfe0d","\dfe0e","\dfe0f",  # ; Extend # Mn  [16] VARIATION SELECTOR-1..VARIATION SELECTOR-16
-        "\dfe20","\dfe21","\dfe22","\dfe23","\dfe24","\dfe25","\dfe26","\dfe27","\dfe28","\dfe29","\dfe2a","\dfe2b","\dfe2c","\dfe2d","\dfe2e","\dfe2f",  # ; Extend # Mn  [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
-        "\dff9e","\dff9f",  # ; Extend # Lm   [2] HALFWIDTH KATAKANA VOICED SOUND MARK..HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK
-        "\d101FD",  # ; Extend # Mn       PHAISTOS DISC SIGN COMBINING OBLIQUE STROKE
-        "\d102E0",  # ; Extend # Mn       COPTIC EPACT THOUSANDS MARK
-        "\d10376","\d10377","\d10378","\d10379","\d1037a",  # ; Extend # Mn   [5] COMBINING OLD PERMIC LETTER AN..COMBINING OLD PERMIC LETTER SII
-        "\d10a01","\d10a02","\d10a03",  # ; Extend # Mn   [3] KHAROSHTHI VOWEL SIGN I..KHAROSHTHI VOWEL SIGN VOCALIC R
-        "\d10a05","\d10a06",  # ; Extend # Mn   [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
-        "\d10a0c","\d10a0d","\d10a0e","\d10a0f",  # ; Extend # Mn   [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
-        "\d10a38","\d10a39","\d10a3a",  # ; Extend # Mn   [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
-        "\d10A3F",  # ; Extend # Mn       KHAROSHTHI VIRAMA
-        "\d10ae5","\d10ae6",  # ; Extend # Mn   [2] MANICHAEAN ABBREVIATION MARK ABOVE..MANICHAEAN ABBREVIATION MARK BELOW
-        "\d11001",  # ; Extend # Mn       BRAHMI SIGN ANUSVARA
-        "\d11038","\d11039","\d1103a","\d1103b","\d1103c","\d1103d","\d1103e","\d1103f","\d11040","\d11041","\d11042","\d11043","\d11044","\d11045","\d11046",  # ; Extend # Mn  [15] BRAHMI VOWEL SIGN AA..BRAHMI VIRAMA
-        "\d1107f","\d11080","\d11081",  # ; Extend # Mn   [3] BRAHMI NUMBER JOINER..KAITHI SIGN ANUSVARA
-        "\d110b3","\d110b4","\d110b5","\d110b6",  # ; Extend # Mn   [4] KAITHI VOWEL SIGN U..KAITHI VOWEL SIGN AI
-        "\d110b9","\d110ba",  # ; Extend # Mn   [2] KAITHI SIGN VIRAMA..KAITHI SIGN NUKTA
-        "\d11100","\d11101","\d11102",  # ; Extend # Mn   [3] CHAKMA SIGN CANDRABINDU..CHAKMA SIGN VISARGA
-        "\d11127","\d11128","\d11129","\d1112a","\d1112b",  # ; Extend # Mn   [5] CHAKMA VOWEL SIGN A..CHAKMA VOWEL SIGN UU
-        "\d1112d","\d1112e","\d1112f","\d11130","\d11131","\d11132","\d11133","\d11134",  # ; Extend # Mn   [8] CHAKMA VOWEL SIGN AI..CHAKMA MAAYYAA
-        "\d11173",  # ; Extend # Mn       MAHAJANI SIGN NUKTA
-        "\d11180","\d11181",  # ; Extend # Mn   [2] SHARADA SIGN CANDRABINDU..SHARADA SIGN ANUSVARA
-        "\d111b6","\d111b7","\d111b8","\d111b9","\d111ba","\d111bb","\d111bc","\d111bd","\d111be",  # ; Extend # Mn   [9] SHARADA VOWEL SIGN U..SHARADA VOWEL SIGN O
-        "\d111ca","\d111cb","\d111cc",  # ; Extend # Mn   [3] SHARADA SIGN NUKTA..SHARADA EXTRA SHORT VOWEL MARK
-        "\d1122f","\d11230","\d11231",  # ; Extend # Mn   [3] KHOJKI VOWEL SIGN U..KHOJKI VOWEL SIGN AI
-        "\d11234",  # ; Extend # Mn       KHOJKI SIGN ANUSVARA
-        "\d11236","\d11237",  # ; Extend # Mn   [2] KHOJKI SIGN NUKTA..KHOJKI SIGN SHADDA
-        "\d1123E",  # ; Extend # Mn       KHOJKI SIGN SUKUN
-        "\d112DF",  # ; Extend # Mn       KHUDAWADI SIGN ANUSVARA
-        "\d112e3","\d112e4","\d112e5","\d112e6","\d112e7","\d112e8","\d112e9","\d112ea",  # ; Extend # Mn   [8] KHUDAWADI VOWEL SIGN U..KHUDAWADI SIGN VIRAMA
-        "\d11300","\d11301",  # ; Extend # Mn   [2] GRANTHA SIGN COMBINING ANUSVARA ABOVE..GRANTHA SIGN CANDRABINDU
-        "\d1133C",  # ; Extend # Mn       GRANTHA SIGN NUKTA
-        "\d1133E",  # ; Extend # Mc       GRANTHA VOWEL SIGN AA
-        "\d11340",  # ; Extend # Mn       GRANTHA VOWEL SIGN II
-        "\d11357",  # ; Extend # Mc       GRANTHA AU LENGTH MARK
-        "\d11366","\d11367","\d11368","\d11369","\d1136a","\d1136b","\d1136c",  # ; Extend # Mn   [7] COMBINING GRANTHA DIGIT ZERO..COMBINING GRANTHA DIGIT SIX
-        "\d11370","\d11371","\d11372","\d11373","\d11374",  # ; Extend # Mn   [5] COMBINING GRANTHA LETTER A..COMBINING GRANTHA LETTER PA
-        "\d11438","\d11439","\d1143a","\d1143b","\d1143c","\d1143d","\d1143e","\d1143f",  # ; Extend # Mn   [8] NEWA VOWEL SIGN U..NEWA VOWEL SIGN AI
-        "\d11442","\d11443","\d11444",  # ; Extend # Mn   [3] NEWA SIGN VIRAMA..NEWA SIGN ANUSVARA
-        "\d11446",  # ; Extend # Mn       NEWA SIGN NUKTA
-        "\d114B0",  # ; Extend # Mc       TIRHUTA VOWEL SIGN AA
-        "\d114b3","\d114b4","\d114b5","\d114b6","\d114b7","\d114b8",  # ; Extend # Mn   [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
-        "\d114BA",  # ; Extend # Mn       TIRHUTA VOWEL SIGN SHORT E
-        "\d114BD",  # ; Extend # Mc       TIRHUTA VOWEL SIGN SHORT O
-        "\d114bf","\d114c0",  # ; Extend # Mn   [2] TIRHUTA SIGN CANDRABINDU..TIRHUTA SIGN ANUSVARA
-        "\d114c2","\d114c3",  # ; Extend # Mn   [2] TIRHUTA SIGN VIRAMA..TIRHUTA SIGN NUKTA
-        "\d115AF",  # ; Extend # Mc       SIDDHAM VOWEL SIGN AA
-        "\d115b2","\d115b3","\d115b4","\d115b5",  # ; Extend # Mn   [4] SIDDHAM VOWEL SIGN U..SIDDHAM VOWEL SIGN VOCALIC RR
-        "\d115bc","\d115bd",  # ; Extend # Mn   [2] SIDDHAM SIGN CANDRABINDU..SIDDHAM SIGN ANUSVARA
-        "\d115bf","\d115c0",  # ; Extend # Mn   [2] SIDDHAM SIGN VIRAMA..SIDDHAM SIGN NUKTA
-        "\d115dc","\d115dd",  # ; Extend # Mn   [2] SIDDHAM VOWEL SIGN ALTERNATE U..SIDDHAM VOWEL SIGN ALTERNATE UU
-        "\d11633","\d11634","\d11635","\d11636","\d11637","\d11638","\d11639","\d1163a",  # ; Extend # Mn   [8] MODI VOWEL SIGN U..MODI VOWEL SIGN AI
-        "\d1163D",  # ; Extend # Mn       MODI SIGN ANUSVARA
-        "\d1163f","\d11640",  # ; Extend # Mn   [2] MODI SIGN VIRAMA..MODI SIGN ARDHACANDRA
-        "\d116AB",  # ; Extend # Mn       TAKRI SIGN ANUSVARA
-        "\d116AD",  # ; Extend # Mn       TAKRI VOWEL SIGN AA
-        "\d116b0","\d116b1","\d116b2","\d116b3","\d116b4","\d116b5",  # ; Extend # Mn   [6] TAKRI VOWEL SIGN U..TAKRI VOWEL SIGN AU
-        "\d116B7",  # ; Extend # Mn       TAKRI SIGN NUKTA
-        "\d1171d","\d1171e","\d1171f",  # ; Extend # Mn   [3] AHOM CONSONANT SIGN MEDIAL LA..AHOM CONSONANT SIGN MEDIAL LIGATING RA
-        "\d11722","\d11723","\d11724","\d11725",  # ; Extend # Mn   [4] AHOM VOWEL SIGN I..AHOM VOWEL SIGN UU
-        "\d11727","\d11728","\d11729","\d1172a","\d1172b",  # ; Extend # Mn   [5] AHOM VOWEL SIGN AW..AHOM SIGN KILLER
-        "\d11a01","\d11a02","\d11a03","\d11a04","\d11a05","\d11a06",  # ; Extend # Mn   [6] ZANABAZAR SQUARE VOWEL SIGN I..ZANABAZAR SQUARE VOWEL SIGN O
-        "\d11a09","\d11a0a",  # ; Extend # Mn   [2] ZANABAZAR SQUARE VOWEL SIGN REVERSED I..ZANABAZAR SQUARE VOWEL LENGTH MARK
-        "\d11a33","\d11a34","\d11a35","\d11a36","\d11a37","\d11a38",  # ; Extend # Mn   [6] ZANABAZAR SQUARE FINAL CONSONANT MARK..ZANABAZAR SQUARE SIGN ANUSVARA
-        "\d11a3b","\d11a3c","\d11a3d","\d11a3e",  # ; Extend # Mn   [4] ZANABAZAR SQUARE CLUSTER-FINAL LETTER YA..ZANABAZAR SQUARE CLUSTER-FINAL LETTER VA
-        "\d11A47",  # ; Extend # Mn       ZANABAZAR SQUARE SUBJOINER
-        "\d11a51","\d11a52","\d11a53","\d11a54","\d11a55","\d11a56",  # ; Extend # Mn   [6] SOYOMBO VOWEL SIGN I..SOYOMBO VOWEL SIGN OE
-        "\d11a59","\d11a5a","\d11a5b",  # ; Extend # Mn   [3] SOYOMBO VOWEL SIGN VOCALIC R..SOYOMBO VOWEL LENGTH MARK
-        "\d11a8a","\d11a8b","\d11a8c","\d11a8d","\d11a8e","\d11a8f","\d11a90","\d11a91","\d11a92","\d11a93","\d11a94","\d11a95","\d11a96",  # ; Extend # Mn  [13] SOYOMBO FINAL CONSONANT SIGN G..SOYOMBO SIGN ANUSVARA
-        "\d11a98","\d11a99",  # ; Extend # Mn   [2] SOYOMBO GEMINATION MARK..SOYOMBO SUBJOINER
-        "\d11c30","\d11c31","\d11c32","\d11c33","\d11c34","\d11c35","\d11c36",  # ; Extend # Mn   [7] BHAIKSUKI VOWEL SIGN I..BHAIKSUKI VOWEL SIGN VOCALIC L
-        "\d11c38","\d11c39","\d11c3a","\d11c3b","\d11c3c","\d11c3d",  # ; Extend # Mn   [6] BHAIKSUKI VOWEL SIGN E..BHAIKSUKI SIGN ANUSVARA
-        "\d11C3F",  # ; Extend # Mn       BHAIKSUKI SIGN VIRAMA
-        "\d11c92","\d11c93","\d11c94","\d11c95","\d11c96","\d11c97","\d11c98","\d11c99","\d11c9a","\d11c9b","\d11c9c","\d11c9d","\d11c9e","\d11c9f","\d11ca0","\d11ca1","\d11ca2","\d11ca3","\d11ca4","\d11ca5","\d11ca6","\d11ca7",  # ; Extend # Mn  [22] MARCHEN SUBJOINED LETTER KA..MARCHEN SUBJOINED LETTER ZA
-        "\d11caa","\d11cab","\d11cac","\d11cad","\d11cae","\d11caf","\d11cb0",  # ; Extend # Mn   [7] MARCHEN SUBJOINED LETTER RA..MARCHEN VOWEL SIGN AA
-        "\d11cb2","\d11cb3",  # ; Extend # Mn   [2] MARCHEN VOWEL SIGN U..MARCHEN VOWEL SIGN E
-        "\d11cb5","\d11cb6",  # ; Extend # Mn   [2] MARCHEN SIGN ANUSVARA..MARCHEN SIGN CANDRABINDU
-        "\d11d31","\d11d32","\d11d33","\d11d34","\d11d35","\d11d36",  # ; Extend # Mn   [6] MASARAM GONDI VOWEL SIGN AA..MASARAM GONDI VOWEL SIGN VOCALIC R
-        "\d11D3A",  # ; Extend # Mn       MASARAM GONDI VOWEL SIGN E
-        "\d11d3c","\d11d3d",  # ; Extend # Mn   [2] MASARAM GONDI VOWEL SIGN AI..MASARAM GONDI VOWEL SIGN O
-        "\d11d3f","\d11d40","\d11d41","\d11d42","\d11d43","\d11d44","\d11d45",  # ; Extend # Mn   [7] MASARAM GONDI VOWEL SIGN AU..MASARAM GONDI VIRAMA
-        "\d11D47",  # ; Extend # Mn       MASARAM GONDI RA-KARA
-        "\d16af0","\d16af1","\d16af2","\d16af3","\d16af4",  # ; Extend # Mn   [5] BASSA VAH COMBINING HIGH TONE..BASSA VAH COMBINING HIGH-LOW TONE
-        "\d16b30","\d16b31","\d16b32","\d16b33","\d16b34","\d16b35","\d16b36",  # ; Extend # Mn   [7] PAHAWH HMONG MARK CIM TUB..PAHAWH HMONG MARK CIM TAUM
-        "\d16f8f","\d16f90","\d16f91","\d16f92",  # ; Extend # Mn   [4] MIAO TONE RIGHT..MIAO TONE BELOW
-        "\d1bc9d","\d1bc9e",  # ; Extend # Mn   [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
-        "\d1D165",  # ; Extend # Mc       MUSICAL SYMBOL COMBINING STEM
-        "\d1d167","\d1d168","\d1d169",  # ; Extend # Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
-        "\d1d16e","\d1d16f","\d1d170","\d1d171","\d1d172",  # ; Extend # Mc   [5] MUSICAL SYMBOL COMBINING FLAG-1..MUSICAL SYMBOL COMBINING FLAG-5
-        "\d1d17b","\d1d17c","\d1d17d","\d1d17e","\d1d17f","\d1d180","\d1d181","\d1d182",  # ; Extend # Mn   [8] MUSICAL SYMBOL COMBINING ACCENT..MUSICAL SYMBOL COMBINING LOURE
-        "\d1d185","\d1d186","\d1d187","\d1d188","\d1d189","\d1d18a","\d1d18b",  # ; Extend # Mn   [7] MUSICAL SYMBOL COMBINING DOIT..MUSICAL SYMBOL COMBINING TRIPLE TONGUE
-        "\d1d1aa","\d1d1ab","\d1d1ac","\d1d1ad",  # ; Extend # Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
-        "\d1d242","\d1d243","\d1d244",  # ; Extend # Mn   [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
-        "\d1da00","\d1da01","\d1da02","\d1da03","\d1da04","\d1da05","\d1da06","\d1da07","\d1da08","\d1da09","\d1da0a","\d1da0b","\d1da0c","\d1da0d","\d1da0e","\d1da0f","\d1da10","\d1da11","\d1da12","\d1da13","\d1da14","\d1da15","\d1da16","\d1da17","\d1da18","\d1da19","\d1da1a","\d1da1b","\d1da1c","\d1da1d","\d1da1e","\d1da1f","\d1da20","\d1da21","\d1da22","\d1da23","\d1da24","\d1da25","\d1da26","\d1da27","\d1da28","\d1da29","\d1da2a","\d1da2b","\d1da2c","\d1da2d","\d1da2e","\d1da2f","\d1da30","\d1da31","\d1da32","\d1da33","\d1da34","\d1da35","\d1da36",  # ; Extend # Mn  [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
-        "\d1da3b","\d1da3c","\d1da3d","\d1da3e","\d1da3f","\d1da40","\d1da41","\d1da42","\d1da43","\d1da44","\d1da45","\d1da46","\d1da47","\d1da48","\d1da49","\d1da4a","\d1da4b","\d1da4c","\d1da4d","\d1da4e","\d1da4f","\d1da50","\d1da51","\d1da52","\d1da53","\d1da54","\d1da55","\d1da56","\d1da57","\d1da58","\d1da59","\d1da5a","\d1da5b","\d1da5c","\d1da5d","\d1da5e","\d1da5f","\d1da60","\d1da61","\d1da62","\d1da63","\d1da64","\d1da65","\d1da66","\d1da67","\d1da68","\d1da69","\d1da6a","\d1da6b","\d1da6c",  # ; Extend # Mn  [50] SIGNWRITING MOUTH CLOSED NEUTRAL..SIGNWRITING EXCITEMENT
-        "\d1DA75",  # ; Extend # Mn       SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
-        "\d1DA84",  # ; Extend # Mn       SIGNWRITING LOCATION HEAD NECK
-        "\d1da9b","\d1da9c","\d1da9d","\d1da9e","\d1da9f",  # ; Extend # Mn   [5] SIGNWRITING FILL MODIFIER-2..SIGNWRITING FILL MODIFIER-6
-        "\d1daa1","\d1daa2","\d1daa3","\d1daa4","\d1daa5","\d1daa6","\d1daa7","\d1daa8","\d1daa9","\d1daaa","\d1daab","\d1daac","\d1daad","\d1daae","\d1daaf",  # ; Extend # Mn  [15] SIGNWRITING ROTATION MODIFIER-2..SIGNWRITING ROTATION MODIFIER-16
-        "\d1e000","\d1e001","\d1e002","\d1e003","\d1e004","\d1e005","\d1e006",  # ; Extend # Mn   [7] COMBINING GLAGOLITIC LETTER AZU..COMBINING GLAGOLITIC LETTER ZHIVETE
-        "\d1e008","\d1e009","\d1e00a","\d1e00b","\d1e00c","\d1e00d","\d1e00e","\d1e00f","\d1e010","\d1e011","\d1e012","\d1e013","\d1e014","\d1e015","\d1e016","\d1e017","\d1e018",  # ; Extend # Mn  [17] COMBINING GLAGOLITIC LETTER ZEMLJA..COMBINING GLAGOLITIC LETTER HERU
-        "\d1e01b","\d1e01c","\d1e01d","\d1e01e","\d1e01f","\d1e020","\d1e021",  # ; Extend # Mn   [7] COMBINING GLAGOLITIC LETTER SHTA..COMBINING GLAGOLITIC LETTER YATI
-        "\d1e023","\d1e024",  # ; Extend # Mn   [2] COMBINING GLAGOLITIC LETTER YU..COMBINING GLAGOLITIC LETTER SMALL YUS
-        "\d1e026","\d1e027","\d1e028","\d1e029","\d1e02a",  # ; Extend # Mn   [5] COMBINING GLAGOLITIC LETTER YO..COMBINING GLAGOLITIC LETTER FITA
-        "\d1e8d0","\d1e8d1","\d1e8d2","\d1e8d3","\d1e8d4","\d1e8d5","\d1e8d6",  # ; Extend # Mn   [7] MENDE KIKAKUI COMBINING NUMBER TEENS..MENDE KIKAKUI COMBINING NUMBER MILLIONS
-        "\d1e944","\d1e945","\d1e946","\d1e947","\d1e948","\d1e949","\d1e94a",  # ; Extend # Mn   [7] ADLAM ALIF LENGTHENER..ADLAM NUKTA
-        "\de0020","\de0021","\de0022","\de0023","\de0024","\de0025","\de0026","\de0027","\de0028","\de0029","\de002a","\de002b","\de002c","\de002d","\de002e","\de002f","\de0030","\de0031","\de0032","\de0033","\de0034","\de0035","\de0036","\de0037","\de0038","\de0039","\de003a","\de003b","\de003c","\de003d","\de003e","\de003f","\de0040","\de0041","\de0042","\de0043","\de0044","\de0045","\de0046","\de0047","\de0048","\de0049","\de004a","\de004b","\de004c","\de004d","\de004e","\de004f","\de0050","\de0051","\de0052","\de0053","\de0054","\de0055","\de0056","\de0057","\de0058","\de0059","\de005a","\de005b","\de005c","\de005d","\de005e","\de005f","\de0060","\de0061","\de0062","\de0063","\de0064","\de0065","\de0066","\de0067","\de0068","\de0069","\de006a","\de006b","\de006c","\de006d","\de006e","\de006f","\de0070","\de0071","\de0072","\de0073","\de0074","\de0075","\de0076","\de0077","\de0078","\de0079","\de007a","\de007b","\de007c","\de007d","\de007e","\de007f",  # ; Extend # Cf  [96] TAG SPACE..CANCEL TAG
-        "\de0100","\de0101","\de0102","\de0103","\de0104","\de0105","\de0106","\de0107","\de0108","\de0109","\de010a","\de010b","\de010c","\de010d","\de010e","\de010f","\de0110","\de0111","\de0112","\de0113","\de0114","\de0115","\de0116","\de0117","\de0118","\de0119","\de011a","\de011b","\de011c","\de011d","\de011e","\de011f","\de0120","\de0121","\de0122","\de0123","\de0124","\de0125","\de0126","\de0127","\de0128","\de0129","\de012a","\de012b","\de012c","\de012d","\de012e","\de012f","\de0130","\de0131","\de0132","\de0133","\de0134","\de0135","\de0136","\de0137","\de0138","\de0139","\de013a","\de013b","\de013c","\de013d","\de013e","\de013f","\de0140","\de0141","\de0142","\de0143","\de0144","\de0145","\de0146","\de0147","\de0148","\de0149","\de014a","\de014b","\de014c","\de014d","\de014e","\de014f","\de0150","\de0151","\de0152","\de0153","\de0154","\de0155","\de0156","\de0157","\de0158","\de0159","\de015a","\de015b","\de015c","\de015d","\de015e","\de015f","\de0160","\de0161","\de0162","\de0163","\de0164","\de0165","\de0166","\de0167","\de0168","\de0169","\de016a","\de016b","\de016c","\de016d","\de016e","\de016f","\de0170","\de0171","\de0172","\de0173","\de0174","\de0175","\de0176","\de0177","\de0178","\de0179","\de017a","\de017b","\de017c","\de017d","\de017e","\de017f","\de0180","\de0181","\de0182","\de0183","\de0184","\de0185","\de0186","\de0187","\de0188","\de0189","\de018a","\de018b","\de018c","\de018d","\de018e","\de018f","\de0190","\de0191","\de0192","\de0193","\de0194","\de0195","\de0196","\de0197","\de0198","\de0199","\de019a","\de019b","\de019c","\de019d","\de019e","\de019f","\de01a0","\de01a1","\de01a2","\de01a3","\de01a4","\de01a5","\de01a6","\de01a7","\de01a8","\de01a9","\de01aa","\de01ab","\de01ac","\de01ad","\de01ae","\de01af","\de01b0","\de01b1","\de01b2","\de01b3","\de01b4","\de01b5","\de01b6","\de01b7","\de01b8","\de01b9","\de01ba","\de01bb","\de01bc","\de01bd","\de01be","\de01bf","\de01c0","\de01c1","\de01c2","\de01c3","\de01c4","\de01c5","\de01c6","\de01c7","\de01c8","\de01c9","\de01ca","\de01cb","\de01cc","\de01cd","\de01ce","\de01cf","\de01d0","\de01d1","\de01d2","\de01d3","\de01d4","\de01d5","\de01d6","\de01d7","\de01d8","\de01d9","\de01da","\de01db","\de01dc","\de01dd","\de01de","\de01df","\de01e0","\de01e1","\de01e2","\de01e3","\de01e4","\de01e5","\de01e6","\de01e7","\de01e8","\de01e9","\de01ea","\de01eb","\de01ec","\de01ed","\de01ee","\de01ef",  # ; Extend # Mn [240] VARIATION SELECTOR-17..VARIATION SELECTOR-256
-        "\d1f1e6","\d1f1e7","\d1f1e8","\d1f1e9","\d1f1ea","\d1f1eb","\d1f1ec","\d1f1ed","\d1f1ee","\d1f1ef","\d1f1f0","\d1f1f1","\d1f1f2","\d1f1f3","\d1f1f4","\d1f1f5","\d1f1f6","\d1f1f7","\d1f1f8","\d1f1f9","\d1f1fa","\d1f1fb","\d1f1fc","\d1f1fd","\d1f1fe","\d1f1ff",  # ; Regional_Indicator # So  [26] REGIONAL INDICATOR SYMBOL LETTER A..REGIONAL INDICATOR SYMBOL LETTER Z
-        "\d0903",  # ; SpacingMark # Mc       DEVANAGARI SIGN VISARGA
-        "\d093B",  # ; SpacingMark # Mc       DEVANAGARI VOWEL SIGN OOE
-        "\d093e","\d093f","\d0940",  # ; SpacingMark # Mc   [3] DEVANAGARI VOWEL SIGN AA..DEVANAGARI VOWEL SIGN II
-        "\d0949","\d094a","\d094b","\d094c",  # ; SpacingMark # Mc   [4] DEVANAGARI VOWEL SIGN CANDRA O..DEVANAGARI VOWEL SIGN AU
-        "\d094e","\d094f",  # ; SpacingMark # Mc   [2] DEVANAGARI VOWEL SIGN PRISHTHAMATRA E..DEVANAGARI VOWEL SIGN AW
-        "\d0982","\d0983",  # ; SpacingMark # Mc   [2] BENGALI SIGN ANUSVARA..BENGALI SIGN VISARGA
-        "\d09bf","\d09c0",  # ; SpacingMark # Mc   [2] BENGALI VOWEL SIGN I..BENGALI VOWEL SIGN II
-        "\d09c7","\d09c8",  # ; SpacingMark # Mc   [2] BENGALI VOWEL SIGN E..BENGALI VOWEL SIGN AI
-        "\d09cb","\d09cc",  # ; SpacingMark # Mc   [2] BENGALI VOWEL SIGN O..BENGALI VOWEL SIGN AU
-        "\d0A03",  # ; SpacingMark # Mc       GURMUKHI SIGN VISARGA
-        "\d0a3e","\d0a3f","\d0a40",  # ; SpacingMark # Mc   [3] GURMUKHI VOWEL SIGN AA..GURMUKHI VOWEL SIGN II
-        "\d0A83",  # ; SpacingMark # Mc       GUJARATI SIGN VISARGA
-        "\d0abe","\d0abf","\d0ac0",  # ; SpacingMark # Mc   [3] GUJARATI VOWEL SIGN AA..GUJARATI VOWEL SIGN II
-        "\d0AC9",  # ; SpacingMark # Mc       GUJARATI VOWEL SIGN CANDRA O
-        "\d0acb","\d0acc",  # ; SpacingMark # Mc   [2] GUJARATI VOWEL SIGN O..GUJARATI VOWEL SIGN AU
-        "\d0b02","\d0b03",  # ; SpacingMark # Mc   [2] ORIYA SIGN ANUSVARA..ORIYA SIGN VISARGA
-        "\d0B40",  # ; SpacingMark # Mc       ORIYA VOWEL SIGN II
-        "\d0b47","\d0b48",  # ; SpacingMark # Mc   [2] ORIYA VOWEL SIGN E..ORIYA VOWEL SIGN AI
-        "\d0b4b","\d0b4c",  # ; SpacingMark # Mc   [2] ORIYA VOWEL SIGN O..ORIYA VOWEL SIGN AU
-        "\d0BBF",  # ; SpacingMark # Mc       TAMIL VOWEL SIGN I
-        "\d0bc1","\d0bc2",  # ; SpacingMark # Mc   [2] TAMIL VOWEL SIGN U..TAMIL VOWEL SIGN UU
-        "\d0bc6","\d0bc7","\d0bc8",  # ; SpacingMark # Mc   [3] TAMIL VOWEL SIGN E..TAMIL VOWEL SIGN AI
-        "\d0bca","\d0bcb","\d0bcc",  # ; SpacingMark # Mc   [3] TAMIL VOWEL SIGN O..TAMIL VOWEL SIGN AU
-        "\d0c01","\d0c02","\d0c03",  # ; SpacingMark # Mc   [3] TELUGU SIGN CANDRABINDU..TELUGU SIGN VISARGA
-        "\d0c41","\d0c42","\d0c43","\d0c44",  # ; SpacingMark # Mc   [4] TELUGU VOWEL SIGN U..TELUGU VOWEL SIGN VOCALIC RR
-        "\d0c82","\d0c83",  # ; SpacingMark # Mc   [2] KANNADA SIGN ANUSVARA..KANNADA SIGN VISARGA
-        "\d0CBE",  # ; SpacingMark # Mc       KANNADA VOWEL SIGN AA
-        "\d0cc0","\d0cc1",  # ; SpacingMark # Mc   [2] KANNADA VOWEL SIGN II..KANNADA VOWEL SIGN U
-        "\d0cc3","\d0cc4",  # ; SpacingMark # Mc   [2] KANNADA VOWEL SIGN VOCALIC R..KANNADA VOWEL SIGN VOCALIC RR
-        "\d0cc7","\d0cc8",  # ; SpacingMark # Mc   [2] KANNADA VOWEL SIGN EE..KANNADA VOWEL SIGN AI
-        "\d0cca","\d0ccb",  # ; SpacingMark # Mc   [2] KANNADA VOWEL SIGN O..KANNADA VOWEL SIGN OO
-        "\d0d02","\d0d03",  # ; SpacingMark # Mc   [2] MALAYALAM SIGN ANUSVARA..MALAYALAM SIGN VISARGA
-        "\d0d3f","\d0d40",  # ; SpacingMark # Mc   [2] MALAYALAM VOWEL SIGN I..MALAYALAM VOWEL SIGN II
-        "\d0d46","\d0d47","\d0d48",  # ; SpacingMark # Mc   [3] MALAYALAM VOWEL SIGN E..MALAYALAM VOWEL SIGN AI
-        "\d0d4a","\d0d4b","\d0d4c",  # ; SpacingMark # Mc   [3] MALAYALAM VOWEL SIGN O..MALAYALAM VOWEL SIGN AU
-        "\d0d82","\d0d83",  # ; SpacingMark # Mc   [2] SINHALA SIGN ANUSVARAYA..SINHALA SIGN VISARGAYA
-        "\d0dd0","\d0dd1",  # ; SpacingMark # Mc   [2] SINHALA VOWEL SIGN KETTI AEDA-PILLA..SINHALA VOWEL SIGN DIGA AEDA-PILLA
-        "\d0dd8","\d0dd9","\d0dda","\d0ddb","\d0ddc","\d0ddd","\d0dde",  # ; SpacingMark # Mc   [7] SINHALA VOWEL SIGN GAETTA-PILLA..SINHALA VOWEL SIGN KOMBUVA HAA GAYANUKITTA
-        "\d0df2","\d0df3",  # ; SpacingMark # Mc   [2] SINHALA VOWEL SIGN DIGA GAETTA-PILLA..SINHALA VOWEL SIGN DIGA GAYANUKITTA
-        "\d0E33",  # ; SpacingMark # Lo       THAI CHARACTER SARA AM
-        "\d0EB3",  # ; SpacingMark # Lo       LAO VOWEL SIGN AM
-        "\d0f3e","\d0f3f",  # ; SpacingMark # Mc   [2] TIBETAN SIGN YAR TSHES..TIBETAN SIGN MAR TSHES
-        "\d0F7F",  # ; SpacingMark # Mc       TIBETAN SIGN RNAM BCAD
-        "\d1031",  # ; SpacingMark # Mc       MYANMAR VOWEL SIGN E
-        "\d103b","\d103c",  # ; SpacingMark # Mc   [2] MYANMAR CONSONANT SIGN MEDIAL YA..MYANMAR CONSONANT SIGN MEDIAL RA
-        "\d1056","\d1057",  # ; SpacingMark # Mc   [2] MYANMAR VOWEL SIGN VOCALIC R..MYANMAR VOWEL SIGN VOCALIC RR
-        "\d1084",  # ; SpacingMark # Mc       MYANMAR VOWEL SIGN SHAN E
-        "\d17B6",  # ; SpacingMark # Mc       KHMER VOWEL SIGN AA
-        "\d17be","\d17bf","\d17c0","\d17c1","\d17c2","\d17c3","\d17c4","\d17c5",  # ; SpacingMark # Mc   [8] KHMER VOWEL SIGN OE..KHMER VOWEL SIGN AU
-        "\d17c7","\d17c8",  # ; SpacingMark # Mc   [2] KHMER SIGN REAHMUK..KHMER SIGN YUUKALEAPINTU
-        "\d1923","\d1924","\d1925","\d1926",  # ; SpacingMark # Mc   [4] LIMBU VOWEL SIGN EE..LIMBU VOWEL SIGN AU
-        "\d1929","\d192a","\d192b",  # ; SpacingMark # Mc   [3] LIMBU SUBJOINED LETTER YA..LIMBU SUBJOINED LETTER WA
-        "\d1930","\d1931",  # ; SpacingMark # Mc   [2] LIMBU SMALL LETTER KA..LIMBU SMALL LETTER NGA
-        "\d1933","\d1934","\d1935","\d1936","\d1937","\d1938",  # ; SpacingMark # Mc   [6] LIMBU SMALL LETTER TA..LIMBU SMALL LETTER LA
-        "\d1a19","\d1a1a",  # ; SpacingMark # Mc   [2] BUGINESE VOWEL SIGN E..BUGINESE VOWEL SIGN O
-        "\d1A55",  # ; SpacingMark # Mc       TAI THAM CONSONANT SIGN MEDIAL RA
-        "\d1A57",  # ; SpacingMark # Mc       TAI THAM CONSONANT SIGN LA TANG LAI
-        "\d1a6d","\d1a6e","\d1a6f","\d1a70","\d1a71","\d1a72",  # ; SpacingMark # Mc   [6] TAI THAM VOWEL SIGN OY..TAI THAM VOWEL SIGN THAM AI
-        "\d1B04",  # ; SpacingMark # Mc       BALINESE SIGN BISAH
-        "\d1B35",  # ; SpacingMark # Mc       BALINESE VOWEL SIGN TEDUNG
-        "\d1B3B",  # ; SpacingMark # Mc       BALINESE VOWEL SIGN RA REPA TEDUNG
-        "\d1b3d","\d1b3e","\d1b3f","\d1b40","\d1b41",  # ; SpacingMark # Mc   [5] BALINESE VOWEL SIGN LA LENGA TEDUNG..BALINESE VOWEL SIGN TALING REPA TEDUNG
-        "\d1b43","\d1b44",  # ; SpacingMark # Mc   [2] BALINESE VOWEL SIGN PEPET TEDUNG..BALINESE ADEG ADEG
-        "\d1B82",  # ; SpacingMark # Mc       SUNDANESE SIGN PANGWISAD
-        "\d1BA1",  # ; SpacingMark # Mc       SUNDANESE CONSONANT SIGN PAMINGKAL
-        "\d1ba6","\d1ba7",  # ; SpacingMark # Mc   [2] SUNDANESE VOWEL SIGN PANAELAENG..SUNDANESE VOWEL SIGN PANOLONG
-        "\d1BAA",  # ; SpacingMark # Mc       SUNDANESE SIGN PAMAAEH
-        "\d1BE7",  # ; SpacingMark # Mc       BATAK VOWEL SIGN E
-        "\d1bea","\d1beb","\d1bec",  # ; SpacingMark # Mc   [3] BATAK VOWEL SIGN I..BATAK VOWEL SIGN O
-        "\d1BEE",  # ; SpacingMark # Mc       BATAK VOWEL SIGN U
-        "\d1bf2","\d1bf3",  # ; SpacingMark # Mc   [2] BATAK PANGOLAT..BATAK PANONGONAN
-        "\d1c24","\d1c25","\d1c26","\d1c27","\d1c28","\d1c29","\d1c2a","\d1c2b",  # ; SpacingMark # Mc   [8] LEPCHA SUBJOINED LETTER YA..LEPCHA VOWEL SIGN UU
-        "\d1c34","\d1c35",  # ; SpacingMark # Mc   [2] LEPCHA CONSONANT SIGN NYIN-DO..LEPCHA CONSONANT SIGN KANG
-        "\d1CE1",  # ; SpacingMark # Mc       VEDIC TONE ATHARVAVEDIC INDEPENDENT SVARITA
-        "\d1cf2","\d1cf3",  # ; SpacingMark # Mc   [2] VEDIC SIGN ARDHAVISARGA..VEDIC SIGN ROTATED ARDHAVISARGA
-        "\d1CF7",  # ; SpacingMark # Mc       VEDIC SIGN ATIKRAMA
-        "\da823","\da824",  # ; SpacingMark # Mc   [2] SYLOTI NAGRI VOWEL SIGN A..SYLOTI NAGRI VOWEL SIGN I
-        "\dA827",  # ; SpacingMark # Mc       SYLOTI NAGRI VOWEL SIGN OO
-        "\da880","\da881",  # ; SpacingMark # Mc   [2] SAURASHTRA SIGN ANUSVARA..SAURASHTRA SIGN VISARGA
-        "\da8b4","\da8b5","\da8b6","\da8b7","\da8b8","\da8b9","\da8ba","\da8bb","\da8bc","\da8bd","\da8be","\da8bf","\da8c0","\da8c1","\da8c2","\da8c3",  # ; SpacingMark # Mc  [16] SAURASHTRA CONSONANT SIGN HAARU..SAURASHTRA VOWEL SIGN AU
-        "\da952","\da953",  # ; SpacingMark # Mc   [2] REJANG CONSONANT SIGN H..REJANG VIRAMA
-        "\dA983",  # ; SpacingMark # Mc       JAVANESE SIGN WIGNYAN
-        "\da9b4","\da9b5",  # ; SpacingMark # Mc   [2] JAVANESE VOWEL SIGN TARUNG..JAVANESE VOWEL SIGN TOLONG
-        "\da9ba","\da9bb",  # ; SpacingMark # Mc   [2] JAVANESE VOWEL SIGN TALING..JAVANESE VOWEL SIGN DIRGA MURE
-        "\da9bd","\da9be","\da9bf","\da9c0",  # ; SpacingMark # Mc   [4] JAVANESE CONSONANT SIGN KERET..JAVANESE PANGKON
-        "\daa2f","\daa30",  # ; SpacingMark # Mc   [2] CHAM VOWEL SIGN O..CHAM VOWEL SIGN AI
-        "\daa33","\daa34",  # ; SpacingMark # Mc   [2] CHAM CONSONANT SIGN YA..CHAM CONSONANT SIGN RA
-        "\dAA4D",  # ; SpacingMark # Mc       CHAM CONSONANT SIGN FINAL H
-        "\dAAEB",  # ; SpacingMark # Mc       MEETEI MAYEK VOWEL SIGN II
-        "\daaee","\daaef",  # ; SpacingMark # Mc   [2] MEETEI MAYEK VOWEL SIGN AU..MEETEI MAYEK VOWEL SIGN AAU
-        "\dAAF5",  # ; SpacingMark # Mc       MEETEI MAYEK VOWEL SIGN VISARGA
-        "\dabe3","\dabe4",  # ; SpacingMark # Mc   [2] MEETEI MAYEK VOWEL SIGN ONAP..MEETEI MAYEK VOWEL SIGN INAP
-        "\dabe6","\dabe7",  # ; SpacingMark # Mc   [2] MEETEI MAYEK VOWEL SIGN YENAP..MEETEI MAYEK VOWEL SIGN SOUNAP
-        "\dabe9","\dabea",  # ; SpacingMark # Mc   [2] MEETEI MAYEK VOWEL SIGN CHEINAP..MEETEI MAYEK VOWEL SIGN NUNG
-        "\dABEC",  # ; SpacingMark # Mc       MEETEI MAYEK LUM IYEK
-        "\d11000",  # ; SpacingMark # Mc       BRAHMI SIGN CANDRABINDU
-        "\d11002",  # ; SpacingMark # Mc       BRAHMI SIGN VISARGA
-        "\d11082",  # ; SpacingMark # Mc       KAITHI SIGN VISARGA
-        "\d110b0","\d110b1","\d110b2",  # ; SpacingMark # Mc   [3] KAITHI VOWEL SIGN AA..KAITHI VOWEL SIGN II
-        "\d110b7","\d110b8",  # ; SpacingMark # Mc   [2] KAITHI VOWEL SIGN O..KAITHI VOWEL SIGN AU
-        "\d1112C",  # ; SpacingMark # Mc       CHAKMA VOWEL SIGN E
-        "\d11182",  # ; SpacingMark # Mc       SHARADA SIGN VISARGA
-        "\d111b3","\d111b4","\d111b5",  # ; SpacingMark # Mc   [3] SHARADA VOWEL SIGN AA..SHARADA VOWEL SIGN II
-        "\d111bf","\d111c0",  # ; SpacingMark # Mc   [2] SHARADA VOWEL SIGN AU..SHARADA SIGN VIRAMA
-        "\d1122c","\d1122d","\d1122e",  # ; SpacingMark # Mc   [3] KHOJKI VOWEL SIGN AA..KHOJKI VOWEL SIGN II
-        "\d11232","\d11233",  # ; SpacingMark # Mc   [2] KHOJKI VOWEL SIGN O..KHOJKI VOWEL SIGN AU
-        "\d11235",  # ; SpacingMark # Mc       KHOJKI SIGN VIRAMA
-        "\d112e0","\d112e1","\d112e2",  # ; SpacingMark # Mc   [3] KHUDAWADI VOWEL SIGN AA..KHUDAWADI VOWEL SIGN II
-        "\d11302","\d11303",  # ; SpacingMark # Mc   [2] GRANTHA SIGN ANUSVARA..GRANTHA SIGN VISARGA
-        "\d1133F",  # ; SpacingMark # Mc       GRANTHA VOWEL SIGN I
-        "\d11341","\d11342","\d11343","\d11344",  # ; SpacingMark # Mc   [4] GRANTHA VOWEL SIGN U..GRANTHA VOWEL SIGN VOCALIC RR
-        "\d11347","\d11348",  # ; SpacingMark # Mc   [2] GRANTHA VOWEL SIGN EE..GRANTHA VOWEL SIGN AI
-        "\d1134b","\d1134c","\d1134d",  # ; SpacingMark # Mc   [3] GRANTHA VOWEL SIGN OO..GRANTHA SIGN VIRAMA
-        "\d11362","\d11363",  # ; SpacingMark # Mc   [2] GRANTHA VOWEL SIGN VOCALIC L..GRANTHA VOWEL SIGN VOCALIC LL
-        "\d11435","\d11436","\d11437",  # ; SpacingMark # Mc   [3] NEWA VOWEL SIGN AA..NEWA VOWEL SIGN II
-        "\d11440","\d11441",  # ; SpacingMark # Mc   [2] NEWA VOWEL SIGN O..NEWA VOWEL SIGN AU
-        "\d11445",  # ; SpacingMark # Mc       NEWA SIGN VISARGA
-        "\d114b1","\d114b2",  # ; SpacingMark # Mc   [2] TIRHUTA VOWEL SIGN I..TIRHUTA VOWEL SIGN II
-        "\d114B9",  # ; SpacingMark # Mc       TIRHUTA VOWEL SIGN E
-        "\d114bb","\d114bc",  # ; SpacingMark # Mc   [2] TIRHUTA VOWEL SIGN AI..TIRHUTA VOWEL SIGN O
-        "\d114BE",  # ; SpacingMark # Mc       TIRHUTA VOWEL SIGN AU
-        "\d114C1",  # ; SpacingMark # Mc       TIRHUTA SIGN VISARGA
-        "\d115b0","\d115b1",  # ; SpacingMark # Mc   [2] SIDDHAM VOWEL SIGN I..SIDDHAM VOWEL SIGN II
-        "\d115b8","\d115b9","\d115ba","\d115bb",  # ; SpacingMark # Mc   [4] SIDDHAM VOWEL SIGN E..SIDDHAM VOWEL SIGN AU
-        "\d115BE",  # ; SpacingMark # Mc       SIDDHAM SIGN VISARGA
-        "\d11630","\d11631","\d11632",  # ; SpacingMark # Mc   [3] MODI VOWEL SIGN AA..MODI VOWEL SIGN II
-        "\d1163b","\d1163c",  # ; SpacingMark # Mc   [2] MODI VOWEL SIGN O..MODI VOWEL SIGN AU
-        "\d1163E",  # ; SpacingMark # Mc       MODI SIGN VISARGA
-        "\d116AC",  # ; SpacingMark # Mc       TAKRI SIGN VISARGA
-        "\d116ae","\d116af",  # ; SpacingMark # Mc   [2] TAKRI VOWEL SIGN I..TAKRI VOWEL SIGN II
-        "\d116B6",  # ; SpacingMark # Mc       TAKRI SIGN VIRAMA
-        "\d11720","\d11721",  # ; SpacingMark # Mc   [2] AHOM VOWEL SIGN A..AHOM VOWEL SIGN AA
-        "\d11726",  # ; SpacingMark # Mc       AHOM VOWEL SIGN E
-        "\d11a07","\d11a08",  # ; SpacingMark # Mc   [2] ZANABAZAR SQUARE VOWEL SIGN AI..ZANABAZAR SQUARE VOWEL SIGN AU
-        "\d11A39",  # ; SpacingMark # Mc       ZANABAZAR SQUARE SIGN VISARGA
-        "\d11a57","\d11a58",  # ; SpacingMark # Mc   [2] SOYOMBO VOWEL SIGN AI..SOYOMBO VOWEL SIGN AU
-        "\d11A97",  # ; SpacingMark # Mc       SOYOMBO SIGN VISARGA
-        "\d11C2F",  # ; SpacingMark # Mc       BHAIKSUKI VOWEL SIGN AA
-        "\d11C3E",  # ; SpacingMark # Mc       BHAIKSUKI SIGN VISARGA
-        "\d11CA9",  # ; SpacingMark # Mc       MARCHEN SUBJOINED LETTER YA
-        "\d11CB1",  # ; SpacingMark # Mc       MARCHEN VOWEL SIGN I
-        "\d11CB4",  # ; SpacingMark # Mc       MARCHEN VOWEL SIGN O
-        "\d16f51","\d16f52","\d16f53","\d16f54","\d16f55","\d16f56","\d16f57","\d16f58","\d16f59","\d16f5a","\d16f5b","\d16f5c","\d16f5d","\d16f5e","\d16f5f","\d16f60","\d16f61","\d16f62","\d16f63","\d16f64","\d16f65","\d16f66","\d16f67","\d16f68","\d16f69","\d16f6a","\d16f6b","\d16f6c","\d16f6d","\d16f6e","\d16f6f","\d16f70","\d16f71","\d16f72","\d16f73","\d16f74","\d16f75","\d16f76","\d16f77","\d16f78","\d16f79","\d16f7a","\d16f7b","\d16f7c","\d16f7d","\d16f7e",  # ; SpacingMark # Mc  [46] MIAO SIGN ASPIRATION..MIAO VOWEL SIGN NG
-        "\d1D166",  # ; SpacingMark # Mc       MUSICAL SYMBOL COMBINING SPRECHGESANG STEM
-        "\d1D16D",  # ; SpacingMark # Mc       MUSICAL SYMBOL COMBINING AUGMENTATION DOT
-        "\d1100","\d1101","\d1102","\d1103","\d1104","\d1105","\d1106","\d1107","\d1108","\d1109","\d110a","\d110b","\d110c","\d110d","\d110e","\d110f","\d1110","\d1111","\d1112","\d1113","\d1114","\d1115","\d1116","\d1117","\d1118","\d1119","\d111a","\d111b","\d111c","\d111d","\d111e","\d111f","\d1120","\d1121","\d1122","\d1123","\d1124","\d1125","\d1126","\d1127","\d1128","\d1129","\d112a","\d112b","\d112c","\d112d","\d112e","\d112f","\d1130","\d1131","\d1132","\d1133","\d1134","\d1135","\d1136","\d1137","\d1138","\d1139","\d113a","\d113b","\d113c","\d113d","\d113e","\d113f","\d1140","\d1141","\d1142","\d1143","\d1144","\d1145","\d1146","\d1147","\d1148","\d1149","\d114a","\d114b","\d114c","\d114d","\d114e","\d114f","\d1150","\d1151","\d1152","\d1153","\d1154","\d1155","\d1156","\d1157","\d1158","\d1159","\d115a","\d115b","\d115c","\d115d","\d115e","\d115f",  # ; L # Lo  [96] HANGUL CHOSEONG KIYEOK..HANGUL CHOSEONG FILLER
-        "\da960","\da961","\da962","\da963","\da964","\da965","\da966","\da967","\da968","\da969","\da96a","\da96b","\da96c","\da96d","\da96e","\da96f","\da970","\da971","\da972","\da973","\da974","\da975","\da976","\da977","\da978","\da979","\da97a","\da97b","\da97c",  # ; L # Lo  [29] HANGUL CHOSEONG TIKEUT-MIEUM..HANGUL CHOSEONG SSANGYEORINHIEUH
-        "\d1160","\d1161","\d1162","\d1163","\d1164","\d1165","\d1166","\d1167","\d1168","\d1169","\d116a","\d116b","\d116c","\d116d","\d116e","\d116f","\d1170","\d1171","\d1172","\d1173","\d1174","\d1175","\d1176","\d1177","\d1178","\d1179","\d117a","\d117b","\d117c","\d117d","\d117e","\d117f","\d1180","\d1181","\d1182","\d1183","\d1184","\d1185","\d1186","\d1187","\d1188","\d1189","\d118a","\d118b","\d118c","\d118d","\d118e","\d118f","\d1190","\d1191","\d1192","\d1193","\d1194","\d1195","\d1196","\d1197","\d1198","\d1199","\d119a","\d119b","\d119c","\d119d","\d119e","\d119f","\d11a0","\d11a1","\d11a2","\d11a3","\d11a4","\d11a5","\d11a6","\d11a7",  # ; V # Lo  [72] HANGUL JUNGSEONG FILLER..HANGUL JUNGSEONG O-YAE
-        "\dd7b0","\dd7b1","\dd7b2","\dd7b3","\dd7b4","\dd7b5","\dd7b6","\dd7b7","\dd7b8","\dd7b9","\dd7ba","\dd7bb","\dd7bc","\dd7bd","\dd7be","\dd7bf","\dd7c0","\dd7c1","\dd7c2","\dd7c3","\dd7c4","\dd7c5","\dd7c6",  # ; V # Lo  [23] HANGUL JUNGSEONG O-YEO..HANGUL JUNGSEONG ARAEA-E
-        "\d11a8","\d11a9","\d11aa","\d11ab","\d11ac","\d11ad","\d11ae","\d11af","\d11b0","\d11b1","\d11b2","\d11b3","\d11b4","\d11b5","\d11b6","\d11b7","\d11b8","\d11b9","\d11ba","\d11bb","\d11bc","\d11bd","\d11be","\d11bf","\d11c0","\d11c1","\d11c2","\d11c3","\d11c4","\d11c5","\d11c6","\d11c7","\d11c8","\d11c9","\d11ca","\d11cb","\d11cc","\d11cd","\d11ce","\d11cf","\d11d0","\d11d1","\d11d2","\d11d3","\d11d4","\d11d5","\d11d6","\d11d7","\d11d8","\d11d9","\d11da","\d11db","\d11dc","\d11dd","\d11de","\d11df","\d11e0","\d11e1","\d11e2","\d11e3","\d11e4","\d11e5","\d11e6","\d11e7","\d11e8","\d11e9","\d11ea","\d11eb","\d11ec","\d11ed","\d11ee","\d11ef","\d11f0","\d11f1","\d11f2","\d11f3","\d11f4","\d11f5","\d11f6","\d11f7","\d11f8","\d11f9","\d11fa","\d11fb","\d11fc","\d11fd","\d11fe","\d11ff",  # ; T # Lo  [88] HANGUL JONGSEONG KIYEOK..HANGUL JONGSEONG SSANGNIEUN
-        "\dd7cb","\dd7cc","\dd7cd","\dd7ce","\dd7cf","\dd7d0","\dd7d1","\dd7d2","\dd7d3","\dd7d4","\dd7d5","\dd7d6","\dd7d7","\dd7d8","\dd7d9","\dd7da","\dd7db","\dd7dc","\dd7dd","\dd7de","\dd7df","\dd7e0","\dd7e1","\dd7e2","\dd7e3","\dd7e4","\dd7e5","\dd7e6","\dd7e7","\dd7e8","\dd7e9","\dd7ea","\dd7eb","\dd7ec","\dd7ed","\dd7ee","\dd7ef","\dd7f0","\dd7f1","\dd7f2","\dd7f3","\dd7f4","\dd7f5","\dd7f6","\dd7f7","\dd7f8","\dd7f9","\dd7fa","\dd7fb",  # ; T # Lo  [49] HANGUL JONGSEONG NIEUN-RIEUL..HANGUL JONGSEONG PHIEUPH-THIEUTH
-        "\dAC00",  # ; LV # Lo       HANGUL SYLLABLE GA
-        "\dAC1C",  # ; LV # Lo       HANGUL SYLLABLE GAE
-        "\dAC38",  # ; LV # Lo       HANGUL SYLLABLE GYA
-        "\dAC54",  # ; LV # Lo       HANGUL SYLLABLE GYAE
-        "\dAC70",  # ; LV # Lo       HANGUL SYLLABLE GEO
-        "\dAC8C",  # ; LV # Lo       HANGUL SYLLABLE GE
-        "\dACA8",  # ; LV # Lo       HANGUL SYLLABLE GYEO
-        "\dACC4",  # ; LV # Lo       HANGUL SYLLABLE GYE
-        "\dACE0",  # ; LV # Lo       HANGUL SYLLABLE GO
-        "\dACFC",  # ; LV # Lo       HANGUL SYLLABLE GWA
-        "\dAD18",  # ; LV # Lo       HANGUL SYLLABLE GWAE
-        "\dAD34",  # ; LV # Lo       HANGUL SYLLABLE GOE
-        "\dAD50",  # ; LV # Lo       HANGUL SYLLABLE GYO
-        "\dAD6C",  # ; LV # Lo       HANGUL SYLLABLE GU
-        "\dAD88",  # ; LV # Lo       HANGUL SYLLABLE GWEO
-        "\dADA4",  # ; LV # Lo       HANGUL SYLLABLE GWE
-        "\dADC0",  # ; LV # Lo       HANGUL SYLLABLE GWI
-        "\dADDC",  # ; LV # Lo       HANGUL SYLLABLE GYU
-        "\dADF8",  # ; LV # Lo       HANGUL SYLLABLE GEU
-        "\dAE14",  # ; LV # Lo       HANGUL SYLLABLE GYI
-        "\dAE30",  # ; LV # Lo       HANGUL SYLLABLE GI
-        "\dAE4C",  # ; LV # Lo       HANGUL SYLLABLE GGA
-        "\dAE68",  # ; LV # Lo       HANGUL SYLLABLE GGAE
-        "\dAE84",  # ; LV # Lo       HANGUL SYLLABLE GGYA
-        "\dAEA0",  # ; LV # Lo       HANGUL SYLLABLE GGYAE
-        "\dAEBC",  # ; LV # Lo       HANGUL SYLLABLE GGEO
-        "\dAED8",  # ; LV # Lo       HANGUL SYLLABLE GGE
-        "\dAEF4",  # ; LV # Lo       HANGUL SYLLABLE GGYEO
-        "\dAF10",  # ; LV # Lo       HANGUL SYLLABLE GGYE
-        "\dAF2C",  # ; LV # Lo       HANGUL SYLLABLE GGO
-        "\dAF48",  # ; LV # Lo       HANGUL SYLLABLE GGWA
-        "\dAF64",  # ; LV # Lo       HANGUL SYLLABLE GGWAE
-        "\dAF80",  # ; LV # Lo       HANGUL SYLLABLE GGOE
-        "\dAF9C",  # ; LV # Lo       HANGUL SYLLABLE GGYO
-        "\dAFB8",  # ; LV # Lo       HANGUL SYLLABLE GGU
-        "\dAFD4",  # ; LV # Lo       HANGUL SYLLABLE GGWEO
-        "\dAFF0",  # ; LV # Lo       HANGUL SYLLABLE GGWE
-        "\dB00C",  # ; LV # Lo       HANGUL SYLLABLE GGWI
-        "\dB028",  # ; LV # Lo       HANGUL SYLLABLE GGYU
-        "\dB044",  # ; LV # Lo       HANGUL SYLLABLE GGEU
-        "\dB060",  # ; LV # Lo       HANGUL SYLLABLE GGYI
-        "\dB07C",  # ; LV # Lo       HANGUL SYLLABLE GGI
-        "\dB098",  # ; LV # Lo       HANGUL SYLLABLE NA
-        "\dB0B4",  # ; LV # Lo       HANGUL SYLLABLE NAE
-        "\dB0D0",  # ; LV # Lo       HANGUL SYLLABLE NYA
-        "\dB0EC",  # ; LV # Lo       HANGUL SYLLABLE NYAE
-        "\dB108",  # ; LV # Lo       HANGUL SYLLABLE NEO
-        "\dB124",  # ; LV # Lo       HANGUL SYLLABLE NE
-        "\dB140",  # ; LV # Lo       HANGUL SYLLABLE NYEO
-        "\dB15C",  # ; LV # Lo       HANGUL SYLLABLE NYE
-        "\dB178",  # ; LV # Lo       HANGUL SYLLABLE NO
-        "\dB194",  # ; LV # Lo       HANGUL SYLLABLE NWA
-        "\dB1B0",  # ; LV # Lo       HANGUL SYLLABLE NWAE
-        "\dB1CC",  # ; LV # Lo       HANGUL SYLLABLE NOE
-        "\dB1E8",  # ; LV # Lo       HANGUL SYLLABLE NYO
-        "\dB204",  # ; LV # Lo       HANGUL SYLLABLE NU
-        "\dB220",  # ; LV # Lo       HANGUL SYLLABLE NWEO
-        "\dB23C",  # ; LV # Lo       HANGUL SYLLABLE NWE
-        "\dB258",  # ; LV # Lo       HANGUL SYLLABLE NWI
-        "\dB274",  # ; LV # Lo       HANGUL SYLLABLE NYU
-        "\dB290",  # ; LV # Lo       HANGUL SYLLABLE NEU
-        "\dB2AC",  # ; LV # Lo       HANGUL SYLLABLE NYI
-        "\dB2C8",  # ; LV # Lo       HANGUL SYLLABLE NI
-        "\dB2E4",  # ; LV # Lo       HANGUL SYLLABLE DA
-        "\dB300",  # ; LV # Lo       HANGUL SYLLABLE DAE
-        "\dB31C",  # ; LV # Lo       HANGUL SYLLABLE DYA
-        "\dB338",  # ; LV # Lo       HANGUL SYLLABLE DYAE
-        "\dB354",  # ; LV # Lo       HANGUL SYLLABLE DEO
-        "\dB370",  # ; LV # Lo       HANGUL SYLLABLE DE
-        "\dB38C",  # ; LV # Lo       HANGUL SYLLABLE DYEO
-        "\dB3A8",  # ; LV # Lo       HANGUL SYLLABLE DYE
-        "\dB3C4",  # ; LV # Lo       HANGUL SYLLABLE DO
-        "\dB3E0",  # ; LV # Lo       HANGUL SYLLABLE DWA
-        "\dB3FC",  # ; LV # Lo       HANGUL SYLLABLE DWAE
-        "\dB418",  # ; LV # Lo       HANGUL SYLLABLE DOE
-        "\dB434",  # ; LV # Lo       HANGUL SYLLABLE DYO
-        "\dB450",  # ; LV # Lo       HANGUL SYLLABLE DU
-        "\dB46C",  # ; LV # Lo       HANGUL SYLLABLE DWEO
-        "\dB488",  # ; LV # Lo       HANGUL SYLLABLE DWE
-        "\dB4A4",  # ; LV # Lo       HANGUL SYLLABLE DWI
-        "\dB4C0",  # ; LV # Lo       HANGUL SYLLABLE DYU
-        "\dB4DC",  # ; LV # Lo       HANGUL SYLLABLE DEU
-        "\dB4F8",  # ; LV # Lo       HANGUL SYLLABLE DYI
-        "\dB514",  # ; LV # Lo       HANGUL SYLLABLE DI
-        "\dB530",  # ; LV # Lo       HANGUL SYLLABLE DDA
-        "\dB54C",  # ; LV # Lo       HANGUL SYLLABLE DDAE
-        "\dB568",  # ; LV # Lo       HANGUL SYLLABLE DDYA
-        "\dB584",  # ; LV # Lo       HANGUL SYLLABLE DDYAE
-        "\dB5A0",  # ; LV # Lo       HANGUL SYLLABLE DDEO
-        "\dB5BC",  # ; LV # Lo       HANGUL SYLLABLE DDE
-        "\dB5D8",  # ; LV # Lo       HANGUL SYLLABLE DDYEO
-        "\dB5F4",  # ; LV # Lo       HANGUL SYLLABLE DDYE
-        "\dB610",  # ; LV # Lo       HANGUL SYLLABLE DDO
-        "\dB62C",  # ; LV # Lo       HANGUL SYLLABLE DDWA
-        "\dB648",  # ; LV # Lo       HANGUL SYLLABLE DDWAE
-        "\dB664",  # ; LV # Lo       HANGUL SYLLABLE DDOE
-        "\dB680",  # ; LV # Lo       HANGUL SYLLABLE DDYO
-        "\dB69C",  # ; LV # Lo       HANGUL SYLLABLE DDU
-        "\dB6B8",  # ; LV # Lo       HANGUL SYLLABLE DDWEO
-        "\dB6D4",  # ; LV # Lo       HANGUL SYLLABLE DDWE
-        "\dB6F0",  # ; LV # Lo       HANGUL SYLLABLE DDWI
-        "\dB70C",  # ; LV # Lo       HANGUL SYLLABLE DDYU
-        "\dB728",  # ; LV # Lo       HANGUL SYLLABLE DDEU
-        "\dB744",  # ; LV # Lo       HANGUL SYLLABLE DDYI
-        "\dB760",  # ; LV # Lo       HANGUL SYLLABLE DDI
-        "\dB77C",  # ; LV # Lo       HANGUL SYLLABLE RA
-        "\dB798",  # ; LV # Lo       HANGUL SYLLABLE RAE
-        "\dB7B4",  # ; LV # Lo       HANGUL SYLLABLE RYA
-        "\dB7D0",  # ; LV # Lo       HANGUL SYLLABLE RYAE
-        "\dB7EC",  # ; LV # Lo       HANGUL SYLLABLE REO
-        "\dB808",  # ; LV # Lo       HANGUL SYLLABLE RE
-        "\dB824",  # ; LV # Lo       HANGUL SYLLABLE RYEO
-        "\dB840",  # ; LV # Lo       HANGUL SYLLABLE RYE
-        "\dB85C",  # ; LV # Lo       HANGUL SYLLABLE RO
-        "\dB878",  # ; LV # Lo       HANGUL SYLLABLE RWA
-        "\dB894",  # ; LV # Lo       HANGUL SYLLABLE RWAE
-        "\dB8B0",  # ; LV # Lo       HANGUL SYLLABLE ROE
-        "\dB8CC",  # ; LV # Lo       HANGUL SYLLABLE RYO
-        "\dB8E8",  # ; LV # Lo       HANGUL SYLLABLE RU
-        "\dB904",  # ; LV # Lo       HANGUL SYLLABLE RWEO
-        "\dB920",  # ; LV # Lo       HANGUL SYLLABLE RWE
-        "\dB93C",  # ; LV # Lo       HANGUL SYLLABLE RWI
-        "\dB958",  # ; LV # Lo       HANGUL SYLLABLE RYU
-        "\dB974",  # ; LV # Lo       HANGUL SYLLABLE REU
-        "\dB990",  # ; LV # Lo       HANGUL SYLLABLE RYI
-        "\dB9AC",  # ; LV # Lo       HANGUL SYLLABLE RI
-        "\dB9C8",  # ; LV # Lo       HANGUL SYLLABLE MA
-        "\dB9E4",  # ; LV # Lo       HANGUL SYLLABLE MAE
-        "\dBA00",  # ; LV # Lo       HANGUL SYLLABLE MYA
-        "\dBA1C",  # ; LV # Lo       HANGUL SYLLABLE MYAE
-        "\dBA38",  # ; LV # Lo       HANGUL SYLLABLE MEO
-        "\dBA54",  # ; LV # Lo       HANGUL SYLLABLE ME
-        "\dBA70",  # ; LV # Lo       HANGUL SYLLABLE MYEO
-        "\dBA8C",  # ; LV # Lo       HANGUL SYLLABLE MYE
-        "\dBAA8",  # ; LV # Lo       HANGUL SYLLABLE MO
-        "\dBAC4",  # ; LV # Lo       HANGUL SYLLABLE MWA
-        "\dBAE0",  # ; LV # Lo       HANGUL SYLLABLE MWAE
-        "\dBAFC",  # ; LV # Lo       HANGUL SYLLABLE MOE
-        "\dBB18",  # ; LV # Lo       HANGUL SYLLABLE MYO
-        "\dBB34",  # ; LV # Lo       HANGUL SYLLABLE MU
-        "\dBB50",  # ; LV # Lo       HANGUL SYLLABLE MWEO
-        "\dBB6C",  # ; LV # Lo       HANGUL SYLLABLE MWE
-        "\dBB88",  # ; LV # Lo       HANGUL SYLLABLE MWI
-        "\dBBA4",  # ; LV # Lo       HANGUL SYLLABLE MYU
-        "\dBBC0",  # ; LV # Lo       HANGUL SYLLABLE MEU
-        "\dBBDC",  # ; LV # Lo       HANGUL SYLLABLE MYI
-        "\dBBF8",  # ; LV # Lo       HANGUL SYLLABLE MI
-        "\dBC14",  # ; LV # Lo       HANGUL SYLLABLE BA
-        "\dBC30",  # ; LV # Lo       HANGUL SYLLABLE BAE
-        "\dBC4C",  # ; LV # Lo       HANGUL SYLLABLE BYA
-        "\dBC68",  # ; LV # Lo       HANGUL SYLLABLE BYAE
-        "\dBC84",  # ; LV # Lo       HANGUL SYLLABLE BEO
-        "\dBCA0",  # ; LV # Lo       HANGUL SYLLABLE BE
-        "\dBCBC",  # ; LV # Lo       HANGUL SYLLABLE BYEO
-        "\dBCD8",  # ; LV # Lo       HANGUL SYLLABLE BYE
-        "\dBCF4",  # ; LV # Lo       HANGUL SYLLABLE BO
-        "\dBD10",  # ; LV # Lo       HANGUL SYLLABLE BWA
-        "\dBD2C",  # ; LV # Lo       HANGUL SYLLABLE BWAE
-        "\dBD48",  # ; LV # Lo       HANGUL SYLLABLE BOE
-        "\dBD64",  # ; LV # Lo       HANGUL SYLLABLE BYO
-        "\dBD80",  # ; LV # Lo       HANGUL SYLLABLE BU
-        "\dBD9C",  # ; LV # Lo       HANGUL SYLLABLE BWEO
-        "\dBDB8",  # ; LV # Lo       HANGUL SYLLABLE BWE
-        "\dBDD4",  # ; LV # Lo       HANGUL SYLLABLE BWI
-        "\dBDF0",  # ; LV # Lo       HANGUL SYLLABLE BYU
-        "\dBE0C",  # ; LV # Lo       HANGUL SYLLABLE BEU
-        "\dBE28",  # ; LV # Lo       HANGUL SYLLABLE BYI
-        "\dBE44",  # ; LV # Lo       HANGUL SYLLABLE BI
-        "\dBE60",  # ; LV # Lo       HANGUL SYLLABLE BBA
-        "\dBE7C",  # ; LV # Lo       HANGUL SYLLABLE BBAE
-        "\dBE98",  # ; LV # Lo       HANGUL SYLLABLE BBYA
-        "\dBEB4",  # ; LV # Lo       HANGUL SYLLABLE BBYAE
-        "\dBED0",  # ; LV # Lo       HANGUL SYLLABLE BBEO
-        "\dBEEC",  # ; LV # Lo       HANGUL SYLLABLE BBE
-        "\dBF08",  # ; LV # Lo       HANGUL SYLLABLE BBYEO
-        "\dBF24",  # ; LV # Lo       HANGUL SYLLABLE BBYE
-        "\dBF40",  # ; LV # Lo       HANGUL SYLLABLE BBO
-        "\dBF5C",  # ; LV # Lo       HANGUL SYLLABLE BBWA
-        "\dBF78",  # ; LV # Lo       HANGUL SYLLABLE BBWAE
-        "\dBF94",  # ; LV # Lo       HANGUL SYLLABLE BBOE
-        "\dBFB0",  # ; LV # Lo       HANGUL SYLLABLE BBYO
-        "\dBFCC",  # ; LV # Lo       HANGUL SYLLABLE BBU
-        "\dBFE8",  # ; LV # Lo       HANGUL SYLLABLE BBWEO
-        "\dC004",  # ; LV # Lo       HANGUL SYLLABLE BBWE
-        "\dC020",  # ; LV # Lo       HANGUL SYLLABLE BBWI
-        "\dC03C",  # ; LV # Lo       HANGUL SYLLABLE BBYU
-        "\dC058",  # ; LV # Lo       HANGUL SYLLABLE BBEU
-        "\dC074",  # ; LV # Lo       HANGUL SYLLABLE BBYI
-        "\dC090",  # ; LV # Lo       HANGUL SYLLABLE BBI
-        "\dC0AC",  # ; LV # Lo       HANGUL SYLLABLE SA
-        "\dC0C8",  # ; LV # Lo       HANGUL SYLLABLE SAE
-        "\dC0E4",  # ; LV # Lo       HANGUL SYLLABLE SYA
-        "\dC100",  # ; LV # Lo       HANGUL SYLLABLE SYAE
-        "\dC11C",  # ; LV # Lo       HANGUL SYLLABLE SEO
-        "\dC138",  # ; LV # Lo       HANGUL SYLLABLE SE
-        "\dC154",  # ; LV # Lo       HANGUL SYLLABLE SYEO
-        "\dC170",  # ; LV # Lo       HANGUL SYLLABLE SYE
-        "\dC18C",  # ; LV # Lo       HANGUL SYLLABLE SO
-        "\dC1A8",  # ; LV # Lo       HANGUL SYLLABLE SWA
-        "\dC1C4",  # ; LV # Lo       HANGUL SYLLABLE SWAE
-        "\dC1E0",  # ; LV # Lo       HANGUL SYLLABLE SOE
-        "\dC1FC",  # ; LV # Lo       HANGUL SYLLABLE SYO
-        "\dC218",  # ; LV # Lo       HANGUL SYLLABLE SU
-        "\dC234",  # ; LV # Lo       HANGUL SYLLABLE SWEO
-        "\dC250",  # ; LV # Lo       HANGUL SYLLABLE SWE
-        "\dC26C",  # ; LV # Lo       HANGUL SYLLABLE SWI
-        "\dC288",  # ; LV # Lo       HANGUL SYLLABLE SYU
-        "\dC2A4",  # ; LV # Lo       HANGUL SYLLABLE SEU
-        "\dC2C0",  # ; LV # Lo       HANGUL SYLLABLE SYI
-        "\dC2DC",  # ; LV # Lo       HANGUL SYLLABLE SI
-        "\dC2F8",  # ; LV # Lo       HANGUL SYLLABLE SSA
-        "\dC314",  # ; LV # Lo       HANGUL SYLLABLE SSAE
-        "\dC330",  # ; LV # Lo       HANGUL SYLLABLE SSYA
-        "\dC34C",  # ; LV # Lo       HANGUL SYLLABLE SSYAE
-        "\dC368",  # ; LV # Lo       HANGUL SYLLABLE SSEO
-        "\dC384",  # ; LV # Lo       HANGUL SYLLABLE SSE
-        "\dC3A0",  # ; LV # Lo       HANGUL SYLLABLE SSYEO
-        "\dC3BC",  # ; LV # Lo       HANGUL SYLLABLE SSYE
-        "\dC3D8",  # ; LV # Lo       HANGUL SYLLABLE SSO
-        "\dC3F4",  # ; LV # Lo       HANGUL SYLLABLE SSWA
-        "\dC410",  # ; LV # Lo       HANGUL SYLLABLE SSWAE
-        "\dC42C",  # ; LV # Lo       HANGUL SYLLABLE SSOE
-        "\dC448",  # ; LV # Lo       HANGUL SYLLABLE SSYO
-        "\dC464",  # ; LV # Lo       HANGUL SYLLABLE SSU
-        "\dC480",  # ; LV # Lo       HANGUL SYLLABLE SSWEO
-        "\dC49C",  # ; LV # Lo       HANGUL SYLLABLE SSWE
-        "\dC4B8",  # ; LV # Lo       HANGUL SYLLABLE SSWI
-        "\dC4D4",  # ; LV # Lo       HANGUL SYLLABLE SSYU
-        "\dC4F0",  # ; LV # Lo       HANGUL SYLLABLE SSEU
-        "\dC50C",  # ; LV # Lo       HANGUL SYLLABLE SSYI
-        "\dC528",  # ; LV # Lo       HANGUL SYLLABLE SSI
-        "\dC544",  # ; LV # Lo       HANGUL SYLLABLE A
-        "\dC560",  # ; LV # Lo       HANGUL SYLLABLE AE
-        "\dC57C",  # ; LV # Lo       HANGUL SYLLABLE YA
-        "\dC598",  # ; LV # Lo       HANGUL SYLLABLE YAE
-        "\dC5B4",  # ; LV # Lo       HANGUL SYLLABLE EO
-        "\dC5D0",  # ; LV # Lo       HANGUL SYLLABLE E
-        "\dC5EC",  # ; LV # Lo       HANGUL SYLLABLE YEO
-        "\dC608",  # ; LV # Lo       HANGUL SYLLABLE YE
-        "\dC624",  # ; LV # Lo       HANGUL SYLLABLE O
-        "\dC640",  # ; LV # Lo       HANGUL SYLLABLE WA
-        "\dC65C",  # ; LV # Lo       HANGUL SYLLABLE WAE
-        "\dC678",  # ; LV # Lo       HANGUL SYLLABLE OE
-        "\dC694",  # ; LV # Lo       HANGUL SYLLABLE YO
-        "\dC6B0",  # ; LV # Lo       HANGUL SYLLABLE U
-        "\dC6CC",  # ; LV # Lo       HANGUL SYLLABLE WEO
-        "\dC6E8",  # ; LV # Lo       HANGUL SYLLABLE WE
-        "\dC704",  # ; LV # Lo       HANGUL SYLLABLE WI
-        "\dC720",  # ; LV # Lo       HANGUL SYLLABLE YU
-        "\dC73C",  # ; LV # Lo       HANGUL SYLLABLE EU
-        "\dC758",  # ; LV # Lo       HANGUL SYLLABLE YI
-        "\dC774",  # ; LV # Lo       HANGUL SYLLABLE I
-        "\dC790",  # ; LV # Lo       HANGUL SYLLABLE JA
-        "\dC7AC",  # ; LV # Lo       HANGUL SYLLABLE JAE
-        "\dC7C8",  # ; LV # Lo       HANGUL SYLLABLE JYA
-        "\dC7E4",  # ; LV # Lo       HANGUL SYLLABLE JYAE
-        "\dC800",  # ; LV # Lo       HANGUL SYLLABLE JEO
-        "\dC81C",  # ; LV # Lo       HANGUL SYLLABLE JE
-        "\dC838",  # ; LV # Lo       HANGUL SYLLABLE JYEO
-        "\dC854",  # ; LV # Lo       HANGUL SYLLABLE JYE
-        "\dC870",  # ; LV # Lo       HANGUL SYLLABLE JO
-        "\dC88C",  # ; LV # Lo       HANGUL SYLLABLE JWA
-        "\dC8A8",  # ; LV # Lo       HANGUL SYLLABLE JWAE
-        "\dC8C4",  # ; LV # Lo       HANGUL SYLLABLE JOE
-        "\dC8E0",  # ; LV # Lo       HANGUL SYLLABLE JYO
-        "\dC8FC",  # ; LV # Lo       HANGUL SYLLABLE JU
-        "\dC918",  # ; LV # Lo       HANGUL SYLLABLE JWEO
-        "\dC934",  # ; LV # Lo       HANGUL SYLLABLE JWE
-        "\dC950",  # ; LV # Lo       HANGUL SYLLABLE JWI
-        "\dC96C",  # ; LV # Lo       HANGUL SYLLABLE JYU
-        "\dC988",  # ; LV # Lo       HANGUL SYLLABLE JEU
-        "\dC9A4",  # ; LV # Lo       HANGUL SYLLABLE JYI
-        "\dC9C0",  # ; LV # Lo       HANGUL SYLLABLE JI
-        "\dC9DC",  # ; LV # Lo       HANGUL SYLLABLE JJA
-        "\dC9F8",  # ; LV # Lo       HANGUL SYLLABLE JJAE
-        "\dCA14",  # ; LV # Lo       HANGUL SYLLABLE JJYA
-        "\dCA30",  # ; LV # Lo       HANGUL SYLLABLE JJYAE
-        "\dCA4C",  # ; LV # Lo       HANGUL SYLLABLE JJEO
-        "\dCA68",  # ; LV # Lo       HANGUL SYLLABLE JJE
-        "\dCA84",  # ; LV # Lo       HANGUL SYLLABLE JJYEO
-        "\dCAA0",  # ; LV # Lo       HANGUL SYLLABLE JJYE
-        "\dCABC",  # ; LV # Lo       HANGUL SYLLABLE JJO
-        "\dCAD8",  # ; LV # Lo       HANGUL SYLLABLE JJWA
-        "\dCAF4",  # ; LV # Lo       HANGUL SYLLABLE JJWAE
-        "\dCB10",  # ; LV # Lo       HANGUL SYLLABLE JJOE
-        "\dCB2C",  # ; LV # Lo       HANGUL SYLLABLE JJYO
-        "\dCB48",  # ; LV # Lo       HANGUL SYLLABLE JJU
-        "\dCB64",  # ; LV # Lo       HANGUL SYLLABLE JJWEO
-        "\dCB80",  # ; LV # Lo       HANGUL SYLLABLE JJWE
-        "\dCB9C",  # ; LV # Lo       HANGUL SYLLABLE JJWI
-        "\dCBB8",  # ; LV # Lo       HANGUL SYLLABLE JJYU
-        "\dCBD4",  # ; LV # Lo       HANGUL SYLLABLE JJEU
-        "\dCBF0",  # ; LV # Lo       HANGUL SYLLABLE JJYI
-        "\dCC0C",  # ; LV # Lo       HANGUL SYLLABLE JJI
-        "\dCC28",  # ; LV # Lo       HANGUL SYLLABLE CA
-        "\dCC44",  # ; LV # Lo       HANGUL SYLLABLE CAE
-        "\dCC60",  # ; LV # Lo       HANGUL SYLLABLE CYA
-        "\dCC7C",  # ; LV # Lo       HANGUL SYLLABLE CYAE
-        "\dCC98",  # ; LV # Lo       HANGUL SYLLABLE CEO
-        "\dCCB4",  # ; LV # Lo       HANGUL SYLLABLE CE
-        "\dCCD0",  # ; LV # Lo       HANGUL SYLLABLE CYEO
-        "\dCCEC",  # ; LV # Lo       HANGUL SYLLABLE CYE
-        "\dCD08",  # ; LV # Lo       HANGUL SYLLABLE CO
-        "\dCD24",  # ; LV # Lo       HANGUL SYLLABLE CWA
-        "\dCD40",  # ; LV # Lo       HANGUL SYLLABLE CWAE
-        "\dCD5C",  # ; LV # Lo       HANGUL SYLLABLE COE
-        "\dCD78",  # ; LV # Lo       HANGUL SYLLABLE CYO
-        "\dCD94",  # ; LV # Lo       HANGUL SYLLABLE CU
-        "\dCDB0",  # ; LV # Lo       HANGUL SYLLABLE CWEO
-        "\dCDCC",  # ; LV # Lo       HANGUL SYLLABLE CWE
-        "\dCDE8",  # ; LV # Lo       HANGUL SYLLABLE CWI
-        "\dCE04",  # ; LV # Lo       HANGUL SYLLABLE CYU
-        "\dCE20",  # ; LV # Lo       HANGUL SYLLABLE CEU
-        "\dCE3C",  # ; LV # Lo       HANGUL SYLLABLE CYI
-        "\dCE58",  # ; LV # Lo       HANGUL SYLLABLE CI
-        "\dCE74",  # ; LV # Lo       HANGUL SYLLABLE KA
-        "\dCE90",  # ; LV # Lo       HANGUL SYLLABLE KAE
-        "\dCEAC",  # ; LV # Lo       HANGUL SYLLABLE KYA
-        "\dCEC8",  # ; LV # Lo       HANGUL SYLLABLE KYAE
-        "\dCEE4",  # ; LV # Lo       HANGUL SYLLABLE KEO
-        "\dCF00",  # ; LV # Lo       HANGUL SYLLABLE KE
-        "\dCF1C",  # ; LV # Lo       HANGUL SYLLABLE KYEO
-        "\dCF38",  # ; LV # Lo       HANGUL SYLLABLE KYE
-        "\dCF54",  # ; LV # Lo       HANGUL SYLLABLE KO
-        "\dCF70",  # ; LV # Lo       HANGUL SYLLABLE KWA
-        "\dCF8C",  # ; LV # Lo       HANGUL SYLLABLE KWAE
-        "\dCFA8",  # ; LV # Lo       HANGUL SYLLABLE KOE
-        "\dCFC4",  # ; LV # Lo       HANGUL SYLLABLE KYO
-        "\dCFE0",  # ; LV # Lo       HANGUL SYLLABLE KU
-        "\dCFFC",  # ; LV # Lo       HANGUL SYLLABLE KWEO
-        "\dD018",  # ; LV # Lo       HANGUL SYLLABLE KWE
-        "\dD034",  # ; LV # Lo       HANGUL SYLLABLE KWI
-        "\dD050",  # ; LV # Lo       HANGUL SYLLABLE KYU
-        "\dD06C",  # ; LV # Lo       HANGUL SYLLABLE KEU
-        "\dD088",  # ; LV # Lo       HANGUL SYLLABLE KYI
-        "\dD0A4",  # ; LV # Lo       HANGUL SYLLABLE KI
-        "\dD0C0",  # ; LV # Lo       HANGUL SYLLABLE TA
-        "\dD0DC",  # ; LV # Lo       HANGUL SYLLABLE TAE
-        "\dD0F8",  # ; LV # Lo       HANGUL SYLLABLE TYA
-        "\dD114",  # ; LV # Lo       HANGUL SYLLABLE TYAE
-        "\dD130",  # ; LV # Lo       HANGUL SYLLABLE TEO
-        "\dD14C",  # ; LV # Lo       HANGUL SYLLABLE TE
-        "\dD168",  # ; LV # Lo       HANGUL SYLLABLE TYEO
-        "\dD184",  # ; LV # Lo       HANGUL SYLLABLE TYE
-        "\dD1A0",  # ; LV # Lo       HANGUL SYLLABLE TO
-        "\dD1BC",  # ; LV # Lo       HANGUL SYLLABLE TWA
-        "\dD1D8",  # ; LV # Lo       HANGUL SYLLABLE TWAE
-        "\dD1F4",  # ; LV # Lo       HANGUL SYLLABLE TOE
-        "\dD210",  # ; LV # Lo       HANGUL SYLLABLE TYO
-        "\dD22C",  # ; LV # Lo       HANGUL SYLLABLE TU
-        "\dD248",  # ; LV # Lo       HANGUL SYLLABLE TWEO
-        "\dD264",  # ; LV # Lo       HANGUL SYLLABLE TWE
-        "\dD280",  # ; LV # Lo       HANGUL SYLLABLE TWI
-        "\dD29C",  # ; LV # Lo       HANGUL SYLLABLE TYU
-        "\dD2B8",  # ; LV # Lo       HANGUL SYLLABLE TEU
-        "\dD2D4",  # ; LV # Lo       HANGUL SYLLABLE TYI
-        "\dD2F0",  # ; LV # Lo       HANGUL SYLLABLE TI
-        "\dD30C",  # ; LV # Lo       HANGUL SYLLABLE PA
-        "\dD328",  # ; LV # Lo       HANGUL SYLLABLE PAE
-        "\dD344",  # ; LV # Lo       HANGUL SYLLABLE PYA
-        "\dD360",  # ; LV # Lo       HANGUL SYLLABLE PYAE
-        "\dD37C",  # ; LV # Lo       HANGUL SYLLABLE PEO
-        "\dD398",  # ; LV # Lo       HANGUL SYLLABLE PE
-        "\dD3B4",  # ; LV # Lo       HANGUL SYLLABLE PYEO
-        "\dD3D0",  # ; LV # Lo       HANGUL SYLLABLE PYE
-        "\dD3EC",  # ; LV # Lo       HANGUL SYLLABLE PO
-        "\dD408",  # ; LV # Lo       HANGUL SYLLABLE PWA
-        "\dD424",  # ; LV # Lo       HANGUL SYLLABLE PWAE
-        "\dD440",  # ; LV # Lo       HANGUL SYLLABLE POE
-        "\dD45C",  # ; LV # Lo       HANGUL SYLLABLE PYO
-        "\dD478",  # ; LV # Lo       HANGUL SYLLABLE PU
-        "\dD494",  # ; LV # Lo       HANGUL SYLLABLE PWEO
-        "\dD4B0",  # ; LV # Lo       HANGUL SYLLABLE PWE
-        "\dD4CC",  # ; LV # Lo       HANGUL SYLLABLE PWI
-        "\dD4E8",  # ; LV # Lo       HANGUL SYLLABLE PYU
-        "\dD504",  # ; LV # Lo       HANGUL SYLLABLE PEU
-        "\dD520",  # ; LV # Lo       HANGUL SYLLABLE PYI
-        "\dD53C",  # ; LV # Lo       HANGUL SYLLABLE PI
-        "\dD558",  # ; LV # Lo       HANGUL SYLLABLE HA
-        "\dD574",  # ; LV # Lo       HANGUL SYLLABLE HAE
-        "\dD590",  # ; LV # Lo       HANGUL SYLLABLE HYA
-        "\dD5AC",  # ; LV # Lo       HANGUL SYLLABLE HYAE
-        "\dD5C8",  # ; LV # Lo       HANGUL SYLLABLE HEO
-        "\dD5E4",  # ; LV # Lo       HANGUL SYLLABLE HE
-        "\dD600",  # ; LV # Lo       HANGUL SYLLABLE HYEO
-        "\dD61C",  # ; LV # Lo       HANGUL SYLLABLE HYE
-        "\dD638",  # ; LV # Lo       HANGUL SYLLABLE HO
-        "\dD654",  # ; LV # Lo       HANGUL SYLLABLE HWA
-        "\dD670",  # ; LV # Lo       HANGUL SYLLABLE HWAE
-        "\dD68C",  # ; LV # Lo       HANGUL SYLLABLE HOE
-        "\dD6A8",  # ; LV # Lo       HANGUL SYLLABLE HYO
-        "\dD6C4",  # ; LV # Lo       HANGUL SYLLABLE HU
-        "\dD6E0",  # ; LV # Lo       HANGUL SYLLABLE HWEO
-        "\dD6FC",  # ; LV # Lo       HANGUL SYLLABLE HWE
-        "\dD718",  # ; LV # Lo       HANGUL SYLLABLE HWI
-        "\dD734",  # ; LV # Lo       HANGUL SYLLABLE HYU
-        "\dD750",  # ; LV # Lo       HANGUL SYLLABLE HEU
-        "\dD76C",  # ; LV # Lo       HANGUL SYLLABLE HYI
-        "\dD788",  # ; LV # Lo       HANGUL SYLLABLE HI
-        "\dac01","\dac02","\dac03","\dac04","\dac05","\dac06","\dac07","\dac08","\dac09","\dac0a","\dac0b","\dac0c","\dac0d","\dac0e","\dac0f","\dac10","\dac11","\dac12","\dac13","\dac14","\dac15","\dac16","\dac17","\dac18","\dac19","\dac1a","\dac1b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GAG..HANGUL SYLLABLE GAH
-        "\dac1d","\dac1e","\dac1f","\dac20","\dac21","\dac22","\dac23","\dac24","\dac25","\dac26","\dac27","\dac28","\dac29","\dac2a","\dac2b","\dac2c","\dac2d","\dac2e","\dac2f","\dac30","\dac31","\dac32","\dac33","\dac34","\dac35","\dac36","\dac37",  # ; LVT # Lo  [27] HANGUL SYLLABLE GAEG..HANGUL SYLLABLE GAEH
-        "\dac39","\dac3a","\dac3b","\dac3c","\dac3d","\dac3e","\dac3f","\dac40","\dac41","\dac42","\dac43","\dac44","\dac45","\dac46","\dac47","\dac48","\dac49","\dac4a","\dac4b","\dac4c","\dac4d","\dac4e","\dac4f","\dac50","\dac51","\dac52","\dac53",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYAG..HANGUL SYLLABLE GYAH
-        "\dac55","\dac56","\dac57","\dac58","\dac59","\dac5a","\dac5b","\dac5c","\dac5d","\dac5e","\dac5f","\dac60","\dac61","\dac62","\dac63","\dac64","\dac65","\dac66","\dac67","\dac68","\dac69","\dac6a","\dac6b","\dac6c","\dac6d","\dac6e","\dac6f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYAEG..HANGUL SYLLABLE GYAEH
-        "\dac71","\dac72","\dac73","\dac74","\dac75","\dac76","\dac77","\dac78","\dac79","\dac7a","\dac7b","\dac7c","\dac7d","\dac7e","\dac7f","\dac80","\dac81","\dac82","\dac83","\dac84","\dac85","\dac86","\dac87","\dac88","\dac89","\dac8a","\dac8b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GEOG..HANGUL SYLLABLE GEOH
-        "\dac8d","\dac8e","\dac8f","\dac90","\dac91","\dac92","\dac93","\dac94","\dac95","\dac96","\dac97","\dac98","\dac99","\dac9a","\dac9b","\dac9c","\dac9d","\dac9e","\dac9f","\daca0","\daca1","\daca2","\daca3","\daca4","\daca5","\daca6","\daca7",  # ; LVT # Lo  [27] HANGUL SYLLABLE GEG..HANGUL SYLLABLE GEH
-        "\daca9","\dacaa","\dacab","\dacac","\dacad","\dacae","\dacaf","\dacb0","\dacb1","\dacb2","\dacb3","\dacb4","\dacb5","\dacb6","\dacb7","\dacb8","\dacb9","\dacba","\dacbb","\dacbc","\dacbd","\dacbe","\dacbf","\dacc0","\dacc1","\dacc2","\dacc3",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYEOG..HANGUL SYLLABLE GYEOH
-        "\dacc5","\dacc6","\dacc7","\dacc8","\dacc9","\dacca","\daccb","\daccc","\daccd","\dacce","\daccf","\dacd0","\dacd1","\dacd2","\dacd3","\dacd4","\dacd5","\dacd6","\dacd7","\dacd8","\dacd9","\dacda","\dacdb","\dacdc","\dacdd","\dacde","\dacdf",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYEG..HANGUL SYLLABLE GYEH
-        "\dace1","\dace2","\dace3","\dace4","\dace5","\dace6","\dace7","\dace8","\dace9","\dacea","\daceb","\dacec","\daced","\dacee","\dacef","\dacf0","\dacf1","\dacf2","\dacf3","\dacf4","\dacf5","\dacf6","\dacf7","\dacf8","\dacf9","\dacfa","\dacfb",  # ; LVT # Lo  [27] HANGUL SYLLABLE GOG..HANGUL SYLLABLE GOH
-        "\dacfd","\dacfe","\dacff","\dad00","\dad01","\dad02","\dad03","\dad04","\dad05","\dad06","\dad07","\dad08","\dad09","\dad0a","\dad0b","\dad0c","\dad0d","\dad0e","\dad0f","\dad10","\dad11","\dad12","\dad13","\dad14","\dad15","\dad16","\dad17",  # ; LVT # Lo  [27] HANGUL SYLLABLE GWAG..HANGUL SYLLABLE GWAH
-        "\dad19","\dad1a","\dad1b","\dad1c","\dad1d","\dad1e","\dad1f","\dad20","\dad21","\dad22","\dad23","\dad24","\dad25","\dad26","\dad27","\dad28","\dad29","\dad2a","\dad2b","\dad2c","\dad2d","\dad2e","\dad2f","\dad30","\dad31","\dad32","\dad33",  # ; LVT # Lo  [27] HANGUL SYLLABLE GWAEG..HANGUL SYLLABLE GWAEH
-        "\dad35","\dad36","\dad37","\dad38","\dad39","\dad3a","\dad3b","\dad3c","\dad3d","\dad3e","\dad3f","\dad40","\dad41","\dad42","\dad43","\dad44","\dad45","\dad46","\dad47","\dad48","\dad49","\dad4a","\dad4b","\dad4c","\dad4d","\dad4e","\dad4f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GOEG..HANGUL SYLLABLE GOEH
-        "\dad51","\dad52","\dad53","\dad54","\dad55","\dad56","\dad57","\dad58","\dad59","\dad5a","\dad5b","\dad5c","\dad5d","\dad5e","\dad5f","\dad60","\dad61","\dad62","\dad63","\dad64","\dad65","\dad66","\dad67","\dad68","\dad69","\dad6a","\dad6b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYOG..HANGUL SYLLABLE GYOH
-        "\dad6d","\dad6e","\dad6f","\dad70","\dad71","\dad72","\dad73","\dad74","\dad75","\dad76","\dad77","\dad78","\dad79","\dad7a","\dad7b","\dad7c","\dad7d","\dad7e","\dad7f","\dad80","\dad81","\dad82","\dad83","\dad84","\dad85","\dad86","\dad87",  # ; LVT # Lo  [27] HANGUL SYLLABLE GUG..HANGUL SYLLABLE GUH
-        "\dad89","\dad8a","\dad8b","\dad8c","\dad8d","\dad8e","\dad8f","\dad90","\dad91","\dad92","\dad93","\dad94","\dad95","\dad96","\dad97","\dad98","\dad99","\dad9a","\dad9b","\dad9c","\dad9d","\dad9e","\dad9f","\dada0","\dada1","\dada2","\dada3",  # ; LVT # Lo  [27] HANGUL SYLLABLE GWEOG..HANGUL SYLLABLE GWEOH
-        "\dada5","\dada6","\dada7","\dada8","\dada9","\dadaa","\dadab","\dadac","\dadad","\dadae","\dadaf","\dadb0","\dadb1","\dadb2","\dadb3","\dadb4","\dadb5","\dadb6","\dadb7","\dadb8","\dadb9","\dadba","\dadbb","\dadbc","\dadbd","\dadbe","\dadbf",  # ; LVT # Lo  [27] HANGUL SYLLABLE GWEG..HANGUL SYLLABLE GWEH
-        "\dadc1","\dadc2","\dadc3","\dadc4","\dadc5","\dadc6","\dadc7","\dadc8","\dadc9","\dadca","\dadcb","\dadcc","\dadcd","\dadce","\dadcf","\dadd0","\dadd1","\dadd2","\dadd3","\dadd4","\dadd5","\dadd6","\dadd7","\dadd8","\dadd9","\dadda","\daddb",  # ; LVT # Lo  [27] HANGUL SYLLABLE GWIG..HANGUL SYLLABLE GWIH
-        "\daddd","\dadde","\daddf","\dade0","\dade1","\dade2","\dade3","\dade4","\dade5","\dade6","\dade7","\dade8","\dade9","\dadea","\dadeb","\dadec","\daded","\dadee","\dadef","\dadf0","\dadf1","\dadf2","\dadf3","\dadf4","\dadf5","\dadf6","\dadf7",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYUG..HANGUL SYLLABLE GYUH
-        "\dadf9","\dadfa","\dadfb","\dadfc","\dadfd","\dadfe","\dadff","\dae00","\dae01","\dae02","\dae03","\dae04","\dae05","\dae06","\dae07","\dae08","\dae09","\dae0a","\dae0b","\dae0c","\dae0d","\dae0e","\dae0f","\dae10","\dae11","\dae12","\dae13",  # ; LVT # Lo  [27] HANGUL SYLLABLE GEUG..HANGUL SYLLABLE GEUH
-        "\dae15","\dae16","\dae17","\dae18","\dae19","\dae1a","\dae1b","\dae1c","\dae1d","\dae1e","\dae1f","\dae20","\dae21","\dae22","\dae23","\dae24","\dae25","\dae26","\dae27","\dae28","\dae29","\dae2a","\dae2b","\dae2c","\dae2d","\dae2e","\dae2f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYIG..HANGUL SYLLABLE GYIH
-        "\dae31","\dae32","\dae33","\dae34","\dae35","\dae36","\dae37","\dae38","\dae39","\dae3a","\dae3b","\dae3c","\dae3d","\dae3e","\dae3f","\dae40","\dae41","\dae42","\dae43","\dae44","\dae45","\dae46","\dae47","\dae48","\dae49","\dae4a","\dae4b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GIG..HANGUL SYLLABLE GIH
-        "\dae4d","\dae4e","\dae4f","\dae50","\dae51","\dae52","\dae53","\dae54","\dae55","\dae56","\dae57","\dae58","\dae59","\dae5a","\dae5b","\dae5c","\dae5d","\dae5e","\dae5f","\dae60","\dae61","\dae62","\dae63","\dae64","\dae65","\dae66","\dae67",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGAG..HANGUL SYLLABLE GGAH
-        "\dae69","\dae6a","\dae6b","\dae6c","\dae6d","\dae6e","\dae6f","\dae70","\dae71","\dae72","\dae73","\dae74","\dae75","\dae76","\dae77","\dae78","\dae79","\dae7a","\dae7b","\dae7c","\dae7d","\dae7e","\dae7f","\dae80","\dae81","\dae82","\dae83",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGAEG..HANGUL SYLLABLE GGAEH
-        "\dae85","\dae86","\dae87","\dae88","\dae89","\dae8a","\dae8b","\dae8c","\dae8d","\dae8e","\dae8f","\dae90","\dae91","\dae92","\dae93","\dae94","\dae95","\dae96","\dae97","\dae98","\dae99","\dae9a","\dae9b","\dae9c","\dae9d","\dae9e","\dae9f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYAG..HANGUL SYLLABLE GGYAH
-        "\daea1","\daea2","\daea3","\daea4","\daea5","\daea6","\daea7","\daea8","\daea9","\daeaa","\daeab","\daeac","\daead","\daeae","\daeaf","\daeb0","\daeb1","\daeb2","\daeb3","\daeb4","\daeb5","\daeb6","\daeb7","\daeb8","\daeb9","\daeba","\daebb",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYAEG..HANGUL SYLLABLE GGYAEH
-        "\daebd","\daebe","\daebf","\daec0","\daec1","\daec2","\daec3","\daec4","\daec5","\daec6","\daec7","\daec8","\daec9","\daeca","\daecb","\daecc","\daecd","\daece","\daecf","\daed0","\daed1","\daed2","\daed3","\daed4","\daed5","\daed6","\daed7",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGEOG..HANGUL SYLLABLE GGEOH
-        "\daed9","\daeda","\daedb","\daedc","\daedd","\daede","\daedf","\daee0","\daee1","\daee2","\daee3","\daee4","\daee5","\daee6","\daee7","\daee8","\daee9","\daeea","\daeeb","\daeec","\daeed","\daeee","\daeef","\daef0","\daef1","\daef2","\daef3",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGEG..HANGUL SYLLABLE GGEH
-        "\daef5","\daef6","\daef7","\daef8","\daef9","\daefa","\daefb","\daefc","\daefd","\daefe","\daeff","\daf00","\daf01","\daf02","\daf03","\daf04","\daf05","\daf06","\daf07","\daf08","\daf09","\daf0a","\daf0b","\daf0c","\daf0d","\daf0e","\daf0f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYEOG..HANGUL SYLLABLE GGYEOH
-        "\daf11","\daf12","\daf13","\daf14","\daf15","\daf16","\daf17","\daf18","\daf19","\daf1a","\daf1b","\daf1c","\daf1d","\daf1e","\daf1f","\daf20","\daf21","\daf22","\daf23","\daf24","\daf25","\daf26","\daf27","\daf28","\daf29","\daf2a","\daf2b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYEG..HANGUL SYLLABLE GGYEH
-        "\daf2d","\daf2e","\daf2f","\daf30","\daf31","\daf32","\daf33","\daf34","\daf35","\daf36","\daf37","\daf38","\daf39","\daf3a","\daf3b","\daf3c","\daf3d","\daf3e","\daf3f","\daf40","\daf41","\daf42","\daf43","\daf44","\daf45","\daf46","\daf47",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGOG..HANGUL SYLLABLE GGOH
-        "\daf49","\daf4a","\daf4b","\daf4c","\daf4d","\daf4e","\daf4f","\daf50","\daf51","\daf52","\daf53","\daf54","\daf55","\daf56","\daf57","\daf58","\daf59","\daf5a","\daf5b","\daf5c","\daf5d","\daf5e","\daf5f","\daf60","\daf61","\daf62","\daf63",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGWAG..HANGUL SYLLABLE GGWAH
-        "\daf65","\daf66","\daf67","\daf68","\daf69","\daf6a","\daf6b","\daf6c","\daf6d","\daf6e","\daf6f","\daf70","\daf71","\daf72","\daf73","\daf74","\daf75","\daf76","\daf77","\daf78","\daf79","\daf7a","\daf7b","\daf7c","\daf7d","\daf7e","\daf7f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGWAEG..HANGUL SYLLABLE GGWAEH
-        "\daf81","\daf82","\daf83","\daf84","\daf85","\daf86","\daf87","\daf88","\daf89","\daf8a","\daf8b","\daf8c","\daf8d","\daf8e","\daf8f","\daf90","\daf91","\daf92","\daf93","\daf94","\daf95","\daf96","\daf97","\daf98","\daf99","\daf9a","\daf9b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGOEG..HANGUL SYLLABLE GGOEH
-        "\daf9d","\daf9e","\daf9f","\dafa0","\dafa1","\dafa2","\dafa3","\dafa4","\dafa5","\dafa6","\dafa7","\dafa8","\dafa9","\dafaa","\dafab","\dafac","\dafad","\dafae","\dafaf","\dafb0","\dafb1","\dafb2","\dafb3","\dafb4","\dafb5","\dafb6","\dafb7",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYOG..HANGUL SYLLABLE GGYOH
-        "\dafb9","\dafba","\dafbb","\dafbc","\dafbd","\dafbe","\dafbf","\dafc0","\dafc1","\dafc2","\dafc3","\dafc4","\dafc5","\dafc6","\dafc7","\dafc8","\dafc9","\dafca","\dafcb","\dafcc","\dafcd","\dafce","\dafcf","\dafd0","\dafd1","\dafd2","\dafd3",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGUG..HANGUL SYLLABLE GGUH
-        "\dafd5","\dafd6","\dafd7","\dafd8","\dafd9","\dafda","\dafdb","\dafdc","\dafdd","\dafde","\dafdf","\dafe0","\dafe1","\dafe2","\dafe3","\dafe4","\dafe5","\dafe6","\dafe7","\dafe8","\dafe9","\dafea","\dafeb","\dafec","\dafed","\dafee","\dafef",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGWEOG..HANGUL SYLLABLE GGWEOH
-        "\daff1","\daff2","\daff3","\daff4","\daff5","\daff6","\daff7","\daff8","\daff9","\daffa","\daffb","\daffc","\daffd","\daffe","\dafff","\db000","\db001","\db002","\db003","\db004","\db005","\db006","\db007","\db008","\db009","\db00a","\db00b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGWEG..HANGUL SYLLABLE GGWEH
-        "\db00d","\db00e","\db00f","\db010","\db011","\db012","\db013","\db014","\db015","\db016","\db017","\db018","\db019","\db01a","\db01b","\db01c","\db01d","\db01e","\db01f","\db020","\db021","\db022","\db023","\db024","\db025","\db026","\db027",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGWIG..HANGUL SYLLABLE GGWIH
-        "\db029","\db02a","\db02b","\db02c","\db02d","\db02e","\db02f","\db030","\db031","\db032","\db033","\db034","\db035","\db036","\db037","\db038","\db039","\db03a","\db03b","\db03c","\db03d","\db03e","\db03f","\db040","\db041","\db042","\db043",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYUG..HANGUL SYLLABLE GGYUH
-        "\db045","\db046","\db047","\db048","\db049","\db04a","\db04b","\db04c","\db04d","\db04e","\db04f","\db050","\db051","\db052","\db053","\db054","\db055","\db056","\db057","\db058","\db059","\db05a","\db05b","\db05c","\db05d","\db05e","\db05f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGEUG..HANGUL SYLLABLE GGEUH
-        "\db061","\db062","\db063","\db064","\db065","\db066","\db067","\db068","\db069","\db06a","\db06b","\db06c","\db06d","\db06e","\db06f","\db070","\db071","\db072","\db073","\db074","\db075","\db076","\db077","\db078","\db079","\db07a","\db07b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYIG..HANGUL SYLLABLE GGYIH
-        "\db07d","\db07e","\db07f","\db080","\db081","\db082","\db083","\db084","\db085","\db086","\db087","\db088","\db089","\db08a","\db08b","\db08c","\db08d","\db08e","\db08f","\db090","\db091","\db092","\db093","\db094","\db095","\db096","\db097",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGIG..HANGUL SYLLABLE GGIH
-        "\db099","\db09a","\db09b","\db09c","\db09d","\db09e","\db09f","\db0a0","\db0a1","\db0a2","\db0a3","\db0a4","\db0a5","\db0a6","\db0a7","\db0a8","\db0a9","\db0aa","\db0ab","\db0ac","\db0ad","\db0ae","\db0af","\db0b0","\db0b1","\db0b2","\db0b3",  # ; LVT # Lo  [27] HANGUL SYLLABLE NAG..HANGUL SYLLABLE NAH
-        "\db0b5","\db0b6","\db0b7","\db0b8","\db0b9","\db0ba","\db0bb","\db0bc","\db0bd","\db0be","\db0bf","\db0c0","\db0c1","\db0c2","\db0c3","\db0c4","\db0c5","\db0c6","\db0c7","\db0c8","\db0c9","\db0ca","\db0cb","\db0cc","\db0cd","\db0ce","\db0cf",  # ; LVT # Lo  [27] HANGUL SYLLABLE NAEG..HANGUL SYLLABLE NAEH
-        "\db0d1","\db0d2","\db0d3","\db0d4","\db0d5","\db0d6","\db0d7","\db0d8","\db0d9","\db0da","\db0db","\db0dc","\db0dd","\db0de","\db0df","\db0e0","\db0e1","\db0e2","\db0e3","\db0e4","\db0e5","\db0e6","\db0e7","\db0e8","\db0e9","\db0ea","\db0eb",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYAG..HANGUL SYLLABLE NYAH
-        "\db0ed","\db0ee","\db0ef","\db0f0","\db0f1","\db0f2","\db0f3","\db0f4","\db0f5","\db0f6","\db0f7","\db0f8","\db0f9","\db0fa","\db0fb","\db0fc","\db0fd","\db0fe","\db0ff","\db100","\db101","\db102","\db103","\db104","\db105","\db106","\db107",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYAEG..HANGUL SYLLABLE NYAEH
-        "\db109","\db10a","\db10b","\db10c","\db10d","\db10e","\db10f","\db110","\db111","\db112","\db113","\db114","\db115","\db116","\db117","\db118","\db119","\db11a","\db11b","\db11c","\db11d","\db11e","\db11f","\db120","\db121","\db122","\db123",  # ; LVT # Lo  [27] HANGUL SYLLABLE NEOG..HANGUL SYLLABLE NEOH
-        "\db125","\db126","\db127","\db128","\db129","\db12a","\db12b","\db12c","\db12d","\db12e","\db12f","\db130","\db131","\db132","\db133","\db134","\db135","\db136","\db137","\db138","\db139","\db13a","\db13b","\db13c","\db13d","\db13e","\db13f",  # ; LVT # Lo  [27] HANGUL SYLLABLE NEG..HANGUL SYLLABLE NEH
-        "\db141","\db142","\db143","\db144","\db145","\db146","\db147","\db148","\db149","\db14a","\db14b","\db14c","\db14d","\db14e","\db14f","\db150","\db151","\db152","\db153","\db154","\db155","\db156","\db157","\db158","\db159","\db15a","\db15b",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYEOG..HANGUL SYLLABLE NYEOH
-        "\db15d","\db15e","\db15f","\db160","\db161","\db162","\db163","\db164","\db165","\db166","\db167","\db168","\db169","\db16a","\db16b","\db16c","\db16d","\db16e","\db16f","\db170","\db171","\db172","\db173","\db174","\db175","\db176","\db177",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYEG..HANGUL SYLLABLE NYEH
-        "\db179","\db17a","\db17b","\db17c","\db17d","\db17e","\db17f","\db180","\db181","\db182","\db183","\db184","\db185","\db186","\db187","\db188","\db189","\db18a","\db18b","\db18c","\db18d","\db18e","\db18f","\db190","\db191","\db192","\db193",  # ; LVT # Lo  [27] HANGUL SYLLABLE NOG..HANGUL SYLLABLE NOH
-        "\db195","\db196","\db197","\db198","\db199","\db19a","\db19b","\db19c","\db19d","\db19e","\db19f","\db1a0","\db1a1","\db1a2","\db1a3","\db1a4","\db1a5","\db1a6","\db1a7","\db1a8","\db1a9","\db1aa","\db1ab","\db1ac","\db1ad","\db1ae","\db1af",  # ; LVT # Lo  [27] HANGUL SYLLABLE NWAG..HANGUL SYLLABLE NWAH
-        "\db1b1","\db1b2","\db1b3","\db1b4","\db1b5","\db1b6","\db1b7","\db1b8","\db1b9","\db1ba","\db1bb","\db1bc","\db1bd","\db1be","\db1bf","\db1c0","\db1c1","\db1c2","\db1c3","\db1c4","\db1c5","\db1c6","\db1c7","\db1c8","\db1c9","\db1ca","\db1cb",  # ; LVT # Lo  [27] HANGUL SYLLABLE NWAEG..HANGUL SYLLABLE NWAEH
-        "\db1cd","\db1ce","\db1cf","\db1d0","\db1d1","\db1d2","\db1d3","\db1d4","\db1d5","\db1d6","\db1d7","\db1d8","\db1d9","\db1da","\db1db","\db1dc","\db1dd","\db1de","\db1df","\db1e0","\db1e1","\db1e2","\db1e3","\db1e4","\db1e5","\db1e6","\db1e7",  # ; LVT # Lo  [27] HANGUL SYLLABLE NOEG..HANGUL SYLLABLE NOEH
-        "\db1e9","\db1ea","\db1eb","\db1ec","\db1ed","\db1ee","\db1ef","\db1f0","\db1f1","\db1f2","\db1f3","\db1f4","\db1f5","\db1f6","\db1f7","\db1f8","\db1f9","\db1fa","\db1fb","\db1fc","\db1fd","\db1fe","\db1ff","\db200","\db201","\db202","\db203",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYOG..HANGUL SYLLABLE NYOH
-        "\db205","\db206","\db207","\db208","\db209","\db20a","\db20b","\db20c","\db20d","\db20e","\db20f","\db210","\db211","\db212","\db213","\db214","\db215","\db216","\db217","\db218","\db219","\db21a","\db21b","\db21c","\db21d","\db21e","\db21f",  # ; LVT # Lo  [27] HANGUL SYLLABLE NUG..HANGUL SYLLABLE NUH
-        "\db221","\db222","\db223","\db224","\db225","\db226","\db227","\db228","\db229","\db22a","\db22b","\db22c","\db22d","\db22e","\db22f","\db230","\db231","\db232","\db233","\db234","\db235","\db236","\db237","\db238","\db239","\db23a","\db23b",  # ; LVT # Lo  [27] HANGUL SYLLABLE NWEOG..HANGUL SYLLABLE NWEOH
-        "\db23d","\db23e","\db23f","\db240","\db241","\db242","\db243","\db244","\db245","\db246","\db247","\db248","\db249","\db24a","\db24b","\db24c","\db24d","\db24e","\db24f","\db250","\db251","\db252","\db253","\db254","\db255","\db256","\db257",  # ; LVT # Lo  [27] HANGUL SYLLABLE NWEG..HANGUL SYLLABLE NWEH
-        "\db259","\db25a","\db25b","\db25c","\db25d","\db25e","\db25f","\db260","\db261","\db262","\db263","\db264","\db265","\db266","\db267","\db268","\db269","\db26a","\db26b","\db26c","\db26d","\db26e","\db26f","\db270","\db271","\db272","\db273",  # ; LVT # Lo  [27] HANGUL SYLLABLE NWIG..HANGUL SYLLABLE NWIH
-        "\db275","\db276","\db277","\db278","\db279","\db27a","\db27b","\db27c","\db27d","\db27e","\db27f","\db280","\db281","\db282","\db283","\db284","\db285","\db286","\db287","\db288","\db289","\db28a","\db28b","\db28c","\db28d","\db28e","\db28f",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYUG..HANGUL SYLLABLE NYUH
-        "\db291","\db292","\db293","\db294","\db295","\db296","\db297","\db298","\db299","\db29a","\db29b","\db29c","\db29d","\db29e","\db29f","\db2a0","\db2a1","\db2a2","\db2a3","\db2a4","\db2a5","\db2a6","\db2a7","\db2a8","\db2a9","\db2aa","\db2ab",  # ; LVT # Lo  [27] HANGUL SYLLABLE NEUG..HANGUL SYLLABLE NEUH
-        "\db2ad","\db2ae","\db2af","\db2b0","\db2b1","\db2b2","\db2b3","\db2b4","\db2b5","\db2b6","\db2b7","\db2b8","\db2b9","\db2ba","\db2bb","\db2bc","\db2bd","\db2be","\db2bf","\db2c0","\db2c1","\db2c2","\db2c3","\db2c4","\db2c5","\db2c6","\db2c7",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYIG..HANGUL SYLLABLE NYIH
-        "\db2c9","\db2ca","\db2cb","\db2cc","\db2cd","\db2ce","\db2cf","\db2d0","\db2d1","\db2d2","\db2d3","\db2d4","\db2d5","\db2d6","\db2d7","\db2d8","\db2d9","\db2da","\db2db","\db2dc","\db2dd","\db2de","\db2df","\db2e0","\db2e1","\db2e2","\db2e3",  # ; LVT # Lo  [27] HANGUL SYLLABLE NIG..HANGUL SYLLABLE NIH
-        "\db2e5","\db2e6","\db2e7","\db2e8","\db2e9","\db2ea","\db2eb","\db2ec","\db2ed","\db2ee","\db2ef","\db2f0","\db2f1","\db2f2","\db2f3","\db2f4","\db2f5","\db2f6","\db2f7","\db2f8","\db2f9","\db2fa","\db2fb","\db2fc","\db2fd","\db2fe","\db2ff",  # ; LVT # Lo  [27] HANGUL SYLLABLE DAG..HANGUL SYLLABLE DAH
-        "\db301","\db302","\db303","\db304","\db305","\db306","\db307","\db308","\db309","\db30a","\db30b","\db30c","\db30d","\db30e","\db30f","\db310","\db311","\db312","\db313","\db314","\db315","\db316","\db317","\db318","\db319","\db31a","\db31b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DAEG..HANGUL SYLLABLE DAEH
-        "\db31d","\db31e","\db31f","\db320","\db321","\db322","\db323","\db324","\db325","\db326","\db327","\db328","\db329","\db32a","\db32b","\db32c","\db32d","\db32e","\db32f","\db330","\db331","\db332","\db333","\db334","\db335","\db336","\db337",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYAG..HANGUL SYLLABLE DYAH
-        "\db339","\db33a","\db33b","\db33c","\db33d","\db33e","\db33f","\db340","\db341","\db342","\db343","\db344","\db345","\db346","\db347","\db348","\db349","\db34a","\db34b","\db34c","\db34d","\db34e","\db34f","\db350","\db351","\db352","\db353",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYAEG..HANGUL SYLLABLE DYAEH
-        "\db355","\db356","\db357","\db358","\db359","\db35a","\db35b","\db35c","\db35d","\db35e","\db35f","\db360","\db361","\db362","\db363","\db364","\db365","\db366","\db367","\db368","\db369","\db36a","\db36b","\db36c","\db36d","\db36e","\db36f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DEOG..HANGUL SYLLABLE DEOH
-        "\db371","\db372","\db373","\db374","\db375","\db376","\db377","\db378","\db379","\db37a","\db37b","\db37c","\db37d","\db37e","\db37f","\db380","\db381","\db382","\db383","\db384","\db385","\db386","\db387","\db388","\db389","\db38a","\db38b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DEG..HANGUL SYLLABLE DEH
-        "\db38d","\db38e","\db38f","\db390","\db391","\db392","\db393","\db394","\db395","\db396","\db397","\db398","\db399","\db39a","\db39b","\db39c","\db39d","\db39e","\db39f","\db3a0","\db3a1","\db3a2","\db3a3","\db3a4","\db3a5","\db3a6","\db3a7",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYEOG..HANGUL SYLLABLE DYEOH
-        "\db3a9","\db3aa","\db3ab","\db3ac","\db3ad","\db3ae","\db3af","\db3b0","\db3b1","\db3b2","\db3b3","\db3b4","\db3b5","\db3b6","\db3b7","\db3b8","\db3b9","\db3ba","\db3bb","\db3bc","\db3bd","\db3be","\db3bf","\db3c0","\db3c1","\db3c2","\db3c3",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYEG..HANGUL SYLLABLE DYEH
-        "\db3c5","\db3c6","\db3c7","\db3c8","\db3c9","\db3ca","\db3cb","\db3cc","\db3cd","\db3ce","\db3cf","\db3d0","\db3d1","\db3d2","\db3d3","\db3d4","\db3d5","\db3d6","\db3d7","\db3d8","\db3d9","\db3da","\db3db","\db3dc","\db3dd","\db3de","\db3df",  # ; LVT # Lo  [27] HANGUL SYLLABLE DOG..HANGUL SYLLABLE DOH
-        "\db3e1","\db3e2","\db3e3","\db3e4","\db3e5","\db3e6","\db3e7","\db3e8","\db3e9","\db3ea","\db3eb","\db3ec","\db3ed","\db3ee","\db3ef","\db3f0","\db3f1","\db3f2","\db3f3","\db3f4","\db3f5","\db3f6","\db3f7","\db3f8","\db3f9","\db3fa","\db3fb",  # ; LVT # Lo  [27] HANGUL SYLLABLE DWAG..HANGUL SYLLABLE DWAH
-        "\db3fd","\db3fe","\db3ff","\db400","\db401","\db402","\db403","\db404","\db405","\db406","\db407","\db408","\db409","\db40a","\db40b","\db40c","\db40d","\db40e","\db40f","\db410","\db411","\db412","\db413","\db414","\db415","\db416","\db417",  # ; LVT # Lo  [27] HANGUL SYLLABLE DWAEG..HANGUL SYLLABLE DWAEH
-        "\db419","\db41a","\db41b","\db41c","\db41d","\db41e","\db41f","\db420","\db421","\db422","\db423","\db424","\db425","\db426","\db427","\db428","\db429","\db42a","\db42b","\db42c","\db42d","\db42e","\db42f","\db430","\db431","\db432","\db433",  # ; LVT # Lo  [27] HANGUL SYLLABLE DOEG..HANGUL SYLLABLE DOEH
-        "\db435","\db436","\db437","\db438","\db439","\db43a","\db43b","\db43c","\db43d","\db43e","\db43f","\db440","\db441","\db442","\db443","\db444","\db445","\db446","\db447","\db448","\db449","\db44a","\db44b","\db44c","\db44d","\db44e","\db44f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYOG..HANGUL SYLLABLE DYOH
-        "\db451","\db452","\db453","\db454","\db455","\db456","\db457","\db458","\db459","\db45a","\db45b","\db45c","\db45d","\db45e","\db45f","\db460","\db461","\db462","\db463","\db464","\db465","\db466","\db467","\db468","\db469","\db46a","\db46b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DUG..HANGUL SYLLABLE DUH
-        "\db46d","\db46e","\db46f","\db470","\db471","\db472","\db473","\db474","\db475","\db476","\db477","\db478","\db479","\db47a","\db47b","\db47c","\db47d","\db47e","\db47f","\db480","\db481","\db482","\db483","\db484","\db485","\db486","\db487",  # ; LVT # Lo  [27] HANGUL SYLLABLE DWEOG..HANGUL SYLLABLE DWEOH
-        "\db489","\db48a","\db48b","\db48c","\db48d","\db48e","\db48f","\db490","\db491","\db492","\db493","\db494","\db495","\db496","\db497","\db498","\db499","\db49a","\db49b","\db49c","\db49d","\db49e","\db49f","\db4a0","\db4a1","\db4a2","\db4a3",  # ; LVT # Lo  [27] HANGUL SYLLABLE DWEG..HANGUL SYLLABLE DWEH
-        "\db4a5","\db4a6","\db4a7","\db4a8","\db4a9","\db4aa","\db4ab","\db4ac","\db4ad","\db4ae","\db4af","\db4b0","\db4b1","\db4b2","\db4b3","\db4b4","\db4b5","\db4b6","\db4b7","\db4b8","\db4b9","\db4ba","\db4bb","\db4bc","\db4bd","\db4be","\db4bf",  # ; LVT # Lo  [27] HANGUL SYLLABLE DWIG..HANGUL SYLLABLE DWIH
-        "\db4c1","\db4c2","\db4c3","\db4c4","\db4c5","\db4c6","\db4c7","\db4c8","\db4c9","\db4ca","\db4cb","\db4cc","\db4cd","\db4ce","\db4cf","\db4d0","\db4d1","\db4d2","\db4d3","\db4d4","\db4d5","\db4d6","\db4d7","\db4d8","\db4d9","\db4da","\db4db",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYUG..HANGUL SYLLABLE DYUH
-        "\db4dd","\db4de","\db4df","\db4e0","\db4e1","\db4e2","\db4e3","\db4e4","\db4e5","\db4e6","\db4e7","\db4e8","\db4e9","\db4ea","\db4eb","\db4ec","\db4ed","\db4ee","\db4ef","\db4f0","\db4f1","\db4f2","\db4f3","\db4f4","\db4f5","\db4f6","\db4f7",  # ; LVT # Lo  [27] HANGUL SYLLABLE DEUG..HANGUL SYLLABLE DEUH
-        "\db4f9","\db4fa","\db4fb","\db4fc","\db4fd","\db4fe","\db4ff","\db500","\db501","\db502","\db503","\db504","\db505","\db506","\db507","\db508","\db509","\db50a","\db50b","\db50c","\db50d","\db50e","\db50f","\db510","\db511","\db512","\db513",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYIG..HANGUL SYLLABLE DYIH
-        "\db515","\db516","\db517","\db518","\db519","\db51a","\db51b","\db51c","\db51d","\db51e","\db51f","\db520","\db521","\db522","\db523","\db524","\db525","\db526","\db527","\db528","\db529","\db52a","\db52b","\db52c","\db52d","\db52e","\db52f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DIG..HANGUL SYLLABLE DIH
-        "\db531","\db532","\db533","\db534","\db535","\db536","\db537","\db538","\db539","\db53a","\db53b","\db53c","\db53d","\db53e","\db53f","\db540","\db541","\db542","\db543","\db544","\db545","\db546","\db547","\db548","\db549","\db54a","\db54b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDAG..HANGUL SYLLABLE DDAH
-        "\db54d","\db54e","\db54f","\db550","\db551","\db552","\db553","\db554","\db555","\db556","\db557","\db558","\db559","\db55a","\db55b","\db55c","\db55d","\db55e","\db55f","\db560","\db561","\db562","\db563","\db564","\db565","\db566","\db567",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDAEG..HANGUL SYLLABLE DDAEH
-        "\db569","\db56a","\db56b","\db56c","\db56d","\db56e","\db56f","\db570","\db571","\db572","\db573","\db574","\db575","\db576","\db577","\db578","\db579","\db57a","\db57b","\db57c","\db57d","\db57e","\db57f","\db580","\db581","\db582","\db583",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYAG..HANGUL SYLLABLE DDYAH
-        "\db585","\db586","\db587","\db588","\db589","\db58a","\db58b","\db58c","\db58d","\db58e","\db58f","\db590","\db591","\db592","\db593","\db594","\db595","\db596","\db597","\db598","\db599","\db59a","\db59b","\db59c","\db59d","\db59e","\db59f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYAEG..HANGUL SYLLABLE DDYAEH
-        "\db5a1","\db5a2","\db5a3","\db5a4","\db5a5","\db5a6","\db5a7","\db5a8","\db5a9","\db5aa","\db5ab","\db5ac","\db5ad","\db5ae","\db5af","\db5b0","\db5b1","\db5b2","\db5b3","\db5b4","\db5b5","\db5b6","\db5b7","\db5b8","\db5b9","\db5ba","\db5bb",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDEOG..HANGUL SYLLABLE DDEOH
-        "\db5bd","\db5be","\db5bf","\db5c0","\db5c1","\db5c2","\db5c3","\db5c4","\db5c5","\db5c6","\db5c7","\db5c8","\db5c9","\db5ca","\db5cb","\db5cc","\db5cd","\db5ce","\db5cf","\db5d0","\db5d1","\db5d2","\db5d3","\db5d4","\db5d5","\db5d6","\db5d7",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDEG..HANGUL SYLLABLE DDEH
-        "\db5d9","\db5da","\db5db","\db5dc","\db5dd","\db5de","\db5df","\db5e0","\db5e1","\db5e2","\db5e3","\db5e4","\db5e5","\db5e6","\db5e7","\db5e8","\db5e9","\db5ea","\db5eb","\db5ec","\db5ed","\db5ee","\db5ef","\db5f0","\db5f1","\db5f2","\db5f3",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYEOG..HANGUL SYLLABLE DDYEOH
-        "\db5f5","\db5f6","\db5f7","\db5f8","\db5f9","\db5fa","\db5fb","\db5fc","\db5fd","\db5fe","\db5ff","\db600","\db601","\db602","\db603","\db604","\db605","\db606","\db607","\db608","\db609","\db60a","\db60b","\db60c","\db60d","\db60e","\db60f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYEG..HANGUL SYLLABLE DDYEH
-        "\db611","\db612","\db613","\db614","\db615","\db616","\db617","\db618","\db619","\db61a","\db61b","\db61c","\db61d","\db61e","\db61f","\db620","\db621","\db622","\db623","\db624","\db625","\db626","\db627","\db628","\db629","\db62a","\db62b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDOG..HANGUL SYLLABLE DDOH
-        "\db62d","\db62e","\db62f","\db630","\db631","\db632","\db633","\db634","\db635","\db636","\db637","\db638","\db639","\db63a","\db63b","\db63c","\db63d","\db63e","\db63f","\db640","\db641","\db642","\db643","\db644","\db645","\db646","\db647",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDWAG..HANGUL SYLLABLE DDWAH
-        "\db649","\db64a","\db64b","\db64c","\db64d","\db64e","\db64f","\db650","\db651","\db652","\db653","\db654","\db655","\db656","\db657","\db658","\db659","\db65a","\db65b","\db65c","\db65d","\db65e","\db65f","\db660","\db661","\db662","\db663",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDWAEG..HANGUL SYLLABLE DDWAEH
-        "\db665","\db666","\db667","\db668","\db669","\db66a","\db66b","\db66c","\db66d","\db66e","\db66f","\db670","\db671","\db672","\db673","\db674","\db675","\db676","\db677","\db678","\db679","\db67a","\db67b","\db67c","\db67d","\db67e","\db67f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDOEG..HANGUL SYLLABLE DDOEH
-        "\db681","\db682","\db683","\db684","\db685","\db686","\db687","\db688","\db689","\db68a","\db68b","\db68c","\db68d","\db68e","\db68f","\db690","\db691","\db692","\db693","\db694","\db695","\db696","\db697","\db698","\db699","\db69a","\db69b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYOG..HANGUL SYLLABLE DDYOH
-        "\db69d","\db69e","\db69f","\db6a0","\db6a1","\db6a2","\db6a3","\db6a4","\db6a5","\db6a6","\db6a7","\db6a8","\db6a9","\db6aa","\db6ab","\db6ac","\db6ad","\db6ae","\db6af","\db6b0","\db6b1","\db6b2","\db6b3","\db6b4","\db6b5","\db6b6","\db6b7",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDUG..HANGUL SYLLABLE DDUH
-        "\db6b9","\db6ba","\db6bb","\db6bc","\db6bd","\db6be","\db6bf","\db6c0","\db6c1","\db6c2","\db6c3","\db6c4","\db6c5","\db6c6","\db6c7","\db6c8","\db6c9","\db6ca","\db6cb","\db6cc","\db6cd","\db6ce","\db6cf","\db6d0","\db6d1","\db6d2","\db6d3",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDWEOG..HANGUL SYLLABLE DDWEOH
-        "\db6d5","\db6d6","\db6d7","\db6d8","\db6d9","\db6da","\db6db","\db6dc","\db6dd","\db6de","\db6df","\db6e0","\db6e1","\db6e2","\db6e3","\db6e4","\db6e5","\db6e6","\db6e7","\db6e8","\db6e9","\db6ea","\db6eb","\db6ec","\db6ed","\db6ee","\db6ef",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDWEG..HANGUL SYLLABLE DDWEH
-        "\db6f1","\db6f2","\db6f3","\db6f4","\db6f5","\db6f6","\db6f7","\db6f8","\db6f9","\db6fa","\db6fb","\db6fc","\db6fd","\db6fe","\db6ff","\db700","\db701","\db702","\db703","\db704","\db705","\db706","\db707","\db708","\db709","\db70a","\db70b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDWIG..HANGUL SYLLABLE DDWIH
-        "\db70d","\db70e","\db70f","\db710","\db711","\db712","\db713","\db714","\db715","\db716","\db717","\db718","\db719","\db71a","\db71b","\db71c","\db71d","\db71e","\db71f","\db720","\db721","\db722","\db723","\db724","\db725","\db726","\db727",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYUG..HANGUL SYLLABLE DDYUH
-        "\db729","\db72a","\db72b","\db72c","\db72d","\db72e","\db72f","\db730","\db731","\db732","\db733","\db734","\db735","\db736","\db737","\db738","\db739","\db73a","\db73b","\db73c","\db73d","\db73e","\db73f","\db740","\db741","\db742","\db743",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDEUG..HANGUL SYLLABLE DDEUH
-        "\db745","\db746","\db747","\db748","\db749","\db74a","\db74b","\db74c","\db74d","\db74e","\db74f","\db750","\db751","\db752","\db753","\db754","\db755","\db756","\db757","\db758","\db759","\db75a","\db75b","\db75c","\db75d","\db75e","\db75f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYIG..HANGUL SYLLABLE DDYIH
-        "\db761","\db762","\db763","\db764","\db765","\db766","\db767","\db768","\db769","\db76a","\db76b","\db76c","\db76d","\db76e","\db76f","\db770","\db771","\db772","\db773","\db774","\db775","\db776","\db777","\db778","\db779","\db77a","\db77b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDIG..HANGUL SYLLABLE DDIH
-        "\db77d","\db77e","\db77f","\db780","\db781","\db782","\db783","\db784","\db785","\db786","\db787","\db788","\db789","\db78a","\db78b","\db78c","\db78d","\db78e","\db78f","\db790","\db791","\db792","\db793","\db794","\db795","\db796","\db797",  # ; LVT # Lo  [27] HANGUL SYLLABLE RAG..HANGUL SYLLABLE RAH
-        "\db799","\db79a","\db79b","\db79c","\db79d","\db79e","\db79f","\db7a0","\db7a1","\db7a2","\db7a3","\db7a4","\db7a5","\db7a6","\db7a7","\db7a8","\db7a9","\db7aa","\db7ab","\db7ac","\db7ad","\db7ae","\db7af","\db7b0","\db7b1","\db7b2","\db7b3",  # ; LVT # Lo  [27] HANGUL SYLLABLE RAEG..HANGUL SYLLABLE RAEH
-        "\db7b5","\db7b6","\db7b7","\db7b8","\db7b9","\db7ba","\db7bb","\db7bc","\db7bd","\db7be","\db7bf","\db7c0","\db7c1","\db7c2","\db7c3","\db7c4","\db7c5","\db7c6","\db7c7","\db7c8","\db7c9","\db7ca","\db7cb","\db7cc","\db7cd","\db7ce","\db7cf",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYAG..HANGUL SYLLABLE RYAH
-        "\db7d1","\db7d2","\db7d3","\db7d4","\db7d5","\db7d6","\db7d7","\db7d8","\db7d9","\db7da","\db7db","\db7dc","\db7dd","\db7de","\db7df","\db7e0","\db7e1","\db7e2","\db7e3","\db7e4","\db7e5","\db7e6","\db7e7","\db7e8","\db7e9","\db7ea","\db7eb",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYAEG..HANGUL SYLLABLE RYAEH
-        "\db7ed","\db7ee","\db7ef","\db7f0","\db7f1","\db7f2","\db7f3","\db7f4","\db7f5","\db7f6","\db7f7","\db7f8","\db7f9","\db7fa","\db7fb","\db7fc","\db7fd","\db7fe","\db7ff","\db800","\db801","\db802","\db803","\db804","\db805","\db806","\db807",  # ; LVT # Lo  [27] HANGUL SYLLABLE REOG..HANGUL SYLLABLE REOH
-        "\db809","\db80a","\db80b","\db80c","\db80d","\db80e","\db80f","\db810","\db811","\db812","\db813","\db814","\db815","\db816","\db817","\db818","\db819","\db81a","\db81b","\db81c","\db81d","\db81e","\db81f","\db820","\db821","\db822","\db823",  # ; LVT # Lo  [27] HANGUL SYLLABLE REG..HANGUL SYLLABLE REH
-        "\db825","\db826","\db827","\db828","\db829","\db82a","\db82b","\db82c","\db82d","\db82e","\db82f","\db830","\db831","\db832","\db833","\db834","\db835","\db836","\db837","\db838","\db839","\db83a","\db83b","\db83c","\db83d","\db83e","\db83f",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYEOG..HANGUL SYLLABLE RYEOH
-        "\db841","\db842","\db843","\db844","\db845","\db846","\db847","\db848","\db849","\db84a","\db84b","\db84c","\db84d","\db84e","\db84f","\db850","\db851","\db852","\db853","\db854","\db855","\db856","\db857","\db858","\db859","\db85a","\db85b",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYEG..HANGUL SYLLABLE RYEH
-        "\db85d","\db85e","\db85f","\db860","\db861","\db862","\db863","\db864","\db865","\db866","\db867","\db868","\db869","\db86a","\db86b","\db86c","\db86d","\db86e","\db86f","\db870","\db871","\db872","\db873","\db874","\db875","\db876","\db877",  # ; LVT # Lo  [27] HANGUL SYLLABLE ROG..HANGUL SYLLABLE ROH
-        "\db879","\db87a","\db87b","\db87c","\db87d","\db87e","\db87f","\db880","\db881","\db882","\db883","\db884","\db885","\db886","\db887","\db888","\db889","\db88a","\db88b","\db88c","\db88d","\db88e","\db88f","\db890","\db891","\db892","\db893",  # ; LVT # Lo  [27] HANGUL SYLLABLE RWAG..HANGUL SYLLABLE RWAH
-        "\db895","\db896","\db897","\db898","\db899","\db89a","\db89b","\db89c","\db89d","\db89e","\db89f","\db8a0","\db8a1","\db8a2","\db8a3","\db8a4","\db8a5","\db8a6","\db8a7","\db8a8","\db8a9","\db8aa","\db8ab","\db8ac","\db8ad","\db8ae","\db8af",  # ; LVT # Lo  [27] HANGUL SYLLABLE RWAEG..HANGUL SYLLABLE RWAEH
-        "\db8b1","\db8b2","\db8b3","\db8b4","\db8b5","\db8b6","\db8b7","\db8b8","\db8b9","\db8ba","\db8bb","\db8bc","\db8bd","\db8be","\db8bf","\db8c0","\db8c1","\db8c2","\db8c3","\db8c4","\db8c5","\db8c6","\db8c7","\db8c8","\db8c9","\db8ca","\db8cb",  # ; LVT # Lo  [27] HANGUL SYLLABLE ROEG..HANGUL SYLLABLE ROEH
-        "\db8cd","\db8ce","\db8cf","\db8d0","\db8d1","\db8d2","\db8d3","\db8d4","\db8d5","\db8d6","\db8d7","\db8d8","\db8d9","\db8da","\db8db","\db8dc","\db8dd","\db8de","\db8df","\db8e0","\db8e1","\db8e2","\db8e3","\db8e4","\db8e5","\db8e6","\db8e7",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYOG..HANGUL SYLLABLE RYOH
-        "\db8e9","\db8ea","\db8eb","\db8ec","\db8ed","\db8ee","\db8ef","\db8f0","\db8f1","\db8f2","\db8f3","\db8f4","\db8f5","\db8f6","\db8f7","\db8f8","\db8f9","\db8fa","\db8fb","\db8fc","\db8fd","\db8fe","\db8ff","\db900","\db901","\db902","\db903",  # ; LVT # Lo  [27] HANGUL SYLLABLE RUG..HANGUL SYLLABLE RUH
-        "\db905","\db906","\db907","\db908","\db909","\db90a","\db90b","\db90c","\db90d","\db90e","\db90f","\db910","\db911","\db912","\db913","\db914","\db915","\db916","\db917","\db918","\db919","\db91a","\db91b","\db91c","\db91d","\db91e","\db91f",  # ; LVT # Lo  [27] HANGUL SYLLABLE RWEOG..HANGUL SYLLABLE RWEOH
-        "\db921","\db922","\db923","\db924","\db925","\db926","\db927","\db928","\db929","\db92a","\db92b","\db92c","\db92d","\db92e","\db92f","\db930","\db931","\db932","\db933","\db934","\db935","\db936","\db937","\db938","\db939","\db93a","\db93b",  # ; LVT # Lo  [27] HANGUL SYLLABLE RWEG..HANGUL SYLLABLE RWEH
-        "\db93d","\db93e","\db93f","\db940","\db941","\db942","\db943","\db944","\db945","\db946","\db947","\db948","\db949","\db94a","\db94b","\db94c","\db94d","\db94e","\db94f","\db950","\db951","\db952","\db953","\db954","\db955","\db956","\db957",  # ; LVT # Lo  [27] HANGUL SYLLABLE RWIG..HANGUL SYLLABLE RWIH
-        "\db959","\db95a","\db95b","\db95c","\db95d","\db95e","\db95f","\db960","\db961","\db962","\db963","\db964","\db965","\db966","\db967","\db968","\db969","\db96a","\db96b","\db96c","\db96d","\db96e","\db96f","\db970","\db971","\db972","\db973",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYUG..HANGUL SYLLABLE RYUH
-        "\db975","\db976","\db977","\db978","\db979","\db97a","\db97b","\db97c","\db97d","\db97e","\db97f","\db980","\db981","\db982","\db983","\db984","\db985","\db986","\db987","\db988","\db989","\db98a","\db98b","\db98c","\db98d","\db98e","\db98f",  # ; LVT # Lo  [27] HANGUL SYLLABLE REUG..HANGUL SYLLABLE REUH
-        "\db991","\db992","\db993","\db994","\db995","\db996","\db997","\db998","\db999","\db99a","\db99b","\db99c","\db99d","\db99e","\db99f","\db9a0","\db9a1","\db9a2","\db9a3","\db9a4","\db9a5","\db9a6","\db9a7","\db9a8","\db9a9","\db9aa","\db9ab",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYIG..HANGUL SYLLABLE RYIH
-        "\db9ad","\db9ae","\db9af","\db9b0","\db9b1","\db9b2","\db9b3","\db9b4","\db9b5","\db9b6","\db9b7","\db9b8","\db9b9","\db9ba","\db9bb","\db9bc","\db9bd","\db9be","\db9bf","\db9c0","\db9c1","\db9c2","\db9c3","\db9c4","\db9c5","\db9c6","\db9c7",  # ; LVT # Lo  [27] HANGUL SYLLABLE RIG..HANGUL SYLLABLE RIH
-        "\db9c9","\db9ca","\db9cb","\db9cc","\db9cd","\db9ce","\db9cf","\db9d0","\db9d1","\db9d2","\db9d3","\db9d4","\db9d5","\db9d6","\db9d7","\db9d8","\db9d9","\db9da","\db9db","\db9dc","\db9dd","\db9de","\db9df","\db9e0","\db9e1","\db9e2","\db9e3",  # ; LVT # Lo  [27] HANGUL SYLLABLE MAG..HANGUL SYLLABLE MAH
-        "\db9e5","\db9e6","\db9e7","\db9e8","\db9e9","\db9ea","\db9eb","\db9ec","\db9ed","\db9ee","\db9ef","\db9f0","\db9f1","\db9f2","\db9f3","\db9f4","\db9f5","\db9f6","\db9f7","\db9f8","\db9f9","\db9fa","\db9fb","\db9fc","\db9fd","\db9fe","\db9ff",  # ; LVT # Lo  [27] HANGUL SYLLABLE MAEG..HANGUL SYLLABLE MAEH
-        "\dba01","\dba02","\dba03","\dba04","\dba05","\dba06","\dba07","\dba08","\dba09","\dba0a","\dba0b","\dba0c","\dba0d","\dba0e","\dba0f","\dba10","\dba11","\dba12","\dba13","\dba14","\dba15","\dba16","\dba17","\dba18","\dba19","\dba1a","\dba1b",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYAG..HANGUL SYLLABLE MYAH
-        "\dba1d","\dba1e","\dba1f","\dba20","\dba21","\dba22","\dba23","\dba24","\dba25","\dba26","\dba27","\dba28","\dba29","\dba2a","\dba2b","\dba2c","\dba2d","\dba2e","\dba2f","\dba30","\dba31","\dba32","\dba33","\dba34","\dba35","\dba36","\dba37",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYAEG..HANGUL SYLLABLE MYAEH
-        "\dba39","\dba3a","\dba3b","\dba3c","\dba3d","\dba3e","\dba3f","\dba40","\dba41","\dba42","\dba43","\dba44","\dba45","\dba46","\dba47","\dba48","\dba49","\dba4a","\dba4b","\dba4c","\dba4d","\dba4e","\dba4f","\dba50","\dba51","\dba52","\dba53",  # ; LVT # Lo  [27] HANGUL SYLLABLE MEOG..HANGUL SYLLABLE MEOH
-        "\dba55","\dba56","\dba57","\dba58","\dba59","\dba5a","\dba5b","\dba5c","\dba5d","\dba5e","\dba5f","\dba60","\dba61","\dba62","\dba63","\dba64","\dba65","\dba66","\dba67","\dba68","\dba69","\dba6a","\dba6b","\dba6c","\dba6d","\dba6e","\dba6f",  # ; LVT # Lo  [27] HANGUL SYLLABLE MEG..HANGUL SYLLABLE MEH
-        "\dba71","\dba72","\dba73","\dba74","\dba75","\dba76","\dba77","\dba78","\dba79","\dba7a","\dba7b","\dba7c","\dba7d","\dba7e","\dba7f","\dba80","\dba81","\dba82","\dba83","\dba84","\dba85","\dba86","\dba87","\dba88","\dba89","\dba8a","\dba8b",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYEOG..HANGUL SYLLABLE MYEOH
-        "\dba8d","\dba8e","\dba8f","\dba90","\dba91","\dba92","\dba93","\dba94","\dba95","\dba96","\dba97","\dba98","\dba99","\dba9a","\dba9b","\dba9c","\dba9d","\dba9e","\dba9f","\dbaa0","\dbaa1","\dbaa2","\dbaa3","\dbaa4","\dbaa5","\dbaa6","\dbaa7",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYEG..HANGUL SYLLABLE MYEH
-        "\dbaa9","\dbaaa","\dbaab","\dbaac","\dbaad","\dbaae","\dbaaf","\dbab0","\dbab1","\dbab2","\dbab3","\dbab4","\dbab5","\dbab6","\dbab7","\dbab8","\dbab9","\dbaba","\dbabb","\dbabc","\dbabd","\dbabe","\dbabf","\dbac0","\dbac1","\dbac2","\dbac3",  # ; LVT # Lo  [27] HANGUL SYLLABLE MOG..HANGUL SYLLABLE MOH
-        "\dbac5","\dbac6","\dbac7","\dbac8","\dbac9","\dbaca","\dbacb","\dbacc","\dbacd","\dbace","\dbacf","\dbad0","\dbad1","\dbad2","\dbad3","\dbad4","\dbad5","\dbad6","\dbad7","\dbad8","\dbad9","\dbada","\dbadb","\dbadc","\dbadd","\dbade","\dbadf",  # ; LVT # Lo  [27] HANGUL SYLLABLE MWAG..HANGUL SYLLABLE MWAH
-        "\dbae1","\dbae2","\dbae3","\dbae4","\dbae5","\dbae6","\dbae7","\dbae8","\dbae9","\dbaea","\dbaeb","\dbaec","\dbaed","\dbaee","\dbaef","\dbaf0","\dbaf1","\dbaf2","\dbaf3","\dbaf4","\dbaf5","\dbaf6","\dbaf7","\dbaf8","\dbaf9","\dbafa","\dbafb",  # ; LVT # Lo  [27] HANGUL SYLLABLE MWAEG..HANGUL SYLLABLE MWAEH
-        "\dbafd","\dbafe","\dbaff","\dbb00","\dbb01","\dbb02","\dbb03","\dbb04","\dbb05","\dbb06","\dbb07","\dbb08","\dbb09","\dbb0a","\dbb0b","\dbb0c","\dbb0d","\dbb0e","\dbb0f","\dbb10","\dbb11","\dbb12","\dbb13","\dbb14","\dbb15","\dbb16","\dbb17",  # ; LVT # Lo  [27] HANGUL SYLLABLE MOEG..HANGUL SYLLABLE MOEH
-        "\dbb19","\dbb1a","\dbb1b","\dbb1c","\dbb1d","\dbb1e","\dbb1f","\dbb20","\dbb21","\dbb22","\dbb23","\dbb24","\dbb25","\dbb26","\dbb27","\dbb28","\dbb29","\dbb2a","\dbb2b","\dbb2c","\dbb2d","\dbb2e","\dbb2f","\dbb30","\dbb31","\dbb32","\dbb33",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYOG..HANGUL SYLLABLE MYOH
-        "\dbb35","\dbb36","\dbb37","\dbb38","\dbb39","\dbb3a","\dbb3b","\dbb3c","\dbb3d","\dbb3e","\dbb3f","\dbb40","\dbb41","\dbb42","\dbb43","\dbb44","\dbb45","\dbb46","\dbb47","\dbb48","\dbb49","\dbb4a","\dbb4b","\dbb4c","\dbb4d","\dbb4e","\dbb4f",  # ; LVT # Lo  [27] HANGUL SYLLABLE MUG..HANGUL SYLLABLE MUH
-        "\dbb51","\dbb52","\dbb53","\dbb54","\dbb55","\dbb56","\dbb57","\dbb58","\dbb59","\dbb5a","\dbb5b","\dbb5c","\dbb5d","\dbb5e","\dbb5f","\dbb60","\dbb61","\dbb62","\dbb63","\dbb64","\dbb65","\dbb66","\dbb67","\dbb68","\dbb69","\dbb6a","\dbb6b",  # ; LVT # Lo  [27] HANGUL SYLLABLE MWEOG..HANGUL SYLLABLE MWEOH
-        "\dbb6d","\dbb6e","\dbb6f","\dbb70","\dbb71","\dbb72","\dbb73","\dbb74","\dbb75","\dbb76","\dbb77","\dbb78","\dbb79","\dbb7a","\dbb7b","\dbb7c","\dbb7d","\dbb7e","\dbb7f","\dbb80","\dbb81","\dbb82","\dbb83","\dbb84","\dbb85","\dbb86","\dbb87",  # ; LVT # Lo  [27] HANGUL SYLLABLE MWEG..HANGUL SYLLABLE MWEH
-        "\dbb89","\dbb8a","\dbb8b","\dbb8c","\dbb8d","\dbb8e","\dbb8f","\dbb90","\dbb91","\dbb92","\dbb93","\dbb94","\dbb95","\dbb96","\dbb97","\dbb98","\dbb99","\dbb9a","\dbb9b","\dbb9c","\dbb9d","\dbb9e","\dbb9f","\dbba0","\dbba1","\dbba2","\dbba3",  # ; LVT # Lo  [27] HANGUL SYLLABLE MWIG..HANGUL SYLLABLE MWIH
-        "\dbba5","\dbba6","\dbba7","\dbba8","\dbba9","\dbbaa","\dbbab","\dbbac","\dbbad","\dbbae","\dbbaf","\dbbb0","\dbbb1","\dbbb2","\dbbb3","\dbbb4","\dbbb5","\dbbb6","\dbbb7","\dbbb8","\dbbb9","\dbbba","\dbbbb","\dbbbc","\dbbbd","\dbbbe","\dbbbf",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYUG..HANGUL SYLLABLE MYUH
-        "\dbbc1","\dbbc2","\dbbc3","\dbbc4","\dbbc5","\dbbc6","\dbbc7","\dbbc8","\dbbc9","\dbbca","\dbbcb","\dbbcc","\dbbcd","\dbbce","\dbbcf","\dbbd0","\dbbd1","\dbbd2","\dbbd3","\dbbd4","\dbbd5","\dbbd6","\dbbd7","\dbbd8","\dbbd9","\dbbda","\dbbdb",  # ; LVT # Lo  [27] HANGUL SYLLABLE MEUG..HANGUL SYLLABLE MEUH
-        "\dbbdd","\dbbde","\dbbdf","\dbbe0","\dbbe1","\dbbe2","\dbbe3","\dbbe4","\dbbe5","\dbbe6","\dbbe7","\dbbe8","\dbbe9","\dbbea","\dbbeb","\dbbec","\dbbed","\dbbee","\dbbef","\dbbf0","\dbbf1","\dbbf2","\dbbf3","\dbbf4","\dbbf5","\dbbf6","\dbbf7",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYIG..HANGUL SYLLABLE MYIH
-        "\dbbf9","\dbbfa","\dbbfb","\dbbfc","\dbbfd","\dbbfe","\dbbff","\dbc00","\dbc01","\dbc02","\dbc03","\dbc04","\dbc05","\dbc06","\dbc07","\dbc08","\dbc09","\dbc0a","\dbc0b","\dbc0c","\dbc0d","\dbc0e","\dbc0f","\dbc10","\dbc11","\dbc12","\dbc13",  # ; LVT # Lo  [27] HANGUL SYLLABLE MIG..HANGUL SYLLABLE MIH
-        "\dbc15","\dbc16","\dbc17","\dbc18","\dbc19","\dbc1a","\dbc1b","\dbc1c","\dbc1d","\dbc1e","\dbc1f","\dbc20","\dbc21","\dbc22","\dbc23","\dbc24","\dbc25","\dbc26","\dbc27","\dbc28","\dbc29","\dbc2a","\dbc2b","\dbc2c","\dbc2d","\dbc2e","\dbc2f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BAG..HANGUL SYLLABLE BAH
-        "\dbc31","\dbc32","\dbc33","\dbc34","\dbc35","\dbc36","\dbc37","\dbc38","\dbc39","\dbc3a","\dbc3b","\dbc3c","\dbc3d","\dbc3e","\dbc3f","\dbc40","\dbc41","\dbc42","\dbc43","\dbc44","\dbc45","\dbc46","\dbc47","\dbc48","\dbc49","\dbc4a","\dbc4b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BAEG..HANGUL SYLLABLE BAEH
-        "\dbc4d","\dbc4e","\dbc4f","\dbc50","\dbc51","\dbc52","\dbc53","\dbc54","\dbc55","\dbc56","\dbc57","\dbc58","\dbc59","\dbc5a","\dbc5b","\dbc5c","\dbc5d","\dbc5e","\dbc5f","\dbc60","\dbc61","\dbc62","\dbc63","\dbc64","\dbc65","\dbc66","\dbc67",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYAG..HANGUL SYLLABLE BYAH
-        "\dbc69","\dbc6a","\dbc6b","\dbc6c","\dbc6d","\dbc6e","\dbc6f","\dbc70","\dbc71","\dbc72","\dbc73","\dbc74","\dbc75","\dbc76","\dbc77","\dbc78","\dbc79","\dbc7a","\dbc7b","\dbc7c","\dbc7d","\dbc7e","\dbc7f","\dbc80","\dbc81","\dbc82","\dbc83",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYAEG..HANGUL SYLLABLE BYAEH
-        "\dbc85","\dbc86","\dbc87","\dbc88","\dbc89","\dbc8a","\dbc8b","\dbc8c","\dbc8d","\dbc8e","\dbc8f","\dbc90","\dbc91","\dbc92","\dbc93","\dbc94","\dbc95","\dbc96","\dbc97","\dbc98","\dbc99","\dbc9a","\dbc9b","\dbc9c","\dbc9d","\dbc9e","\dbc9f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BEOG..HANGUL SYLLABLE BEOH
-        "\dbca1","\dbca2","\dbca3","\dbca4","\dbca5","\dbca6","\dbca7","\dbca8","\dbca9","\dbcaa","\dbcab","\dbcac","\dbcad","\dbcae","\dbcaf","\dbcb0","\dbcb1","\dbcb2","\dbcb3","\dbcb4","\dbcb5","\dbcb6","\dbcb7","\dbcb8","\dbcb9","\dbcba","\dbcbb",  # ; LVT # Lo  [27] HANGUL SYLLABLE BEG..HANGUL SYLLABLE BEH
-        "\dbcbd","\dbcbe","\dbcbf","\dbcc0","\dbcc1","\dbcc2","\dbcc3","\dbcc4","\dbcc5","\dbcc6","\dbcc7","\dbcc8","\dbcc9","\dbcca","\dbccb","\dbccc","\dbccd","\dbcce","\dbccf","\dbcd0","\dbcd1","\dbcd2","\dbcd3","\dbcd4","\dbcd5","\dbcd6","\dbcd7",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYEOG..HANGUL SYLLABLE BYEOH
-        "\dbcd9","\dbcda","\dbcdb","\dbcdc","\dbcdd","\dbcde","\dbcdf","\dbce0","\dbce1","\dbce2","\dbce3","\dbce4","\dbce5","\dbce6","\dbce7","\dbce8","\dbce9","\dbcea","\dbceb","\dbcec","\dbced","\dbcee","\dbcef","\dbcf0","\dbcf1","\dbcf2","\dbcf3",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYEG..HANGUL SYLLABLE BYEH
-        "\dbcf5","\dbcf6","\dbcf7","\dbcf8","\dbcf9","\dbcfa","\dbcfb","\dbcfc","\dbcfd","\dbcfe","\dbcff","\dbd00","\dbd01","\dbd02","\dbd03","\dbd04","\dbd05","\dbd06","\dbd07","\dbd08","\dbd09","\dbd0a","\dbd0b","\dbd0c","\dbd0d","\dbd0e","\dbd0f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BOG..HANGUL SYLLABLE BOH
-        "\dbd11","\dbd12","\dbd13","\dbd14","\dbd15","\dbd16","\dbd17","\dbd18","\dbd19","\dbd1a","\dbd1b","\dbd1c","\dbd1d","\dbd1e","\dbd1f","\dbd20","\dbd21","\dbd22","\dbd23","\dbd24","\dbd25","\dbd26","\dbd27","\dbd28","\dbd29","\dbd2a","\dbd2b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BWAG..HANGUL SYLLABLE BWAH
-        "\dbd2d","\dbd2e","\dbd2f","\dbd30","\dbd31","\dbd32","\dbd33","\dbd34","\dbd35","\dbd36","\dbd37","\dbd38","\dbd39","\dbd3a","\dbd3b","\dbd3c","\dbd3d","\dbd3e","\dbd3f","\dbd40","\dbd41","\dbd42","\dbd43","\dbd44","\dbd45","\dbd46","\dbd47",  # ; LVT # Lo  [27] HANGUL SYLLABLE BWAEG..HANGUL SYLLABLE BWAEH
-        "\dbd49","\dbd4a","\dbd4b","\dbd4c","\dbd4d","\dbd4e","\dbd4f","\dbd50","\dbd51","\dbd52","\dbd53","\dbd54","\dbd55","\dbd56","\dbd57","\dbd58","\dbd59","\dbd5a","\dbd5b","\dbd5c","\dbd5d","\dbd5e","\dbd5f","\dbd60","\dbd61","\dbd62","\dbd63",  # ; LVT # Lo  [27] HANGUL SYLLABLE BOEG..HANGUL SYLLABLE BOEH
-        "\dbd65","\dbd66","\dbd67","\dbd68","\dbd69","\dbd6a","\dbd6b","\dbd6c","\dbd6d","\dbd6e","\dbd6f","\dbd70","\dbd71","\dbd72","\dbd73","\dbd74","\dbd75","\dbd76","\dbd77","\dbd78","\dbd79","\dbd7a","\dbd7b","\dbd7c","\dbd7d","\dbd7e","\dbd7f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYOG..HANGUL SYLLABLE BYOH
-        "\dbd81","\dbd82","\dbd83","\dbd84","\dbd85","\dbd86","\dbd87","\dbd88","\dbd89","\dbd8a","\dbd8b","\dbd8c","\dbd8d","\dbd8e","\dbd8f","\dbd90","\dbd91","\dbd92","\dbd93","\dbd94","\dbd95","\dbd96","\dbd97","\dbd98","\dbd99","\dbd9a","\dbd9b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BUG..HANGUL SYLLABLE BUH
-        "\dbd9d","\dbd9e","\dbd9f","\dbda0","\dbda1","\dbda2","\dbda3","\dbda4","\dbda5","\dbda6","\dbda7","\dbda8","\dbda9","\dbdaa","\dbdab","\dbdac","\dbdad","\dbdae","\dbdaf","\dbdb0","\dbdb1","\dbdb2","\dbdb3","\dbdb4","\dbdb5","\dbdb6","\dbdb7",  # ; LVT # Lo  [27] HANGUL SYLLABLE BWEOG..HANGUL SYLLABLE BWEOH
-        "\dbdb9","\dbdba","\dbdbb","\dbdbc","\dbdbd","\dbdbe","\dbdbf","\dbdc0","\dbdc1","\dbdc2","\dbdc3","\dbdc4","\dbdc5","\dbdc6","\dbdc7","\dbdc8","\dbdc9","\dbdca","\dbdcb","\dbdcc","\dbdcd","\dbdce","\dbdcf","\dbdd0","\dbdd1","\dbdd2","\dbdd3",  # ; LVT # Lo  [27] HANGUL SYLLABLE BWEG..HANGUL SYLLABLE BWEH
-        "\dbdd5","\dbdd6","\dbdd7","\dbdd8","\dbdd9","\dbdda","\dbddb","\dbddc","\dbddd","\dbdde","\dbddf","\dbde0","\dbde1","\dbde2","\dbde3","\dbde4","\dbde5","\dbde6","\dbde7","\dbde8","\dbde9","\dbdea","\dbdeb","\dbdec","\dbded","\dbdee","\dbdef",  # ; LVT # Lo  [27] HANGUL SYLLABLE BWIG..HANGUL SYLLABLE BWIH
-        "\dbdf1","\dbdf2","\dbdf3","\dbdf4","\dbdf5","\dbdf6","\dbdf7","\dbdf8","\dbdf9","\dbdfa","\dbdfb","\dbdfc","\dbdfd","\dbdfe","\dbdff","\dbe00","\dbe01","\dbe02","\dbe03","\dbe04","\dbe05","\dbe06","\dbe07","\dbe08","\dbe09","\dbe0a","\dbe0b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYUG..HANGUL SYLLABLE BYUH
-        "\dbe0d","\dbe0e","\dbe0f","\dbe10","\dbe11","\dbe12","\dbe13","\dbe14","\dbe15","\dbe16","\dbe17","\dbe18","\dbe19","\dbe1a","\dbe1b","\dbe1c","\dbe1d","\dbe1e","\dbe1f","\dbe20","\dbe21","\dbe22","\dbe23","\dbe24","\dbe25","\dbe26","\dbe27",  # ; LVT # Lo  [27] HANGUL SYLLABLE BEUG..HANGUL SYLLABLE BEUH
-        "\dbe29","\dbe2a","\dbe2b","\dbe2c","\dbe2d","\dbe2e","\dbe2f","\dbe30","\dbe31","\dbe32","\dbe33","\dbe34","\dbe35","\dbe36","\dbe37","\dbe38","\dbe39","\dbe3a","\dbe3b","\dbe3c","\dbe3d","\dbe3e","\dbe3f","\dbe40","\dbe41","\dbe42","\dbe43",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYIG..HANGUL SYLLABLE BYIH
-        "\dbe45","\dbe46","\dbe47","\dbe48","\dbe49","\dbe4a","\dbe4b","\dbe4c","\dbe4d","\dbe4e","\dbe4f","\dbe50","\dbe51","\dbe52","\dbe53","\dbe54","\dbe55","\dbe56","\dbe57","\dbe58","\dbe59","\dbe5a","\dbe5b","\dbe5c","\dbe5d","\dbe5e","\dbe5f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BIG..HANGUL SYLLABLE BIH
-        "\dbe61","\dbe62","\dbe63","\dbe64","\dbe65","\dbe66","\dbe67","\dbe68","\dbe69","\dbe6a","\dbe6b","\dbe6c","\dbe6d","\dbe6e","\dbe6f","\dbe70","\dbe71","\dbe72","\dbe73","\dbe74","\dbe75","\dbe76","\dbe77","\dbe78","\dbe79","\dbe7a","\dbe7b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBAG..HANGUL SYLLABLE BBAH
-        "\dbe7d","\dbe7e","\dbe7f","\dbe80","\dbe81","\dbe82","\dbe83","\dbe84","\dbe85","\dbe86","\dbe87","\dbe88","\dbe89","\dbe8a","\dbe8b","\dbe8c","\dbe8d","\dbe8e","\dbe8f","\dbe90","\dbe91","\dbe92","\dbe93","\dbe94","\dbe95","\dbe96","\dbe97",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBAEG..HANGUL SYLLABLE BBAEH
-        "\dbe99","\dbe9a","\dbe9b","\dbe9c","\dbe9d","\dbe9e","\dbe9f","\dbea0","\dbea1","\dbea2","\dbea3","\dbea4","\dbea5","\dbea6","\dbea7","\dbea8","\dbea9","\dbeaa","\dbeab","\dbeac","\dbead","\dbeae","\dbeaf","\dbeb0","\dbeb1","\dbeb2","\dbeb3",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYAG..HANGUL SYLLABLE BBYAH
-        "\dbeb5","\dbeb6","\dbeb7","\dbeb8","\dbeb9","\dbeba","\dbebb","\dbebc","\dbebd","\dbebe","\dbebf","\dbec0","\dbec1","\dbec2","\dbec3","\dbec4","\dbec5","\dbec6","\dbec7","\dbec8","\dbec9","\dbeca","\dbecb","\dbecc","\dbecd","\dbece","\dbecf",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYAEG..HANGUL SYLLABLE BBYAEH
-        "\dbed1","\dbed2","\dbed3","\dbed4","\dbed5","\dbed6","\dbed7","\dbed8","\dbed9","\dbeda","\dbedb","\dbedc","\dbedd","\dbede","\dbedf","\dbee0","\dbee1","\dbee2","\dbee3","\dbee4","\dbee5","\dbee6","\dbee7","\dbee8","\dbee9","\dbeea","\dbeeb",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBEOG..HANGUL SYLLABLE BBEOH
-        "\dbeed","\dbeee","\dbeef","\dbef0","\dbef1","\dbef2","\dbef3","\dbef4","\dbef5","\dbef6","\dbef7","\dbef8","\dbef9","\dbefa","\dbefb","\dbefc","\dbefd","\dbefe","\dbeff","\dbf00","\dbf01","\dbf02","\dbf03","\dbf04","\dbf05","\dbf06","\dbf07",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBEG..HANGUL SYLLABLE BBEH
-        "\dbf09","\dbf0a","\dbf0b","\dbf0c","\dbf0d","\dbf0e","\dbf0f","\dbf10","\dbf11","\dbf12","\dbf13","\dbf14","\dbf15","\dbf16","\dbf17","\dbf18","\dbf19","\dbf1a","\dbf1b","\dbf1c","\dbf1d","\dbf1e","\dbf1f","\dbf20","\dbf21","\dbf22","\dbf23",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYEOG..HANGUL SYLLABLE BBYEOH
-        "\dbf25","\dbf26","\dbf27","\dbf28","\dbf29","\dbf2a","\dbf2b","\dbf2c","\dbf2d","\dbf2e","\dbf2f","\dbf30","\dbf31","\dbf32","\dbf33","\dbf34","\dbf35","\dbf36","\dbf37","\dbf38","\dbf39","\dbf3a","\dbf3b","\dbf3c","\dbf3d","\dbf3e","\dbf3f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYEG..HANGUL SYLLABLE BBYEH
-        "\dbf41","\dbf42","\dbf43","\dbf44","\dbf45","\dbf46","\dbf47","\dbf48","\dbf49","\dbf4a","\dbf4b","\dbf4c","\dbf4d","\dbf4e","\dbf4f","\dbf50","\dbf51","\dbf52","\dbf53","\dbf54","\dbf55","\dbf56","\dbf57","\dbf58","\dbf59","\dbf5a","\dbf5b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBOG..HANGUL SYLLABLE BBOH
-        "\dbf5d","\dbf5e","\dbf5f","\dbf60","\dbf61","\dbf62","\dbf63","\dbf64","\dbf65","\dbf66","\dbf67","\dbf68","\dbf69","\dbf6a","\dbf6b","\dbf6c","\dbf6d","\dbf6e","\dbf6f","\dbf70","\dbf71","\dbf72","\dbf73","\dbf74","\dbf75","\dbf76","\dbf77",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBWAG..HANGUL SYLLABLE BBWAH
-        "\dbf79","\dbf7a","\dbf7b","\dbf7c","\dbf7d","\dbf7e","\dbf7f","\dbf80","\dbf81","\dbf82","\dbf83","\dbf84","\dbf85","\dbf86","\dbf87","\dbf88","\dbf89","\dbf8a","\dbf8b","\dbf8c","\dbf8d","\dbf8e","\dbf8f","\dbf90","\dbf91","\dbf92","\dbf93",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBWAEG..HANGUL SYLLABLE BBWAEH
-        "\dbf95","\dbf96","\dbf97","\dbf98","\dbf99","\dbf9a","\dbf9b","\dbf9c","\dbf9d","\dbf9e","\dbf9f","\dbfa0","\dbfa1","\dbfa2","\dbfa3","\dbfa4","\dbfa5","\dbfa6","\dbfa7","\dbfa8","\dbfa9","\dbfaa","\dbfab","\dbfac","\dbfad","\dbfae","\dbfaf",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBOEG..HANGUL SYLLABLE BBOEH
-        "\dbfb1","\dbfb2","\dbfb3","\dbfb4","\dbfb5","\dbfb6","\dbfb7","\dbfb8","\dbfb9","\dbfba","\dbfbb","\dbfbc","\dbfbd","\dbfbe","\dbfbf","\dbfc0","\dbfc1","\dbfc2","\dbfc3","\dbfc4","\dbfc5","\dbfc6","\dbfc7","\dbfc8","\dbfc9","\dbfca","\dbfcb",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYOG..HANGUL SYLLABLE BBYOH
-        "\dbfcd","\dbfce","\dbfcf","\dbfd0","\dbfd1","\dbfd2","\dbfd3","\dbfd4","\dbfd5","\dbfd6","\dbfd7","\dbfd8","\dbfd9","\dbfda","\dbfdb","\dbfdc","\dbfdd","\dbfde","\dbfdf","\dbfe0","\dbfe1","\dbfe2","\dbfe3","\dbfe4","\dbfe5","\dbfe6","\dbfe7",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBUG..HANGUL SYLLABLE BBUH
-        "\dbfe9","\dbfea","\dbfeb","\dbfec","\dbfed","\dbfee","\dbfef","\dbff0","\dbff1","\dbff2","\dbff3","\dbff4","\dbff5","\dbff6","\dbff7","\dbff8","\dbff9","\dbffa","\dbffb","\dbffc","\dbffd","\dbffe","\dbfff","\dc000","\dc001","\dc002","\dc003",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBWEOG..HANGUL SYLLABLE BBWEOH
-        "\dc005","\dc006","\dc007","\dc008","\dc009","\dc00a","\dc00b","\dc00c","\dc00d","\dc00e","\dc00f","\dc010","\dc011","\dc012","\dc013","\dc014","\dc015","\dc016","\dc017","\dc018","\dc019","\dc01a","\dc01b","\dc01c","\dc01d","\dc01e","\dc01f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBWEG..HANGUL SYLLABLE BBWEH
-        "\dc021","\dc022","\dc023","\dc024","\dc025","\dc026","\dc027","\dc028","\dc029","\dc02a","\dc02b","\dc02c","\dc02d","\dc02e","\dc02f","\dc030","\dc031","\dc032","\dc033","\dc034","\dc035","\dc036","\dc037","\dc038","\dc039","\dc03a","\dc03b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBWIG..HANGUL SYLLABLE BBWIH
-        "\dc03d","\dc03e","\dc03f","\dc040","\dc041","\dc042","\dc043","\dc044","\dc045","\dc046","\dc047","\dc048","\dc049","\dc04a","\dc04b","\dc04c","\dc04d","\dc04e","\dc04f","\dc050","\dc051","\dc052","\dc053","\dc054","\dc055","\dc056","\dc057",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYUG..HANGUL SYLLABLE BBYUH
-        "\dc059","\dc05a","\dc05b","\dc05c","\dc05d","\dc05e","\dc05f","\dc060","\dc061","\dc062","\dc063","\dc064","\dc065","\dc066","\dc067","\dc068","\dc069","\dc06a","\dc06b","\dc06c","\dc06d","\dc06e","\dc06f","\dc070","\dc071","\dc072","\dc073",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBEUG..HANGUL SYLLABLE BBEUH
-        "\dc075","\dc076","\dc077","\dc078","\dc079","\dc07a","\dc07b","\dc07c","\dc07d","\dc07e","\dc07f","\dc080","\dc081","\dc082","\dc083","\dc084","\dc085","\dc086","\dc087","\dc088","\dc089","\dc08a","\dc08b","\dc08c","\dc08d","\dc08e","\dc08f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYIG..HANGUL SYLLABLE BBYIH
-        "\dc091","\dc092","\dc093","\dc094","\dc095","\dc096","\dc097","\dc098","\dc099","\dc09a","\dc09b","\dc09c","\dc09d","\dc09e","\dc09f","\dc0a0","\dc0a1","\dc0a2","\dc0a3","\dc0a4","\dc0a5","\dc0a6","\dc0a7","\dc0a8","\dc0a9","\dc0aa","\dc0ab",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBIG..HANGUL SYLLABLE BBIH
-        "\dc0ad","\dc0ae","\dc0af","\dc0b0","\dc0b1","\dc0b2","\dc0b3","\dc0b4","\dc0b5","\dc0b6","\dc0b7","\dc0b8","\dc0b9","\dc0ba","\dc0bb","\dc0bc","\dc0bd","\dc0be","\dc0bf","\dc0c0","\dc0c1","\dc0c2","\dc0c3","\dc0c4","\dc0c5","\dc0c6","\dc0c7",  # ; LVT # Lo  [27] HANGUL SYLLABLE SAG..HANGUL SYLLABLE SAH
-        "\dc0c9","\dc0ca","\dc0cb","\dc0cc","\dc0cd","\dc0ce","\dc0cf","\dc0d0","\dc0d1","\dc0d2","\dc0d3","\dc0d4","\dc0d5","\dc0d6","\dc0d7","\dc0d8","\dc0d9","\dc0da","\dc0db","\dc0dc","\dc0dd","\dc0de","\dc0df","\dc0e0","\dc0e1","\dc0e2","\dc0e3",  # ; LVT # Lo  [27] HANGUL SYLLABLE SAEG..HANGUL SYLLABLE SAEH
-        "\dc0e5","\dc0e6","\dc0e7","\dc0e8","\dc0e9","\dc0ea","\dc0eb","\dc0ec","\dc0ed","\dc0ee","\dc0ef","\dc0f0","\dc0f1","\dc0f2","\dc0f3","\dc0f4","\dc0f5","\dc0f6","\dc0f7","\dc0f8","\dc0f9","\dc0fa","\dc0fb","\dc0fc","\dc0fd","\dc0fe","\dc0ff",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYAG..HANGUL SYLLABLE SYAH
-        "\dc101","\dc102","\dc103","\dc104","\dc105","\dc106","\dc107","\dc108","\dc109","\dc10a","\dc10b","\dc10c","\dc10d","\dc10e","\dc10f","\dc110","\dc111","\dc112","\dc113","\dc114","\dc115","\dc116","\dc117","\dc118","\dc119","\dc11a","\dc11b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYAEG..HANGUL SYLLABLE SYAEH
-        "\dc11d","\dc11e","\dc11f","\dc120","\dc121","\dc122","\dc123","\dc124","\dc125","\dc126","\dc127","\dc128","\dc129","\dc12a","\dc12b","\dc12c","\dc12d","\dc12e","\dc12f","\dc130","\dc131","\dc132","\dc133","\dc134","\dc135","\dc136","\dc137",  # ; LVT # Lo  [27] HANGUL SYLLABLE SEOG..HANGUL SYLLABLE SEOH
-        "\dc139","\dc13a","\dc13b","\dc13c","\dc13d","\dc13e","\dc13f","\dc140","\dc141","\dc142","\dc143","\dc144","\dc145","\dc146","\dc147","\dc148","\dc149","\dc14a","\dc14b","\dc14c","\dc14d","\dc14e","\dc14f","\dc150","\dc151","\dc152","\dc153",  # ; LVT # Lo  [27] HANGUL SYLLABLE SEG..HANGUL SYLLABLE SEH
-        "\dc155","\dc156","\dc157","\dc158","\dc159","\dc15a","\dc15b","\dc15c","\dc15d","\dc15e","\dc15f","\dc160","\dc161","\dc162","\dc163","\dc164","\dc165","\dc166","\dc167","\dc168","\dc169","\dc16a","\dc16b","\dc16c","\dc16d","\dc16e","\dc16f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYEOG..HANGUL SYLLABLE SYEOH
-        "\dc171","\dc172","\dc173","\dc174","\dc175","\dc176","\dc177","\dc178","\dc179","\dc17a","\dc17b","\dc17c","\dc17d","\dc17e","\dc17f","\dc180","\dc181","\dc182","\dc183","\dc184","\dc185","\dc186","\dc187","\dc188","\dc189","\dc18a","\dc18b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYEG..HANGUL SYLLABLE SYEH
-        "\dc18d","\dc18e","\dc18f","\dc190","\dc191","\dc192","\dc193","\dc194","\dc195","\dc196","\dc197","\dc198","\dc199","\dc19a","\dc19b","\dc19c","\dc19d","\dc19e","\dc19f","\dc1a0","\dc1a1","\dc1a2","\dc1a3","\dc1a4","\dc1a5","\dc1a6","\dc1a7",  # ; LVT # Lo  [27] HANGUL SYLLABLE SOG..HANGUL SYLLABLE SOH
-        "\dc1a9","\dc1aa","\dc1ab","\dc1ac","\dc1ad","\dc1ae","\dc1af","\dc1b0","\dc1b1","\dc1b2","\dc1b3","\dc1b4","\dc1b5","\dc1b6","\dc1b7","\dc1b8","\dc1b9","\dc1ba","\dc1bb","\dc1bc","\dc1bd","\dc1be","\dc1bf","\dc1c0","\dc1c1","\dc1c2","\dc1c3",  # ; LVT # Lo  [27] HANGUL SYLLABLE SWAG..HANGUL SYLLABLE SWAH
-        "\dc1c5","\dc1c6","\dc1c7","\dc1c8","\dc1c9","\dc1ca","\dc1cb","\dc1cc","\dc1cd","\dc1ce","\dc1cf","\dc1d0","\dc1d1","\dc1d2","\dc1d3","\dc1d4","\dc1d5","\dc1d6","\dc1d7","\dc1d8","\dc1d9","\dc1da","\dc1db","\dc1dc","\dc1dd","\dc1de","\dc1df",  # ; LVT # Lo  [27] HANGUL SYLLABLE SWAEG..HANGUL SYLLABLE SWAEH
-        "\dc1e1","\dc1e2","\dc1e3","\dc1e4","\dc1e5","\dc1e6","\dc1e7","\dc1e8","\dc1e9","\dc1ea","\dc1eb","\dc1ec","\dc1ed","\dc1ee","\dc1ef","\dc1f0","\dc1f1","\dc1f2","\dc1f3","\dc1f4","\dc1f5","\dc1f6","\dc1f7","\dc1f8","\dc1f9","\dc1fa","\dc1fb",  # ; LVT # Lo  [27] HANGUL SYLLABLE SOEG..HANGUL SYLLABLE SOEH
-        "\dc1fd","\dc1fe","\dc1ff","\dc200","\dc201","\dc202","\dc203","\dc204","\dc205","\dc206","\dc207","\dc208","\dc209","\dc20a","\dc20b","\dc20c","\dc20d","\dc20e","\dc20f","\dc210","\dc211","\dc212","\dc213","\dc214","\dc215","\dc216","\dc217",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYOG..HANGUL SYLLABLE SYOH
-        "\dc219","\dc21a","\dc21b","\dc21c","\dc21d","\dc21e","\dc21f","\dc220","\dc221","\dc222","\dc223","\dc224","\dc225","\dc226","\dc227","\dc228","\dc229","\dc22a","\dc22b","\dc22c","\dc22d","\dc22e","\dc22f","\dc230","\dc231","\dc232","\dc233",  # ; LVT # Lo  [27] HANGUL SYLLABLE SUG..HANGUL SYLLABLE SUH
-        "\dc235","\dc236","\dc237","\dc238","\dc239","\dc23a","\dc23b","\dc23c","\dc23d","\dc23e","\dc23f","\dc240","\dc241","\dc242","\dc243","\dc244","\dc245","\dc246","\dc247","\dc248","\dc249","\dc24a","\dc24b","\dc24c","\dc24d","\dc24e","\dc24f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SWEOG..HANGUL SYLLABLE SWEOH
-        "\dc251","\dc252","\dc253","\dc254","\dc255","\dc256","\dc257","\dc258","\dc259","\dc25a","\dc25b","\dc25c","\dc25d","\dc25e","\dc25f","\dc260","\dc261","\dc262","\dc263","\dc264","\dc265","\dc266","\dc267","\dc268","\dc269","\dc26a","\dc26b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SWEG..HANGUL SYLLABLE SWEH
-        "\dc26d","\dc26e","\dc26f","\dc270","\dc271","\dc272","\dc273","\dc274","\dc275","\dc276","\dc277","\dc278","\dc279","\dc27a","\dc27b","\dc27c","\dc27d","\dc27e","\dc27f","\dc280","\dc281","\dc282","\dc283","\dc284","\dc285","\dc286","\dc287",  # ; LVT # Lo  [27] HANGUL SYLLABLE SWIG..HANGUL SYLLABLE SWIH
-        "\dc289","\dc28a","\dc28b","\dc28c","\dc28d","\dc28e","\dc28f","\dc290","\dc291","\dc292","\dc293","\dc294","\dc295","\dc296","\dc297","\dc298","\dc299","\dc29a","\dc29b","\dc29c","\dc29d","\dc29e","\dc29f","\dc2a0","\dc2a1","\dc2a2","\dc2a3",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYUG..HANGUL SYLLABLE SYUH
-        "\dc2a5","\dc2a6","\dc2a7","\dc2a8","\dc2a9","\dc2aa","\dc2ab","\dc2ac","\dc2ad","\dc2ae","\dc2af","\dc2b0","\dc2b1","\dc2b2","\dc2b3","\dc2b4","\dc2b5","\dc2b6","\dc2b7","\dc2b8","\dc2b9","\dc2ba","\dc2bb","\dc2bc","\dc2bd","\dc2be","\dc2bf",  # ; LVT # Lo  [27] HANGUL SYLLABLE SEUG..HANGUL SYLLABLE SEUH
-        "\dc2c1","\dc2c2","\dc2c3","\dc2c4","\dc2c5","\dc2c6","\dc2c7","\dc2c8","\dc2c9","\dc2ca","\dc2cb","\dc2cc","\dc2cd","\dc2ce","\dc2cf","\dc2d0","\dc2d1","\dc2d2","\dc2d3","\dc2d4","\dc2d5","\dc2d6","\dc2d7","\dc2d8","\dc2d9","\dc2da","\dc2db",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYIG..HANGUL SYLLABLE SYIH
-        "\dc2dd","\dc2de","\dc2df","\dc2e0","\dc2e1","\dc2e2","\dc2e3","\dc2e4","\dc2e5","\dc2e6","\dc2e7","\dc2e8","\dc2e9","\dc2ea","\dc2eb","\dc2ec","\dc2ed","\dc2ee","\dc2ef","\dc2f0","\dc2f1","\dc2f2","\dc2f3","\dc2f4","\dc2f5","\dc2f6","\dc2f7",  # ; LVT # Lo  [27] HANGUL SYLLABLE SIG..HANGUL SYLLABLE SIH
-        "\dc2f9","\dc2fa","\dc2fb","\dc2fc","\dc2fd","\dc2fe","\dc2ff","\dc300","\dc301","\dc302","\dc303","\dc304","\dc305","\dc306","\dc307","\dc308","\dc309","\dc30a","\dc30b","\dc30c","\dc30d","\dc30e","\dc30f","\dc310","\dc311","\dc312","\dc313",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSAG..HANGUL SYLLABLE SSAH
-        "\dc315","\dc316","\dc317","\dc318","\dc319","\dc31a","\dc31b","\dc31c","\dc31d","\dc31e","\dc31f","\dc320","\dc321","\dc322","\dc323","\dc324","\dc325","\dc326","\dc327","\dc328","\dc329","\dc32a","\dc32b","\dc32c","\dc32d","\dc32e","\dc32f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSAEG..HANGUL SYLLABLE SSAEH
-        "\dc331","\dc332","\dc333","\dc334","\dc335","\dc336","\dc337","\dc338","\dc339","\dc33a","\dc33b","\dc33c","\dc33d","\dc33e","\dc33f","\dc340","\dc341","\dc342","\dc343","\dc344","\dc345","\dc346","\dc347","\dc348","\dc349","\dc34a","\dc34b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYAG..HANGUL SYLLABLE SSYAH
-        "\dc34d","\dc34e","\dc34f","\dc350","\dc351","\dc352","\dc353","\dc354","\dc355","\dc356","\dc357","\dc358","\dc359","\dc35a","\dc35b","\dc35c","\dc35d","\dc35e","\dc35f","\dc360","\dc361","\dc362","\dc363","\dc364","\dc365","\dc366","\dc367",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYAEG..HANGUL SYLLABLE SSYAEH
-        "\dc369","\dc36a","\dc36b","\dc36c","\dc36d","\dc36e","\dc36f","\dc370","\dc371","\dc372","\dc373","\dc374","\dc375","\dc376","\dc377","\dc378","\dc379","\dc37a","\dc37b","\dc37c","\dc37d","\dc37e","\dc37f","\dc380","\dc381","\dc382","\dc383",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSEOG..HANGUL SYLLABLE SSEOH
-        "\dc385","\dc386","\dc387","\dc388","\dc389","\dc38a","\dc38b","\dc38c","\dc38d","\dc38e","\dc38f","\dc390","\dc391","\dc392","\dc393","\dc394","\dc395","\dc396","\dc397","\dc398","\dc399","\dc39a","\dc39b","\dc39c","\dc39d","\dc39e","\dc39f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSEG..HANGUL SYLLABLE SSEH
-        "\dc3a1","\dc3a2","\dc3a3","\dc3a4","\dc3a5","\dc3a6","\dc3a7","\dc3a8","\dc3a9","\dc3aa","\dc3ab","\dc3ac","\dc3ad","\dc3ae","\dc3af","\dc3b0","\dc3b1","\dc3b2","\dc3b3","\dc3b4","\dc3b5","\dc3b6","\dc3b7","\dc3b8","\dc3b9","\dc3ba","\dc3bb",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYEOG..HANGUL SYLLABLE SSYEOH
-        "\dc3bd","\dc3be","\dc3bf","\dc3c0","\dc3c1","\dc3c2","\dc3c3","\dc3c4","\dc3c5","\dc3c6","\dc3c7","\dc3c8","\dc3c9","\dc3ca","\dc3cb","\dc3cc","\dc3cd","\dc3ce","\dc3cf","\dc3d0","\dc3d1","\dc3d2","\dc3d3","\dc3d4","\dc3d5","\dc3d6","\dc3d7",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYEG..HANGUL SYLLABLE SSYEH
-        "\dc3d9","\dc3da","\dc3db","\dc3dc","\dc3dd","\dc3de","\dc3df","\dc3e0","\dc3e1","\dc3e2","\dc3e3","\dc3e4","\dc3e5","\dc3e6","\dc3e7","\dc3e8","\dc3e9","\dc3ea","\dc3eb","\dc3ec","\dc3ed","\dc3ee","\dc3ef","\dc3f0","\dc3f1","\dc3f2","\dc3f3",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSOG..HANGUL SYLLABLE SSOH
-        "\dc3f5","\dc3f6","\dc3f7","\dc3f8","\dc3f9","\dc3fa","\dc3fb","\dc3fc","\dc3fd","\dc3fe","\dc3ff","\dc400","\dc401","\dc402","\dc403","\dc404","\dc405","\dc406","\dc407","\dc408","\dc409","\dc40a","\dc40b","\dc40c","\dc40d","\dc40e","\dc40f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSWAG..HANGUL SYLLABLE SSWAH
-        "\dc411","\dc412","\dc413","\dc414","\dc415","\dc416","\dc417","\dc418","\dc419","\dc41a","\dc41b","\dc41c","\dc41d","\dc41e","\dc41f","\dc420","\dc421","\dc422","\dc423","\dc424","\dc425","\dc426","\dc427","\dc428","\dc429","\dc42a","\dc42b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSWAEG..HANGUL SYLLABLE SSWAEH
-        "\dc42d","\dc42e","\dc42f","\dc430","\dc431","\dc432","\dc433","\dc434","\dc435","\dc436","\dc437","\dc438","\dc439","\dc43a","\dc43b","\dc43c","\dc43d","\dc43e","\dc43f","\dc440","\dc441","\dc442","\dc443","\dc444","\dc445","\dc446","\dc447",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSOEG..HANGUL SYLLABLE SSOEH
-        "\dc449","\dc44a","\dc44b","\dc44c","\dc44d","\dc44e","\dc44f","\dc450","\dc451","\dc452","\dc453","\dc454","\dc455","\dc456","\dc457","\dc458","\dc459","\dc45a","\dc45b","\dc45c","\dc45d","\dc45e","\dc45f","\dc460","\dc461","\dc462","\dc463",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYOG..HANGUL SYLLABLE SSYOH
-        "\dc465","\dc466","\dc467","\dc468","\dc469","\dc46a","\dc46b","\dc46c","\dc46d","\dc46e","\dc46f","\dc470","\dc471","\dc472","\dc473","\dc474","\dc475","\dc476","\dc477","\dc478","\dc479","\dc47a","\dc47b","\dc47c","\dc47d","\dc47e","\dc47f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSUG..HANGUL SYLLABLE SSUH
-        "\dc481","\dc482","\dc483","\dc484","\dc485","\dc486","\dc487","\dc488","\dc489","\dc48a","\dc48b","\dc48c","\dc48d","\dc48e","\dc48f","\dc490","\dc491","\dc492","\dc493","\dc494","\dc495","\dc496","\dc497","\dc498","\dc499","\dc49a","\dc49b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSWEOG..HANGUL SYLLABLE SSWEOH
-        "\dc49d","\dc49e","\dc49f","\dc4a0","\dc4a1","\dc4a2","\dc4a3","\dc4a4","\dc4a5","\dc4a6","\dc4a7","\dc4a8","\dc4a9","\dc4aa","\dc4ab","\dc4ac","\dc4ad","\dc4ae","\dc4af","\dc4b0","\dc4b1","\dc4b2","\dc4b3","\dc4b4","\dc4b5","\dc4b6","\dc4b7",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSWEG..HANGUL SYLLABLE SSWEH
-        "\dc4b9","\dc4ba","\dc4bb","\dc4bc","\dc4bd","\dc4be","\dc4bf","\dc4c0","\dc4c1","\dc4c2","\dc4c3","\dc4c4","\dc4c5","\dc4c6","\dc4c7","\dc4c8","\dc4c9","\dc4ca","\dc4cb","\dc4cc","\dc4cd","\dc4ce","\dc4cf","\dc4d0","\dc4d1","\dc4d2","\dc4d3",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSWIG..HANGUL SYLLABLE SSWIH
-        "\dc4d5","\dc4d6","\dc4d7","\dc4d8","\dc4d9","\dc4da","\dc4db","\dc4dc","\dc4dd","\dc4de","\dc4df","\dc4e0","\dc4e1","\dc4e2","\dc4e3","\dc4e4","\dc4e5","\dc4e6","\dc4e7","\dc4e8","\dc4e9","\dc4ea","\dc4eb","\dc4ec","\dc4ed","\dc4ee","\dc4ef",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYUG..HANGUL SYLLABLE SSYUH
-        "\dc4f1","\dc4f2","\dc4f3","\dc4f4","\dc4f5","\dc4f6","\dc4f7","\dc4f8","\dc4f9","\dc4fa","\dc4fb","\dc4fc","\dc4fd","\dc4fe","\dc4ff","\dc500","\dc501","\dc502","\dc503","\dc504","\dc505","\dc506","\dc507","\dc508","\dc509","\dc50a","\dc50b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSEUG..HANGUL SYLLABLE SSEUH
-        "\dc50d","\dc50e","\dc50f","\dc510","\dc511","\dc512","\dc513","\dc514","\dc515","\dc516","\dc517","\dc518","\dc519","\dc51a","\dc51b","\dc51c","\dc51d","\dc51e","\dc51f","\dc520","\dc521","\dc522","\dc523","\dc524","\dc525","\dc526","\dc527",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYIG..HANGUL SYLLABLE SSYIH
-        "\dc529","\dc52a","\dc52b","\dc52c","\dc52d","\dc52e","\dc52f","\dc530","\dc531","\dc532","\dc533","\dc534","\dc535","\dc536","\dc537","\dc538","\dc539","\dc53a","\dc53b","\dc53c","\dc53d","\dc53e","\dc53f","\dc540","\dc541","\dc542","\dc543",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSIG..HANGUL SYLLABLE SSIH
-        "\dc545","\dc546","\dc547","\dc548","\dc549","\dc54a","\dc54b","\dc54c","\dc54d","\dc54e","\dc54f","\dc550","\dc551","\dc552","\dc553","\dc554","\dc555","\dc556","\dc557","\dc558","\dc559","\dc55a","\dc55b","\dc55c","\dc55d","\dc55e","\dc55f",  # ; LVT # Lo  [27] HANGUL SYLLABLE AG..HANGUL SYLLABLE AH
-        "\dc561","\dc562","\dc563","\dc564","\dc565","\dc566","\dc567","\dc568","\dc569","\dc56a","\dc56b","\dc56c","\dc56d","\dc56e","\dc56f","\dc570","\dc571","\dc572","\dc573","\dc574","\dc575","\dc576","\dc577","\dc578","\dc579","\dc57a","\dc57b",  # ; LVT # Lo  [27] HANGUL SYLLABLE AEG..HANGUL SYLLABLE AEH
-        "\dc57d","\dc57e","\dc57f","\dc580","\dc581","\dc582","\dc583","\dc584","\dc585","\dc586","\dc587","\dc588","\dc589","\dc58a","\dc58b","\dc58c","\dc58d","\dc58e","\dc58f","\dc590","\dc591","\dc592","\dc593","\dc594","\dc595","\dc596","\dc597",  # ; LVT # Lo  [27] HANGUL SYLLABLE YAG..HANGUL SYLLABLE YAH
-        "\dc599","\dc59a","\dc59b","\dc59c","\dc59d","\dc59e","\dc59f","\dc5a0","\dc5a1","\dc5a2","\dc5a3","\dc5a4","\dc5a5","\dc5a6","\dc5a7","\dc5a8","\dc5a9","\dc5aa","\dc5ab","\dc5ac","\dc5ad","\dc5ae","\dc5af","\dc5b0","\dc5b1","\dc5b2","\dc5b3",  # ; LVT # Lo  [27] HANGUL SYLLABLE YAEG..HANGUL SYLLABLE YAEH
-        "\dc5b5","\dc5b6","\dc5b7","\dc5b8","\dc5b9","\dc5ba","\dc5bb","\dc5bc","\dc5bd","\dc5be","\dc5bf","\dc5c0","\dc5c1","\dc5c2","\dc5c3","\dc5c4","\dc5c5","\dc5c6","\dc5c7","\dc5c8","\dc5c9","\dc5ca","\dc5cb","\dc5cc","\dc5cd","\dc5ce","\dc5cf",  # ; LVT # Lo  [27] HANGUL SYLLABLE EOG..HANGUL SYLLABLE EOH
-        "\dc5d1","\dc5d2","\dc5d3","\dc5d4","\dc5d5","\dc5d6","\dc5d7","\dc5d8","\dc5d9","\dc5da","\dc5db","\dc5dc","\dc5dd","\dc5de","\dc5df","\dc5e0","\dc5e1","\dc5e2","\dc5e3","\dc5e4","\dc5e5","\dc5e6","\dc5e7","\dc5e8","\dc5e9","\dc5ea","\dc5eb",  # ; LVT # Lo  [27] HANGUL SYLLABLE EG..HANGUL SYLLABLE EH
-        "\dc5ed","\dc5ee","\dc5ef","\dc5f0","\dc5f1","\dc5f2","\dc5f3","\dc5f4","\dc5f5","\dc5f6","\dc5f7","\dc5f8","\dc5f9","\dc5fa","\dc5fb","\dc5fc","\dc5fd","\dc5fe","\dc5ff","\dc600","\dc601","\dc602","\dc603","\dc604","\dc605","\dc606","\dc607",  # ; LVT # Lo  [27] HANGUL SYLLABLE YEOG..HANGUL SYLLABLE YEOH
-        "\dc609","\dc60a","\dc60b","\dc60c","\dc60d","\dc60e","\dc60f","\dc610","\dc611","\dc612","\dc613","\dc614","\dc615","\dc616","\dc617","\dc618","\dc619","\dc61a","\dc61b","\dc61c","\dc61d","\dc61e","\dc61f","\dc620","\dc621","\dc622","\dc623",  # ; LVT # Lo  [27] HANGUL SYLLABLE YEG..HANGUL SYLLABLE YEH
-        "\dc625","\dc626","\dc627","\dc628","\dc629","\dc62a","\dc62b","\dc62c","\dc62d","\dc62e","\dc62f","\dc630","\dc631","\dc632","\dc633","\dc634","\dc635","\dc636","\dc637","\dc638","\dc639","\dc63a","\dc63b","\dc63c","\dc63d","\dc63e","\dc63f",  # ; LVT # Lo  [27] HANGUL SYLLABLE OG..HANGUL SYLLABLE OH
-        "\dc641","\dc642","\dc643","\dc644","\dc645","\dc646","\dc647","\dc648","\dc649","\dc64a","\dc64b","\dc64c","\dc64d","\dc64e","\dc64f","\dc650","\dc651","\dc652","\dc653","\dc654","\dc655","\dc656","\dc657","\dc658","\dc659","\dc65a","\dc65b",  # ; LVT # Lo  [27] HANGUL SYLLABLE WAG..HANGUL SYLLABLE WAH
-        "\dc65d","\dc65e","\dc65f","\dc660","\dc661","\dc662","\dc663","\dc664","\dc665","\dc666","\dc667","\dc668","\dc669","\dc66a","\dc66b","\dc66c","\dc66d","\dc66e","\dc66f","\dc670","\dc671","\dc672","\dc673","\dc674","\dc675","\dc676","\dc677",  # ; LVT # Lo  [27] HANGUL SYLLABLE WAEG..HANGUL SYLLABLE WAEH
-        "\dc679","\dc67a","\dc67b","\dc67c","\dc67d","\dc67e","\dc67f","\dc680","\dc681","\dc682","\dc683","\dc684","\dc685","\dc686","\dc687","\dc688","\dc689","\dc68a","\dc68b","\dc68c","\dc68d","\dc68e","\dc68f","\dc690","\dc691","\dc692","\dc693",  # ; LVT # Lo  [27] HANGUL SYLLABLE OEG..HANGUL SYLLABLE OEH
-        "\dc695","\dc696","\dc697","\dc698","\dc699","\dc69a","\dc69b","\dc69c","\dc69d","\dc69e","\dc69f","\dc6a0","\dc6a1","\dc6a2","\dc6a3","\dc6a4","\dc6a5","\dc6a6","\dc6a7","\dc6a8","\dc6a9","\dc6aa","\dc6ab","\dc6ac","\dc6ad","\dc6ae","\dc6af",  # ; LVT # Lo  [27] HANGUL SYLLABLE YOG..HANGUL SYLLABLE YOH
-        "\dc6b1","\dc6b2","\dc6b3","\dc6b4","\dc6b5","\dc6b6","\dc6b7","\dc6b8","\dc6b9","\dc6ba","\dc6bb","\dc6bc","\dc6bd","\dc6be","\dc6bf","\dc6c0","\dc6c1","\dc6c2","\dc6c3","\dc6c4","\dc6c5","\dc6c6","\dc6c7","\dc6c8","\dc6c9","\dc6ca","\dc6cb",  # ; LVT # Lo  [27] HANGUL SYLLABLE UG..HANGUL SYLLABLE UH
-        "\dc6cd","\dc6ce","\dc6cf","\dc6d0","\dc6d1","\dc6d2","\dc6d3","\dc6d4","\dc6d5","\dc6d6","\dc6d7","\dc6d8","\dc6d9","\dc6da","\dc6db","\dc6dc","\dc6dd","\dc6de","\dc6df","\dc6e0","\dc6e1","\dc6e2","\dc6e3","\dc6e4","\dc6e5","\dc6e6","\dc6e7",  # ; LVT # Lo  [27] HANGUL SYLLABLE WEOG..HANGUL SYLLABLE WEOH
-        "\dc6e9","\dc6ea","\dc6eb","\dc6ec","\dc6ed","\dc6ee","\dc6ef","\dc6f0","\dc6f1","\dc6f2","\dc6f3","\dc6f4","\dc6f5","\dc6f6","\dc6f7","\dc6f8","\dc6f9","\dc6fa","\dc6fb","\dc6fc","\dc6fd","\dc6fe","\dc6ff","\dc700","\dc701","\dc702","\dc703",  # ; LVT # Lo  [27] HANGUL SYLLABLE WEG..HANGUL SYLLABLE WEH
-        "\dc705","\dc706","\dc707","\dc708","\dc709","\dc70a","\dc70b","\dc70c","\dc70d","\dc70e","\dc70f","\dc710","\dc711","\dc712","\dc713","\dc714","\dc715","\dc716","\dc717","\dc718","\dc719","\dc71a","\dc71b","\dc71c","\dc71d","\dc71e","\dc71f",  # ; LVT # Lo  [27] HANGUL SYLLABLE WIG..HANGUL SYLLABLE WIH
-        "\dc721","\dc722","\dc723","\dc724","\dc725","\dc726","\dc727","\dc728","\dc729","\dc72a","\dc72b","\dc72c","\dc72d","\dc72e","\dc72f","\dc730","\dc731","\dc732","\dc733","\dc734","\dc735","\dc736","\dc737","\dc738","\dc739","\dc73a","\dc73b",  # ; LVT # Lo  [27] HANGUL SYLLABLE YUG..HANGUL SYLLABLE YUH
-        "\dc73d","\dc73e","\dc73f","\dc740","\dc741","\dc742","\dc743","\dc744","\dc745","\dc746","\dc747","\dc748","\dc749","\dc74a","\dc74b","\dc74c","\dc74d","\dc74e","\dc74f","\dc750","\dc751","\dc752","\dc753","\dc754","\dc755","\dc756","\dc757",  # ; LVT # Lo  [27] HANGUL SYLLABLE EUG..HANGUL SYLLABLE EUH
-        "\dc759","\dc75a","\dc75b","\dc75c","\dc75d","\dc75e","\dc75f","\dc760","\dc761","\dc762","\dc763","\dc764","\dc765","\dc766","\dc767","\dc768","\dc769","\dc76a","\dc76b","\dc76c","\dc76d","\dc76e","\dc76f","\dc770","\dc771","\dc772","\dc773",  # ; LVT # Lo  [27] HANGUL SYLLABLE YIG..HANGUL SYLLABLE YIH
-        "\dc775","\dc776","\dc777","\dc778","\dc779","\dc77a","\dc77b","\dc77c","\dc77d","\dc77e","\dc77f","\dc780","\dc781","\dc782","\dc783","\dc784","\dc785","\dc786","\dc787","\dc788","\dc789","\dc78a","\dc78b","\dc78c","\dc78d","\dc78e","\dc78f",  # ; LVT # Lo  [27] HANGUL SYLLABLE IG..HANGUL SYLLABLE IH
-        "\dc791","\dc792","\dc793","\dc794","\dc795","\dc796","\dc797","\dc798","\dc799","\dc79a","\dc79b","\dc79c","\dc79d","\dc79e","\dc79f","\dc7a0","\dc7a1","\dc7a2","\dc7a3","\dc7a4","\dc7a5","\dc7a6","\dc7a7","\dc7a8","\dc7a9","\dc7aa","\dc7ab",  # ; LVT # Lo  [27] HANGUL SYLLABLE JAG..HANGUL SYLLABLE JAH
-        "\dc7ad","\dc7ae","\dc7af","\dc7b0","\dc7b1","\dc7b2","\dc7b3","\dc7b4","\dc7b5","\dc7b6","\dc7b7","\dc7b8","\dc7b9","\dc7ba","\dc7bb","\dc7bc","\dc7bd","\dc7be","\dc7bf","\dc7c0","\dc7c1","\dc7c2","\dc7c3","\dc7c4","\dc7c5","\dc7c6","\dc7c7",  # ; LVT # Lo  [27] HANGUL SYLLABLE JAEG..HANGUL SYLLABLE JAEH
-        "\dc7c9","\dc7ca","\dc7cb","\dc7cc","\dc7cd","\dc7ce","\dc7cf","\dc7d0","\dc7d1","\dc7d2","\dc7d3","\dc7d4","\dc7d5","\dc7d6","\dc7d7","\dc7d8","\dc7d9","\dc7da","\dc7db","\dc7dc","\dc7dd","\dc7de","\dc7df","\dc7e0","\dc7e1","\dc7e2","\dc7e3",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYAG..HANGUL SYLLABLE JYAH
-        "\dc7e5","\dc7e6","\dc7e7","\dc7e8","\dc7e9","\dc7ea","\dc7eb","\dc7ec","\dc7ed","\dc7ee","\dc7ef","\dc7f0","\dc7f1","\dc7f2","\dc7f3","\dc7f4","\dc7f5","\dc7f6","\dc7f7","\dc7f8","\dc7f9","\dc7fa","\dc7fb","\dc7fc","\dc7fd","\dc7fe","\dc7ff",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYAEG..HANGUL SYLLABLE JYAEH
-        "\dc801","\dc802","\dc803","\dc804","\dc805","\dc806","\dc807","\dc808","\dc809","\dc80a","\dc80b","\dc80c","\dc80d","\dc80e","\dc80f","\dc810","\dc811","\dc812","\dc813","\dc814","\dc815","\dc816","\dc817","\dc818","\dc819","\dc81a","\dc81b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JEOG..HANGUL SYLLABLE JEOH
-        "\dc81d","\dc81e","\dc81f","\dc820","\dc821","\dc822","\dc823","\dc824","\dc825","\dc826","\dc827","\dc828","\dc829","\dc82a","\dc82b","\dc82c","\dc82d","\dc82e","\dc82f","\dc830","\dc831","\dc832","\dc833","\dc834","\dc835","\dc836","\dc837",  # ; LVT # Lo  [27] HANGUL SYLLABLE JEG..HANGUL SYLLABLE JEH
-        "\dc839","\dc83a","\dc83b","\dc83c","\dc83d","\dc83e","\dc83f","\dc840","\dc841","\dc842","\dc843","\dc844","\dc845","\dc846","\dc847","\dc848","\dc849","\dc84a","\dc84b","\dc84c","\dc84d","\dc84e","\dc84f","\dc850","\dc851","\dc852","\dc853",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYEOG..HANGUL SYLLABLE JYEOH
-        "\dc855","\dc856","\dc857","\dc858","\dc859","\dc85a","\dc85b","\dc85c","\dc85d","\dc85e","\dc85f","\dc860","\dc861","\dc862","\dc863","\dc864","\dc865","\dc866","\dc867","\dc868","\dc869","\dc86a","\dc86b","\dc86c","\dc86d","\dc86e","\dc86f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYEG..HANGUL SYLLABLE JYEH
-        "\dc871","\dc872","\dc873","\dc874","\dc875","\dc876","\dc877","\dc878","\dc879","\dc87a","\dc87b","\dc87c","\dc87d","\dc87e","\dc87f","\dc880","\dc881","\dc882","\dc883","\dc884","\dc885","\dc886","\dc887","\dc888","\dc889","\dc88a","\dc88b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JOG..HANGUL SYLLABLE JOH
-        "\dc88d","\dc88e","\dc88f","\dc890","\dc891","\dc892","\dc893","\dc894","\dc895","\dc896","\dc897","\dc898","\dc899","\dc89a","\dc89b","\dc89c","\dc89d","\dc89e","\dc89f","\dc8a0","\dc8a1","\dc8a2","\dc8a3","\dc8a4","\dc8a5","\dc8a6","\dc8a7",  # ; LVT # Lo  [27] HANGUL SYLLABLE JWAG..HANGUL SYLLABLE JWAH
-        "\dc8a9","\dc8aa","\dc8ab","\dc8ac","\dc8ad","\dc8ae","\dc8af","\dc8b0","\dc8b1","\dc8b2","\dc8b3","\dc8b4","\dc8b5","\dc8b6","\dc8b7","\dc8b8","\dc8b9","\dc8ba","\dc8bb","\dc8bc","\dc8bd","\dc8be","\dc8bf","\dc8c0","\dc8c1","\dc8c2","\dc8c3",  # ; LVT # Lo  [27] HANGUL SYLLABLE JWAEG..HANGUL SYLLABLE JWAEH
-        "\dc8c5","\dc8c6","\dc8c7","\dc8c8","\dc8c9","\dc8ca","\dc8cb","\dc8cc","\dc8cd","\dc8ce","\dc8cf","\dc8d0","\dc8d1","\dc8d2","\dc8d3","\dc8d4","\dc8d5","\dc8d6","\dc8d7","\dc8d8","\dc8d9","\dc8da","\dc8db","\dc8dc","\dc8dd","\dc8de","\dc8df",  # ; LVT # Lo  [27] HANGUL SYLLABLE JOEG..HANGUL SYLLABLE JOEH
-        "\dc8e1","\dc8e2","\dc8e3","\dc8e4","\dc8e5","\dc8e6","\dc8e7","\dc8e8","\dc8e9","\dc8ea","\dc8eb","\dc8ec","\dc8ed","\dc8ee","\dc8ef","\dc8f0","\dc8f1","\dc8f2","\dc8f3","\dc8f4","\dc8f5","\dc8f6","\dc8f7","\dc8f8","\dc8f9","\dc8fa","\dc8fb",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYOG..HANGUL SYLLABLE JYOH
-        "\dc8fd","\dc8fe","\dc8ff","\dc900","\dc901","\dc902","\dc903","\dc904","\dc905","\dc906","\dc907","\dc908","\dc909","\dc90a","\dc90b","\dc90c","\dc90d","\dc90e","\dc90f","\dc910","\dc911","\dc912","\dc913","\dc914","\dc915","\dc916","\dc917",  # ; LVT # Lo  [27] HANGUL SYLLABLE JUG..HANGUL SYLLABLE JUH
-        "\dc919","\dc91a","\dc91b","\dc91c","\dc91d","\dc91e","\dc91f","\dc920","\dc921","\dc922","\dc923","\dc924","\dc925","\dc926","\dc927","\dc928","\dc929","\dc92a","\dc92b","\dc92c","\dc92d","\dc92e","\dc92f","\dc930","\dc931","\dc932","\dc933",  # ; LVT # Lo  [27] HANGUL SYLLABLE JWEOG..HANGUL SYLLABLE JWEOH
-        "\dc935","\dc936","\dc937","\dc938","\dc939","\dc93a","\dc93b","\dc93c","\dc93d","\dc93e","\dc93f","\dc940","\dc941","\dc942","\dc943","\dc944","\dc945","\dc946","\dc947","\dc948","\dc949","\dc94a","\dc94b","\dc94c","\dc94d","\dc94e","\dc94f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JWEG..HANGUL SYLLABLE JWEH
-        "\dc951","\dc952","\dc953","\dc954","\dc955","\dc956","\dc957","\dc958","\dc959","\dc95a","\dc95b","\dc95c","\dc95d","\dc95e","\dc95f","\dc960","\dc961","\dc962","\dc963","\dc964","\dc965","\dc966","\dc967","\dc968","\dc969","\dc96a","\dc96b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JWIG..HANGUL SYLLABLE JWIH
-        "\dc96d","\dc96e","\dc96f","\dc970","\dc971","\dc972","\dc973","\dc974","\dc975","\dc976","\dc977","\dc978","\dc979","\dc97a","\dc97b","\dc97c","\dc97d","\dc97e","\dc97f","\dc980","\dc981","\dc982","\dc983","\dc984","\dc985","\dc986","\dc987",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYUG..HANGUL SYLLABLE JYUH
-        "\dc989","\dc98a","\dc98b","\dc98c","\dc98d","\dc98e","\dc98f","\dc990","\dc991","\dc992","\dc993","\dc994","\dc995","\dc996","\dc997","\dc998","\dc999","\dc99a","\dc99b","\dc99c","\dc99d","\dc99e","\dc99f","\dc9a0","\dc9a1","\dc9a2","\dc9a3",  # ; LVT # Lo  [27] HANGUL SYLLABLE JEUG..HANGUL SYLLABLE JEUH
-        "\dc9a5","\dc9a6","\dc9a7","\dc9a8","\dc9a9","\dc9aa","\dc9ab","\dc9ac","\dc9ad","\dc9ae","\dc9af","\dc9b0","\dc9b1","\dc9b2","\dc9b3","\dc9b4","\dc9b5","\dc9b6","\dc9b7","\dc9b8","\dc9b9","\dc9ba","\dc9bb","\dc9bc","\dc9bd","\dc9be","\dc9bf",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYIG..HANGUL SYLLABLE JYIH
-        "\dc9c1","\dc9c2","\dc9c3","\dc9c4","\dc9c5","\dc9c6","\dc9c7","\dc9c8","\dc9c9","\dc9ca","\dc9cb","\dc9cc","\dc9cd","\dc9ce","\dc9cf","\dc9d0","\dc9d1","\dc9d2","\dc9d3","\dc9d4","\dc9d5","\dc9d6","\dc9d7","\dc9d8","\dc9d9","\dc9da","\dc9db",  # ; LVT # Lo  [27] HANGUL SYLLABLE JIG..HANGUL SYLLABLE JIH
-        "\dc9dd","\dc9de","\dc9df","\dc9e0","\dc9e1","\dc9e2","\dc9e3","\dc9e4","\dc9e5","\dc9e6","\dc9e7","\dc9e8","\dc9e9","\dc9ea","\dc9eb","\dc9ec","\dc9ed","\dc9ee","\dc9ef","\dc9f0","\dc9f1","\dc9f2","\dc9f3","\dc9f4","\dc9f5","\dc9f6","\dc9f7",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJAG..HANGUL SYLLABLE JJAH
-        "\dc9f9","\dc9fa","\dc9fb","\dc9fc","\dc9fd","\dc9fe","\dc9ff","\dca00","\dca01","\dca02","\dca03","\dca04","\dca05","\dca06","\dca07","\dca08","\dca09","\dca0a","\dca0b","\dca0c","\dca0d","\dca0e","\dca0f","\dca10","\dca11","\dca12","\dca13",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJAEG..HANGUL SYLLABLE JJAEH
-        "\dca15","\dca16","\dca17","\dca18","\dca19","\dca1a","\dca1b","\dca1c","\dca1d","\dca1e","\dca1f","\dca20","\dca21","\dca22","\dca23","\dca24","\dca25","\dca26","\dca27","\dca28","\dca29","\dca2a","\dca2b","\dca2c","\dca2d","\dca2e","\dca2f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYAG..HANGUL SYLLABLE JJYAH
-        "\dca31","\dca32","\dca33","\dca34","\dca35","\dca36","\dca37","\dca38","\dca39","\dca3a","\dca3b","\dca3c","\dca3d","\dca3e","\dca3f","\dca40","\dca41","\dca42","\dca43","\dca44","\dca45","\dca46","\dca47","\dca48","\dca49","\dca4a","\dca4b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYAEG..HANGUL SYLLABLE JJYAEH
-        "\dca4d","\dca4e","\dca4f","\dca50","\dca51","\dca52","\dca53","\dca54","\dca55","\dca56","\dca57","\dca58","\dca59","\dca5a","\dca5b","\dca5c","\dca5d","\dca5e","\dca5f","\dca60","\dca61","\dca62","\dca63","\dca64","\dca65","\dca66","\dca67",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJEOG..HANGUL SYLLABLE JJEOH
-        "\dca69","\dca6a","\dca6b","\dca6c","\dca6d","\dca6e","\dca6f","\dca70","\dca71","\dca72","\dca73","\dca74","\dca75","\dca76","\dca77","\dca78","\dca79","\dca7a","\dca7b","\dca7c","\dca7d","\dca7e","\dca7f","\dca80","\dca81","\dca82","\dca83",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJEG..HANGUL SYLLABLE JJEH
-        "\dca85","\dca86","\dca87","\dca88","\dca89","\dca8a","\dca8b","\dca8c","\dca8d","\dca8e","\dca8f","\dca90","\dca91","\dca92","\dca93","\dca94","\dca95","\dca96","\dca97","\dca98","\dca99","\dca9a","\dca9b","\dca9c","\dca9d","\dca9e","\dca9f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYEOG..HANGUL SYLLABLE JJYEOH
-        "\dcaa1","\dcaa2","\dcaa3","\dcaa4","\dcaa5","\dcaa6","\dcaa7","\dcaa8","\dcaa9","\dcaaa","\dcaab","\dcaac","\dcaad","\dcaae","\dcaaf","\dcab0","\dcab1","\dcab2","\dcab3","\dcab4","\dcab5","\dcab6","\dcab7","\dcab8","\dcab9","\dcaba","\dcabb",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYEG..HANGUL SYLLABLE JJYEH
-        "\dcabd","\dcabe","\dcabf","\dcac0","\dcac1","\dcac2","\dcac3","\dcac4","\dcac5","\dcac6","\dcac7","\dcac8","\dcac9","\dcaca","\dcacb","\dcacc","\dcacd","\dcace","\dcacf","\dcad0","\dcad1","\dcad2","\dcad3","\dcad4","\dcad5","\dcad6","\dcad7",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJOG..HANGUL SYLLABLE JJOH
-        "\dcad9","\dcada","\dcadb","\dcadc","\dcadd","\dcade","\dcadf","\dcae0","\dcae1","\dcae2","\dcae3","\dcae4","\dcae5","\dcae6","\dcae7","\dcae8","\dcae9","\dcaea","\dcaeb","\dcaec","\dcaed","\dcaee","\dcaef","\dcaf0","\dcaf1","\dcaf2","\dcaf3",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJWAG..HANGUL SYLLABLE JJWAH
-        "\dcaf5","\dcaf6","\dcaf7","\dcaf8","\dcaf9","\dcafa","\dcafb","\dcafc","\dcafd","\dcafe","\dcaff","\dcb00","\dcb01","\dcb02","\dcb03","\dcb04","\dcb05","\dcb06","\dcb07","\dcb08","\dcb09","\dcb0a","\dcb0b","\dcb0c","\dcb0d","\dcb0e","\dcb0f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJWAEG..HANGUL SYLLABLE JJWAEH
-        "\dcb11","\dcb12","\dcb13","\dcb14","\dcb15","\dcb16","\dcb17","\dcb18","\dcb19","\dcb1a","\dcb1b","\dcb1c","\dcb1d","\dcb1e","\dcb1f","\dcb20","\dcb21","\dcb22","\dcb23","\dcb24","\dcb25","\dcb26","\dcb27","\dcb28","\dcb29","\dcb2a","\dcb2b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJOEG..HANGUL SYLLABLE JJOEH
-        "\dcb2d","\dcb2e","\dcb2f","\dcb30","\dcb31","\dcb32","\dcb33","\dcb34","\dcb35","\dcb36","\dcb37","\dcb38","\dcb39","\dcb3a","\dcb3b","\dcb3c","\dcb3d","\dcb3e","\dcb3f","\dcb40","\dcb41","\dcb42","\dcb43","\dcb44","\dcb45","\dcb46","\dcb47",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYOG..HANGUL SYLLABLE JJYOH
-        "\dcb49","\dcb4a","\dcb4b","\dcb4c","\dcb4d","\dcb4e","\dcb4f","\dcb50","\dcb51","\dcb52","\dcb53","\dcb54","\dcb55","\dcb56","\dcb57","\dcb58","\dcb59","\dcb5a","\dcb5b","\dcb5c","\dcb5d","\dcb5e","\dcb5f","\dcb60","\dcb61","\dcb62","\dcb63",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJUG..HANGUL SYLLABLE JJUH
-        "\dcb65","\dcb66","\dcb67","\dcb68","\dcb69","\dcb6a","\dcb6b","\dcb6c","\dcb6d","\dcb6e","\dcb6f","\dcb70","\dcb71","\dcb72","\dcb73","\dcb74","\dcb75","\dcb76","\dcb77","\dcb78","\dcb79","\dcb7a","\dcb7b","\dcb7c","\dcb7d","\dcb7e","\dcb7f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJWEOG..HANGUL SYLLABLE JJWEOH
-        "\dcb81","\dcb82","\dcb83","\dcb84","\dcb85","\dcb86","\dcb87","\dcb88","\dcb89","\dcb8a","\dcb8b","\dcb8c","\dcb8d","\dcb8e","\dcb8f","\dcb90","\dcb91","\dcb92","\dcb93","\dcb94","\dcb95","\dcb96","\dcb97","\dcb98","\dcb99","\dcb9a","\dcb9b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJWEG..HANGUL SYLLABLE JJWEH
-        "\dcb9d","\dcb9e","\dcb9f","\dcba0","\dcba1","\dcba2","\dcba3","\dcba4","\dcba5","\dcba6","\dcba7","\dcba8","\dcba9","\dcbaa","\dcbab","\dcbac","\dcbad","\dcbae","\dcbaf","\dcbb0","\dcbb1","\dcbb2","\dcbb3","\dcbb4","\dcbb5","\dcbb6","\dcbb7",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJWIG..HANGUL SYLLABLE JJWIH
-        "\dcbb9","\dcbba","\dcbbb","\dcbbc","\dcbbd","\dcbbe","\dcbbf","\dcbc0","\dcbc1","\dcbc2","\dcbc3","\dcbc4","\dcbc5","\dcbc6","\dcbc7","\dcbc8","\dcbc9","\dcbca","\dcbcb","\dcbcc","\dcbcd","\dcbce","\dcbcf","\dcbd0","\dcbd1","\dcbd2","\dcbd3",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYUG..HANGUL SYLLABLE JJYUH
-        "\dcbd5","\dcbd6","\dcbd7","\dcbd8","\dcbd9","\dcbda","\dcbdb","\dcbdc","\dcbdd","\dcbde","\dcbdf","\dcbe0","\dcbe1","\dcbe2","\dcbe3","\dcbe4","\dcbe5","\dcbe6","\dcbe7","\dcbe8","\dcbe9","\dcbea","\dcbeb","\dcbec","\dcbed","\dcbee","\dcbef",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJEUG..HANGUL SYLLABLE JJEUH
-        "\dcbf1","\dcbf2","\dcbf3","\dcbf4","\dcbf5","\dcbf6","\dcbf7","\dcbf8","\dcbf9","\dcbfa","\dcbfb","\dcbfc","\dcbfd","\dcbfe","\dcbff","\dcc00","\dcc01","\dcc02","\dcc03","\dcc04","\dcc05","\dcc06","\dcc07","\dcc08","\dcc09","\dcc0a","\dcc0b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYIG..HANGUL SYLLABLE JJYIH
-        "\dcc0d","\dcc0e","\dcc0f","\dcc10","\dcc11","\dcc12","\dcc13","\dcc14","\dcc15","\dcc16","\dcc17","\dcc18","\dcc19","\dcc1a","\dcc1b","\dcc1c","\dcc1d","\dcc1e","\dcc1f","\dcc20","\dcc21","\dcc22","\dcc23","\dcc24","\dcc25","\dcc26","\dcc27",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJIG..HANGUL SYLLABLE JJIH
-        "\dcc29","\dcc2a","\dcc2b","\dcc2c","\dcc2d","\dcc2e","\dcc2f","\dcc30","\dcc31","\dcc32","\dcc33","\dcc34","\dcc35","\dcc36","\dcc37","\dcc38","\dcc39","\dcc3a","\dcc3b","\dcc3c","\dcc3d","\dcc3e","\dcc3f","\dcc40","\dcc41","\dcc42","\dcc43",  # ; LVT # Lo  [27] HANGUL SYLLABLE CAG..HANGUL SYLLABLE CAH
-        "\dcc45","\dcc46","\dcc47","\dcc48","\dcc49","\dcc4a","\dcc4b","\dcc4c","\dcc4d","\dcc4e","\dcc4f","\dcc50","\dcc51","\dcc52","\dcc53","\dcc54","\dcc55","\dcc56","\dcc57","\dcc58","\dcc59","\dcc5a","\dcc5b","\dcc5c","\dcc5d","\dcc5e","\dcc5f",  # ; LVT # Lo  [27] HANGUL SYLLABLE CAEG..HANGUL SYLLABLE CAEH
-        "\dcc61","\dcc62","\dcc63","\dcc64","\dcc65","\dcc66","\dcc67","\dcc68","\dcc69","\dcc6a","\dcc6b","\dcc6c","\dcc6d","\dcc6e","\dcc6f","\dcc70","\dcc71","\dcc72","\dcc73","\dcc74","\dcc75","\dcc76","\dcc77","\dcc78","\dcc79","\dcc7a","\dcc7b",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYAG..HANGUL SYLLABLE CYAH
-        "\dcc7d","\dcc7e","\dcc7f","\dcc80","\dcc81","\dcc82","\dcc83","\dcc84","\dcc85","\dcc86","\dcc87","\dcc88","\dcc89","\dcc8a","\dcc8b","\dcc8c","\dcc8d","\dcc8e","\dcc8f","\dcc90","\dcc91","\dcc92","\dcc93","\dcc94","\dcc95","\dcc96","\dcc97",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYAEG..HANGUL SYLLABLE CYAEH
-        "\dcc99","\dcc9a","\dcc9b","\dcc9c","\dcc9d","\dcc9e","\dcc9f","\dcca0","\dcca1","\dcca2","\dcca3","\dcca4","\dcca5","\dcca6","\dcca7","\dcca8","\dcca9","\dccaa","\dccab","\dccac","\dccad","\dccae","\dccaf","\dccb0","\dccb1","\dccb2","\dccb3",  # ; LVT # Lo  [27] HANGUL SYLLABLE CEOG..HANGUL SYLLABLE CEOH
-        "\dccb5","\dccb6","\dccb7","\dccb8","\dccb9","\dccba","\dccbb","\dccbc","\dccbd","\dccbe","\dccbf","\dccc0","\dccc1","\dccc2","\dccc3","\dccc4","\dccc5","\dccc6","\dccc7","\dccc8","\dccc9","\dccca","\dcccb","\dcccc","\dcccd","\dccce","\dcccf",  # ; LVT # Lo  [27] HANGUL SYLLABLE CEG..HANGUL SYLLABLE CEH
-        "\dccd1","\dccd2","\dccd3","\dccd4","\dccd5","\dccd6","\dccd7","\dccd8","\dccd9","\dccda","\dccdb","\dccdc","\dccdd","\dccde","\dccdf","\dcce0","\dcce1","\dcce2","\dcce3","\dcce4","\dcce5","\dcce6","\dcce7","\dcce8","\dcce9","\dccea","\dcceb",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYEOG..HANGUL SYLLABLE CYEOH
-        "\dcced","\dccee","\dccef","\dccf0","\dccf1","\dccf2","\dccf3","\dccf4","\dccf5","\dccf6","\dccf7","\dccf8","\dccf9","\dccfa","\dccfb","\dccfc","\dccfd","\dccfe","\dccff","\dcd00","\dcd01","\dcd02","\dcd03","\dcd04","\dcd05","\dcd06","\dcd07",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYEG..HANGUL SYLLABLE CYEH
-        "\dcd09","\dcd0a","\dcd0b","\dcd0c","\dcd0d","\dcd0e","\dcd0f","\dcd10","\dcd11","\dcd12","\dcd13","\dcd14","\dcd15","\dcd16","\dcd17","\dcd18","\dcd19","\dcd1a","\dcd1b","\dcd1c","\dcd1d","\dcd1e","\dcd1f","\dcd20","\dcd21","\dcd22","\dcd23",  # ; LVT # Lo  [27] HANGUL SYLLABLE COG..HANGUL SYLLABLE COH
-        "\dcd25","\dcd26","\dcd27","\dcd28","\dcd29","\dcd2a","\dcd2b","\dcd2c","\dcd2d","\dcd2e","\dcd2f","\dcd30","\dcd31","\dcd32","\dcd33","\dcd34","\dcd35","\dcd36","\dcd37","\dcd38","\dcd39","\dcd3a","\dcd3b","\dcd3c","\dcd3d","\dcd3e","\dcd3f",  # ; LVT # Lo  [27] HANGUL SYLLABLE CWAG..HANGUL SYLLABLE CWAH
-        "\dcd41","\dcd42","\dcd43","\dcd44","\dcd45","\dcd46","\dcd47","\dcd48","\dcd49","\dcd4a","\dcd4b","\dcd4c","\dcd4d","\dcd4e","\dcd4f","\dcd50","\dcd51","\dcd52","\dcd53","\dcd54","\dcd55","\dcd56","\dcd57","\dcd58","\dcd59","\dcd5a","\dcd5b",  # ; LVT # Lo  [27] HANGUL SYLLABLE CWAEG..HANGUL SYLLABLE CWAEH
-        "\dcd5d","\dcd5e","\dcd5f","\dcd60","\dcd61","\dcd62","\dcd63","\dcd64","\dcd65","\dcd66","\dcd67","\dcd68","\dcd69","\dcd6a","\dcd6b","\dcd6c","\dcd6d","\dcd6e","\dcd6f","\dcd70","\dcd71","\dcd72","\dcd73","\dcd74","\dcd75","\dcd76","\dcd77",  # ; LVT # Lo  [27] HANGUL SYLLABLE COEG..HANGUL SYLLABLE COEH
-        "\dcd79","\dcd7a","\dcd7b","\dcd7c","\dcd7d","\dcd7e","\dcd7f","\dcd80","\dcd81","\dcd82","\dcd83","\dcd84","\dcd85","\dcd86","\dcd87","\dcd88","\dcd89","\dcd8a","\dcd8b","\dcd8c","\dcd8d","\dcd8e","\dcd8f","\dcd90","\dcd91","\dcd92","\dcd93",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYOG..HANGUL SYLLABLE CYOH
-        "\dcd95","\dcd96","\dcd97","\dcd98","\dcd99","\dcd9a","\dcd9b","\dcd9c","\dcd9d","\dcd9e","\dcd9f","\dcda0","\dcda1","\dcda2","\dcda3","\dcda4","\dcda5","\dcda6","\dcda7","\dcda8","\dcda9","\dcdaa","\dcdab","\dcdac","\dcdad","\dcdae","\dcdaf",  # ; LVT # Lo  [27] HANGUL SYLLABLE CUG..HANGUL SYLLABLE CUH
-        "\dcdb1","\dcdb2","\dcdb3","\dcdb4","\dcdb5","\dcdb6","\dcdb7","\dcdb8","\dcdb9","\dcdba","\dcdbb","\dcdbc","\dcdbd","\dcdbe","\dcdbf","\dcdc0","\dcdc1","\dcdc2","\dcdc3","\dcdc4","\dcdc5","\dcdc6","\dcdc7","\dcdc8","\dcdc9","\dcdca","\dcdcb",  # ; LVT # Lo  [27] HANGUL SYLLABLE CWEOG..HANGUL SYLLABLE CWEOH
-        "\dcdcd","\dcdce","\dcdcf","\dcdd0","\dcdd1","\dcdd2","\dcdd3","\dcdd4","\dcdd5","\dcdd6","\dcdd7","\dcdd8","\dcdd9","\dcdda","\dcddb","\dcddc","\dcddd","\dcdde","\dcddf","\dcde0","\dcde1","\dcde2","\dcde3","\dcde4","\dcde5","\dcde6","\dcde7",  # ; LVT # Lo  [27] HANGUL SYLLABLE CWEG..HANGUL SYLLABLE CWEH
-        "\dcde9","\dcdea","\dcdeb","\dcdec","\dcded","\dcdee","\dcdef","\dcdf0","\dcdf1","\dcdf2","\dcdf3","\dcdf4","\dcdf5","\dcdf6","\dcdf7","\dcdf8","\dcdf9","\dcdfa","\dcdfb","\dcdfc","\dcdfd","\dcdfe","\dcdff","\dce00","\dce01","\dce02","\dce03",  # ; LVT # Lo  [27] HANGUL SYLLABLE CWIG..HANGUL SYLLABLE CWIH
-        "\dce05","\dce06","\dce07","\dce08","\dce09","\dce0a","\dce0b","\dce0c","\dce0d","\dce0e","\dce0f","\dce10","\dce11","\dce12","\dce13","\dce14","\dce15","\dce16","\dce17","\dce18","\dce19","\dce1a","\dce1b","\dce1c","\dce1d","\dce1e","\dce1f",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYUG..HANGUL SYLLABLE CYUH
-        "\dce21","\dce22","\dce23","\dce24","\dce25","\dce26","\dce27","\dce28","\dce29","\dce2a","\dce2b","\dce2c","\dce2d","\dce2e","\dce2f","\dce30","\dce31","\dce32","\dce33","\dce34","\dce35","\dce36","\dce37","\dce38","\dce39","\dce3a","\dce3b",  # ; LVT # Lo  [27] HANGUL SYLLABLE CEUG..HANGUL SYLLABLE CEUH
-        "\dce3d","\dce3e","\dce3f","\dce40","\dce41","\dce42","\dce43","\dce44","\dce45","\dce46","\dce47","\dce48","\dce49","\dce4a","\dce4b","\dce4c","\dce4d","\dce4e","\dce4f","\dce50","\dce51","\dce52","\dce53","\dce54","\dce55","\dce56","\dce57",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYIG..HANGUL SYLLABLE CYIH
-        "\dce59","\dce5a","\dce5b","\dce5c","\dce5d","\dce5e","\dce5f","\dce60","\dce61","\dce62","\dce63","\dce64","\dce65","\dce66","\dce67","\dce68","\dce69","\dce6a","\dce6b","\dce6c","\dce6d","\dce6e","\dce6f","\dce70","\dce71","\dce72","\dce73",  # ; LVT # Lo  [27] HANGUL SYLLABLE CIG..HANGUL SYLLABLE CIH
-        "\dce75","\dce76","\dce77","\dce78","\dce79","\dce7a","\dce7b","\dce7c","\dce7d","\dce7e","\dce7f","\dce80","\dce81","\dce82","\dce83","\dce84","\dce85","\dce86","\dce87","\dce88","\dce89","\dce8a","\dce8b","\dce8c","\dce8d","\dce8e","\dce8f",  # ; LVT # Lo  [27] HANGUL SYLLABLE KAG..HANGUL SYLLABLE KAH
-        "\dce91","\dce92","\dce93","\dce94","\dce95","\dce96","\dce97","\dce98","\dce99","\dce9a","\dce9b","\dce9c","\dce9d","\dce9e","\dce9f","\dcea0","\dcea1","\dcea2","\dcea3","\dcea4","\dcea5","\dcea6","\dcea7","\dcea8","\dcea9","\dceaa","\dceab",  # ; LVT # Lo  [27] HANGUL SYLLABLE KAEG..HANGUL SYLLABLE KAEH
-        "\dcead","\dceae","\dceaf","\dceb0","\dceb1","\dceb2","\dceb3","\dceb4","\dceb5","\dceb6","\dceb7","\dceb8","\dceb9","\dceba","\dcebb","\dcebc","\dcebd","\dcebe","\dcebf","\dcec0","\dcec1","\dcec2","\dcec3","\dcec4","\dcec5","\dcec6","\dcec7",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYAG..HANGUL SYLLABLE KYAH
-        "\dcec9","\dceca","\dcecb","\dcecc","\dcecd","\dcece","\dcecf","\dced0","\dced1","\dced2","\dced3","\dced4","\dced5","\dced6","\dced7","\dced8","\dced9","\dceda","\dcedb","\dcedc","\dcedd","\dcede","\dcedf","\dcee0","\dcee1","\dcee2","\dcee3",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYAEG..HANGUL SYLLABLE KYAEH
-        "\dcee5","\dcee6","\dcee7","\dcee8","\dcee9","\dceea","\dceeb","\dceec","\dceed","\dceee","\dceef","\dcef0","\dcef1","\dcef2","\dcef3","\dcef4","\dcef5","\dcef6","\dcef7","\dcef8","\dcef9","\dcefa","\dcefb","\dcefc","\dcefd","\dcefe","\dceff",  # ; LVT # Lo  [27] HANGUL SYLLABLE KEOG..HANGUL SYLLABLE KEOH
-        "\dcf01","\dcf02","\dcf03","\dcf04","\dcf05","\dcf06","\dcf07","\dcf08","\dcf09","\dcf0a","\dcf0b","\dcf0c","\dcf0d","\dcf0e","\dcf0f","\dcf10","\dcf11","\dcf12","\dcf13","\dcf14","\dcf15","\dcf16","\dcf17","\dcf18","\dcf19","\dcf1a","\dcf1b",  # ; LVT # Lo  [27] HANGUL SYLLABLE KEG..HANGUL SYLLABLE KEH
-        "\dcf1d","\dcf1e","\dcf1f","\dcf20","\dcf21","\dcf22","\dcf23","\dcf24","\dcf25","\dcf26","\dcf27","\dcf28","\dcf29","\dcf2a","\dcf2b","\dcf2c","\dcf2d","\dcf2e","\dcf2f","\dcf30","\dcf31","\dcf32","\dcf33","\dcf34","\dcf35","\dcf36","\dcf37",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYEOG..HANGUL SYLLABLE KYEOH
-        "\dcf39","\dcf3a","\dcf3b","\dcf3c","\dcf3d","\dcf3e","\dcf3f","\dcf40","\dcf41","\dcf42","\dcf43","\dcf44","\dcf45","\dcf46","\dcf47","\dcf48","\dcf49","\dcf4a","\dcf4b","\dcf4c","\dcf4d","\dcf4e","\dcf4f","\dcf50","\dcf51","\dcf52","\dcf53",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYEG..HANGUL SYLLABLE KYEH
-        "\dcf55","\dcf56","\dcf57","\dcf58","\dcf59","\dcf5a","\dcf5b","\dcf5c","\dcf5d","\dcf5e","\dcf5f","\dcf60","\dcf61","\dcf62","\dcf63","\dcf64","\dcf65","\dcf66","\dcf67","\dcf68","\dcf69","\dcf6a","\dcf6b","\dcf6c","\dcf6d","\dcf6e","\dcf6f",  # ; LVT # Lo  [27] HANGUL SYLLABLE KOG..HANGUL SYLLABLE KOH
-        "\dcf71","\dcf72","\dcf73","\dcf74","\dcf75","\dcf76","\dcf77","\dcf78","\dcf79","\dcf7a","\dcf7b","\dcf7c","\dcf7d","\dcf7e","\dcf7f","\dcf80","\dcf81","\dcf82","\dcf83","\dcf84","\dcf85","\dcf86","\dcf87","\dcf88","\dcf89","\dcf8a","\dcf8b",  # ; LVT # Lo  [27] HANGUL SYLLABLE KWAG..HANGUL SYLLABLE KWAH
-        "\dcf8d","\dcf8e","\dcf8f","\dcf90","\dcf91","\dcf92","\dcf93","\dcf94","\dcf95","\dcf96","\dcf97","\dcf98","\dcf99","\dcf9a","\dcf9b","\dcf9c","\dcf9d","\dcf9e","\dcf9f","\dcfa0","\dcfa1","\dcfa2","\dcfa3","\dcfa4","\dcfa5","\dcfa6","\dcfa7",  # ; LVT # Lo  [27] HANGUL SYLLABLE KWAEG..HANGUL SYLLABLE KWAEH
-        "\dcfa9","\dcfaa","\dcfab","\dcfac","\dcfad","\dcfae","\dcfaf","\dcfb0","\dcfb1","\dcfb2","\dcfb3","\dcfb4","\dcfb5","\dcfb6","\dcfb7","\dcfb8","\dcfb9","\dcfba","\dcfbb","\dcfbc","\dcfbd","\dcfbe","\dcfbf","\dcfc0","\dcfc1","\dcfc2","\dcfc3",  # ; LVT # Lo  [27] HANGUL SYLLABLE KOEG..HANGUL SYLLABLE KOEH
-        "\dcfc5","\dcfc6","\dcfc7","\dcfc8","\dcfc9","\dcfca","\dcfcb","\dcfcc","\dcfcd","\dcfce","\dcfcf","\dcfd0","\dcfd1","\dcfd2","\dcfd3","\dcfd4","\dcfd5","\dcfd6","\dcfd7","\dcfd8","\dcfd9","\dcfda","\dcfdb","\dcfdc","\dcfdd","\dcfde","\dcfdf",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYOG..HANGUL SYLLABLE KYOH
-        "\dcfe1","\dcfe2","\dcfe3","\dcfe4","\dcfe5","\dcfe6","\dcfe7","\dcfe8","\dcfe9","\dcfea","\dcfeb","\dcfec","\dcfed","\dcfee","\dcfef","\dcff0","\dcff1","\dcff2","\dcff3","\dcff4","\dcff5","\dcff6","\dcff7","\dcff8","\dcff9","\dcffa","\dcffb",  # ; LVT # Lo  [27] HANGUL SYLLABLE KUG..HANGUL SYLLABLE KUH
-        "\dcffd","\dcffe","\dcfff","\dd000","\dd001","\dd002","\dd003","\dd004","\dd005","\dd006","\dd007","\dd008","\dd009","\dd00a","\dd00b","\dd00c","\dd00d","\dd00e","\dd00f","\dd010","\dd011","\dd012","\dd013","\dd014","\dd015","\dd016","\dd017",  # ; LVT # Lo  [27] HANGUL SYLLABLE KWEOG..HANGUL SYLLABLE KWEOH
-        "\dd019","\dd01a","\dd01b","\dd01c","\dd01d","\dd01e","\dd01f","\dd020","\dd021","\dd022","\dd023","\dd024","\dd025","\dd026","\dd027","\dd028","\dd029","\dd02a","\dd02b","\dd02c","\dd02d","\dd02e","\dd02f","\dd030","\dd031","\dd032","\dd033",  # ; LVT # Lo  [27] HANGUL SYLLABLE KWEG..HANGUL SYLLABLE KWEH
-        "\dd035","\dd036","\dd037","\dd038","\dd039","\dd03a","\dd03b","\dd03c","\dd03d","\dd03e","\dd03f","\dd040","\dd041","\dd042","\dd043","\dd044","\dd045","\dd046","\dd047","\dd048","\dd049","\dd04a","\dd04b","\dd04c","\dd04d","\dd04e","\dd04f",  # ; LVT # Lo  [27] HANGUL SYLLABLE KWIG..HANGUL SYLLABLE KWIH
-        "\dd051","\dd052","\dd053","\dd054","\dd055","\dd056","\dd057","\dd058","\dd059","\dd05a","\dd05b","\dd05c","\dd05d","\dd05e","\dd05f","\dd060","\dd061","\dd062","\dd063","\dd064","\dd065","\dd066","\dd067","\dd068","\dd069","\dd06a","\dd06b",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYUG..HANGUL SYLLABLE KYUH
-        "\dd06d","\dd06e","\dd06f","\dd070","\dd071","\dd072","\dd073","\dd074","\dd075","\dd076","\dd077","\dd078","\dd079","\dd07a","\dd07b","\dd07c","\dd07d","\dd07e","\dd07f","\dd080","\dd081","\dd082","\dd083","\dd084","\dd085","\dd086","\dd087",  # ; LVT # Lo  [27] HANGUL SYLLABLE KEUG..HANGUL SYLLABLE KEUH
-        "\dd089","\dd08a","\dd08b","\dd08c","\dd08d","\dd08e","\dd08f","\dd090","\dd091","\dd092","\dd093","\dd094","\dd095","\dd096","\dd097","\dd098","\dd099","\dd09a","\dd09b","\dd09c","\dd09d","\dd09e","\dd09f","\dd0a0","\dd0a1","\dd0a2","\dd0a3",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYIG..HANGUL SYLLABLE KYIH
-        "\dd0a5","\dd0a6","\dd0a7","\dd0a8","\dd0a9","\dd0aa","\dd0ab","\dd0ac","\dd0ad","\dd0ae","\dd0af","\dd0b0","\dd0b1","\dd0b2","\dd0b3","\dd0b4","\dd0b5","\dd0b6","\dd0b7","\dd0b8","\dd0b9","\dd0ba","\dd0bb","\dd0bc","\dd0bd","\dd0be","\dd0bf",  # ; LVT # Lo  [27] HANGUL SYLLABLE KIG..HANGUL SYLLABLE KIH
-        "\dd0c1","\dd0c2","\dd0c3","\dd0c4","\dd0c5","\dd0c6","\dd0c7","\dd0c8","\dd0c9","\dd0ca","\dd0cb","\dd0cc","\dd0cd","\dd0ce","\dd0cf","\dd0d0","\dd0d1","\dd0d2","\dd0d3","\dd0d4","\dd0d5","\dd0d6","\dd0d7","\dd0d8","\dd0d9","\dd0da","\dd0db",  # ; LVT # Lo  [27] HANGUL SYLLABLE TAG..HANGUL SYLLABLE TAH
-        "\dd0dd","\dd0de","\dd0df","\dd0e0","\dd0e1","\dd0e2","\dd0e3","\dd0e4","\dd0e5","\dd0e6","\dd0e7","\dd0e8","\dd0e9","\dd0ea","\dd0eb","\dd0ec","\dd0ed","\dd0ee","\dd0ef","\dd0f0","\dd0f1","\dd0f2","\dd0f3","\dd0f4","\dd0f5","\dd0f6","\dd0f7",  # ; LVT # Lo  [27] HANGUL SYLLABLE TAEG..HANGUL SYLLABLE TAEH
-        "\dd0f9","\dd0fa","\dd0fb","\dd0fc","\dd0fd","\dd0fe","\dd0ff","\dd100","\dd101","\dd102","\dd103","\dd104","\dd105","\dd106","\dd107","\dd108","\dd109","\dd10a","\dd10b","\dd10c","\dd10d","\dd10e","\dd10f","\dd110","\dd111","\dd112","\dd113",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYAG..HANGUL SYLLABLE TYAH
-        "\dd115","\dd116","\dd117","\dd118","\dd119","\dd11a","\dd11b","\dd11c","\dd11d","\dd11e","\dd11f","\dd120","\dd121","\dd122","\dd123","\dd124","\dd125","\dd126","\dd127","\dd128","\dd129","\dd12a","\dd12b","\dd12c","\dd12d","\dd12e","\dd12f",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYAEG..HANGUL SYLLABLE TYAEH
-        "\dd131","\dd132","\dd133","\dd134","\dd135","\dd136","\dd137","\dd138","\dd139","\dd13a","\dd13b","\dd13c","\dd13d","\dd13e","\dd13f","\dd140","\dd141","\dd142","\dd143","\dd144","\dd145","\dd146","\dd147","\dd148","\dd149","\dd14a","\dd14b",  # ; LVT # Lo  [27] HANGUL SYLLABLE TEOG..HANGUL SYLLABLE TEOH
-        "\dd14d","\dd14e","\dd14f","\dd150","\dd151","\dd152","\dd153","\dd154","\dd155","\dd156","\dd157","\dd158","\dd159","\dd15a","\dd15b","\dd15c","\dd15d","\dd15e","\dd15f","\dd160","\dd161","\dd162","\dd163","\dd164","\dd165","\dd166","\dd167",  # ; LVT # Lo  [27] HANGUL SYLLABLE TEG..HANGUL SYLLABLE TEH
-        "\dd169","\dd16a","\dd16b","\dd16c","\dd16d","\dd16e","\dd16f","\dd170","\dd171","\dd172","\dd173","\dd174","\dd175","\dd176","\dd177","\dd178","\dd179","\dd17a","\dd17b","\dd17c","\dd17d","\dd17e","\dd17f","\dd180","\dd181","\dd182","\dd183",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYEOG..HANGUL SYLLABLE TYEOH
-        "\dd185","\dd186","\dd187","\dd188","\dd189","\dd18a","\dd18b","\dd18c","\dd18d","\dd18e","\dd18f","\dd190","\dd191","\dd192","\dd193","\dd194","\dd195","\dd196","\dd197","\dd198","\dd199","\dd19a","\dd19b","\dd19c","\dd19d","\dd19e","\dd19f",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYEG..HANGUL SYLLABLE TYEH
-        "\dd1a1","\dd1a2","\dd1a3","\dd1a4","\dd1a5","\dd1a6","\dd1a7","\dd1a8","\dd1a9","\dd1aa","\dd1ab","\dd1ac","\dd1ad","\dd1ae","\dd1af","\dd1b0","\dd1b1","\dd1b2","\dd1b3","\dd1b4","\dd1b5","\dd1b6","\dd1b7","\dd1b8","\dd1b9","\dd1ba","\dd1bb",  # ; LVT # Lo  [27] HANGUL SYLLABLE TOG..HANGUL SYLLABLE TOH
-        "\dd1bd","\dd1be","\dd1bf","\dd1c0","\dd1c1","\dd1c2","\dd1c3","\dd1c4","\dd1c5","\dd1c6","\dd1c7","\dd1c8","\dd1c9","\dd1ca","\dd1cb","\dd1cc","\dd1cd","\dd1ce","\dd1cf","\dd1d0","\dd1d1","\dd1d2","\dd1d3","\dd1d4","\dd1d5","\dd1d6","\dd1d7",  # ; LVT # Lo  [27] HANGUL SYLLABLE TWAG..HANGUL SYLLABLE TWAH
-        "\dd1d9","\dd1da","\dd1db","\dd1dc","\dd1dd","\dd1de","\dd1df","\dd1e0","\dd1e1","\dd1e2","\dd1e3","\dd1e4","\dd1e5","\dd1e6","\dd1e7","\dd1e8","\dd1e9","\dd1ea","\dd1eb","\dd1ec","\dd1ed","\dd1ee","\dd1ef","\dd1f0","\dd1f1","\dd1f2","\dd1f3",  # ; LVT # Lo  [27] HANGUL SYLLABLE TWAEG..HANGUL SYLLABLE TWAEH
-        "\dd1f5","\dd1f6","\dd1f7","\dd1f8","\dd1f9","\dd1fa","\dd1fb","\dd1fc","\dd1fd","\dd1fe","\dd1ff","\dd200","\dd201","\dd202","\dd203","\dd204","\dd205","\dd206","\dd207","\dd208","\dd209","\dd20a","\dd20b","\dd20c","\dd20d","\dd20e","\dd20f",  # ; LVT # Lo  [27] HANGUL SYLLABLE TOEG..HANGUL SYLLABLE TOEH
-        "\dd211","\dd212","\dd213","\dd214","\dd215","\dd216","\dd217","\dd218","\dd219","\dd21a","\dd21b","\dd21c","\dd21d","\dd21e","\dd21f","\dd220","\dd221","\dd222","\dd223","\dd224","\dd225","\dd226","\dd227","\dd228","\dd229","\dd22a","\dd22b",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYOG..HANGUL SYLLABLE TYOH
-        "\dd22d","\dd22e","\dd22f","\dd230","\dd231","\dd232","\dd233","\dd234","\dd235","\dd236","\dd237","\dd238","\dd239","\dd23a","\dd23b","\dd23c","\dd23d","\dd23e","\dd23f","\dd240","\dd241","\dd242","\dd243","\dd244","\dd245","\dd246","\dd247",  # ; LVT # Lo  [27] HANGUL SYLLABLE TUG..HANGUL SYLLABLE TUH
-        "\dd249","\dd24a","\dd24b","\dd24c","\dd24d","\dd24e","\dd24f","\dd250","\dd251","\dd252","\dd253","\dd254","\dd255","\dd256","\dd257","\dd258","\dd259","\dd25a","\dd25b","\dd25c","\dd25d","\dd25e","\dd25f","\dd260","\dd261","\dd262","\dd263",  # ; LVT # Lo  [27] HANGUL SYLLABLE TWEOG..HANGUL SYLLABLE TWEOH
-        "\dd265","\dd266","\dd267","\dd268","\dd269","\dd26a","\dd26b","\dd26c","\dd26d","\dd26e","\dd26f","\dd270","\dd271","\dd272","\dd273","\dd274","\dd275","\dd276","\dd277","\dd278","\dd279","\dd27a","\dd27b","\dd27c","\dd27d","\dd27e","\dd27f",  # ; LVT # Lo  [27] HANGUL SYLLABLE TWEG..HANGUL SYLLABLE TWEH
-        "\dd281","\dd282","\dd283","\dd284","\dd285","\dd286","\dd287","\dd288","\dd289","\dd28a","\dd28b","\dd28c","\dd28d","\dd28e","\dd28f","\dd290","\dd291","\dd292","\dd293","\dd294","\dd295","\dd296","\dd297","\dd298","\dd299","\dd29a","\dd29b",  # ; LVT # Lo  [27] HANGUL SYLLABLE TWIG..HANGUL SYLLABLE TWIH
-        "\dd29d","\dd29e","\dd29f","\dd2a0","\dd2a1","\dd2a2","\dd2a3","\dd2a4","\dd2a5","\dd2a6","\dd2a7","\dd2a8","\dd2a9","\dd2aa","\dd2ab","\dd2ac","\dd2ad","\dd2ae","\dd2af","\dd2b0","\dd2b1","\dd2b2","\dd2b3","\dd2b4","\dd2b5","\dd2b6","\dd2b7",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYUG..HANGUL SYLLABLE TYUH
-        "\dd2b9","\dd2ba","\dd2bb","\dd2bc","\dd2bd","\dd2be","\dd2bf","\dd2c0","\dd2c1","\dd2c2","\dd2c3","\dd2c4","\dd2c5","\dd2c6","\dd2c7","\dd2c8","\dd2c9","\dd2ca","\dd2cb","\dd2cc","\dd2cd","\dd2ce","\dd2cf","\dd2d0","\dd2d1","\dd2d2","\dd2d3",  # ; LVT # Lo  [27] HANGUL SYLLABLE TEUG..HANGUL SYLLABLE TEUH
-        "\dd2d5","\dd2d6","\dd2d7","\dd2d8","\dd2d9","\dd2da","\dd2db","\dd2dc","\dd2dd","\dd2de","\dd2df","\dd2e0","\dd2e1","\dd2e2","\dd2e3","\dd2e4","\dd2e5","\dd2e6","\dd2e7","\dd2e8","\dd2e9","\dd2ea","\dd2eb","\dd2ec","\dd2ed","\dd2ee","\dd2ef",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYIG..HANGUL SYLLABLE TYIH
-        "\dd2f1","\dd2f2","\dd2f3","\dd2f4","\dd2f5","\dd2f6","\dd2f7","\dd2f8","\dd2f9","\dd2fa","\dd2fb","\dd2fc","\dd2fd","\dd2fe","\dd2ff","\dd300","\dd301","\dd302","\dd303","\dd304","\dd305","\dd306","\dd307","\dd308","\dd309","\dd30a","\dd30b",  # ; LVT # Lo  [27] HANGUL SYLLABLE TIG..HANGUL SYLLABLE TIH
-        "\dd30d","\dd30e","\dd30f","\dd310","\dd311","\dd312","\dd313","\dd314","\dd315","\dd316","\dd317","\dd318","\dd319","\dd31a","\dd31b","\dd31c","\dd31d","\dd31e","\dd31f","\dd320","\dd321","\dd322","\dd323","\dd324","\dd325","\dd326","\dd327",  # ; LVT # Lo  [27] HANGUL SYLLABLE PAG..HANGUL SYLLABLE PAH
-        "\dd329","\dd32a","\dd32b","\dd32c","\dd32d","\dd32e","\dd32f","\dd330","\dd331","\dd332","\dd333","\dd334","\dd335","\dd336","\dd337","\dd338","\dd339","\dd33a","\dd33b","\dd33c","\dd33d","\dd33e","\dd33f","\dd340","\dd341","\dd342","\dd343",  # ; LVT # Lo  [27] HANGUL SYLLABLE PAEG..HANGUL SYLLABLE PAEH
-        "\dd345","\dd346","\dd347","\dd348","\dd349","\dd34a","\dd34b","\dd34c","\dd34d","\dd34e","\dd34f","\dd350","\dd351","\dd352","\dd353","\dd354","\dd355","\dd356","\dd357","\dd358","\dd359","\dd35a","\dd35b","\dd35c","\dd35d","\dd35e","\dd35f",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYAG..HANGUL SYLLABLE PYAH
-        "\dd361","\dd362","\dd363","\dd364","\dd365","\dd366","\dd367","\dd368","\dd369","\dd36a","\dd36b","\dd36c","\dd36d","\dd36e","\dd36f","\dd370","\dd371","\dd372","\dd373","\dd374","\dd375","\dd376","\dd377","\dd378","\dd379","\dd37a","\dd37b",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYAEG..HANGUL SYLLABLE PYAEH
-        "\dd37d","\dd37e","\dd37f","\dd380","\dd381","\dd382","\dd383","\dd384","\dd385","\dd386","\dd387","\dd388","\dd389","\dd38a","\dd38b","\dd38c","\dd38d","\dd38e","\dd38f","\dd390","\dd391","\dd392","\dd393","\dd394","\dd395","\dd396","\dd397",  # ; LVT # Lo  [27] HANGUL SYLLABLE PEOG..HANGUL SYLLABLE PEOH
-        "\dd399","\dd39a","\dd39b","\dd39c","\dd39d","\dd39e","\dd39f","\dd3a0","\dd3a1","\dd3a2","\dd3a3","\dd3a4","\dd3a5","\dd3a6","\dd3a7","\dd3a8","\dd3a9","\dd3aa","\dd3ab","\dd3ac","\dd3ad","\dd3ae","\dd3af","\dd3b0","\dd3b1","\dd3b2","\dd3b3",  # ; LVT # Lo  [27] HANGUL SYLLABLE PEG..HANGUL SYLLABLE PEH
-        "\dd3b5","\dd3b6","\dd3b7","\dd3b8","\dd3b9","\dd3ba","\dd3bb","\dd3bc","\dd3bd","\dd3be","\dd3bf","\dd3c0","\dd3c1","\dd3c2","\dd3c3","\dd3c4","\dd3c5","\dd3c6","\dd3c7","\dd3c8","\dd3c9","\dd3ca","\dd3cb","\dd3cc","\dd3cd","\dd3ce","\dd3cf",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYEOG..HANGUL SYLLABLE PYEOH
-        "\dd3d1","\dd3d2","\dd3d3","\dd3d4","\dd3d5","\dd3d6","\dd3d7","\dd3d8","\dd3d9","\dd3da","\dd3db","\dd3dc","\dd3dd","\dd3de","\dd3df","\dd3e0","\dd3e1","\dd3e2","\dd3e3","\dd3e4","\dd3e5","\dd3e6","\dd3e7","\dd3e8","\dd3e9","\dd3ea","\dd3eb",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYEG..HANGUL SYLLABLE PYEH
-        "\dd3ed","\dd3ee","\dd3ef","\dd3f0","\dd3f1","\dd3f2","\dd3f3","\dd3f4","\dd3f5","\dd3f6","\dd3f7","\dd3f8","\dd3f9","\dd3fa","\dd3fb","\dd3fc","\dd3fd","\dd3fe","\dd3ff","\dd400","\dd401","\dd402","\dd403","\dd404","\dd405","\dd406","\dd407",  # ; LVT # Lo  [27] HANGUL SYLLABLE POG..HANGUL SYLLABLE POH
-        "\dd409","\dd40a","\dd40b","\dd40c","\dd40d","\dd40e","\dd40f","\dd410","\dd411","\dd412","\dd413","\dd414","\dd415","\dd416","\dd417","\dd418","\dd419","\dd41a","\dd41b","\dd41c","\dd41d","\dd41e","\dd41f","\dd420","\dd421","\dd422","\dd423",  # ; LVT # Lo  [27] HANGUL SYLLABLE PWAG..HANGUL SYLLABLE PWAH
-        "\dd425","\dd426","\dd427","\dd428","\dd429","\dd42a","\dd42b","\dd42c","\dd42d","\dd42e","\dd42f","\dd430","\dd431","\dd432","\dd433","\dd434","\dd435","\dd436","\dd437","\dd438","\dd439","\dd43a","\dd43b","\dd43c","\dd43d","\dd43e","\dd43f",  # ; LVT # Lo  [27] HANGUL SYLLABLE PWAEG..HANGUL SYLLABLE PWAEH
-        "\dd441","\dd442","\dd443","\dd444","\dd445","\dd446","\dd447","\dd448","\dd449","\dd44a","\dd44b","\dd44c","\dd44d","\dd44e","\dd44f","\dd450","\dd451","\dd452","\dd453","\dd454","\dd455","\dd456","\dd457","\dd458","\dd459","\dd45a","\dd45b",  # ; LVT # Lo  [27] HANGUL SYLLABLE POEG..HANGUL SYLLABLE POEH
-        "\dd45d","\dd45e","\dd45f","\dd460","\dd461","\dd462","\dd463","\dd464","\dd465","\dd466","\dd467","\dd468","\dd469","\dd46a","\dd46b","\dd46c","\dd46d","\dd46e","\dd46f","\dd470","\dd471","\dd472","\dd473","\dd474","\dd475","\dd476","\dd477",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYOG..HANGUL SYLLABLE PYOH
-        "\dd479","\dd47a","\dd47b","\dd47c","\dd47d","\dd47e","\dd47f","\dd480","\dd481","\dd482","\dd483","\dd484","\dd485","\dd486","\dd487","\dd488","\dd489","\dd48a","\dd48b","\dd48c","\dd48d","\dd48e","\dd48f","\dd490","\dd491","\dd492","\dd493",  # ; LVT # Lo  [27] HANGUL SYLLABLE PUG..HANGUL SYLLABLE PUH
-        "\dd495","\dd496","\dd497","\dd498","\dd499","\dd49a","\dd49b","\dd49c","\dd49d","\dd49e","\dd49f","\dd4a0","\dd4a1","\dd4a2","\dd4a3","\dd4a4","\dd4a5","\dd4a6","\dd4a7","\dd4a8","\dd4a9","\dd4aa","\dd4ab","\dd4ac","\dd4ad","\dd4ae","\dd4af",  # ; LVT # Lo  [27] HANGUL SYLLABLE PWEOG..HANGUL SYLLABLE PWEOH
-        "\dd4b1","\dd4b2","\dd4b3","\dd4b4","\dd4b5","\dd4b6","\dd4b7","\dd4b8","\dd4b9","\dd4ba","\dd4bb","\dd4bc","\dd4bd","\dd4be","\dd4bf","\dd4c0","\dd4c1","\dd4c2","\dd4c3","\dd4c4","\dd4c5","\dd4c6","\dd4c7","\dd4c8","\dd4c9","\dd4ca","\dd4cb",  # ; LVT # Lo  [27] HANGUL SYLLABLE PWEG..HANGUL SYLLABLE PWEH
-        "\dd4cd","\dd4ce","\dd4cf","\dd4d0","\dd4d1","\dd4d2","\dd4d3","\dd4d4","\dd4d5","\dd4d6","\dd4d7","\dd4d8","\dd4d9","\dd4da","\dd4db","\dd4dc","\dd4dd","\dd4de","\dd4df","\dd4e0","\dd4e1","\dd4e2","\dd4e3","\dd4e4","\dd4e5","\dd4e6","\dd4e7",  # ; LVT # Lo  [27] HANGUL SYLLABLE PWIG..HANGUL SYLLABLE PWIH
-        "\dd4e9","\dd4ea","\dd4eb","\dd4ec","\dd4ed","\dd4ee","\dd4ef","\dd4f0","\dd4f1","\dd4f2","\dd4f3","\dd4f4","\dd4f5","\dd4f6","\dd4f7","\dd4f8","\dd4f9","\dd4fa","\dd4fb","\dd4fc","\dd4fd","\dd4fe","\dd4ff","\dd500","\dd501","\dd502","\dd503",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYUG..HANGUL SYLLABLE PYUH
-        "\dd505","\dd506","\dd507","\dd508","\dd509","\dd50a","\dd50b","\dd50c","\dd50d","\dd50e","\dd50f","\dd510","\dd511","\dd512","\dd513","\dd514","\dd515","\dd516","\dd517","\dd518","\dd519","\dd51a","\dd51b","\dd51c","\dd51d","\dd51e","\dd51f",  # ; LVT # Lo  [27] HANGUL SYLLABLE PEUG..HANGUL SYLLABLE PEUH
-        "\dd521","\dd522","\dd523","\dd524","\dd525","\dd526","\dd527","\dd528","\dd529","\dd52a","\dd52b","\dd52c","\dd52d","\dd52e","\dd52f","\dd530","\dd531","\dd532","\dd533","\dd534","\dd535","\dd536","\dd537","\dd538","\dd539","\dd53a","\dd53b",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYIG..HANGUL SYLLABLE PYIH
-        "\dd53d","\dd53e","\dd53f","\dd540","\dd541","\dd542","\dd543","\dd544","\dd545","\dd546","\dd547","\dd548","\dd549","\dd54a","\dd54b","\dd54c","\dd54d","\dd54e","\dd54f","\dd550","\dd551","\dd552","\dd553","\dd554","\dd555","\dd556","\dd557",  # ; LVT # Lo  [27] HANGUL SYLLABLE PIG..HANGUL SYLLABLE PIH
-        "\dd559","\dd55a","\dd55b","\dd55c","\dd55d","\dd55e","\dd55f","\dd560","\dd561","\dd562","\dd563","\dd564","\dd565","\dd566","\dd567","\dd568","\dd569","\dd56a","\dd56b","\dd56c","\dd56d","\dd56e","\dd56f","\dd570","\dd571","\dd572","\dd573",  # ; LVT # Lo  [27] HANGUL SYLLABLE HAG..HANGUL SYLLABLE HAH
-        "\dd575","\dd576","\dd577","\dd578","\dd579","\dd57a","\dd57b","\dd57c","\dd57d","\dd57e","\dd57f","\dd580","\dd581","\dd582","\dd583","\dd584","\dd585","\dd586","\dd587","\dd588","\dd589","\dd58a","\dd58b","\dd58c","\dd58d","\dd58e","\dd58f",  # ; LVT # Lo  [27] HANGUL SYLLABLE HAEG..HANGUL SYLLABLE HAEH
-        "\dd591","\dd592","\dd593","\dd594","\dd595","\dd596","\dd597","\dd598","\dd599","\dd59a","\dd59b","\dd59c","\dd59d","\dd59e","\dd59f","\dd5a0","\dd5a1","\dd5a2","\dd5a3","\dd5a4","\dd5a5","\dd5a6","\dd5a7","\dd5a8","\dd5a9","\dd5aa","\dd5ab",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYAG..HANGUL SYLLABLE HYAH
-        "\dd5ad","\dd5ae","\dd5af","\dd5b0","\dd5b1","\dd5b2","\dd5b3","\dd5b4","\dd5b5","\dd5b6","\dd5b7","\dd5b8","\dd5b9","\dd5ba","\dd5bb","\dd5bc","\dd5bd","\dd5be","\dd5bf","\dd5c0","\dd5c1","\dd5c2","\dd5c3","\dd5c4","\dd5c5","\dd5c6","\dd5c7",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYAEG..HANGUL SYLLABLE HYAEH
-        "\dd5c9","\dd5ca","\dd5cb","\dd5cc","\dd5cd","\dd5ce","\dd5cf","\dd5d0","\dd5d1","\dd5d2","\dd5d3","\dd5d4","\dd5d5","\dd5d6","\dd5d7","\dd5d8","\dd5d9","\dd5da","\dd5db","\dd5dc","\dd5dd","\dd5de","\dd5df","\dd5e0","\dd5e1","\dd5e2","\dd5e3",  # ; LVT # Lo  [27] HANGUL SYLLABLE HEOG..HANGUL SYLLABLE HEOH
-        "\dd5e5","\dd5e6","\dd5e7","\dd5e8","\dd5e9","\dd5ea","\dd5eb","\dd5ec","\dd5ed","\dd5ee","\dd5ef","\dd5f0","\dd5f1","\dd5f2","\dd5f3","\dd5f4","\dd5f5","\dd5f6","\dd5f7","\dd5f8","\dd5f9","\dd5fa","\dd5fb","\dd5fc","\dd5fd","\dd5fe","\dd5ff",  # ; LVT # Lo  [27] HANGUL SYLLABLE HEG..HANGUL SYLLABLE HEH
-        "\dd601","\dd602","\dd603","\dd604","\dd605","\dd606","\dd607","\dd608","\dd609","\dd60a","\dd60b","\dd60c","\dd60d","\dd60e","\dd60f","\dd610","\dd611","\dd612","\dd613","\dd614","\dd615","\dd616","\dd617","\dd618","\dd619","\dd61a","\dd61b",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYEOG..HANGUL SYLLABLE HYEOH
-        "\dd61d","\dd61e","\dd61f","\dd620","\dd621","\dd622","\dd623","\dd624","\dd625","\dd626","\dd627","\dd628","\dd629","\dd62a","\dd62b","\dd62c","\dd62d","\dd62e","\dd62f","\dd630","\dd631","\dd632","\dd633","\dd634","\dd635","\dd636","\dd637",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYEG..HANGUL SYLLABLE HYEH
-        "\dd639","\dd63a","\dd63b","\dd63c","\dd63d","\dd63e","\dd63f","\dd640","\dd641","\dd642","\dd643","\dd644","\dd645","\dd646","\dd647","\dd648","\dd649","\dd64a","\dd64b","\dd64c","\dd64d","\dd64e","\dd64f","\dd650","\dd651","\dd652","\dd653",  # ; LVT # Lo  [27] HANGUL SYLLABLE HOG..HANGUL SYLLABLE HOH
-        "\dd655","\dd656","\dd657","\dd658","\dd659","\dd65a","\dd65b","\dd65c","\dd65d","\dd65e","\dd65f","\dd660","\dd661","\dd662","\dd663","\dd664","\dd665","\dd666","\dd667","\dd668","\dd669","\dd66a","\dd66b","\dd66c","\dd66d","\dd66e","\dd66f",  # ; LVT # Lo  [27] HANGUL SYLLABLE HWAG..HANGUL SYLLABLE HWAH
-        "\dd671","\dd672","\dd673","\dd674","\dd675","\dd676","\dd677","\dd678","\dd679","\dd67a","\dd67b","\dd67c","\dd67d","\dd67e","\dd67f","\dd680","\dd681","\dd682","\dd683","\dd684","\dd685","\dd686","\dd687","\dd688","\dd689","\dd68a","\dd68b",  # ; LVT # Lo  [27] HANGUL SYLLABLE HWAEG..HANGUL SYLLABLE HWAEH
-        "\dd68d","\dd68e","\dd68f","\dd690","\dd691","\dd692","\dd693","\dd694","\dd695","\dd696","\dd697","\dd698","\dd699","\dd69a","\dd69b","\dd69c","\dd69d","\dd69e","\dd69f","\dd6a0","\dd6a1","\dd6a2","\dd6a3","\dd6a4","\dd6a5","\dd6a6","\dd6a7",  # ; LVT # Lo  [27] HANGUL SYLLABLE HOEG..HANGUL SYLLABLE HOEH
-        "\dd6a9","\dd6aa","\dd6ab","\dd6ac","\dd6ad","\dd6ae","\dd6af","\dd6b0","\dd6b1","\dd6b2","\dd6b3","\dd6b4","\dd6b5","\dd6b6","\dd6b7","\dd6b8","\dd6b9","\dd6ba","\dd6bb","\dd6bc","\dd6bd","\dd6be","\dd6bf","\dd6c0","\dd6c1","\dd6c2","\dd6c3",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYOG..HANGUL SYLLABLE HYOH
-        "\dd6c5","\dd6c6","\dd6c7","\dd6c8","\dd6c9","\dd6ca","\dd6cb","\dd6cc","\dd6cd","\dd6ce","\dd6cf","\dd6d0","\dd6d1","\dd6d2","\dd6d3","\dd6d4","\dd6d5","\dd6d6","\dd6d7","\dd6d8","\dd6d9","\dd6da","\dd6db","\dd6dc","\dd6dd","\dd6de","\dd6df",  # ; LVT # Lo  [27] HANGUL SYLLABLE HUG..HANGUL SYLLABLE HUH
-        "\dd6e1","\dd6e2","\dd6e3","\dd6e4","\dd6e5","\dd6e6","\dd6e7","\dd6e8","\dd6e9","\dd6ea","\dd6eb","\dd6ec","\dd6ed","\dd6ee","\dd6ef","\dd6f0","\dd6f1","\dd6f2","\dd6f3","\dd6f4","\dd6f5","\dd6f6","\dd6f7","\dd6f8","\dd6f9","\dd6fa","\dd6fb",  # ; LVT # Lo  [27] HANGUL SYLLABLE HWEOG..HANGUL SYLLABLE HWEOH
-        "\dd6fd","\dd6fe","\dd6ff","\dd700","\dd701","\dd702","\dd703","\dd704","\dd705","\dd706","\dd707","\dd708","\dd709","\dd70a","\dd70b","\dd70c","\dd70d","\dd70e","\dd70f","\dd710","\dd711","\dd712","\dd713","\dd714","\dd715","\dd716","\dd717",  # ; LVT # Lo  [27] HANGUL SYLLABLE HWEG..HANGUL SYLLABLE HWEH
-        "\dd719","\dd71a","\dd71b","\dd71c","\dd71d","\dd71e","\dd71f","\dd720","\dd721","\dd722","\dd723","\dd724","\dd725","\dd726","\dd727","\dd728","\dd729","\dd72a","\dd72b","\dd72c","\dd72d","\dd72e","\dd72f","\dd730","\dd731","\dd732","\dd733",  # ; LVT # Lo  [27] HANGUL SYLLABLE HWIG..HANGUL SYLLABLE HWIH
-        "\dd735","\dd736","\dd737","\dd738","\dd739","\dd73a","\dd73b","\dd73c","\dd73d","\dd73e","\dd73f","\dd740","\dd741","\dd742","\dd743","\dd744","\dd745","\dd746","\dd747","\dd748","\dd749","\dd74a","\dd74b","\dd74c","\dd74d","\dd74e","\dd74f",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYUG..HANGUL SYLLABLE HYUH
-        "\dd751","\dd752","\dd753","\dd754","\dd755","\dd756","\dd757","\dd758","\dd759","\dd75a","\dd75b","\dd75c","\dd75d","\dd75e","\dd75f","\dd760","\dd761","\dd762","\dd763","\dd764","\dd765","\dd766","\dd767","\dd768","\dd769","\dd76a","\dd76b",  # ; LVT # Lo  [27] HANGUL SYLLABLE HEUG..HANGUL SYLLABLE HEUH
-        "\dd76d","\dd76e","\dd76f","\dd770","\dd771","\dd772","\dd773","\dd774","\dd775","\dd776","\dd777","\dd778","\dd779","\dd77a","\dd77b","\dd77c","\dd77d","\dd77e","\dd77f","\dd780","\dd781","\dd782","\dd783","\dd784","\dd785","\dd786","\dd787",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYIG..HANGUL SYLLABLE HYIH
-        "\dd789","\dd78a","\dd78b","\dd78c","\dd78d","\dd78e","\dd78f","\dd790","\dd791","\dd792","\dd793","\dd794","\dd795","\dd796","\dd797","\dd798","\dd799","\dd79a","\dd79b","\dd79c","\dd79d","\dd79e","\dd79f","\dd7a0","\dd7a1","\dd7a2","\dd7a3",  # ; LVT # Lo  [27] HANGUL SYLLABLE HIG..HANGUL SYLLABLE HIH
-        "\d261D",  # ; E_Base # So       WHITE UP POINTING INDEX
-        "\d26F9",  # ; E_Base # So       PERSON WITH BALL
-        "\d270a","\d270b","\d270c","\d270d",  # ; E_Base # So   [4] RAISED FIST..WRITING HAND
-        "\d1F385",  # ; E_Base # So       FATHER CHRISTMAS
-        "\d1f3c2","\d1f3c3","\d1f3c4",  # ; E_Base # So   [3] SNOWBOARDER..SURFER
-        "\d1F3C7",  # ; E_Base # So       HORSE RACING
-        "\d1f3ca","\d1f3cb","\d1f3cc",  # ; E_Base # So   [3] SWIMMER..GOLFER
-        "\d1f442","\d1f443",  # ; E_Base # So   [2] EAR..NOSE
-        "\d1f446","\d1f447","\d1f448","\d1f449","\d1f44a","\d1f44b","\d1f44c","\d1f44d","\d1f44e","\d1f44f","\d1f450",  # ; E_Base # So  [11] WHITE UP POINTING BACKHAND INDEX..OPEN HANDS SIGN
-        "\d1F46E",  # ; E_Base # So       POLICE OFFICER
-        "\d1f470","\d1f471","\d1f472","\d1f473","\d1f474","\d1f475","\d1f476","\d1f477","\d1f478",  # ; E_Base # So   [9] BRIDE WITH VEIL..PRINCESS
-        "\d1F47C",  # ; E_Base # So       BABY ANGEL
-        "\d1f481","\d1f482","\d1f483",  # ; E_Base # So   [3] INFORMATION DESK PERSON..DANCER
-        "\d1f485","\d1f486","\d1f487",  # ; E_Base # So   [3] NAIL POLISH..HAIRCUT
-        "\d1F4AA",  # ; E_Base # So       FLEXED BICEPS
-        "\d1f574","\d1f575",  # ; E_Base # So   [2] MAN IN BUSINESS SUIT LEVITATING..SLEUTH OR SPY
-        "\d1F57A",  # ; E_Base # So       MAN DANCING
-        "\d1F590",  # ; E_Base # So       RAISED HAND WITH FINGERS SPLAYED
-        "\d1f595","\d1f596",  # ; E_Base # So   [2] REVERSED HAND WITH MIDDLE FINGER EXTENDED..RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS
-        "\d1f645","\d1f646","\d1f647",  # ; E_Base # So   [3] FACE WITH NO GOOD GESTURE..PERSON BOWING DEEPLY
-        "\d1f64b","\d1f64c","\d1f64d","\d1f64e","\d1f64f",  # ; E_Base # So   [5] HAPPY PERSON RAISING ONE HAND..PERSON WITH FOLDED HANDS
-        "\d1F6A3",  # ; E_Base # So       ROWBOAT
-        "\d1f6b4","\d1f6b5","\d1f6b6",  # ; E_Base # So   [3] BICYCLIST..PEDESTRIAN
-        "\d1F6C0",  # ; E_Base # So       BATH
-        "\d1F6CC",  # ; E_Base # So       SLEEPING ACCOMMODATION
-        "\d1f918","\d1f919","\d1f91a","\d1f91b","\d1f91c",  # ; E_Base # So   [5] SIGN OF THE HORNS..RIGHT-FACING FIST
-        "\d1f91e","\d1f91f",  # ; E_Base # So   [2] HAND WITH INDEX AND MIDDLE FINGERS CROSSED..I LOVE YOU HAND SIGN
-        "\d1F926",  # ; E_Base # So       FACE PALM
-        "\d1f930","\d1f931","\d1f932","\d1f933","\d1f934","\d1f935","\d1f936","\d1f937","\d1f938","\d1f939",  # ; E_Base # So  [10] PREGNANT WOMAN..JUGGLING
-        "\d1f93d","\d1f93e",  # ; E_Base # So   [2] WATER POLO..HANDBALL
-        "\d1f9d1","\d1f9d2","\d1f9d3","\d1f9d4","\d1f9d5","\d1f9d6","\d1f9d7","\d1f9d8","\d1f9d9","\d1f9da","\d1f9db","\d1f9dc","\d1f9dd",  # ; E_Base # So  [13] ADULT..ELF
-        "\d1f3fb","\d1f3fc","\d1f3fd","\d1f3fe","\d1f3ff",  # ; E_Modifier # Sk   [5] EMOJI MODIFIER FITZPATRICK TYPE-1-2..EMOJI MODIFIER FITZPATRICK TYPE-6
-        "\d200D",  # ; ZWJ # Cf       ZERO WIDTH JOINER
-        "\d2640",  # ; Glue_After_Zwj # So       FEMALE SIGN
-        "\d2642",  # ; Glue_After_Zwj # So       MALE SIGN
-        "\d2695","\d2696",  # ; Glue_After_Zwj # So   [2] STAFF OF AESCULAPIUS..SCALES
-        "\d2708",  # ; Glue_After_Zwj # So       AIRPLANE
-        "\d2764",  # ; Glue_After_Zwj # So       HEAVY BLACK HEART
-        "\d1F308",  # ; Glue_After_Zwj # So       RAINBOW
-        "\d1F33E",  # ; Glue_After_Zwj # So       EAR OF RICE
-        "\d1F373",  # ; Glue_After_Zwj # So       COOKING
-        "\d1F393",  # ; Glue_After_Zwj # So       GRADUATION CAP
-        "\d1F3A4",  # ; Glue_After_Zwj # So       MICROPHONE
-        "\d1F3A8",  # ; Glue_After_Zwj # So       ARTIST PALETTE
-        "\d1F3EB",  # ; Glue_After_Zwj # So       SCHOOL
-        "\d1F3ED",  # ; Glue_After_Zwj # So       FACTORY
-        "\d1F48B",  # ; Glue_After_Zwj # So       KISS MARK
-        "\d1f4bb","\d1f4bc",  # ; Glue_After_Zwj # So   [2] PERSONAL COMPUTER..BRIEFCASE
-        "\d1F527",  # ; Glue_After_Zwj # So       WRENCH
-        "\d1F52C",  # ; Glue_After_Zwj # So       MICROSCOPE
-        "\d1F5E8",  # ; Glue_After_Zwj # So       LEFT SPEECH BUBBLE
-        "\d1F680",  # ; Glue_After_Zwj # So       ROCKET
-        "\d1F692",  # ; Glue_After_Zwj # So       FIRE ENGINE
-        "\d1f466","\d1f467","\d1f468","\d1f469",  # ; E_Base_GAZ # So   [4] BOY..WOMAN
+        "\u0600","\u0601","\u0602","\u0603","\u0604","\u0605",  # ; Prepend # Cf   [6] ARABIC NUMBER SIGN..ARABIC NUMBER MARK ABOVE
+        "\u06DD",  # ; Prepend # Cf       ARABIC END OF AYAH
+        "\u070F",  # ; Prepend # Cf       SYRIAC ABBREVIATION MARK
+        "\u08E2",  # ; Prepend # Cf       ARABIC DISPUTED END OF AYAH
+        "\u0D4E",  # ; Prepend # Lo       MALAYALAM LETTER DOT REPH
+        "\u110BD",  # ; Prepend # Cf       KAITHI NUMBER SIGN
+        "\u111c2","\u111c3",  # ; Prepend # Lo   [2] SHARADA SIGN JIHVAMULIYA..SHARADA SIGN UPADHMANIYA
+        "\u11A3A",  # ; Prepend # Lo       ZANABAZAR SQUARE CLUSTER-INITIAL LETTER RA
+        "\u11a86","\u11a87","\u11a88","\u11a89",  # ; Prepend # Lo   [4] SOYOMBO CLUSTER-INITIAL LETTER RA..SOYOMBO CLUSTER-INITIAL LETTER SA
+        "\u11D46",  # ; Prepend # Lo       MASARAM GONDI REPHA
+        "\u000D",  # ; CR # Cc       <control-000D>
+        "\u000A",  # ; LF # Cc       <control-000A>
+        "\u0000","\u0001","\u0002","\u0003","\u0004","\u0005","\u0006","\u0007","\u0008","\u0009",  # ; Control # Cc  [10] <control-0000>..<control-0009>
+        "\u000b","\u000c",  # ; Control # Cc   [2] <control-000B>..<control-000C>
+        "\u000e","\u000f","\u0010","\u0011","\u0012","\u0013","\u0014","\u0015","\u0016","\u0017","\u0018","\u0019","\u001a","\u001b","\u001c","\u001d","\u001e","\u001f",  # ; Control # Cc  [18] <control-000E>..<control-001F>
+        "\u007f","\u0080","\u0081","\u0082","\u0083","\u0084","\u0085","\u0086","\u0087","\u0088","\u0089","\u008a","\u008b","\u008c","\u008d","\u008e","\u008f","\u0090","\u0091","\u0092","\u0093","\u0094","\u0095","\u0096","\u0097","\u0098","\u0099","\u009a","\u009b","\u009c","\u009d","\u009e","\u009f",  # ; Control # Cc  [33] <control-007F>..<control-009F>
+        "\u00AD",  # ; Control # Cf       SOFT HYPHEN
+        "\u061C",  # ; Control # Cf       ARABIC LETTER MARK
+        "\u180E",  # ; Control # Cf       MONGOLIAN VOWEL SEPARATOR
+        "\u200B",  # ; Control # Cf       ZERO WIDTH SPACE
+        "\u200e","\u200f",  # ; Control # Cf   [2] LEFT-TO-RIGHT MARK..RIGHT-TO-LEFT MARK
+        "\u2028",  # ; Control # Zl       LINE SEPARATOR
+        "\u2029",  # ; Control # Zp       PARAGRAPH SEPARATOR
+        "\u202a","\u202b","\u202c","\u202d","\u202e",  # ; Control # Cf   [5] LEFT-TO-RIGHT EMBEDDING..RIGHT-TO-LEFT OVERRIDE
+        "\u2060","\u2061","\u2062","\u2063","\u2064",  # ; Control # Cf   [5] WORD JOINER..INVISIBLE PLUS
+        "\u2065",  # ; Control # Cn       <reserved-2065>
+        "\u2066","\u2067","\u2068","\u2069","\u206a","\u206b","\u206c","\u206d","\u206e","\u206f",  # ; Control # Cf  [10] LEFT-TO-RIGHT ISOLATE..NOMINAL DIGIT SHAPES
+        "\uFEFF",  # ; Control # Cf       ZERO WIDTH NO-BREAK SPACE
+        "\ufff0","\ufff1","\ufff2","\ufff3","\ufff4","\ufff5","\ufff6","\ufff7","\ufff8",  # ; Control # Cn   [9] <reserved-FFF0>..<reserved-FFF8>
+        "\ufff9","\ufffa","\ufffb",  # ; Control # Cf   [3] INTERLINEAR ANNOTATION ANCHOR..INTERLINEAR ANNOTATION TERMINATOR
+        "\u1bca0","\u1bca1","\u1bca2","\u1bca3",  # ; Control # Cf   [4] SHORTHAND FORMAT LETTER OVERLAP..SHORTHAND FORMAT UP STEP
+        "\u1d173","\u1d174","\u1d175","\u1d176","\u1d177","\u1d178","\u1d179","\u1d17a",  # ; Control # Cf   [8] MUSICAL SYMBOL BEGIN BEAM..MUSICAL SYMBOL END PHRASE
+        "\uE0000",  # ; Control # Cn       <reserved-E0000>
+        "\uE0001",  # ; Control # Cf       LANGUAGE TAG
+        "\ue0002","\ue0003","\ue0004","\ue0005","\ue0006","\ue0007","\ue0008","\ue0009","\ue000a","\ue000b","\ue000c","\ue000d","\ue000e","\ue000f","\ue0010","\ue0011","\ue0012","\ue0013","\ue0014","\ue0015","\ue0016","\ue0017","\ue0018","\ue0019","\ue001a","\ue001b","\ue001c","\ue001d","\ue001e","\ue001f",  # ; Control # Cn  [30] <reserved-E0002>..<reserved-E001F>
+        "\ue0080","\ue0081","\ue0082","\ue0083","\ue0084","\ue0085","\ue0086","\ue0087","\ue0088","\ue0089","\ue008a","\ue008b","\ue008c","\ue008d","\ue008e","\ue008f","\ue0090","\ue0091","\ue0092","\ue0093","\ue0094","\ue0095","\ue0096","\ue0097","\ue0098","\ue0099","\ue009a","\ue009b","\ue009c","\ue009d","\ue009e","\ue009f","\ue00a0","\ue00a1","\ue00a2","\ue00a3","\ue00a4","\ue00a5","\ue00a6","\ue00a7","\ue00a8","\ue00a9","\ue00aa","\ue00ab","\ue00ac","\ue00ad","\ue00ae","\ue00af","\ue00b0","\ue00b1","\ue00b2","\ue00b3","\ue00b4","\ue00b5","\ue00b6","\ue00b7","\ue00b8","\ue00b9","\ue00ba","\ue00bb","\ue00bc","\ue00bd","\ue00be","\ue00bf","\ue00c0","\ue00c1","\ue00c2","\ue00c3","\ue00c4","\ue00c5","\ue00c6","\ue00c7","\ue00c8","\ue00c9","\ue00ca","\ue00cb","\ue00cc","\ue00cd","\ue00ce","\ue00cf","\ue00d0","\ue00d1","\ue00d2","\ue00d3","\ue00d4","\ue00d5","\ue00d6","\ue00d7","\ue00d8","\ue00d9","\ue00da","\ue00db","\ue00dc","\ue00dd","\ue00de","\ue00df","\ue00e0","\ue00e1","\ue00e2","\ue00e3","\ue00e4","\ue00e5","\ue00e6","\ue00e7","\ue00e8","\ue00e9","\ue00ea","\ue00eb","\ue00ec","\ue00ed","\ue00ee","\ue00ef","\ue00f0","\ue00f1","\ue00f2","\ue00f3","\ue00f4","\ue00f5","\ue00f6","\ue00f7","\ue00f8","\ue00f9","\ue00fa","\ue00fb","\ue00fc","\ue00fd","\ue00fe","\ue00ff",  # ; Control # Cn [128] <reserved-E0080>..<reserved-E00FF>
+        "\ue01f0","\ue01f1","\ue01f2","\ue01f3","\ue01f4","\ue01f5","\ue01f6","\ue01f7","\ue01f8","\ue01f9","\ue01fa","\ue01fb","\ue01fc","\ue01fd","\ue01fe","\ue01ff","\ue0200","\ue0201","\ue0202","\ue0203","\ue0204","\ue0205","\ue0206","\ue0207","\ue0208","\ue0209","\ue020a","\ue020b","\ue020c","\ue020d","\ue020e","\ue020f","\ue0210","\ue0211","\ue0212","\ue0213","\ue0214","\ue0215","\ue0216","\ue0217","\ue0218","\ue0219","\ue021a","\ue021b","\ue021c","\ue021d","\ue021e","\ue021f","\ue0220","\ue0221","\ue0222","\ue0223","\ue0224","\ue0225","\ue0226","\ue0227","\ue0228","\ue0229","\ue022a","\ue022b","\ue022c","\ue022d","\ue022e","\ue022f","\ue0230","\ue0231","\ue0232","\ue0233","\ue0234","\ue0235","\ue0236","\ue0237","\ue0238","\ue0239","\ue023a","\ue023b","\ue023c","\ue023d","\ue023e","\ue023f","\ue0240","\ue0241","\ue0242","\ue0243","\ue0244","\ue0245","\ue0246","\ue0247","\ue0248","\ue0249","\ue024a","\ue024b","\ue024c","\ue024d","\ue024e","\ue024f","\ue0250","\ue0251","\ue0252","\ue0253","\ue0254","\ue0255","\ue0256","\ue0257","\ue0258","\ue0259","\ue025a","\ue025b","\ue025c","\ue025d","\ue025e","\ue025f","\ue0260","\ue0261","\ue0262","\ue0263","\ue0264","\ue0265","\ue0266","\ue0267","\ue0268","\ue0269","\ue026a","\ue026b","\ue026c","\ue026d","\ue026e","\ue026f","\ue0270","\ue0271","\ue0272","\ue0273","\ue0274","\ue0275","\ue0276","\ue0277","\ue0278","\ue0279","\ue027a","\ue027b","\ue027c","\ue027d","\ue027e","\ue027f","\ue0280","\ue0281","\ue0282","\ue0283","\ue0284","\ue0285","\ue0286","\ue0287","\ue0288","\ue0289","\ue028a","\ue028b","\ue028c","\ue028d","\ue028e","\ue028f","\ue0290","\ue0291","\ue0292","\ue0293","\ue0294","\ue0295","\ue0296","\ue0297","\ue0298","\ue0299","\ue029a","\ue029b","\ue029c","\ue029d","\ue029e","\ue029f","\ue02a0","\ue02a1","\ue02a2","\ue02a3","\ue02a4","\ue02a5","\ue02a6","\ue02a7","\ue02a8","\ue02a9","\ue02aa","\ue02ab","\ue02ac","\ue02ad","\ue02ae","\ue02af","\ue02b0","\ue02b1","\ue02b2","\ue02b3","\ue02b4","\ue02b5","\ue02b6","\ue02b7","\ue02b8","\ue02b9","\ue02ba","\ue02bb","\ue02bc","\ue02bd","\ue02be","\ue02bf","\ue02c0","\ue02c1","\ue02c2","\ue02c3","\ue02c4","\ue02c5","\ue02c6","\ue02c7","\ue02c8","\ue02c9","\ue02ca","\ue02cb","\ue02cc","\ue02cd","\ue02ce","\ue02cf","\ue02d0","\ue02d1","\ue02d2","\ue02d3","\ue02d4","\ue02d5","\ue02d6","\ue02d7","\ue02d8","\ue02d9","\ue02da","\ue02db","\ue02dc","\ue02dd","\ue02de","\ue02df","\ue02e0","\ue02e1","\ue02e2","\ue02e3","\ue02e4","\ue02e5","\ue02e6","\ue02e7","\ue02e8","\ue02e9","\ue02ea","\ue02eb","\ue02ec","\ue02ed","\ue02ee","\ue02ef","\ue02f0","\ue02f1","\ue02f2","\ue02f3","\ue02f4","\ue02f5","\ue02f6","\ue02f7","\ue02f8","\ue02f9","\ue02fa","\ue02fb","\ue02fc","\ue02fd","\ue02fe","\ue02ff","\ue0300","\ue0301","\ue0302","\ue0303","\ue0304","\ue0305","\ue0306","\ue0307","\ue0308","\ue0309","\ue030a","\ue030b","\ue030c","\ue030d","\ue030e","\ue030f","\ue0310","\ue0311","\ue0312","\ue0313","\ue0314","\ue0315","\ue0316","\ue0317","\ue0318","\ue0319","\ue031a","\ue031b","\ue031c","\ue031d","\ue031e","\ue031f","\ue0320","\ue0321","\ue0322","\ue0323","\ue0324","\ue0325","\ue0326","\ue0327","\ue0328","\ue0329","\ue032a","\ue032b","\ue032c","\ue032d","\ue032e","\ue032f","\ue0330","\ue0331","\ue0332","\ue0333","\ue0334","\ue0335","\ue0336","\ue0337","\ue0338","\ue0339","\ue033a","\ue033b","\ue033c","\ue033d","\ue033e","\ue033f","\ue0340","\ue0341","\ue0342","\ue0343","\ue0344","\ue0345","\ue0346","\ue0347","\ue0348","\ue0349","\ue034a","\ue034b","\ue034c","\ue034d","\ue034e","\ue034f","\ue0350","\ue0351","\ue0352","\ue0353","\ue0354","\ue0355","\ue0356","\ue0357","\ue0358","\ue0359","\ue035a","\ue035b","\ue035c","\ue035d","\ue035e","\ue035f","\ue0360","\ue0361","\ue0362","\ue0363","\ue0364","\ue0365","\ue0366","\ue0367","\ue0368","\ue0369","\ue036a","\ue036b","\ue036c","\ue036d","\ue036e","\ue036f","\ue0370","\ue0371","\ue0372","\ue0373","\ue0374","\ue0375","\ue0376","\ue0377","\ue0378","\ue0379","\ue037a","\ue037b","\ue037c","\ue037d","\ue037e","\ue037f","\ue0380","\ue0381","\ue0382","\ue0383","\ue0384","\ue0385","\ue0386","\ue0387","\ue0388","\ue0389","\ue038a","\ue038b","\ue038c","\ue038d","\ue038e","\ue038f","\ue0390","\ue0391","\ue0392","\ue0393","\ue0394","\ue0395","\ue0396","\ue0397","\ue0398","\ue0399","\ue039a","\ue039b","\ue039c","\ue039d","\ue039e","\ue039f","\ue03a0","\ue03a1","\ue03a2","\ue03a3","\ue03a4","\ue03a5","\ue03a6","\ue03a7","\ue03a8","\ue03a9","\ue03aa","\ue03ab","\ue03ac","\ue03ad","\ue03ae","\ue03af","\ue03b0","\ue03b1","\ue03b2","\ue03b3","\ue03b4","\ue03b5","\ue03b6","\ue03b7","\ue03b8","\ue03b9","\ue03ba","\ue03bb","\ue03bc","\ue03bd","\ue03be","\ue03bf","\ue03c0","\ue03c1","\ue03c2","\ue03c3","\ue03c4","\ue03c5","\ue03c6","\ue03c7","\ue03c8","\ue03c9","\ue03ca","\ue03cb","\ue03cc","\ue03cd","\ue03ce","\ue03cf","\ue03d0","\ue03d1","\ue03d2","\ue03d3","\ue03d4","\ue03d5","\ue03d6","\ue03d7","\ue03d8","\ue03d9","\ue03da","\ue03db","\ue03dc","\ue03dd","\ue03de","\ue03df","\ue03e0","\ue03e1","\ue03e2","\ue03e3","\ue03e4","\ue03e5","\ue03e6","\ue03e7","\ue03e8","\ue03e9","\ue03ea","\ue03eb","\ue03ec","\ue03ed","\ue03ee","\ue03ef","\ue03f0","\ue03f1","\ue03f2","\ue03f3","\ue03f4","\ue03f5","\ue03f6","\ue03f7","\ue03f8","\ue03f9","\ue03fa","\ue03fb","\ue03fc","\ue03fd","\ue03fe","\ue03ff","\ue0400","\ue0401","\ue0402","\ue0403","\ue0404","\ue0405","\ue0406","\ue0407","\ue0408","\ue0409","\ue040a","\ue040b","\ue040c","\ue040d","\ue040e","\ue040f","\ue0410","\ue0411","\ue0412","\ue0413","\ue0414","\ue0415","\ue0416","\ue0417","\ue0418","\ue0419","\ue041a","\ue041b","\ue041c","\ue041d","\ue041e","\ue041f","\ue0420","\ue0421","\ue0422","\ue0423","\ue0424","\ue0425","\ue0426","\ue0427","\ue0428","\ue0429","\ue042a","\ue042b","\ue042c","\ue042d","\ue042e","\ue042f","\ue0430","\ue0431","\ue0432","\ue0433","\ue0434","\ue0435","\ue0436","\ue0437","\ue0438","\ue0439","\ue043a","\ue043b","\ue043c","\ue043d","\ue043e","\ue043f","\ue0440","\ue0441","\ue0442","\ue0443","\ue0444","\ue0445","\ue0446","\ue0447","\ue0448","\ue0449","\ue044a","\ue044b","\ue044c","\ue044d","\ue044e","\ue044f","\ue0450","\ue0451","\ue0452","\ue0453","\ue0454","\ue0455","\ue0456","\ue0457","\ue0458","\ue0459","\ue045a","\ue045b","\ue045c","\ue045d","\ue045e","\ue045f","\ue0460","\ue0461","\ue0462","\ue0463","\ue0464","\ue0465","\ue0466","\ue0467","\ue0468","\ue0469","\ue046a","\ue046b","\ue046c","\ue046d","\ue046e","\ue046f","\ue0470","\ue0471","\ue0472","\ue0473","\ue0474","\ue0475","\ue0476","\ue0477","\ue0478","\ue0479","\ue047a","\ue047b","\ue047c","\ue047d","\ue047e","\ue047f","\ue0480","\ue0481","\ue0482","\ue0483","\ue0484","\ue0485","\ue0486","\ue0487","\ue0488","\ue0489","\ue048a","\ue048b","\ue048c","\ue048d","\ue048e","\ue048f","\ue0490","\ue0491","\ue0492","\ue0493","\ue0494","\ue0495","\ue0496","\ue0497","\ue0498","\ue0499","\ue049a","\ue049b","\ue049c","\ue049d","\ue049e","\ue049f","\ue04a0","\ue04a1","\ue04a2","\ue04a3","\ue04a4","\ue04a5","\ue04a6","\ue04a7","\ue04a8","\ue04a9","\ue04aa","\ue04ab","\ue04ac","\ue04ad","\ue04ae","\ue04af","\ue04b0","\ue04b1","\ue04b2","\ue04b3","\ue04b4","\ue04b5","\ue04b6","\ue04b7","\ue04b8","\ue04b9","\ue04ba","\ue04bb","\ue04bc","\ue04bd","\ue04be","\ue04bf","\ue04c0","\ue04c1","\ue04c2","\ue04c3","\ue04c4","\ue04c5","\ue04c6","\ue04c7","\ue04c8","\ue04c9","\ue04ca","\ue04cb","\ue04cc","\ue04cd","\ue04ce","\ue04cf","\ue04d0","\ue04d1","\ue04d2","\ue04d3","\ue04d4","\ue04d5","\ue04d6","\ue04d7","\ue04d8","\ue04d9","\ue04da","\ue04db","\ue04dc","\ue04dd","\ue04de","\ue04df","\ue04e0","\ue04e1","\ue04e2","\ue04e3","\ue04e4","\ue04e5","\ue04e6","\ue04e7","\ue04e8","\ue04e9","\ue04ea","\ue04eb","\ue04ec","\ue04ed","\ue04ee","\ue04ef","\ue04f0","\ue04f1","\ue04f2","\ue04f3","\ue04f4","\ue04f5","\ue04f6","\ue04f7","\ue04f8","\ue04f9","\ue04fa","\ue04fb","\ue04fc","\ue04fd","\ue04fe","\ue04ff","\ue0500","\ue0501","\ue0502","\ue0503","\ue0504","\ue0505","\ue0506","\ue0507","\ue0508","\ue0509","\ue050a","\ue050b","\ue050c","\ue050d","\ue050e","\ue050f","\ue0510","\ue0511","\ue0512","\ue0513","\ue0514","\ue0515","\ue0516","\ue0517","\ue0518","\ue0519","\ue051a","\ue051b","\ue051c","\ue051d","\ue051e","\ue051f","\ue0520","\ue0521","\ue0522","\ue0523","\ue0524","\ue0525","\ue0526","\ue0527","\ue0528","\ue0529","\ue052a","\ue052b","\ue052c","\ue052d","\ue052e","\ue052f","\ue0530","\ue0531","\ue0532","\ue0533","\ue0534","\ue0535","\ue0536","\ue0537","\ue0538","\ue0539","\ue053a","\ue053b","\ue053c","\ue053d","\ue053e","\ue053f","\ue0540","\ue0541","\ue0542","\ue0543","\ue0544","\ue0545","\ue0546","\ue0547","\ue0548","\ue0549","\ue054a","\ue054b","\ue054c","\ue054d","\ue054e","\ue054f","\ue0550","\ue0551","\ue0552","\ue0553","\ue0554","\ue0555","\ue0556","\ue0557","\ue0558","\ue0559","\ue055a","\ue055b","\ue055c","\ue055d","\ue055e","\ue055f","\ue0560","\ue0561","\ue0562","\ue0563","\ue0564","\ue0565","\ue0566","\ue0567","\ue0568","\ue0569","\ue056a","\ue056b","\ue056c","\ue056d","\ue056e","\ue056f","\ue0570","\ue0571","\ue0572","\ue0573","\ue0574","\ue0575","\ue0576","\ue0577","\ue0578","\ue0579","\ue057a","\ue057b","\ue057c","\ue057d","\ue057e","\ue057f","\ue0580","\ue0581","\ue0582","\ue0583","\ue0584","\ue0585","\ue0586","\ue0587","\ue0588","\ue0589","\ue058a","\ue058b","\ue058c","\ue058d","\ue058e","\ue058f","\ue0590","\ue0591","\ue0592","\ue0593","\ue0594","\ue0595","\ue0596","\ue0597","\ue0598","\ue0599","\ue059a","\ue059b","\ue059c","\ue059d","\ue059e","\ue059f","\ue05a0","\ue05a1","\ue05a2","\ue05a3","\ue05a4","\ue05a5","\ue05a6","\ue05a7","\ue05a8","\ue05a9","\ue05aa","\ue05ab","\ue05ac","\ue05ad","\ue05ae","\ue05af","\ue05b0","\ue05b1","\ue05b2","\ue05b3","\ue05b4","\ue05b5","\ue05b6","\ue05b7","\ue05b8","\ue05b9","\ue05ba","\ue05bb","\ue05bc","\ue05bd","\ue05be","\ue05bf","\ue05c0","\ue05c1","\ue05c2","\ue05c3","\ue05c4","\ue05c5","\ue05c6","\ue05c7","\ue05c8","\ue05c9","\ue05ca","\ue05cb","\ue05cc","\ue05cd","\ue05ce","\ue05cf","\ue05d0","\ue05d1","\ue05d2","\ue05d3","\ue05d4","\ue05d5","\ue05d6","\ue05d7","\ue05d8","\ue05d9","\ue05da","\ue05db","\ue05dc","\ue05dd","\ue05de","\ue05df","\ue05e0","\ue05e1","\ue05e2","\ue05e3","\ue05e4","\ue05e5","\ue05e6","\ue05e7","\ue05e8","\ue05e9","\ue05ea","\ue05eb","\ue05ec","\ue05ed","\ue05ee","\ue05ef","\ue05f0","\ue05f1","\ue05f2","\ue05f3","\ue05f4","\ue05f5","\ue05f6","\ue05f7","\ue05f8","\ue05f9","\ue05fa","\ue05fb","\ue05fc","\ue05fd","\ue05fe","\ue05ff","\ue0600","\ue0601","\ue0602","\ue0603","\ue0604","\ue0605","\ue0606","\ue0607","\ue0608","\ue0609","\ue060a","\ue060b","\ue060c","\ue060d","\ue060e","\ue060f","\ue0610","\ue0611","\ue0612","\ue0613","\ue0614","\ue0615","\ue0616","\ue0617","\ue0618","\ue0619","\ue061a","\ue061b","\ue061c","\ue061d","\ue061e","\ue061f","\ue0620","\ue0621","\ue0622","\ue0623","\ue0624","\ue0625","\ue0626","\ue0627","\ue0628","\ue0629","\ue062a","\ue062b","\ue062c","\ue062d","\ue062e","\ue062f","\ue0630","\ue0631","\ue0632","\ue0633","\ue0634","\ue0635","\ue0636","\ue0637","\ue0638","\ue0639","\ue063a","\ue063b","\ue063c","\ue063d","\ue063e","\ue063f","\ue0640","\ue0641","\ue0642","\ue0643","\ue0644","\ue0645","\ue0646","\ue0647","\ue0648","\ue0649","\ue064a","\ue064b","\ue064c","\ue064d","\ue064e","\ue064f","\ue0650","\ue0651","\ue0652","\ue0653","\ue0654","\ue0655","\ue0656","\ue0657","\ue0658","\ue0659","\ue065a","\ue065b","\ue065c","\ue065d","\ue065e","\ue065f","\ue0660","\ue0661","\ue0662","\ue0663","\ue0664","\ue0665","\ue0666","\ue0667","\ue0668","\ue0669","\ue066a","\ue066b","\ue066c","\ue066d","\ue066e","\ue066f","\ue0670","\ue0671","\ue0672","\ue0673","\ue0674","\ue0675","\ue0676","\ue0677","\ue0678","\ue0679","\ue067a","\ue067b","\ue067c","\ue067d","\ue067e","\ue067f","\ue0680","\ue0681","\ue0682","\ue0683","\ue0684","\ue0685","\ue0686","\ue0687","\ue0688","\ue0689","\ue068a","\ue068b","\ue068c","\ue068d","\ue068e","\ue068f","\ue0690","\ue0691","\ue0692","\ue0693","\ue0694","\ue0695","\ue0696","\ue0697","\ue0698","\ue0699","\ue069a","\ue069b","\ue069c","\ue069d","\ue069e","\ue069f","\ue06a0","\ue06a1","\ue06a2","\ue06a3","\ue06a4","\ue06a5","\ue06a6","\ue06a7","\ue06a8","\ue06a9","\ue06aa","\ue06ab","\ue06ac","\ue06ad","\ue06ae","\ue06af","\ue06b0","\ue06b1","\ue06b2","\ue06b3","\ue06b4","\ue06b5","\ue06b6","\ue06b7","\ue06b8","\ue06b9","\ue06ba","\ue06bb","\ue06bc","\ue06bd","\ue06be","\ue06bf","\ue06c0","\ue06c1","\ue06c2","\ue06c3","\ue06c4","\ue06c5","\ue06c6","\ue06c7","\ue06c8","\ue06c9","\ue06ca","\ue06cb","\ue06cc","\ue06cd","\ue06ce","\ue06cf","\ue06d0","\ue06d1","\ue06d2","\ue06d3","\ue06d4","\ue06d5","\ue06d6","\ue06d7","\ue06d8","\ue06d9","\ue06da","\ue06db","\ue06dc","\ue06dd","\ue06de","\ue06df","\ue06e0","\ue06e1","\ue06e2","\ue06e3","\ue06e4","\ue06e5","\ue06e6","\ue06e7","\ue06e8","\ue06e9","\ue06ea","\ue06eb","\ue06ec","\ue06ed","\ue06ee","\ue06ef","\ue06f0","\ue06f1","\ue06f2","\ue06f3","\ue06f4","\ue06f5","\ue06f6","\ue06f7","\ue06f8","\ue06f9","\ue06fa","\ue06fb","\ue06fc","\ue06fd","\ue06fe","\ue06ff","\ue0700","\ue0701","\ue0702","\ue0703","\ue0704","\ue0705","\ue0706","\ue0707","\ue0708","\ue0709","\ue070a","\ue070b","\ue070c","\ue070d","\ue070e","\ue070f","\ue0710","\ue0711","\ue0712","\ue0713","\ue0714","\ue0715","\ue0716","\ue0717","\ue0718","\ue0719","\ue071a","\ue071b","\ue071c","\ue071d","\ue071e","\ue071f","\ue0720","\ue0721","\ue0722","\ue0723","\ue0724","\ue0725","\ue0726","\ue0727","\ue0728","\ue0729","\ue072a","\ue072b","\ue072c","\ue072d","\ue072e","\ue072f","\ue0730","\ue0731","\ue0732","\ue0733","\ue0734","\ue0735","\ue0736","\ue0737","\ue0738","\ue0739","\ue073a","\ue073b","\ue073c","\ue073d","\ue073e","\ue073f","\ue0740","\ue0741","\ue0742","\ue0743","\ue0744","\ue0745","\ue0746","\ue0747","\ue0748","\ue0749","\ue074a","\ue074b","\ue074c","\ue074d","\ue074e","\ue074f","\ue0750","\ue0751","\ue0752","\ue0753","\ue0754","\ue0755","\ue0756","\ue0757","\ue0758","\ue0759","\ue075a","\ue075b","\ue075c","\ue075d","\ue075e","\ue075f","\ue0760","\ue0761","\ue0762","\ue0763","\ue0764","\ue0765","\ue0766","\ue0767","\ue0768","\ue0769","\ue076a","\ue076b","\ue076c","\ue076d","\ue076e","\ue076f","\ue0770","\ue0771","\ue0772","\ue0773","\ue0774","\ue0775","\ue0776","\ue0777","\ue0778","\ue0779","\ue077a","\ue077b","\ue077c","\ue077d","\ue077e","\ue077f","\ue0780","\ue0781","\ue0782","\ue0783","\ue0784","\ue0785","\ue0786","\ue0787","\ue0788","\ue0789","\ue078a","\ue078b","\ue078c","\ue078d","\ue078e","\ue078f","\ue0790","\ue0791","\ue0792","\ue0793","\ue0794","\ue0795","\ue0796","\ue0797","\ue0798","\ue0799","\ue079a","\ue079b","\ue079c","\ue079d","\ue079e","\ue079f","\ue07a0","\ue07a1","\ue07a2","\ue07a3","\ue07a4","\ue07a5","\ue07a6","\ue07a7","\ue07a8","\ue07a9","\ue07aa","\ue07ab","\ue07ac","\ue07ad","\ue07ae","\ue07af","\ue07b0","\ue07b1","\ue07b2","\ue07b3","\ue07b4","\ue07b5","\ue07b6","\ue07b7","\ue07b8","\ue07b9","\ue07ba","\ue07bb","\ue07bc","\ue07bd","\ue07be","\ue07bf","\ue07c0","\ue07c1","\ue07c2","\ue07c3","\ue07c4","\ue07c5","\ue07c6","\ue07c7","\ue07c8","\ue07c9","\ue07ca","\ue07cb","\ue07cc","\ue07cd","\ue07ce","\ue07cf","\ue07d0","\ue07d1","\ue07d2","\ue07d3","\ue07d4","\ue07d5","\ue07d6","\ue07d7","\ue07d8","\ue07d9","\ue07da","\ue07db","\ue07dc","\ue07dd","\ue07de","\ue07df","\ue07e0","\ue07e1","\ue07e2","\ue07e3","\ue07e4","\ue07e5","\ue07e6","\ue07e7","\ue07e8","\ue07e9","\ue07ea","\ue07eb","\ue07ec","\ue07ed","\ue07ee","\ue07ef","\ue07f0","\ue07f1","\ue07f2","\ue07f3","\ue07f4","\ue07f5","\ue07f6","\ue07f7","\ue07f8","\ue07f9","\ue07fa","\ue07fb","\ue07fc","\ue07fd","\ue07fe","\ue07ff","\ue0800","\ue0801","\ue0802","\ue0803","\ue0804","\ue0805","\ue0806","\ue0807","\ue0808","\ue0809","\ue080a","\ue080b","\ue080c","\ue080d","\ue080e","\ue080f","\ue0810","\ue0811","\ue0812","\ue0813","\ue0814","\ue0815","\ue0816","\ue0817","\ue0818","\ue0819","\ue081a","\ue081b","\ue081c","\ue081d","\ue081e","\ue081f","\ue0820","\ue0821","\ue0822","\ue0823","\ue0824","\ue0825","\ue0826","\ue0827","\ue0828","\ue0829","\ue082a","\ue082b","\ue082c","\ue082d","\ue082e","\ue082f","\ue0830","\ue0831","\ue0832","\ue0833","\ue0834","\ue0835","\ue0836","\ue0837","\ue0838","\ue0839","\ue083a","\ue083b","\ue083c","\ue083d","\ue083e","\ue083f","\ue0840","\ue0841","\ue0842","\ue0843","\ue0844","\ue0845","\ue0846","\ue0847","\ue0848","\ue0849","\ue084a","\ue084b","\ue084c","\ue084d","\ue084e","\ue084f","\ue0850","\ue0851","\ue0852","\ue0853","\ue0854","\ue0855","\ue0856","\ue0857","\ue0858","\ue0859","\ue085a","\ue085b","\ue085c","\ue085d","\ue085e","\ue085f","\ue0860","\ue0861","\ue0862","\ue0863","\ue0864","\ue0865","\ue0866","\ue0867","\ue0868","\ue0869","\ue086a","\ue086b","\ue086c","\ue086d","\ue086e","\ue086f","\ue0870","\ue0871","\ue0872","\ue0873","\ue0874","\ue0875","\ue0876","\ue0877","\ue0878","\ue0879","\ue087a","\ue087b","\ue087c","\ue087d","\ue087e","\ue087f","\ue0880","\ue0881","\ue0882","\ue0883","\ue0884","\ue0885","\ue0886","\ue0887","\ue0888","\ue0889","\ue088a","\ue088b","\ue088c","\ue088d","\ue088e","\ue088f","\ue0890","\ue0891","\ue0892","\ue0893","\ue0894","\ue0895","\ue0896","\ue0897","\ue0898","\ue0899","\ue089a","\ue089b","\ue089c","\ue089d","\ue089e","\ue089f","\ue08a0","\ue08a1","\ue08a2","\ue08a3","\ue08a4","\ue08a5","\ue08a6","\ue08a7","\ue08a8","\ue08a9","\ue08aa","\ue08ab","\ue08ac","\ue08ad","\ue08ae","\ue08af","\ue08b0","\ue08b1","\ue08b2","\ue08b3","\ue08b4","\ue08b5","\ue08b6","\ue08b7","\ue08b8","\ue08b9","\ue08ba","\ue08bb","\ue08bc","\ue08bd","\ue08be","\ue08bf","\ue08c0","\ue08c1","\ue08c2","\ue08c3","\ue08c4","\ue08c5","\ue08c6","\ue08c7","\ue08c8","\ue08c9","\ue08ca","\ue08cb","\ue08cc","\ue08cd","\ue08ce","\ue08cf","\ue08d0","\ue08d1","\ue08d2","\ue08d3","\ue08d4","\ue08d5","\ue08d6","\ue08d7","\ue08d8","\ue08d9","\ue08da","\ue08db","\ue08dc","\ue08dd","\ue08de","\ue08df","\ue08e0","\ue08e1","\ue08e2","\ue08e3","\ue08e4","\ue08e5","\ue08e6","\ue08e7","\ue08e8","\ue08e9","\ue08ea","\ue08eb","\ue08ec","\ue08ed","\ue08ee","\ue08ef","\ue08f0","\ue08f1","\ue08f2","\ue08f3","\ue08f4","\ue08f5","\ue08f6","\ue08f7","\ue08f8","\ue08f9","\ue08fa","\ue08fb","\ue08fc","\ue08fd","\ue08fe","\ue08ff","\ue0900","\ue0901","\ue0902","\ue0903","\ue0904","\ue0905","\ue0906","\ue0907","\ue0908","\ue0909","\ue090a","\ue090b","\ue090c","\ue090d","\ue090e","\ue090f","\ue0910","\ue0911","\ue0912","\ue0913","\ue0914","\ue0915","\ue0916","\ue0917","\ue0918","\ue0919","\ue091a","\ue091b","\ue091c","\ue091d","\ue091e","\ue091f","\ue0920","\ue0921","\ue0922","\ue0923","\ue0924","\ue0925","\ue0926","\ue0927","\ue0928","\ue0929","\ue092a","\ue092b","\ue092c","\ue092d","\ue092e","\ue092f","\ue0930","\ue0931","\ue0932","\ue0933","\ue0934","\ue0935","\ue0936","\ue0937","\ue0938","\ue0939","\ue093a","\ue093b","\ue093c","\ue093d","\ue093e","\ue093f","\ue0940","\ue0941","\ue0942","\ue0943","\ue0944","\ue0945","\ue0946","\ue0947","\ue0948","\ue0949","\ue094a","\ue094b","\ue094c","\ue094d","\ue094e","\ue094f","\ue0950","\ue0951","\ue0952","\ue0953","\ue0954","\ue0955","\ue0956","\ue0957","\ue0958","\ue0959","\ue095a","\ue095b","\ue095c","\ue095d","\ue095e","\ue095f","\ue0960","\ue0961","\ue0962","\ue0963","\ue0964","\ue0965","\ue0966","\ue0967","\ue0968","\ue0969","\ue096a","\ue096b","\ue096c","\ue096d","\ue096e","\ue096f","\ue0970","\ue0971","\ue0972","\ue0973","\ue0974","\ue0975","\ue0976","\ue0977","\ue0978","\ue0979","\ue097a","\ue097b","\ue097c","\ue097d","\ue097e","\ue097f","\ue0980","\ue0981","\ue0982","\ue0983","\ue0984","\ue0985","\ue0986","\ue0987","\ue0988","\ue0989","\ue098a","\ue098b","\ue098c","\ue098d","\ue098e","\ue098f","\ue0990","\ue0991","\ue0992","\ue0993","\ue0994","\ue0995","\ue0996","\ue0997","\ue0998","\ue0999","\ue099a","\ue099b","\ue099c","\ue099d","\ue099e","\ue099f","\ue09a0","\ue09a1","\ue09a2","\ue09a3","\ue09a4","\ue09a5","\ue09a6","\ue09a7","\ue09a8","\ue09a9","\ue09aa","\ue09ab","\ue09ac","\ue09ad","\ue09ae","\ue09af","\ue09b0","\ue09b1","\ue09b2","\ue09b3","\ue09b4","\ue09b5","\ue09b6","\ue09b7","\ue09b8","\ue09b9","\ue09ba","\ue09bb","\ue09bc","\ue09bd","\ue09be","\ue09bf","\ue09c0","\ue09c1","\ue09c2","\ue09c3","\ue09c4","\ue09c5","\ue09c6","\ue09c7","\ue09c8","\ue09c9","\ue09ca","\ue09cb","\ue09cc","\ue09cd","\ue09ce","\ue09cf","\ue09d0","\ue09d1","\ue09d2","\ue09d3","\ue09d4","\ue09d5","\ue09d6","\ue09d7","\ue09d8","\ue09d9","\ue09da","\ue09db","\ue09dc","\ue09dd","\ue09de","\ue09df","\ue09e0","\ue09e1","\ue09e2","\ue09e3","\ue09e4","\ue09e5","\ue09e6","\ue09e7","\ue09e8","\ue09e9","\ue09ea","\ue09eb","\ue09ec","\ue09ed","\ue09ee","\ue09ef","\ue09f0","\ue09f1","\ue09f2","\ue09f3","\ue09f4","\ue09f5","\ue09f6","\ue09f7","\ue09f8","\ue09f9","\ue09fa","\ue09fb","\ue09fc","\ue09fd","\ue09fe","\ue09ff","\ue0a00","\ue0a01","\ue0a02","\ue0a03","\ue0a04","\ue0a05","\ue0a06","\ue0a07","\ue0a08","\ue0a09","\ue0a0a","\ue0a0b","\ue0a0c","\ue0a0d","\ue0a0e","\ue0a0f","\ue0a10","\ue0a11","\ue0a12","\ue0a13","\ue0a14","\ue0a15","\ue0a16","\ue0a17","\ue0a18","\ue0a19","\ue0a1a","\ue0a1b","\ue0a1c","\ue0a1d","\ue0a1e","\ue0a1f","\ue0a20","\ue0a21","\ue0a22","\ue0a23","\ue0a24","\ue0a25","\ue0a26","\ue0a27","\ue0a28","\ue0a29","\ue0a2a","\ue0a2b","\ue0a2c","\ue0a2d","\ue0a2e","\ue0a2f","\ue0a30","\ue0a31","\ue0a32","\ue0a33","\ue0a34","\ue0a35","\ue0a36","\ue0a37","\ue0a38","\ue0a39","\ue0a3a","\ue0a3b","\ue0a3c","\ue0a3d","\ue0a3e","\ue0a3f","\ue0a40","\ue0a41","\ue0a42","\ue0a43","\ue0a44","\ue0a45","\ue0a46","\ue0a47","\ue0a48","\ue0a49","\ue0a4a","\ue0a4b","\ue0a4c","\ue0a4d","\ue0a4e","\ue0a4f","\ue0a50","\ue0a51","\ue0a52","\ue0a53","\ue0a54","\ue0a55","\ue0a56","\ue0a57","\ue0a58","\ue0a59","\ue0a5a","\ue0a5b","\ue0a5c","\ue0a5d","\ue0a5e","\ue0a5f","\ue0a60","\ue0a61","\ue0a62","\ue0a63","\ue0a64","\ue0a65","\ue0a66","\ue0a67","\ue0a68","\ue0a69","\ue0a6a","\ue0a6b","\ue0a6c","\ue0a6d","\ue0a6e","\ue0a6f","\ue0a70","\ue0a71","\ue0a72","\ue0a73","\ue0a74","\ue0a75","\ue0a76","\ue0a77","\ue0a78","\ue0a79","\ue0a7a","\ue0a7b","\ue0a7c","\ue0a7d","\ue0a7e","\ue0a7f","\ue0a80","\ue0a81","\ue0a82","\ue0a83","\ue0a84","\ue0a85","\ue0a86","\ue0a87","\ue0a88","\ue0a89","\ue0a8a","\ue0a8b","\ue0a8c","\ue0a8d","\ue0a8e","\ue0a8f","\ue0a90","\ue0a91","\ue0a92","\ue0a93","\ue0a94","\ue0a95","\ue0a96","\ue0a97","\ue0a98","\ue0a99","\ue0a9a","\ue0a9b","\ue0a9c","\ue0a9d","\ue0a9e","\ue0a9f","\ue0aa0","\ue0aa1","\ue0aa2","\ue0aa3","\ue0aa4","\ue0aa5","\ue0aa6","\ue0aa7","\ue0aa8","\ue0aa9","\ue0aaa","\ue0aab","\ue0aac","\ue0aad","\ue0aae","\ue0aaf","\ue0ab0","\ue0ab1","\ue0ab2","\ue0ab3","\ue0ab4","\ue0ab5","\ue0ab6","\ue0ab7","\ue0ab8","\ue0ab9","\ue0aba","\ue0abb","\ue0abc","\ue0abd","\ue0abe","\ue0abf","\ue0ac0","\ue0ac1","\ue0ac2","\ue0ac3","\ue0ac4","\ue0ac5","\ue0ac6","\ue0ac7","\ue0ac8","\ue0ac9","\ue0aca","\ue0acb","\ue0acc","\ue0acd","\ue0ace","\ue0acf","\ue0ad0","\ue0ad1","\ue0ad2","\ue0ad3","\ue0ad4","\ue0ad5","\ue0ad6","\ue0ad7","\ue0ad8","\ue0ad9","\ue0ada","\ue0adb","\ue0adc","\ue0add","\ue0ade","\ue0adf","\ue0ae0","\ue0ae1","\ue0ae2","\ue0ae3","\ue0ae4","\ue0ae5","\ue0ae6","\ue0ae7","\ue0ae8","\ue0ae9","\ue0aea","\ue0aeb","\ue0aec","\ue0aed","\ue0aee","\ue0aef","\ue0af0","\ue0af1","\ue0af2","\ue0af3","\ue0af4","\ue0af5","\ue0af6","\ue0af7","\ue0af8","\ue0af9","\ue0afa","\ue0afb","\ue0afc","\ue0afd","\ue0afe","\ue0aff","\ue0b00","\ue0b01","\ue0b02","\ue0b03","\ue0b04","\ue0b05","\ue0b06","\ue0b07","\ue0b08","\ue0b09","\ue0b0a","\ue0b0b","\ue0b0c","\ue0b0d","\ue0b0e","\ue0b0f","\ue0b10","\ue0b11","\ue0b12","\ue0b13","\ue0b14","\ue0b15","\ue0b16","\ue0b17","\ue0b18","\ue0b19","\ue0b1a","\ue0b1b","\ue0b1c","\ue0b1d","\ue0b1e","\ue0b1f","\ue0b20","\ue0b21","\ue0b22","\ue0b23","\ue0b24","\ue0b25","\ue0b26","\ue0b27","\ue0b28","\ue0b29","\ue0b2a","\ue0b2b","\ue0b2c","\ue0b2d","\ue0b2e","\ue0b2f","\ue0b30","\ue0b31","\ue0b32","\ue0b33","\ue0b34","\ue0b35","\ue0b36","\ue0b37","\ue0b38","\ue0b39","\ue0b3a","\ue0b3b","\ue0b3c","\ue0b3d","\ue0b3e","\ue0b3f","\ue0b40","\ue0b41","\ue0b42","\ue0b43","\ue0b44","\ue0b45","\ue0b46","\ue0b47","\ue0b48","\ue0b49","\ue0b4a","\ue0b4b","\ue0b4c","\ue0b4d","\ue0b4e","\ue0b4f","\ue0b50","\ue0b51","\ue0b52","\ue0b53","\ue0b54","\ue0b55","\ue0b56","\ue0b57","\ue0b58","\ue0b59","\ue0b5a","\ue0b5b","\ue0b5c","\ue0b5d","\ue0b5e","\ue0b5f","\ue0b60","\ue0b61","\ue0b62","\ue0b63","\ue0b64","\ue0b65","\ue0b66","\ue0b67","\ue0b68","\ue0b69","\ue0b6a","\ue0b6b","\ue0b6c","\ue0b6d","\ue0b6e","\ue0b6f","\ue0b70","\ue0b71","\ue0b72","\ue0b73","\ue0b74","\ue0b75","\ue0b76","\ue0b77","\ue0b78","\ue0b79","\ue0b7a","\ue0b7b","\ue0b7c","\ue0b7d","\ue0b7e","\ue0b7f","\ue0b80","\ue0b81","\ue0b82","\ue0b83","\ue0b84","\ue0b85","\ue0b86","\ue0b87","\ue0b88","\ue0b89","\ue0b8a","\ue0b8b","\ue0b8c","\ue0b8d","\ue0b8e","\ue0b8f","\ue0b90","\ue0b91","\ue0b92","\ue0b93","\ue0b94","\ue0b95","\ue0b96","\ue0b97","\ue0b98","\ue0b99","\ue0b9a","\ue0b9b","\ue0b9c","\ue0b9d","\ue0b9e","\ue0b9f","\ue0ba0","\ue0ba1","\ue0ba2","\ue0ba3","\ue0ba4","\ue0ba5","\ue0ba6","\ue0ba7","\ue0ba8","\ue0ba9","\ue0baa","\ue0bab","\ue0bac","\ue0bad","\ue0bae","\ue0baf","\ue0bb0","\ue0bb1","\ue0bb2","\ue0bb3","\ue0bb4","\ue0bb5","\ue0bb6","\ue0bb7","\ue0bb8","\ue0bb9","\ue0bba","\ue0bbb","\ue0bbc","\ue0bbd","\ue0bbe","\ue0bbf","\ue0bc0","\ue0bc1","\ue0bc2","\ue0bc3","\ue0bc4","\ue0bc5","\ue0bc6","\ue0bc7","\ue0bc8","\ue0bc9","\ue0bca","\ue0bcb","\ue0bcc","\ue0bcd","\ue0bce","\ue0bcf","\ue0bd0","\ue0bd1","\ue0bd2","\ue0bd3","\ue0bd4","\ue0bd5","\ue0bd6","\ue0bd7","\ue0bd8","\ue0bd9","\ue0bda","\ue0bdb","\ue0bdc","\ue0bdd","\ue0bde","\ue0bdf","\ue0be0","\ue0be1","\ue0be2","\ue0be3","\ue0be4","\ue0be5","\ue0be6","\ue0be7","\ue0be8","\ue0be9","\ue0bea","\ue0beb","\ue0bec","\ue0bed","\ue0bee","\ue0bef","\ue0bf0","\ue0bf1","\ue0bf2","\ue0bf3","\ue0bf4","\ue0bf5","\ue0bf6","\ue0bf7","\ue0bf8","\ue0bf9","\ue0bfa","\ue0bfb","\ue0bfc","\ue0bfd","\ue0bfe","\ue0bff","\ue0c00","\ue0c01","\ue0c02","\ue0c03","\ue0c04","\ue0c05","\ue0c06","\ue0c07","\ue0c08","\ue0c09","\ue0c0a","\ue0c0b","\ue0c0c","\ue0c0d","\ue0c0e","\ue0c0f","\ue0c10","\ue0c11","\ue0c12","\ue0c13","\ue0c14","\ue0c15","\ue0c16","\ue0c17","\ue0c18","\ue0c19","\ue0c1a","\ue0c1b","\ue0c1c","\ue0c1d","\ue0c1e","\ue0c1f","\ue0c20","\ue0c21","\ue0c22","\ue0c23","\ue0c24","\ue0c25","\ue0c26","\ue0c27","\ue0c28","\ue0c29","\ue0c2a","\ue0c2b","\ue0c2c","\ue0c2d","\ue0c2e","\ue0c2f","\ue0c30","\ue0c31","\ue0c32","\ue0c33","\ue0c34","\ue0c35","\ue0c36","\ue0c37","\ue0c38","\ue0c39","\ue0c3a","\ue0c3b","\ue0c3c","\ue0c3d","\ue0c3e","\ue0c3f","\ue0c40","\ue0c41","\ue0c42","\ue0c43","\ue0c44","\ue0c45","\ue0c46","\ue0c47","\ue0c48","\ue0c49","\ue0c4a","\ue0c4b","\ue0c4c","\ue0c4d","\ue0c4e","\ue0c4f","\ue0c50","\ue0c51","\ue0c52","\ue0c53","\ue0c54","\ue0c55","\ue0c56","\ue0c57","\ue0c58","\ue0c59","\ue0c5a","\ue0c5b","\ue0c5c","\ue0c5d","\ue0c5e","\ue0c5f","\ue0c60","\ue0c61","\ue0c62","\ue0c63","\ue0c64","\ue0c65","\ue0c66","\ue0c67","\ue0c68","\ue0c69","\ue0c6a","\ue0c6b","\ue0c6c","\ue0c6d","\ue0c6e","\ue0c6f","\ue0c70","\ue0c71","\ue0c72","\ue0c73","\ue0c74","\ue0c75","\ue0c76","\ue0c77","\ue0c78","\ue0c79","\ue0c7a","\ue0c7b","\ue0c7c","\ue0c7d","\ue0c7e","\ue0c7f","\ue0c80","\ue0c81","\ue0c82","\ue0c83","\ue0c84","\ue0c85","\ue0c86","\ue0c87","\ue0c88","\ue0c89","\ue0c8a","\ue0c8b","\ue0c8c","\ue0c8d","\ue0c8e","\ue0c8f","\ue0c90","\ue0c91","\ue0c92","\ue0c93","\ue0c94","\ue0c95","\ue0c96","\ue0c97","\ue0c98","\ue0c99","\ue0c9a","\ue0c9b","\ue0c9c","\ue0c9d","\ue0c9e","\ue0c9f","\ue0ca0","\ue0ca1","\ue0ca2","\ue0ca3","\ue0ca4","\ue0ca5","\ue0ca6","\ue0ca7","\ue0ca8","\ue0ca9","\ue0caa","\ue0cab","\ue0cac","\ue0cad","\ue0cae","\ue0caf","\ue0cb0","\ue0cb1","\ue0cb2","\ue0cb3","\ue0cb4","\ue0cb5","\ue0cb6","\ue0cb7","\ue0cb8","\ue0cb9","\ue0cba","\ue0cbb","\ue0cbc","\ue0cbd","\ue0cbe","\ue0cbf","\ue0cc0","\ue0cc1","\ue0cc2","\ue0cc3","\ue0cc4","\ue0cc5","\ue0cc6","\ue0cc7","\ue0cc8","\ue0cc9","\ue0cca","\ue0ccb","\ue0ccc","\ue0ccd","\ue0cce","\ue0ccf","\ue0cd0","\ue0cd1","\ue0cd2","\ue0cd3","\ue0cd4","\ue0cd5","\ue0cd6","\ue0cd7","\ue0cd8","\ue0cd9","\ue0cda","\ue0cdb","\ue0cdc","\ue0cdd","\ue0cde","\ue0cdf","\ue0ce0","\ue0ce1","\ue0ce2","\ue0ce3","\ue0ce4","\ue0ce5","\ue0ce6","\ue0ce7","\ue0ce8","\ue0ce9","\ue0cea","\ue0ceb","\ue0cec","\ue0ced","\ue0cee","\ue0cef","\ue0cf0","\ue0cf1","\ue0cf2","\ue0cf3","\ue0cf4","\ue0cf5","\ue0cf6","\ue0cf7","\ue0cf8","\ue0cf9","\ue0cfa","\ue0cfb","\ue0cfc","\ue0cfd","\ue0cfe","\ue0cff","\ue0d00","\ue0d01","\ue0d02","\ue0d03","\ue0d04","\ue0d05","\ue0d06","\ue0d07","\ue0d08","\ue0d09","\ue0d0a","\ue0d0b","\ue0d0c","\ue0d0d","\ue0d0e","\ue0d0f","\ue0d10","\ue0d11","\ue0d12","\ue0d13","\ue0d14","\ue0d15","\ue0d16","\ue0d17","\ue0d18","\ue0d19","\ue0d1a","\ue0d1b","\ue0d1c","\ue0d1d","\ue0d1e","\ue0d1f","\ue0d20","\ue0d21","\ue0d22","\ue0d23","\ue0d24","\ue0d25","\ue0d26","\ue0d27","\ue0d28","\ue0d29","\ue0d2a","\ue0d2b","\ue0d2c","\ue0d2d","\ue0d2e","\ue0d2f","\ue0d30","\ue0d31","\ue0d32","\ue0d33","\ue0d34","\ue0d35","\ue0d36","\ue0d37","\ue0d38","\ue0d39","\ue0d3a","\ue0d3b","\ue0d3c","\ue0d3d","\ue0d3e","\ue0d3f","\ue0d40","\ue0d41","\ue0d42","\ue0d43","\ue0d44","\ue0d45","\ue0d46","\ue0d47","\ue0d48","\ue0d49","\ue0d4a","\ue0d4b","\ue0d4c","\ue0d4d","\ue0d4e","\ue0d4f","\ue0d50","\ue0d51","\ue0d52","\ue0d53","\ue0d54","\ue0d55","\ue0d56","\ue0d57","\ue0d58","\ue0d59","\ue0d5a","\ue0d5b","\ue0d5c","\ue0d5d","\ue0d5e","\ue0d5f","\ue0d60","\ue0d61","\ue0d62","\ue0d63","\ue0d64","\ue0d65","\ue0d66","\ue0d67","\ue0d68","\ue0d69","\ue0d6a","\ue0d6b","\ue0d6c","\ue0d6d","\ue0d6e","\ue0d6f","\ue0d70","\ue0d71","\ue0d72","\ue0d73","\ue0d74","\ue0d75","\ue0d76","\ue0d77","\ue0d78","\ue0d79","\ue0d7a","\ue0d7b","\ue0d7c","\ue0d7d","\ue0d7e","\ue0d7f","\ue0d80","\ue0d81","\ue0d82","\ue0d83","\ue0d84","\ue0d85","\ue0d86","\ue0d87","\ue0d88","\ue0d89","\ue0d8a","\ue0d8b","\ue0d8c","\ue0d8d","\ue0d8e","\ue0d8f","\ue0d90","\ue0d91","\ue0d92","\ue0d93","\ue0d94","\ue0d95","\ue0d96","\ue0d97","\ue0d98","\ue0d99","\ue0d9a","\ue0d9b","\ue0d9c","\ue0d9d","\ue0d9e","\ue0d9f","\ue0da0","\ue0da1","\ue0da2","\ue0da3","\ue0da4","\ue0da5","\ue0da6","\ue0da7","\ue0da8","\ue0da9","\ue0daa","\ue0dab","\ue0dac","\ue0dad","\ue0dae","\ue0daf","\ue0db0","\ue0db1","\ue0db2","\ue0db3","\ue0db4","\ue0db5","\ue0db6","\ue0db7","\ue0db8","\ue0db9","\ue0dba","\ue0dbb","\ue0dbc","\ue0dbd","\ue0dbe","\ue0dbf","\ue0dc0","\ue0dc1","\ue0dc2","\ue0dc3","\ue0dc4","\ue0dc5","\ue0dc6","\ue0dc7","\ue0dc8","\ue0dc9","\ue0dca","\ue0dcb","\ue0dcc","\ue0dcd","\ue0dce","\ue0dcf","\ue0dd0","\ue0dd1","\ue0dd2","\ue0dd3","\ue0dd4","\ue0dd5","\ue0dd6","\ue0dd7","\ue0dd8","\ue0dd9","\ue0dda","\ue0ddb","\ue0ddc","\ue0ddd","\ue0dde","\ue0ddf","\ue0de0","\ue0de1","\ue0de2","\ue0de3","\ue0de4","\ue0de5","\ue0de6","\ue0de7","\ue0de8","\ue0de9","\ue0dea","\ue0deb","\ue0dec","\ue0ded","\ue0dee","\ue0def","\ue0df0","\ue0df1","\ue0df2","\ue0df3","\ue0df4","\ue0df5","\ue0df6","\ue0df7","\ue0df8","\ue0df9","\ue0dfa","\ue0dfb","\ue0dfc","\ue0dfd","\ue0dfe","\ue0dff","\ue0e00","\ue0e01","\ue0e02","\ue0e03","\ue0e04","\ue0e05","\ue0e06","\ue0e07","\ue0e08","\ue0e09","\ue0e0a","\ue0e0b","\ue0e0c","\ue0e0d","\ue0e0e","\ue0e0f","\ue0e10","\ue0e11","\ue0e12","\ue0e13","\ue0e14","\ue0e15","\ue0e16","\ue0e17","\ue0e18","\ue0e19","\ue0e1a","\ue0e1b","\ue0e1c","\ue0e1d","\ue0e1e","\ue0e1f","\ue0e20","\ue0e21","\ue0e22","\ue0e23","\ue0e24","\ue0e25","\ue0e26","\ue0e27","\ue0e28","\ue0e29","\ue0e2a","\ue0e2b","\ue0e2c","\ue0e2d","\ue0e2e","\ue0e2f","\ue0e30","\ue0e31","\ue0e32","\ue0e33","\ue0e34","\ue0e35","\ue0e36","\ue0e37","\ue0e38","\ue0e39","\ue0e3a","\ue0e3b","\ue0e3c","\ue0e3d","\ue0e3e","\ue0e3f","\ue0e40","\ue0e41","\ue0e42","\ue0e43","\ue0e44","\ue0e45","\ue0e46","\ue0e47","\ue0e48","\ue0e49","\ue0e4a","\ue0e4b","\ue0e4c","\ue0e4d","\ue0e4e","\ue0e4f","\ue0e50","\ue0e51","\ue0e52","\ue0e53","\ue0e54","\ue0e55","\ue0e56","\ue0e57","\ue0e58","\ue0e59","\ue0e5a","\ue0e5b","\ue0e5c","\ue0e5d","\ue0e5e","\ue0e5f","\ue0e60","\ue0e61","\ue0e62","\ue0e63","\ue0e64","\ue0e65","\ue0e66","\ue0e67","\ue0e68","\ue0e69","\ue0e6a","\ue0e6b","\ue0e6c","\ue0e6d","\ue0e6e","\ue0e6f","\ue0e70","\ue0e71","\ue0e72","\ue0e73","\ue0e74","\ue0e75","\ue0e76","\ue0e77","\ue0e78","\ue0e79","\ue0e7a","\ue0e7b","\ue0e7c","\ue0e7d","\ue0e7e","\ue0e7f","\ue0e80","\ue0e81","\ue0e82","\ue0e83","\ue0e84","\ue0e85","\ue0e86","\ue0e87","\ue0e88","\ue0e89","\ue0e8a","\ue0e8b","\ue0e8c","\ue0e8d","\ue0e8e","\ue0e8f","\ue0e90","\ue0e91","\ue0e92","\ue0e93","\ue0e94","\ue0e95","\ue0e96","\ue0e97","\ue0e98","\ue0e99","\ue0e9a","\ue0e9b","\ue0e9c","\ue0e9d","\ue0e9e","\ue0e9f","\ue0ea0","\ue0ea1","\ue0ea2","\ue0ea3","\ue0ea4","\ue0ea5","\ue0ea6","\ue0ea7","\ue0ea8","\ue0ea9","\ue0eaa","\ue0eab","\ue0eac","\ue0ead","\ue0eae","\ue0eaf","\ue0eb0","\ue0eb1","\ue0eb2","\ue0eb3","\ue0eb4","\ue0eb5","\ue0eb6","\ue0eb7","\ue0eb8","\ue0eb9","\ue0eba","\ue0ebb","\ue0ebc","\ue0ebd","\ue0ebe","\ue0ebf","\ue0ec0","\ue0ec1","\ue0ec2","\ue0ec3","\ue0ec4","\ue0ec5","\ue0ec6","\ue0ec7","\ue0ec8","\ue0ec9","\ue0eca","\ue0ecb","\ue0ecc","\ue0ecd","\ue0ece","\ue0ecf","\ue0ed0","\ue0ed1","\ue0ed2","\ue0ed3","\ue0ed4","\ue0ed5","\ue0ed6","\ue0ed7","\ue0ed8","\ue0ed9","\ue0eda","\ue0edb","\ue0edc","\ue0edd","\ue0ede","\ue0edf","\ue0ee0","\ue0ee1","\ue0ee2","\ue0ee3","\ue0ee4","\ue0ee5","\ue0ee6","\ue0ee7","\ue0ee8","\ue0ee9","\ue0eea","\ue0eeb","\ue0eec","\ue0eed","\ue0eee","\ue0eef","\ue0ef0","\ue0ef1","\ue0ef2","\ue0ef3","\ue0ef4","\ue0ef5","\ue0ef6","\ue0ef7","\ue0ef8","\ue0ef9","\ue0efa","\ue0efb","\ue0efc","\ue0efd","\ue0efe","\ue0eff","\ue0f00","\ue0f01","\ue0f02","\ue0f03","\ue0f04","\ue0f05","\ue0f06","\ue0f07","\ue0f08","\ue0f09","\ue0f0a","\ue0f0b","\ue0f0c","\ue0f0d","\ue0f0e","\ue0f0f","\ue0f10","\ue0f11","\ue0f12","\ue0f13","\ue0f14","\ue0f15","\ue0f16","\ue0f17","\ue0f18","\ue0f19","\ue0f1a","\ue0f1b","\ue0f1c","\ue0f1d","\ue0f1e","\ue0f1f","\ue0f20","\ue0f21","\ue0f22","\ue0f23","\ue0f24","\ue0f25","\ue0f26","\ue0f27","\ue0f28","\ue0f29","\ue0f2a","\ue0f2b","\ue0f2c","\ue0f2d","\ue0f2e","\ue0f2f","\ue0f30","\ue0f31","\ue0f32","\ue0f33","\ue0f34","\ue0f35","\ue0f36","\ue0f37","\ue0f38","\ue0f39","\ue0f3a","\ue0f3b","\ue0f3c","\ue0f3d","\ue0f3e","\ue0f3f","\ue0f40","\ue0f41","\ue0f42","\ue0f43","\ue0f44","\ue0f45","\ue0f46","\ue0f47","\ue0f48","\ue0f49","\ue0f4a","\ue0f4b","\ue0f4c","\ue0f4d","\ue0f4e","\ue0f4f","\ue0f50","\ue0f51","\ue0f52","\ue0f53","\ue0f54","\ue0f55","\ue0f56","\ue0f57","\ue0f58","\ue0f59","\ue0f5a","\ue0f5b","\ue0f5c","\ue0f5d","\ue0f5e","\ue0f5f","\ue0f60","\ue0f61","\ue0f62","\ue0f63","\ue0f64","\ue0f65","\ue0f66","\ue0f67","\ue0f68","\ue0f69","\ue0f6a","\ue0f6b","\ue0f6c","\ue0f6d","\ue0f6e","\ue0f6f","\ue0f70","\ue0f71","\ue0f72","\ue0f73","\ue0f74","\ue0f75","\ue0f76","\ue0f77","\ue0f78","\ue0f79","\ue0f7a","\ue0f7b","\ue0f7c","\ue0f7d","\ue0f7e","\ue0f7f","\ue0f80","\ue0f81","\ue0f82","\ue0f83","\ue0f84","\ue0f85","\ue0f86","\ue0f87","\ue0f88","\ue0f89","\ue0f8a","\ue0f8b","\ue0f8c","\ue0f8d","\ue0f8e","\ue0f8f","\ue0f90","\ue0f91","\ue0f92","\ue0f93","\ue0f94","\ue0f95","\ue0f96","\ue0f97","\ue0f98","\ue0f99","\ue0f9a","\ue0f9b","\ue0f9c","\ue0f9d","\ue0f9e","\ue0f9f","\ue0fa0","\ue0fa1","\ue0fa2","\ue0fa3","\ue0fa4","\ue0fa5","\ue0fa6","\ue0fa7","\ue0fa8","\ue0fa9","\ue0faa","\ue0fab","\ue0fac","\ue0fad","\ue0fae","\ue0faf","\ue0fb0","\ue0fb1","\ue0fb2","\ue0fb3","\ue0fb4","\ue0fb5","\ue0fb6","\ue0fb7","\ue0fb8","\ue0fb9","\ue0fba","\ue0fbb","\ue0fbc","\ue0fbd","\ue0fbe","\ue0fbf","\ue0fc0","\ue0fc1","\ue0fc2","\ue0fc3","\ue0fc4","\ue0fc5","\ue0fc6","\ue0fc7","\ue0fc8","\ue0fc9","\ue0fca","\ue0fcb","\ue0fcc","\ue0fcd","\ue0fce","\ue0fcf","\ue0fd0","\ue0fd1","\ue0fd2","\ue0fd3","\ue0fd4","\ue0fd5","\ue0fd6","\ue0fd7","\ue0fd8","\ue0fd9","\ue0fda","\ue0fdb","\ue0fdc","\ue0fdd","\ue0fde","\ue0fdf","\ue0fe0","\ue0fe1","\ue0fe2","\ue0fe3","\ue0fe4","\ue0fe5","\ue0fe6","\ue0fe7","\ue0fe8","\ue0fe9","\ue0fea","\ue0feb","\ue0fec","\ue0fed","\ue0fee","\ue0fef","\ue0ff0","\ue0ff1","\ue0ff2","\ue0ff3","\ue0ff4","\ue0ff5","\ue0ff6","\ue0ff7","\ue0ff8","\ue0ff9","\ue0ffa","\ue0ffb","\ue0ffc","\ue0ffd","\ue0ffe","\ue0fff",  # ; Control # Cn [3600] <reserved-E01F0>..<reserved-E0FFF>
+        "\u0300","\u0301","\u0302","\u0303","\u0304","\u0305","\u0306","\u0307","\u0308","\u0309","\u030a","\u030b","\u030c","\u030d","\u030e","\u030f","\u0310","\u0311","\u0312","\u0313","\u0314","\u0315","\u0316","\u0317","\u0318","\u0319","\u031a","\u031b","\u031c","\u031d","\u031e","\u031f","\u0320","\u0321","\u0322","\u0323","\u0324","\u0325","\u0326","\u0327","\u0328","\u0329","\u032a","\u032b","\u032c","\u032d","\u032e","\u032f","\u0330","\u0331","\u0332","\u0333","\u0334","\u0335","\u0336","\u0337","\u0338","\u0339","\u033a","\u033b","\u033c","\u033d","\u033e","\u033f","\u0340","\u0341","\u0342","\u0343","\u0344","\u0345","\u0346","\u0347","\u0348","\u0349","\u034a","\u034b","\u034c","\u034d","\u034e","\u034f","\u0350","\u0351","\u0352","\u0353","\u0354","\u0355","\u0356","\u0357","\u0358","\u0359","\u035a","\u035b","\u035c","\u035d","\u035e","\u035f","\u0360","\u0361","\u0362","\u0363","\u0364","\u0365","\u0366","\u0367","\u0368","\u0369","\u036a","\u036b","\u036c","\u036d","\u036e","\u036f",  # ; Extend # Mn [112] COMBINING GRAVE ACCENT..COMBINING LATIN SMALL LETTER X
+        "\u0483","\u0484","\u0485","\u0486","\u0487",  # ; Extend # Mn   [5] COMBINING CYRILLIC TITLO..COMBINING CYRILLIC POKRYTIE
+        "\u0488","\u0489",  # ; Extend # Me   [2] COMBINING CYRILLIC HUNDRED THOUSANDS SIGN..COMBINING CYRILLIC MILLIONS SIGN
+        "\u0591","\u0592","\u0593","\u0594","\u0595","\u0596","\u0597","\u0598","\u0599","\u059a","\u059b","\u059c","\u059d","\u059e","\u059f","\u05a0","\u05a1","\u05a2","\u05a3","\u05a4","\u05a5","\u05a6","\u05a7","\u05a8","\u05a9","\u05aa","\u05ab","\u05ac","\u05ad","\u05ae","\u05af","\u05b0","\u05b1","\u05b2","\u05b3","\u05b4","\u05b5","\u05b6","\u05b7","\u05b8","\u05b9","\u05ba","\u05bb","\u05bc","\u05bd",  # ; Extend # Mn  [45] HEBREW ACCENT ETNAHTA..HEBREW POINT METEG
+        "\u05BF",  # ; Extend # Mn       HEBREW POINT RAFE
+        "\u05c1","\u05c2",  # ; Extend # Mn   [2] HEBREW POINT SHIN DOT..HEBREW POINT SIN DOT
+        "\u05c4","\u05c5",  # ; Extend # Mn   [2] HEBREW MARK UPPER DOT..HEBREW MARK LOWER DOT
+        "\u05C7",  # ; Extend # Mn       HEBREW POINT QAMATS QATAN
+        "\u0610","\u0611","\u0612","\u0613","\u0614","\u0615","\u0616","\u0617","\u0618","\u0619","\u061a",  # ; Extend # Mn  [11] ARABIC SIGN SALLALLAHOU ALAYHE WASSALLAM..ARABIC SMALL KASRA
+        "\u064b","\u064c","\u064d","\u064e","\u064f","\u0650","\u0651","\u0652","\u0653","\u0654","\u0655","\u0656","\u0657","\u0658","\u0659","\u065a","\u065b","\u065c","\u065d","\u065e","\u065f",  # ; Extend # Mn  [21] ARABIC FATHATAN..ARABIC WAVY HAMZA BELOW
+        "\u0670",  # ; Extend # Mn       ARABIC LETTER SUPERSCRIPT ALEF
+        "\u06d6","\u06d7","\u06d8","\u06d9","\u06da","\u06db","\u06dc",  # ; Extend # Mn   [7] ARABIC SMALL HIGH LIGATURE SAD WITH LAM WITH ALEF MAKSURA..ARABIC SMALL HIGH SEEN
+        "\u06df","\u06e0","\u06e1","\u06e2","\u06e3","\u06e4",  # ; Extend # Mn   [6] ARABIC SMALL HIGH ROUNDED ZERO..ARABIC SMALL HIGH MADDA
+        "\u06e7","\u06e8",  # ; Extend # Mn   [2] ARABIC SMALL HIGH YEH..ARABIC SMALL HIGH NOON
+        "\u06ea","\u06eb","\u06ec","\u06ed",  # ; Extend # Mn   [4] ARABIC EMPTY CENTRE LOW STOP..ARABIC SMALL LOW MEEM
+        "\u0711",  # ; Extend # Mn       SYRIAC LETTER SUPERSCRIPT ALAPH
+        "\u0730","\u0731","\u0732","\u0733","\u0734","\u0735","\u0736","\u0737","\u0738","\u0739","\u073a","\u073b","\u073c","\u073d","\u073e","\u073f","\u0740","\u0741","\u0742","\u0743","\u0744","\u0745","\u0746","\u0747","\u0748","\u0749","\u074a",  # ; Extend # Mn  [27] SYRIAC PTHAHA ABOVE..SYRIAC BARREKH
+        "\u07a6","\u07a7","\u07a8","\u07a9","\u07aa","\u07ab","\u07ac","\u07ad","\u07ae","\u07af","\u07b0",  # ; Extend # Mn  [11] THAANA ABAFILI..THAANA SUKUN
+        "\u07eb","\u07ec","\u07ed","\u07ee","\u07ef","\u07f0","\u07f1","\u07f2","\u07f3",  # ; Extend # Mn   [9] NKO COMBINING SHORT HIGH TONE..NKO COMBINING DOUBLE DOT ABOVE
+        "\u0816","\u0817","\u0818","\u0819",  # ; Extend # Mn   [4] SAMARITAN MARK IN..SAMARITAN MARK DAGESH
+        "\u081b","\u081c","\u081d","\u081e","\u081f","\u0820","\u0821","\u0822","\u0823",  # ; Extend # Mn   [9] SAMARITAN MARK EPENTHETIC YUT..SAMARITAN VOWEL SIGN A
+        "\u0825","\u0826","\u0827",  # ; Extend # Mn   [3] SAMARITAN VOWEL SIGN SHORT A..SAMARITAN VOWEL SIGN U
+        "\u0829","\u082a","\u082b","\u082c","\u082d",  # ; Extend # Mn   [5] SAMARITAN VOWEL SIGN LONG I..SAMARITAN MARK NEQUDAA
+        "\u0859","\u085a","\u085b",  # ; Extend # Mn   [3] MANDAIC AFFRICATION MARK..MANDAIC GEMINATION MARK
+        "\u08d4","\u08d5","\u08d6","\u08d7","\u08d8","\u08d9","\u08da","\u08db","\u08dc","\u08dd","\u08de","\u08df","\u08e0","\u08e1",  # ; Extend # Mn  [14] ARABIC SMALL HIGH WORD AR-RUB..ARABIC SMALL HIGH SIGN SAFHA
+        "\u08e3","\u08e4","\u08e5","\u08e6","\u08e7","\u08e8","\u08e9","\u08ea","\u08eb","\u08ec","\u08ed","\u08ee","\u08ef","\u08f0","\u08f1","\u08f2","\u08f3","\u08f4","\u08f5","\u08f6","\u08f7","\u08f8","\u08f9","\u08fa","\u08fb","\u08fc","\u08fd","\u08fe","\u08ff","\u0900","\u0901","\u0902",  # ; Extend # Mn  [32] ARABIC TURNED DAMMA BELOW..DEVANAGARI SIGN ANUSVARA
+        "\u093A",  # ; Extend # Mn       DEVANAGARI VOWEL SIGN OE
+        "\u093C",  # ; Extend # Mn       DEVANAGARI SIGN NUKTA
+        "\u0941","\u0942","\u0943","\u0944","\u0945","\u0946","\u0947","\u0948",  # ; Extend # Mn   [8] DEVANAGARI VOWEL SIGN U..DEVANAGARI VOWEL SIGN AI
+        "\u094D",  # ; Extend # Mn       DEVANAGARI SIGN VIRAMA
+        "\u0951","\u0952","\u0953","\u0954","\u0955","\u0956","\u0957",  # ; Extend # Mn   [7] DEVANAGARI STRESS SIGN UDATTA..DEVANAGARI VOWEL SIGN UUE
+        "\u0962","\u0963",  # ; Extend # Mn   [2] DEVANAGARI VOWEL SIGN VOCALIC L..DEVANAGARI VOWEL SIGN VOCALIC LL
+        "\u0981",  # ; Extend # Mn       BENGALI SIGN CANDRABINDU
+        "\u09BC",  # ; Extend # Mn       BENGALI SIGN NUKTA
+        "\u09BE",  # ; Extend # Mc       BENGALI VOWEL SIGN AA
+        "\u09c1","\u09c2","\u09c3","\u09c4",  # ; Extend # Mn   [4] BENGALI VOWEL SIGN U..BENGALI VOWEL SIGN VOCALIC RR
+        "\u09CD",  # ; Extend # Mn       BENGALI SIGN VIRAMA
+        "\u09D7",  # ; Extend # Mc       BENGALI AU LENGTH MARK
+        "\u09e2","\u09e3",  # ; Extend # Mn   [2] BENGALI VOWEL SIGN VOCALIC L..BENGALI VOWEL SIGN VOCALIC LL
+        "\u0a01","\u0a02",  # ; Extend # Mn   [2] GURMUKHI SIGN ADAK BINDI..GURMUKHI SIGN BINDI
+        "\u0A3C",  # ; Extend # Mn       GURMUKHI SIGN NUKTA
+        "\u0a41","\u0a42",  # ; Extend # Mn   [2] GURMUKHI VOWEL SIGN U..GURMUKHI VOWEL SIGN UU
+        "\u0a47","\u0a48",  # ; Extend # Mn   [2] GURMUKHI VOWEL SIGN EE..GURMUKHI VOWEL SIGN AI
+        "\u0a4b","\u0a4c","\u0a4d",  # ; Extend # Mn   [3] GURMUKHI VOWEL SIGN OO..GURMUKHI SIGN VIRAMA
+        "\u0A51",  # ; Extend # Mn       GURMUKHI SIGN UDAAT
+        "\u0a70","\u0a71",  # ; Extend # Mn   [2] GURMUKHI TIPPI..GURMUKHI ADDAK
+        "\u0A75",  # ; Extend # Mn       GURMUKHI SIGN YAKASH
+        "\u0a81","\u0a82",  # ; Extend # Mn   [2] GUJARATI SIGN CANDRABINDU..GUJARATI SIGN ANUSVARA
+        "\u0ABC",  # ; Extend # Mn       GUJARATI SIGN NUKTA
+        "\u0ac1","\u0ac2","\u0ac3","\u0ac4","\u0ac5",  # ; Extend # Mn   [5] GUJARATI VOWEL SIGN U..GUJARATI VOWEL SIGN CANDRA E
+        "\u0ac7","\u0ac8",  # ; Extend # Mn   [2] GUJARATI VOWEL SIGN E..GUJARATI VOWEL SIGN AI
+        "\u0ACD",  # ; Extend # Mn       GUJARATI SIGN VIRAMA
+        "\u0ae2","\u0ae3",  # ; Extend # Mn   [2] GUJARATI VOWEL SIGN VOCALIC L..GUJARATI VOWEL SIGN VOCALIC LL
+        "\u0afa","\u0afb","\u0afc","\u0afd","\u0afe","\u0aff",  # ; Extend # Mn   [6] GUJARATI SIGN SUKUN..GUJARATI SIGN TWO-CIRCLE NUKTA ABOVE
+        "\u0B01",  # ; Extend # Mn       ORIYA SIGN CANDRABINDU
+        "\u0B3C",  # ; Extend # Mn       ORIYA SIGN NUKTA
+        "\u0B3E",  # ; Extend # Mc       ORIYA VOWEL SIGN AA
+        "\u0B3F",  # ; Extend # Mn       ORIYA VOWEL SIGN I
+        "\u0b41","\u0b42","\u0b43","\u0b44",  # ; Extend # Mn   [4] ORIYA VOWEL SIGN U..ORIYA VOWEL SIGN VOCALIC RR
+        "\u0B4D",  # ; Extend # Mn       ORIYA SIGN VIRAMA
+        "\u0B56",  # ; Extend # Mn       ORIYA AI LENGTH MARK
+        "\u0B57",  # ; Extend # Mc       ORIYA AU LENGTH MARK
+        "\u0b62","\u0b63",  # ; Extend # Mn   [2] ORIYA VOWEL SIGN VOCALIC L..ORIYA VOWEL SIGN VOCALIC LL
+        "\u0B82",  # ; Extend # Mn       TAMIL SIGN ANUSVARA
+        "\u0BBE",  # ; Extend # Mc       TAMIL VOWEL SIGN AA
+        "\u0BC0",  # ; Extend # Mn       TAMIL VOWEL SIGN II
+        "\u0BCD",  # ; Extend # Mn       TAMIL SIGN VIRAMA
+        "\u0BD7",  # ; Extend # Mc       TAMIL AU LENGTH MARK
+        "\u0C00",  # ; Extend # Mn       TELUGU SIGN COMBINING CANDRABINDU ABOVE
+        "\u0c3e","\u0c3f","\u0c40",  # ; Extend # Mn   [3] TELUGU VOWEL SIGN AA..TELUGU VOWEL SIGN II
+        "\u0c46","\u0c47","\u0c48",  # ; Extend # Mn   [3] TELUGU VOWEL SIGN E..TELUGU VOWEL SIGN AI
+        "\u0c4a","\u0c4b","\u0c4c","\u0c4d",  # ; Extend # Mn   [4] TELUGU VOWEL SIGN O..TELUGU SIGN VIRAMA
+        "\u0c55","\u0c56",  # ; Extend # Mn   [2] TELUGU LENGTH MARK..TELUGU AI LENGTH MARK
+        "\u0c62","\u0c63",  # ; Extend # Mn   [2] TELUGU VOWEL SIGN VOCALIC L..TELUGU VOWEL SIGN VOCALIC LL
+        "\u0C81",  # ; Extend # Mn       KANNADA SIGN CANDRABINDU
+        "\u0CBC",  # ; Extend # Mn       KANNADA SIGN NUKTA
+        "\u0CBF",  # ; Extend # Mn       KANNADA VOWEL SIGN I
+        "\u0CC2",  # ; Extend # Mc       KANNADA VOWEL SIGN UU
+        "\u0CC6",  # ; Extend # Mn       KANNADA VOWEL SIGN E
+        "\u0ccc","\u0ccd",  # ; Extend # Mn   [2] KANNADA VOWEL SIGN AU..KANNADA SIGN VIRAMA
+        "\u0cd5","\u0cd6",  # ; Extend # Mc   [2] KANNADA LENGTH MARK..KANNADA AI LENGTH MARK
+        "\u0ce2","\u0ce3",  # ; Extend # Mn   [2] KANNADA VOWEL SIGN VOCALIC L..KANNADA VOWEL SIGN VOCALIC LL
+        "\u0d00","\u0d01",  # ; Extend # Mn   [2] MALAYALAM SIGN COMBINING ANUSVARA ABOVE..MALAYALAM SIGN CANDRABINDU
+        "\u0d3b","\u0d3c",  # ; Extend # Mn   [2] MALAYALAM SIGN VERTICAL BAR VIRAMA..MALAYALAM SIGN CIRCULAR VIRAMA
+        "\u0D3E",  # ; Extend # Mc       MALAYALAM VOWEL SIGN AA
+        "\u0d41","\u0d42","\u0d43","\u0d44",  # ; Extend # Mn   [4] MALAYALAM VOWEL SIGN U..MALAYALAM VOWEL SIGN VOCALIC RR
+        "\u0D4D",  # ; Extend # Mn       MALAYALAM SIGN VIRAMA
+        "\u0D57",  # ; Extend # Mc       MALAYALAM AU LENGTH MARK
+        "\u0d62","\u0d63",  # ; Extend # Mn   [2] MALAYALAM VOWEL SIGN VOCALIC L..MALAYALAM VOWEL SIGN VOCALIC LL
+        "\u0DCA",  # ; Extend # Mn       SINHALA SIGN AL-LAKUNA
+        "\u0DCF",  # ; Extend # Mc       SINHALA VOWEL SIGN AELA-PILLA
+        "\u0dd2","\u0dd3","\u0dd4",  # ; Extend # Mn   [3] SINHALA VOWEL SIGN KETTI IS-PILLA..SINHALA VOWEL SIGN KETTI PAA-PILLA
+        "\u0DD6",  # ; Extend # Mn       SINHALA VOWEL SIGN DIGA PAA-PILLA
+        "\u0DDF",  # ; Extend # Mc       SINHALA VOWEL SIGN GAYANUKITTA
+        "\u0E31",  # ; Extend # Mn       THAI CHARACTER MAI HAN-AKAT
+        "\u0e34","\u0e35","\u0e36","\u0e37","\u0e38","\u0e39","\u0e3a",  # ; Extend # Mn   [7] THAI CHARACTER SARA I..THAI CHARACTER PHINTHU
+        "\u0e47","\u0e48","\u0e49","\u0e4a","\u0e4b","\u0e4c","\u0e4d","\u0e4e",  # ; Extend # Mn   [8] THAI CHARACTER MAITAIKHU..THAI CHARACTER YAMAKKAN
+        "\u0EB1",  # ; Extend # Mn       LAO VOWEL SIGN MAI KAN
+        "\u0eb4","\u0eb5","\u0eb6","\u0eb7","\u0eb8","\u0eb9",  # ; Extend # Mn   [6] LAO VOWEL SIGN I..LAO VOWEL SIGN UU
+        "\u0ebb","\u0ebc",  # ; Extend # Mn   [2] LAO VOWEL SIGN MAI KON..LAO SEMIVOWEL SIGN LO
+        "\u0ec8","\u0ec9","\u0eca","\u0ecb","\u0ecc","\u0ecd",  # ; Extend # Mn   [6] LAO TONE MAI EK..LAO NIGGAHITA
+        "\u0f18","\u0f19",  # ; Extend # Mn   [2] TIBETAN ASTROLOGICAL SIGN -KHYUD PA..TIBETAN ASTROLOGICAL SIGN SDONG TSHUGS
+        "\u0F35",  # ; Extend # Mn       TIBETAN MARK NGAS BZUNG NYI ZLA
+        "\u0F37",  # ; Extend # Mn       TIBETAN MARK NGAS BZUNG SGOR RTAGS
+        "\u0F39",  # ; Extend # Mn       TIBETAN MARK TSA -PHRU
+        "\u0f71","\u0f72","\u0f73","\u0f74","\u0f75","\u0f76","\u0f77","\u0f78","\u0f79","\u0f7a","\u0f7b","\u0f7c","\u0f7d","\u0f7e",  # ; Extend # Mn  [14] TIBETAN VOWEL SIGN AA..TIBETAN SIGN RJES SU NGA RO
+        "\u0f80","\u0f81","\u0f82","\u0f83","\u0f84",  # ; Extend # Mn   [5] TIBETAN VOWEL SIGN REVERSED I..TIBETAN MARK HALANTA
+        "\u0f86","\u0f87",  # ; Extend # Mn   [2] TIBETAN SIGN LCI RTAGS..TIBETAN SIGN YANG RTAGS
+        "\u0f8d","\u0f8e","\u0f8f","\u0f90","\u0f91","\u0f92","\u0f93","\u0f94","\u0f95","\u0f96","\u0f97",  # ; Extend # Mn  [11] TIBETAN SUBJOINED SIGN LCE TSA CAN..TIBETAN SUBJOINED LETTER JA
+        "\u0f99","\u0f9a","\u0f9b","\u0f9c","\u0f9d","\u0f9e","\u0f9f","\u0fa0","\u0fa1","\u0fa2","\u0fa3","\u0fa4","\u0fa5","\u0fa6","\u0fa7","\u0fa8","\u0fa9","\u0faa","\u0fab","\u0fac","\u0fad","\u0fae","\u0faf","\u0fb0","\u0fb1","\u0fb2","\u0fb3","\u0fb4","\u0fb5","\u0fb6","\u0fb7","\u0fb8","\u0fb9","\u0fba","\u0fbb","\u0fbc",  # ; Extend # Mn  [36] TIBETAN SUBJOINED LETTER NYA..TIBETAN SUBJOINED LETTER FIXED-FORM RA
+        "\u0FC6",  # ; Extend # Mn       TIBETAN SYMBOL PADMA GDAN
+        "\u102d","\u102e","\u102f","\u1030",  # ; Extend # Mn   [4] MYANMAR VOWEL SIGN I..MYANMAR VOWEL SIGN UU
+        "\u1032","\u1033","\u1034","\u1035","\u1036","\u1037",  # ; Extend # Mn   [6] MYANMAR VOWEL SIGN AI..MYANMAR SIGN DOT BELOW
+        "\u1039","\u103a",  # ; Extend # Mn   [2] MYANMAR SIGN VIRAMA..MYANMAR SIGN ASAT
+        "\u103d","\u103e",  # ; Extend # Mn   [2] MYANMAR CONSONANT SIGN MEDIAL WA..MYANMAR CONSONANT SIGN MEDIAL HA
+        "\u1058","\u1059",  # ; Extend # Mn   [2] MYANMAR VOWEL SIGN VOCALIC L..MYANMAR VOWEL SIGN VOCALIC LL
+        "\u105e","\u105f","\u1060",  # ; Extend # Mn   [3] MYANMAR CONSONANT SIGN MON MEDIAL NA..MYANMAR CONSONANT SIGN MON MEDIAL LA
+        "\u1071","\u1072","\u1073","\u1074",  # ; Extend # Mn   [4] MYANMAR VOWEL SIGN GEBA KAREN I..MYANMAR VOWEL SIGN KAYAH EE
+        "\u1082",  # ; Extend # Mn       MYANMAR CONSONANT SIGN SHAN MEDIAL WA
+        "\u1085","\u1086",  # ; Extend # Mn   [2] MYANMAR VOWEL SIGN SHAN E ABOVE..MYANMAR VOWEL SIGN SHAN FINAL Y
+        "\u108D",  # ; Extend # Mn       MYANMAR SIGN SHAN COUNCIL EMPHATIC TONE
+        "\u109D",  # ; Extend # Mn       MYANMAR VOWEL SIGN AITON AI
+        "\u135d","\u135e","\u135f",  # ; Extend # Mn   [3] ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK..ETHIOPIC COMBINING GEMINATION MARK
+        "\u1712","\u1713","\u1714",  # ; Extend # Mn   [3] TAGALOG VOWEL SIGN I..TAGALOG SIGN VIRAMA
+        "\u1732","\u1733","\u1734",  # ; Extend # Mn   [3] HANUNOO VOWEL SIGN I..HANUNOO SIGN PAMUDPOD
+        "\u1752","\u1753",  # ; Extend # Mn   [2] BUHID VOWEL SIGN I..BUHID VOWEL SIGN U
+        "\u1772","\u1773",  # ; Extend # Mn   [2] TAGBANWA VOWEL SIGN I..TAGBANWA VOWEL SIGN U
+        "\u17b4","\u17b5",  # ; Extend # Mn   [2] KHMER VOWEL INHERENT AQ..KHMER VOWEL INHERENT AA
+        "\u17b7","\u17b8","\u17b9","\u17ba","\u17bb","\u17bc","\u17bd",  # ; Extend # Mn   [7] KHMER VOWEL SIGN I..KHMER VOWEL SIGN UA
+        "\u17C6",  # ; Extend # Mn       KHMER SIGN NIKAHIT
+        "\u17c9","\u17ca","\u17cb","\u17cc","\u17cd","\u17ce","\u17cf","\u17d0","\u17d1","\u17d2","\u17d3",  # ; Extend # Mn  [11] KHMER SIGN MUUSIKATOAN..KHMER SIGN BATHAMASAT
+        "\u17DD",  # ; Extend # Mn       KHMER SIGN ATTHACAN
+        "\u180b","\u180c","\u180d",  # ; Extend # Mn   [3] MONGOLIAN FREE VARIATION SELECTOR ONE..MONGOLIAN FREE VARIATION SELECTOR THREE
+        "\u1885","\u1886",  # ; Extend # Mn   [2] MONGOLIAN LETTER ALI GALI BALUDA..MONGOLIAN LETTER ALI GALI THREE BALUDA
+        "\u18A9",  # ; Extend # Mn       MONGOLIAN LETTER ALI GALI DAGALGA
+        "\u1920","\u1921","\u1922",  # ; Extend # Mn   [3] LIMBU VOWEL SIGN A..LIMBU VOWEL SIGN U
+        "\u1927","\u1928",  # ; Extend # Mn   [2] LIMBU VOWEL SIGN E..LIMBU VOWEL SIGN O
+        "\u1932",  # ; Extend # Mn       LIMBU SMALL LETTER ANUSVARA
+        "\u1939","\u193a","\u193b",  # ; Extend # Mn   [3] LIMBU SIGN MUKPHRENG..LIMBU SIGN SA-I
+        "\u1a17","\u1a18",  # ; Extend # Mn   [2] BUGINESE VOWEL SIGN I..BUGINESE VOWEL SIGN U
+        "\u1A1B",  # ; Extend # Mn       BUGINESE VOWEL SIGN AE
+        "\u1A56",  # ; Extend # Mn       TAI THAM CONSONANT SIGN MEDIAL LA
+        "\u1a58","\u1a59","\u1a5a","\u1a5b","\u1a5c","\u1a5d","\u1a5e",  # ; Extend # Mn   [7] TAI THAM SIGN MAI KANG LAI..TAI THAM CONSONANT SIGN SA
+        "\u1A60",  # ; Extend # Mn       TAI THAM SIGN SAKOT
+        "\u1A62",  # ; Extend # Mn       TAI THAM VOWEL SIGN MAI SAT
+        "\u1a65","\u1a66","\u1a67","\u1a68","\u1a69","\u1a6a","\u1a6b","\u1a6c",  # ; Extend # Mn   [8] TAI THAM VOWEL SIGN I..TAI THAM VOWEL SIGN OA BELOW
+        "\u1a73","\u1a74","\u1a75","\u1a76","\u1a77","\u1a78","\u1a79","\u1a7a","\u1a7b","\u1a7c",  # ; Extend # Mn  [10] TAI THAM VOWEL SIGN OA ABOVE..TAI THAM SIGN KHUEN-LUE KARAN
+        "\u1A7F",  # ; Extend # Mn       TAI THAM COMBINING CRYPTOGRAMMIC DOT
+        "\u1ab0","\u1ab1","\u1ab2","\u1ab3","\u1ab4","\u1ab5","\u1ab6","\u1ab7","\u1ab8","\u1ab9","\u1aba","\u1abb","\u1abc","\u1abd",  # ; Extend # Mn  [14] COMBINING DOUBLED CIRCUMFLEX ACCENT..COMBINING PARENTHESES BELOW
+        "\u1ABE",  # ; Extend # Me       COMBINING PARENTHESES OVERLAY
+        "\u1b00","\u1b01","\u1b02","\u1b03",  # ; Extend # Mn   [4] BALINESE SIGN ULU RICEM..BALINESE SIGN SURANG
+        "\u1B34",  # ; Extend # Mn       BALINESE SIGN REREKAN
+        "\u1b36","\u1b37","\u1b38","\u1b39","\u1b3a",  # ; Extend # Mn   [5] BALINESE VOWEL SIGN ULU..BALINESE VOWEL SIGN RA REPA
+        "\u1B3C",  # ; Extend # Mn       BALINESE VOWEL SIGN LA LENGA
+        "\u1B42",  # ; Extend # Mn       BALINESE VOWEL SIGN PEPET
+        "\u1b6b","\u1b6c","\u1b6d","\u1b6e","\u1b6f","\u1b70","\u1b71","\u1b72","\u1b73",  # ; Extend # Mn   [9] BALINESE MUSICAL SYMBOL COMBINING TEGEH..BALINESE MUSICAL SYMBOL COMBINING GONG
+        "\u1b80","\u1b81",  # ; Extend # Mn   [2] SUNDANESE SIGN PANYECEK..SUNDANESE SIGN PANGLAYAR
+        "\u1ba2","\u1ba3","\u1ba4","\u1ba5",  # ; Extend # Mn   [4] SUNDANESE CONSONANT SIGN PANYAKRA..SUNDANESE VOWEL SIGN PANYUKU
+        "\u1ba8","\u1ba9",  # ; Extend # Mn   [2] SUNDANESE VOWEL SIGN PAMEPET..SUNDANESE VOWEL SIGN PANEULEUNG
+        "\u1bab","\u1bac","\u1bad",  # ; Extend # Mn   [3] SUNDANESE SIGN VIRAMA..SUNDANESE CONSONANT SIGN PASANGAN WA
+        "\u1BE6",  # ; Extend # Mn       BATAK SIGN TOMPI
+        "\u1be8","\u1be9",  # ; Extend # Mn   [2] BATAK VOWEL SIGN PAKPAK E..BATAK VOWEL SIGN EE
+        "\u1BED",  # ; Extend # Mn       BATAK VOWEL SIGN KARO O
+        "\u1bef","\u1bf0","\u1bf1",  # ; Extend # Mn   [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
+        "\u1c2c","\u1c2d","\u1c2e","\u1c2f","\u1c30","\u1c31","\u1c32","\u1c33",  # ; Extend # Mn   [8] LEPCHA VOWEL SIGN E..LEPCHA CONSONANT SIGN T
+        "\u1c36","\u1c37",  # ; Extend # Mn   [2] LEPCHA SIGN RAN..LEPCHA SIGN NUKTA
+        "\u1cd0","\u1cd1","\u1cd2",  # ; Extend # Mn   [3] VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
+        "\u1cd4","\u1cd5","\u1cd6","\u1cd7","\u1cd8","\u1cd9","\u1cda","\u1cdb","\u1cdc","\u1cdd","\u1cde","\u1cdf","\u1ce0",  # ; Extend # Mn  [13] VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC TONE RIGVEDIC KASHMIRI INDEPENDENT SVARITA
+        "\u1ce2","\u1ce3","\u1ce4","\u1ce5","\u1ce6","\u1ce7","\u1ce8",  # ; Extend # Mn   [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
+        "\u1CED",  # ; Extend # Mn       VEDIC SIGN TIRYAK
+        "\u1CF4",  # ; Extend # Mn       VEDIC TONE CANDRA ABOVE
+        "\u1cf8","\u1cf9",  # ; Extend # Mn   [2] VEDIC TONE RING ABOVE..VEDIC TONE DOUBLE RING ABOVE
+        "\u1dc0","\u1dc1","\u1dc2","\u1dc3","\u1dc4","\u1dc5","\u1dc6","\u1dc7","\u1dc8","\u1dc9","\u1dca","\u1dcb","\u1dcc","\u1dcd","\u1dce","\u1dcf","\u1dd0","\u1dd1","\u1dd2","\u1dd3","\u1dd4","\u1dd5","\u1dd6","\u1dd7","\u1dd8","\u1dd9","\u1dda","\u1ddb","\u1ddc","\u1ddd","\u1dde","\u1ddf","\u1de0","\u1de1","\u1de2","\u1de3","\u1de4","\u1de5","\u1de6","\u1de7","\u1de8","\u1de9","\u1dea","\u1deb","\u1dec","\u1ded","\u1dee","\u1def","\u1df0","\u1df1","\u1df2","\u1df3","\u1df4","\u1df5","\u1df6","\u1df7","\u1df8","\u1df9",  # ; Extend # Mn  [58] COMBINING DOTTED GRAVE ACCENT..COMBINING WIDE INVERTED BRIDGE BELOW
+        "\u1dfb","\u1dfc","\u1dfd","\u1dfe","\u1dff",  # ; Extend # Mn   [5] COMBINING DELETION MARK..COMBINING RIGHT ARROWHEAD AND DOWN ARROWHEAD BELOW
+        "\u200C",  # ; Extend # Cf       ZERO WIDTH NON-JOINER
+        "\u20d0","\u20d1","\u20d2","\u20d3","\u20d4","\u20d5","\u20d6","\u20d7","\u20d8","\u20d9","\u20da","\u20db","\u20dc",  # ; Extend # Mn  [13] COMBINING LEFT HARPOON ABOVE..COMBINING FOUR DOTS ABOVE
+        "\u20dd","\u20de","\u20df","\u20e0",  # ; Extend # Me   [4] COMBINING ENCLOSING CIRCLE..COMBINING ENCLOSING CIRCLE BACKSLASH
+        "\u20E1",  # ; Extend # Mn       COMBINING LEFT RIGHT ARROW ABOVE
+        "\u20e2","\u20e3","\u20e4",  # ; Extend # Me   [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
+        "\u20e5","\u20e6","\u20e7","\u20e8","\u20e9","\u20ea","\u20eb","\u20ec","\u20ed","\u20ee","\u20ef","\u20f0",  # ; Extend # Mn  [12] COMBINING REVERSE SOLIDUS OVERLAY..COMBINING ASTERISK ABOVE
+        "\u2cef","\u2cf0","\u2cf1",  # ; Extend # Mn   [3] COPTIC COMBINING NI ABOVE..COPTIC COMBINING SPIRITUS LENIS
+        "\u2D7F",  # ; Extend # Mn       TIFINAGH CONSONANT JOINER
+        "\u2de0","\u2de1","\u2de2","\u2de3","\u2de4","\u2de5","\u2de6","\u2de7","\u2de8","\u2de9","\u2dea","\u2deb","\u2dec","\u2ded","\u2dee","\u2def","\u2df0","\u2df1","\u2df2","\u2df3","\u2df4","\u2df5","\u2df6","\u2df7","\u2df8","\u2df9","\u2dfa","\u2dfb","\u2dfc","\u2dfd","\u2dfe","\u2dff",  # ; Extend # Mn  [32] COMBINING CYRILLIC LETTER BE..COMBINING CYRILLIC LETTER IOTIFIED BIG YUS
+        "\u302a","\u302b","\u302c","\u302d",  # ; Extend # Mn   [4] IDEOGRAPHIC LEVEL TONE MARK..IDEOGRAPHIC ENTERING TONE MARK
+        "\u302e","\u302f",  # ; Extend # Mc   [2] HANGUL SINGLE DOT TONE MARK..HANGUL DOUBLE DOT TONE MARK
+        "\u3099","\u309a",  # ; Extend # Mn   [2] COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK..COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
+        "\uA66F",  # ; Extend # Mn       COMBINING CYRILLIC VZMET
+        "\ua670","\ua671","\ua672",  # ; Extend # Me   [3] COMBINING CYRILLIC TEN MILLIONS SIGN..COMBINING CYRILLIC THOUSAND MILLIONS SIGN
+        "\ua674","\ua675","\ua676","\ua677","\ua678","\ua679","\ua67a","\ua67b","\ua67c","\ua67d",  # ; Extend # Mn  [10] COMBINING CYRILLIC LETTER UKRAINIAN IE..COMBINING CYRILLIC PAYEROK
+        "\ua69e","\ua69f",  # ; Extend # Mn   [2] COMBINING CYRILLIC LETTER EF..COMBINING CYRILLIC LETTER IOTIFIED E
+        "\ua6f0","\ua6f1",  # ; Extend # Mn   [2] BAMUM COMBINING MARK KOQNDON..BAMUM COMBINING MARK TUKWENTIS
+        "\uA802",  # ; Extend # Mn       SYLOTI NAGRI SIGN DVISVARA
+        "\uA806",  # ; Extend # Mn       SYLOTI NAGRI SIGN HASANTA
+        "\uA80B",  # ; Extend # Mn       SYLOTI NAGRI SIGN ANUSVARA
+        "\ua825","\ua826",  # ; Extend # Mn   [2] SYLOTI NAGRI VOWEL SIGN U..SYLOTI NAGRI VOWEL SIGN E
+        "\ua8c4","\ua8c5",  # ; Extend # Mn   [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
+        "\ua8e0","\ua8e1","\ua8e2","\ua8e3","\ua8e4","\ua8e5","\ua8e6","\ua8e7","\ua8e8","\ua8e9","\ua8ea","\ua8eb","\ua8ec","\ua8ed","\ua8ee","\ua8ef","\ua8f0","\ua8f1",  # ; Extend # Mn  [18] COMBINING DEVANAGARI DIGIT ZERO..COMBINING DEVANAGARI SIGN AVAGRAHA
+        "\ua926","\ua927","\ua928","\ua929","\ua92a","\ua92b","\ua92c","\ua92d",  # ; Extend # Mn   [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
+        "\ua947","\ua948","\ua949","\ua94a","\ua94b","\ua94c","\ua94d","\ua94e","\ua94f","\ua950","\ua951",  # ; Extend # Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
+        "\ua980","\ua981","\ua982",  # ; Extend # Mn   [3] JAVANESE SIGN PANYANGGA..JAVANESE SIGN LAYAR
+        "\uA9B3",  # ; Extend # Mn       JAVANESE SIGN CECAK TELU
+        "\ua9b6","\ua9b7","\ua9b8","\ua9b9",  # ; Extend # Mn   [4] JAVANESE VOWEL SIGN WULU..JAVANESE VOWEL SIGN SUKU MENDUT
+        "\uA9BC",  # ; Extend # Mn       JAVANESE VOWEL SIGN PEPET
+        "\uA9E5",  # ; Extend # Mn       MYANMAR SIGN SHAN SAW
+        "\uaa29","\uaa2a","\uaa2b","\uaa2c","\uaa2d","\uaa2e",  # ; Extend # Mn   [6] CHAM VOWEL SIGN AA..CHAM VOWEL SIGN OE
+        "\uaa31","\uaa32",  # ; Extend # Mn   [2] CHAM VOWEL SIGN AU..CHAM VOWEL SIGN UE
+        "\uaa35","\uaa36",  # ; Extend # Mn   [2] CHAM CONSONANT SIGN LA..CHAM CONSONANT SIGN WA
+        "\uAA43",  # ; Extend # Mn       CHAM CONSONANT SIGN FINAL NG
+        "\uAA4C",  # ; Extend # Mn       CHAM CONSONANT SIGN FINAL M
+        "\uAA7C",  # ; Extend # Mn       MYANMAR SIGN TAI LAING TONE-2
+        "\uAAB0",  # ; Extend # Mn       TAI VIET MAI KANG
+        "\uaab2","\uaab3","\uaab4",  # ; Extend # Mn   [3] TAI VIET VOWEL I..TAI VIET VOWEL U
+        "\uaab7","\uaab8",  # ; Extend # Mn   [2] TAI VIET MAI KHIT..TAI VIET VOWEL IA
+        "\uaabe","\uaabf",  # ; Extend # Mn   [2] TAI VIET VOWEL AM..TAI VIET TONE MAI EK
+        "\uAAC1",  # ; Extend # Mn       TAI VIET TONE MAI THO
+        "\uaaec","\uaaed",  # ; Extend # Mn   [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
+        "\uAAF6",  # ; Extend # Mn       MEETEI MAYEK VIRAMA
+        "\uABE5",  # ; Extend # Mn       MEETEI MAYEK VOWEL SIGN ANAP
+        "\uABE8",  # ; Extend # Mn       MEETEI MAYEK VOWEL SIGN UNAP
+        "\uABED",  # ; Extend # Mn       MEETEI MAYEK APUN IYEK
+        "\uFB1E",  # ; Extend # Mn       HEBREW POINT JUDEO-SPANISH VARIKA
+        "\ufe00","\ufe01","\ufe02","\ufe03","\ufe04","\ufe05","\ufe06","\ufe07","\ufe08","\ufe09","\ufe0a","\ufe0b","\ufe0c","\ufe0d","\ufe0e","\ufe0f",  # ; Extend # Mn  [16] VARIATION SELECTOR-1..VARIATION SELECTOR-16
+        "\ufe20","\ufe21","\ufe22","\ufe23","\ufe24","\ufe25","\ufe26","\ufe27","\ufe28","\ufe29","\ufe2a","\ufe2b","\ufe2c","\ufe2d","\ufe2e","\ufe2f",  # ; Extend # Mn  [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
+        "\uff9e","\uff9f",  # ; Extend # Lm   [2] HALFWIDTH KATAKANA VOICED SOUND MARK..HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK
+        "\u101FD",  # ; Extend # Mn       PHAISTOS DISC SIGN COMBINING OBLIQUE STROKE
+        "\u102E0",  # ; Extend # Mn       COPTIC EPACT THOUSANDS MARK
+        "\u10376","\u10377","\u10378","\u10379","\u1037a",  # ; Extend # Mn   [5] COMBINING OLD PERMIC LETTER AN..COMBINING OLD PERMIC LETTER SII
+        "\u10a01","\u10a02","\u10a03",  # ; Extend # Mn   [3] KHAROSHTHI VOWEL SIGN I..KHAROSHTHI VOWEL SIGN VOCALIC R
+        "\u10a05","\u10a06",  # ; Extend # Mn   [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
+        "\u10a0c","\u10a0d","\u10a0e","\u10a0f",  # ; Extend # Mn   [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
+        "\u10a38","\u10a39","\u10a3a",  # ; Extend # Mn   [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
+        "\u10A3F",  # ; Extend # Mn       KHAROSHTHI VIRAMA
+        "\u10ae5","\u10ae6",  # ; Extend # Mn   [2] MANICHAEAN ABBREVIATION MARK ABOVE..MANICHAEAN ABBREVIATION MARK BELOW
+        "\u11001",  # ; Extend # Mn       BRAHMI SIGN ANUSVARA
+        "\u11038","\u11039","\u1103a","\u1103b","\u1103c","\u1103d","\u1103e","\u1103f","\u11040","\u11041","\u11042","\u11043","\u11044","\u11045","\u11046",  # ; Extend # Mn  [15] BRAHMI VOWEL SIGN AA..BRAHMI VIRAMA
+        "\u1107f","\u11080","\u11081",  # ; Extend # Mn   [3] BRAHMI NUMBER JOINER..KAITHI SIGN ANUSVARA
+        "\u110b3","\u110b4","\u110b5","\u110b6",  # ; Extend # Mn   [4] KAITHI VOWEL SIGN U..KAITHI VOWEL SIGN AI
+        "\u110b9","\u110ba",  # ; Extend # Mn   [2] KAITHI SIGN VIRAMA..KAITHI SIGN NUKTA
+        "\u11100","\u11101","\u11102",  # ; Extend # Mn   [3] CHAKMA SIGN CANDRABINDU..CHAKMA SIGN VISARGA
+        "\u11127","\u11128","\u11129","\u1112a","\u1112b",  # ; Extend # Mn   [5] CHAKMA VOWEL SIGN A..CHAKMA VOWEL SIGN UU
+        "\u1112d","\u1112e","\u1112f","\u11130","\u11131","\u11132","\u11133","\u11134",  # ; Extend # Mn   [8] CHAKMA VOWEL SIGN AI..CHAKMA MAAYYAA
+        "\u11173",  # ; Extend # Mn       MAHAJANI SIGN NUKTA
+        "\u11180","\u11181",  # ; Extend # Mn   [2] SHARADA SIGN CANDRABINDU..SHARADA SIGN ANUSVARA
+        "\u111b6","\u111b7","\u111b8","\u111b9","\u111ba","\u111bb","\u111bc","\u111bd","\u111be",  # ; Extend # Mn   [9] SHARADA VOWEL SIGN U..SHARADA VOWEL SIGN O
+        "\u111ca","\u111cb","\u111cc",  # ; Extend # Mn   [3] SHARADA SIGN NUKTA..SHARADA EXTRA SHORT VOWEL MARK
+        "\u1122f","\u11230","\u11231",  # ; Extend # Mn   [3] KHOJKI VOWEL SIGN U..KHOJKI VOWEL SIGN AI
+        "\u11234",  # ; Extend # Mn       KHOJKI SIGN ANUSVARA
+        "\u11236","\u11237",  # ; Extend # Mn   [2] KHOJKI SIGN NUKTA..KHOJKI SIGN SHADDA
+        "\u1123E",  # ; Extend # Mn       KHOJKI SIGN SUKUN
+        "\u112DF",  # ; Extend # Mn       KHUDAWADI SIGN ANUSVARA
+        "\u112e3","\u112e4","\u112e5","\u112e6","\u112e7","\u112e8","\u112e9","\u112ea",  # ; Extend # Mn   [8] KHUDAWADI VOWEL SIGN U..KHUDAWADI SIGN VIRAMA
+        "\u11300","\u11301",  # ; Extend # Mn   [2] GRANTHA SIGN COMBINING ANUSVARA ABOVE..GRANTHA SIGN CANDRABINDU
+        "\u1133C",  # ; Extend # Mn       GRANTHA SIGN NUKTA
+        "\u1133E",  # ; Extend # Mc       GRANTHA VOWEL SIGN AA
+        "\u11340",  # ; Extend # Mn       GRANTHA VOWEL SIGN II
+        "\u11357",  # ; Extend # Mc       GRANTHA AU LENGTH MARK
+        "\u11366","\u11367","\u11368","\u11369","\u1136a","\u1136b","\u1136c",  # ; Extend # Mn   [7] COMBINING GRANTHA DIGIT ZERO..COMBINING GRANTHA DIGIT SIX
+        "\u11370","\u11371","\u11372","\u11373","\u11374",  # ; Extend # Mn   [5] COMBINING GRANTHA LETTER A..COMBINING GRANTHA LETTER PA
+        "\u11438","\u11439","\u1143a","\u1143b","\u1143c","\u1143d","\u1143e","\u1143f",  # ; Extend # Mn   [8] NEWA VOWEL SIGN U..NEWA VOWEL SIGN AI
+        "\u11442","\u11443","\u11444",  # ; Extend # Mn   [3] NEWA SIGN VIRAMA..NEWA SIGN ANUSVARA
+        "\u11446",  # ; Extend # Mn       NEWA SIGN NUKTA
+        "\u114B0",  # ; Extend # Mc       TIRHUTA VOWEL SIGN AA
+        "\u114b3","\u114b4","\u114b5","\u114b6","\u114b7","\u114b8",  # ; Extend # Mn   [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
+        "\u114BA",  # ; Extend # Mn       TIRHUTA VOWEL SIGN SHORT E
+        "\u114BD",  # ; Extend # Mc       TIRHUTA VOWEL SIGN SHORT O
+        "\u114bf","\u114c0",  # ; Extend # Mn   [2] TIRHUTA SIGN CANDRABINDU..TIRHUTA SIGN ANUSVARA
+        "\u114c2","\u114c3",  # ; Extend # Mn   [2] TIRHUTA SIGN VIRAMA..TIRHUTA SIGN NUKTA
+        "\u115AF",  # ; Extend # Mc       SIDDHAM VOWEL SIGN AA
+        "\u115b2","\u115b3","\u115b4","\u115b5",  # ; Extend # Mn   [4] SIDDHAM VOWEL SIGN U..SIDDHAM VOWEL SIGN VOCALIC RR
+        "\u115bc","\u115bd",  # ; Extend # Mn   [2] SIDDHAM SIGN CANDRABINDU..SIDDHAM SIGN ANUSVARA
+        "\u115bf","\u115c0",  # ; Extend # Mn   [2] SIDDHAM SIGN VIRAMA..SIDDHAM SIGN NUKTA
+        "\u115dc","\u115dd",  # ; Extend # Mn   [2] SIDDHAM VOWEL SIGN ALTERNATE U..SIDDHAM VOWEL SIGN ALTERNATE UU
+        "\u11633","\u11634","\u11635","\u11636","\u11637","\u11638","\u11639","\u1163a",  # ; Extend # Mn   [8] MODI VOWEL SIGN U..MODI VOWEL SIGN AI
+        "\u1163D",  # ; Extend # Mn       MODI SIGN ANUSVARA
+        "\u1163f","\u11640",  # ; Extend # Mn   [2] MODI SIGN VIRAMA..MODI SIGN ARDHACANDRA
+        "\u116AB",  # ; Extend # Mn       TAKRI SIGN ANUSVARA
+        "\u116AD",  # ; Extend # Mn       TAKRI VOWEL SIGN AA
+        "\u116b0","\u116b1","\u116b2","\u116b3","\u116b4","\u116b5",  # ; Extend # Mn   [6] TAKRI VOWEL SIGN U..TAKRI VOWEL SIGN AU
+        "\u116B7",  # ; Extend # Mn       TAKRI SIGN NUKTA
+        "\u1171d","\u1171e","\u1171f",  # ; Extend # Mn   [3] AHOM CONSONANT SIGN MEDIAL LA..AHOM CONSONANT SIGN MEDIAL LIGATING RA
+        "\u11722","\u11723","\u11724","\u11725",  # ; Extend # Mn   [4] AHOM VOWEL SIGN I..AHOM VOWEL SIGN UU
+        "\u11727","\u11728","\u11729","\u1172a","\u1172b",  # ; Extend # Mn   [5] AHOM VOWEL SIGN AW..AHOM SIGN KILLER
+        "\u11a01","\u11a02","\u11a03","\u11a04","\u11a05","\u11a06",  # ; Extend # Mn   [6] ZANABAZAR SQUARE VOWEL SIGN I..ZANABAZAR SQUARE VOWEL SIGN O
+        "\u11a09","\u11a0a",  # ; Extend # Mn   [2] ZANABAZAR SQUARE VOWEL SIGN REVERSED I..ZANABAZAR SQUARE VOWEL LENGTH MARK
+        "\u11a33","\u11a34","\u11a35","\u11a36","\u11a37","\u11a38",  # ; Extend # Mn   [6] ZANABAZAR SQUARE FINAL CONSONANT MARK..ZANABAZAR SQUARE SIGN ANUSVARA
+        "\u11a3b","\u11a3c","\u11a3d","\u11a3e",  # ; Extend # Mn   [4] ZANABAZAR SQUARE CLUSTER-FINAL LETTER YA..ZANABAZAR SQUARE CLUSTER-FINAL LETTER VA
+        "\u11A47",  # ; Extend # Mn       ZANABAZAR SQUARE SUBJOINER
+        "\u11a51","\u11a52","\u11a53","\u11a54","\u11a55","\u11a56",  # ; Extend # Mn   [6] SOYOMBO VOWEL SIGN I..SOYOMBO VOWEL SIGN OE
+        "\u11a59","\u11a5a","\u11a5b",  # ; Extend # Mn   [3] SOYOMBO VOWEL SIGN VOCALIC R..SOYOMBO VOWEL LENGTH MARK
+        "\u11a8a","\u11a8b","\u11a8c","\u11a8d","\u11a8e","\u11a8f","\u11a90","\u11a91","\u11a92","\u11a93","\u11a94","\u11a95","\u11a96",  # ; Extend # Mn  [13] SOYOMBO FINAL CONSONANT SIGN G..SOYOMBO SIGN ANUSVARA
+        "\u11a98","\u11a99",  # ; Extend # Mn   [2] SOYOMBO GEMINATION MARK..SOYOMBO SUBJOINER
+        "\u11c30","\u11c31","\u11c32","\u11c33","\u11c34","\u11c35","\u11c36",  # ; Extend # Mn   [7] BHAIKSUKI VOWEL SIGN I..BHAIKSUKI VOWEL SIGN VOCALIC L
+        "\u11c38","\u11c39","\u11c3a","\u11c3b","\u11c3c","\u11c3d",  # ; Extend # Mn   [6] BHAIKSUKI VOWEL SIGN E..BHAIKSUKI SIGN ANUSVARA
+        "\u11C3F",  # ; Extend # Mn       BHAIKSUKI SIGN VIRAMA
+        "\u11c92","\u11c93","\u11c94","\u11c95","\u11c96","\u11c97","\u11c98","\u11c99","\u11c9a","\u11c9b","\u11c9c","\u11c9d","\u11c9e","\u11c9f","\u11ca0","\u11ca1","\u11ca2","\u11ca3","\u11ca4","\u11ca5","\u11ca6","\u11ca7",  # ; Extend # Mn  [22] MARCHEN SUBJOINED LETTER KA..MARCHEN SUBJOINED LETTER ZA
+        "\u11caa","\u11cab","\u11cac","\u11cad","\u11cae","\u11caf","\u11cb0",  # ; Extend # Mn   [7] MARCHEN SUBJOINED LETTER RA..MARCHEN VOWEL SIGN AA
+        "\u11cb2","\u11cb3",  # ; Extend # Mn   [2] MARCHEN VOWEL SIGN U..MARCHEN VOWEL SIGN E
+        "\u11cb5","\u11cb6",  # ; Extend # Mn   [2] MARCHEN SIGN ANUSVARA..MARCHEN SIGN CANDRABINDU
+        "\u11d31","\u11d32","\u11d33","\u11d34","\u11d35","\u11d36",  # ; Extend # Mn   [6] MASARAM GONDI VOWEL SIGN AA..MASARAM GONDI VOWEL SIGN VOCALIC R
+        "\u11D3A",  # ; Extend # Mn       MASARAM GONDI VOWEL SIGN E
+        "\u11d3c","\u11d3d",  # ; Extend # Mn   [2] MASARAM GONDI VOWEL SIGN AI..MASARAM GONDI VOWEL SIGN O
+        "\u11d3f","\u11d40","\u11d41","\u11d42","\u11d43","\u11d44","\u11d45",  # ; Extend # Mn   [7] MASARAM GONDI VOWEL SIGN AU..MASARAM GONDI VIRAMA
+        "\u11D47",  # ; Extend # Mn       MASARAM GONDI RA-KARA
+        "\u16af0","\u16af1","\u16af2","\u16af3","\u16af4",  # ; Extend # Mn   [5] BASSA VAH COMBINING HIGH TONE..BASSA VAH COMBINING HIGH-LOW TONE
+        "\u16b30","\u16b31","\u16b32","\u16b33","\u16b34","\u16b35","\u16b36",  # ; Extend # Mn   [7] PAHAWH HMONG MARK CIM TUB..PAHAWH HMONG MARK CIM TAUM
+        "\u16f8f","\u16f90","\u16f91","\u16f92",  # ; Extend # Mn   [4] MIAO TONE RIGHT..MIAO TONE BELOW
+        "\u1bc9d","\u1bc9e",  # ; Extend # Mn   [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
+        "\u1D165",  # ; Extend # Mc       MUSICAL SYMBOL COMBINING STEM
+        "\u1d167","\u1d168","\u1d169",  # ; Extend # Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
+        "\u1d16e","\u1d16f","\u1d170","\u1d171","\u1d172",  # ; Extend # Mc   [5] MUSICAL SYMBOL COMBINING FLAG-1..MUSICAL SYMBOL COMBINING FLAG-5
+        "\u1d17b","\u1d17c","\u1d17d","\u1d17e","\u1d17f","\u1d180","\u1d181","\u1d182",  # ; Extend # Mn   [8] MUSICAL SYMBOL COMBINING ACCENT..MUSICAL SYMBOL COMBINING LOURE
+        "\u1d185","\u1d186","\u1d187","\u1d188","\u1d189","\u1d18a","\u1d18b",  # ; Extend # Mn   [7] MUSICAL SYMBOL COMBINING DOIT..MUSICAL SYMBOL COMBINING TRIPLE TONGUE
+        "\u1d1aa","\u1d1ab","\u1d1ac","\u1d1ad",  # ; Extend # Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
+        "\u1d242","\u1d243","\u1d244",  # ; Extend # Mn   [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
+        "\u1da00","\u1da01","\u1da02","\u1da03","\u1da04","\u1da05","\u1da06","\u1da07","\u1da08","\u1da09","\u1da0a","\u1da0b","\u1da0c","\u1da0d","\u1da0e","\u1da0f","\u1da10","\u1da11","\u1da12","\u1da13","\u1da14","\u1da15","\u1da16","\u1da17","\u1da18","\u1da19","\u1da1a","\u1da1b","\u1da1c","\u1da1d","\u1da1e","\u1da1f","\u1da20","\u1da21","\u1da22","\u1da23","\u1da24","\u1da25","\u1da26","\u1da27","\u1da28","\u1da29","\u1da2a","\u1da2b","\u1da2c","\u1da2d","\u1da2e","\u1da2f","\u1da30","\u1da31","\u1da32","\u1da33","\u1da34","\u1da35","\u1da36",  # ; Extend # Mn  [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
+        "\u1da3b","\u1da3c","\u1da3d","\u1da3e","\u1da3f","\u1da40","\u1da41","\u1da42","\u1da43","\u1da44","\u1da45","\u1da46","\u1da47","\u1da48","\u1da49","\u1da4a","\u1da4b","\u1da4c","\u1da4d","\u1da4e","\u1da4f","\u1da50","\u1da51","\u1da52","\u1da53","\u1da54","\u1da55","\u1da56","\u1da57","\u1da58","\u1da59","\u1da5a","\u1da5b","\u1da5c","\u1da5d","\u1da5e","\u1da5f","\u1da60","\u1da61","\u1da62","\u1da63","\u1da64","\u1da65","\u1da66","\u1da67","\u1da68","\u1da69","\u1da6a","\u1da6b","\u1da6c",  # ; Extend # Mn  [50] SIGNWRITING MOUTH CLOSED NEUTRAL..SIGNWRITING EXCITEMENT
+        "\u1DA75",  # ; Extend # Mn       SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
+        "\u1DA84",  # ; Extend # Mn       SIGNWRITING LOCATION HEAD NECK
+        "\u1da9b","\u1da9c","\u1da9d","\u1da9e","\u1da9f",  # ; Extend # Mn   [5] SIGNWRITING FILL MODIFIER-2..SIGNWRITING FILL MODIFIER-6
+        "\u1daa1","\u1daa2","\u1daa3","\u1daa4","\u1daa5","\u1daa6","\u1daa7","\u1daa8","\u1daa9","\u1daaa","\u1daab","\u1daac","\u1daad","\u1daae","\u1daaf",  # ; Extend # Mn  [15] SIGNWRITING ROTATION MODIFIER-2..SIGNWRITING ROTATION MODIFIER-16
+        "\u1e000","\u1e001","\u1e002","\u1e003","\u1e004","\u1e005","\u1e006",  # ; Extend # Mn   [7] COMBINING GLAGOLITIC LETTER AZU..COMBINING GLAGOLITIC LETTER ZHIVETE
+        "\u1e008","\u1e009","\u1e00a","\u1e00b","\u1e00c","\u1e00d","\u1e00e","\u1e00f","\u1e010","\u1e011","\u1e012","\u1e013","\u1e014","\u1e015","\u1e016","\u1e017","\u1e018",  # ; Extend # Mn  [17] COMBINING GLAGOLITIC LETTER ZEMLJA..COMBINING GLAGOLITIC LETTER HERU
+        "\u1e01b","\u1e01c","\u1e01d","\u1e01e","\u1e01f","\u1e020","\u1e021",  # ; Extend # Mn   [7] COMBINING GLAGOLITIC LETTER SHTA..COMBINING GLAGOLITIC LETTER YATI
+        "\u1e023","\u1e024",  # ; Extend # Mn   [2] COMBINING GLAGOLITIC LETTER YU..COMBINING GLAGOLITIC LETTER SMALL YUS
+        "\u1e026","\u1e027","\u1e028","\u1e029","\u1e02a",  # ; Extend # Mn   [5] COMBINING GLAGOLITIC LETTER YO..COMBINING GLAGOLITIC LETTER FITA
+        "\u1e8d0","\u1e8d1","\u1e8d2","\u1e8d3","\u1e8d4","\u1e8d5","\u1e8d6",  # ; Extend # Mn   [7] MENDE KIKAKUI COMBINING NUMBER TEENS..MENDE KIKAKUI COMBINING NUMBER MILLIONS
+        "\u1e944","\u1e945","\u1e946","\u1e947","\u1e948","\u1e949","\u1e94a",  # ; Extend # Mn   [7] ADLAM ALIF LENGTHENER..ADLAM NUKTA
+        "\ue0020","\ue0021","\ue0022","\ue0023","\ue0024","\ue0025","\ue0026","\ue0027","\ue0028","\ue0029","\ue002a","\ue002b","\ue002c","\ue002d","\ue002e","\ue002f","\ue0030","\ue0031","\ue0032","\ue0033","\ue0034","\ue0035","\ue0036","\ue0037","\ue0038","\ue0039","\ue003a","\ue003b","\ue003c","\ue003d","\ue003e","\ue003f","\ue0040","\ue0041","\ue0042","\ue0043","\ue0044","\ue0045","\ue0046","\ue0047","\ue0048","\ue0049","\ue004a","\ue004b","\ue004c","\ue004d","\ue004e","\ue004f","\ue0050","\ue0051","\ue0052","\ue0053","\ue0054","\ue0055","\ue0056","\ue0057","\ue0058","\ue0059","\ue005a","\ue005b","\ue005c","\ue005d","\ue005e","\ue005f","\ue0060","\ue0061","\ue0062","\ue0063","\ue0064","\ue0065","\ue0066","\ue0067","\ue0068","\ue0069","\ue006a","\ue006b","\ue006c","\ue006d","\ue006e","\ue006f","\ue0070","\ue0071","\ue0072","\ue0073","\ue0074","\ue0075","\ue0076","\ue0077","\ue0078","\ue0079","\ue007a","\ue007b","\ue007c","\ue007d","\ue007e","\ue007f",  # ; Extend # Cf  [96] TAG SPACE..CANCEL TAG
+        "\ue0100","\ue0101","\ue0102","\ue0103","\ue0104","\ue0105","\ue0106","\ue0107","\ue0108","\ue0109","\ue010a","\ue010b","\ue010c","\ue010d","\ue010e","\ue010f","\ue0110","\ue0111","\ue0112","\ue0113","\ue0114","\ue0115","\ue0116","\ue0117","\ue0118","\ue0119","\ue011a","\ue011b","\ue011c","\ue011d","\ue011e","\ue011f","\ue0120","\ue0121","\ue0122","\ue0123","\ue0124","\ue0125","\ue0126","\ue0127","\ue0128","\ue0129","\ue012a","\ue012b","\ue012c","\ue012d","\ue012e","\ue012f","\ue0130","\ue0131","\ue0132","\ue0133","\ue0134","\ue0135","\ue0136","\ue0137","\ue0138","\ue0139","\ue013a","\ue013b","\ue013c","\ue013d","\ue013e","\ue013f","\ue0140","\ue0141","\ue0142","\ue0143","\ue0144","\ue0145","\ue0146","\ue0147","\ue0148","\ue0149","\ue014a","\ue014b","\ue014c","\ue014d","\ue014e","\ue014f","\ue0150","\ue0151","\ue0152","\ue0153","\ue0154","\ue0155","\ue0156","\ue0157","\ue0158","\ue0159","\ue015a","\ue015b","\ue015c","\ue015d","\ue015e","\ue015f","\ue0160","\ue0161","\ue0162","\ue0163","\ue0164","\ue0165","\ue0166","\ue0167","\ue0168","\ue0169","\ue016a","\ue016b","\ue016c","\ue016d","\ue016e","\ue016f","\ue0170","\ue0171","\ue0172","\ue0173","\ue0174","\ue0175","\ue0176","\ue0177","\ue0178","\ue0179","\ue017a","\ue017b","\ue017c","\ue017d","\ue017e","\ue017f","\ue0180","\ue0181","\ue0182","\ue0183","\ue0184","\ue0185","\ue0186","\ue0187","\ue0188","\ue0189","\ue018a","\ue018b","\ue018c","\ue018d","\ue018e","\ue018f","\ue0190","\ue0191","\ue0192","\ue0193","\ue0194","\ue0195","\ue0196","\ue0197","\ue0198","\ue0199","\ue019a","\ue019b","\ue019c","\ue019d","\ue019e","\ue019f","\ue01a0","\ue01a1","\ue01a2","\ue01a3","\ue01a4","\ue01a5","\ue01a6","\ue01a7","\ue01a8","\ue01a9","\ue01aa","\ue01ab","\ue01ac","\ue01ad","\ue01ae","\ue01af","\ue01b0","\ue01b1","\ue01b2","\ue01b3","\ue01b4","\ue01b5","\ue01b6","\ue01b7","\ue01b8","\ue01b9","\ue01ba","\ue01bb","\ue01bc","\ue01bd","\ue01be","\ue01bf","\ue01c0","\ue01c1","\ue01c2","\ue01c3","\ue01c4","\ue01c5","\ue01c6","\ue01c7","\ue01c8","\ue01c9","\ue01ca","\ue01cb","\ue01cc","\ue01cd","\ue01ce","\ue01cf","\ue01d0","\ue01d1","\ue01d2","\ue01d3","\ue01d4","\ue01d5","\ue01d6","\ue01d7","\ue01d8","\ue01d9","\ue01da","\ue01db","\ue01dc","\ue01dd","\ue01de","\ue01df","\ue01e0","\ue01e1","\ue01e2","\ue01e3","\ue01e4","\ue01e5","\ue01e6","\ue01e7","\ue01e8","\ue01e9","\ue01ea","\ue01eb","\ue01ec","\ue01ed","\ue01ee","\ue01ef",  # ; Extend # Mn [240] VARIATION SELECTOR-17..VARIATION SELECTOR-256
+        "\u1f1e6","\u1f1e7","\u1f1e8","\u1f1e9","\u1f1ea","\u1f1eb","\u1f1ec","\u1f1ed","\u1f1ee","\u1f1ef","\u1f1f0","\u1f1f1","\u1f1f2","\u1f1f3","\u1f1f4","\u1f1f5","\u1f1f6","\u1f1f7","\u1f1f8","\u1f1f9","\u1f1fa","\u1f1fb","\u1f1fc","\u1f1fd","\u1f1fe","\u1f1ff",  # ; Regional_Indicator # So  [26] REGIONAL INDICATOR SYMBOL LETTER A..REGIONAL INDICATOR SYMBOL LETTER Z
+        "\u0903",  # ; SpacingMark # Mc       DEVANAGARI SIGN VISARGA
+        "\u093B",  # ; SpacingMark # Mc       DEVANAGARI VOWEL SIGN OOE
+        "\u093e","\u093f","\u0940",  # ; SpacingMark # Mc   [3] DEVANAGARI VOWEL SIGN AA..DEVANAGARI VOWEL SIGN II
+        "\u0949","\u094a","\u094b","\u094c",  # ; SpacingMark # Mc   [4] DEVANAGARI VOWEL SIGN CANDRA O..DEVANAGARI VOWEL SIGN AU
+        "\u094e","\u094f",  # ; SpacingMark # Mc   [2] DEVANAGARI VOWEL SIGN PRISHTHAMATRA E..DEVANAGARI VOWEL SIGN AW
+        "\u0982","\u0983",  # ; SpacingMark # Mc   [2] BENGALI SIGN ANUSVARA..BENGALI SIGN VISARGA
+        "\u09bf","\u09c0",  # ; SpacingMark # Mc   [2] BENGALI VOWEL SIGN I..BENGALI VOWEL SIGN II
+        "\u09c7","\u09c8",  # ; SpacingMark # Mc   [2] BENGALI VOWEL SIGN E..BENGALI VOWEL SIGN AI
+        "\u09cb","\u09cc",  # ; SpacingMark # Mc   [2] BENGALI VOWEL SIGN O..BENGALI VOWEL SIGN AU
+        "\u0A03",  # ; SpacingMark # Mc       GURMUKHI SIGN VISARGA
+        "\u0a3e","\u0a3f","\u0a40",  # ; SpacingMark # Mc   [3] GURMUKHI VOWEL SIGN AA..GURMUKHI VOWEL SIGN II
+        "\u0A83",  # ; SpacingMark # Mc       GUJARATI SIGN VISARGA
+        "\u0abe","\u0abf","\u0ac0",  # ; SpacingMark # Mc   [3] GUJARATI VOWEL SIGN AA..GUJARATI VOWEL SIGN II
+        "\u0AC9",  # ; SpacingMark # Mc       GUJARATI VOWEL SIGN CANDRA O
+        "\u0acb","\u0acc",  # ; SpacingMark # Mc   [2] GUJARATI VOWEL SIGN O..GUJARATI VOWEL SIGN AU
+        "\u0b02","\u0b03",  # ; SpacingMark # Mc   [2] ORIYA SIGN ANUSVARA..ORIYA SIGN VISARGA
+        "\u0B40",  # ; SpacingMark # Mc       ORIYA VOWEL SIGN II
+        "\u0b47","\u0b48",  # ; SpacingMark # Mc   [2] ORIYA VOWEL SIGN E..ORIYA VOWEL SIGN AI
+        "\u0b4b","\u0b4c",  # ; SpacingMark # Mc   [2] ORIYA VOWEL SIGN O..ORIYA VOWEL SIGN AU
+        "\u0BBF",  # ; SpacingMark # Mc       TAMIL VOWEL SIGN I
+        "\u0bc1","\u0bc2",  # ; SpacingMark # Mc   [2] TAMIL VOWEL SIGN U..TAMIL VOWEL SIGN UU
+        "\u0bc6","\u0bc7","\u0bc8",  # ; SpacingMark # Mc   [3] TAMIL VOWEL SIGN E..TAMIL VOWEL SIGN AI
+        "\u0bca","\u0bcb","\u0bcc",  # ; SpacingMark # Mc   [3] TAMIL VOWEL SIGN O..TAMIL VOWEL SIGN AU
+        "\u0c01","\u0c02","\u0c03",  # ; SpacingMark # Mc   [3] TELUGU SIGN CANDRABINDU..TELUGU SIGN VISARGA
+        "\u0c41","\u0c42","\u0c43","\u0c44",  # ; SpacingMark # Mc   [4] TELUGU VOWEL SIGN U..TELUGU VOWEL SIGN VOCALIC RR
+        "\u0c82","\u0c83",  # ; SpacingMark # Mc   [2] KANNADA SIGN ANUSVARA..KANNADA SIGN VISARGA
+        "\u0CBE",  # ; SpacingMark # Mc       KANNADA VOWEL SIGN AA
+        "\u0cc0","\u0cc1",  # ; SpacingMark # Mc   [2] KANNADA VOWEL SIGN II..KANNADA VOWEL SIGN U
+        "\u0cc3","\u0cc4",  # ; SpacingMark # Mc   [2] KANNADA VOWEL SIGN VOCALIC R..KANNADA VOWEL SIGN VOCALIC RR
+        "\u0cc7","\u0cc8",  # ; SpacingMark # Mc   [2] KANNADA VOWEL SIGN EE..KANNADA VOWEL SIGN AI
+        "\u0cca","\u0ccb",  # ; SpacingMark # Mc   [2] KANNADA VOWEL SIGN O..KANNADA VOWEL SIGN OO
+        "\u0d02","\u0d03",  # ; SpacingMark # Mc   [2] MALAYALAM SIGN ANUSVARA..MALAYALAM SIGN VISARGA
+        "\u0d3f","\u0d40",  # ; SpacingMark # Mc   [2] MALAYALAM VOWEL SIGN I..MALAYALAM VOWEL SIGN II
+        "\u0d46","\u0d47","\u0d48",  # ; SpacingMark # Mc   [3] MALAYALAM VOWEL SIGN E..MALAYALAM VOWEL SIGN AI
+        "\u0d4a","\u0d4b","\u0d4c",  # ; SpacingMark # Mc   [3] MALAYALAM VOWEL SIGN O..MALAYALAM VOWEL SIGN AU
+        "\u0d82","\u0d83",  # ; SpacingMark # Mc   [2] SINHALA SIGN ANUSVARAYA..SINHALA SIGN VISARGAYA
+        "\u0dd0","\u0dd1",  # ; SpacingMark # Mc   [2] SINHALA VOWEL SIGN KETTI AEDA-PILLA..SINHALA VOWEL SIGN DIGA AEDA-PILLA
+        "\u0dd8","\u0dd9","\u0dda","\u0ddb","\u0ddc","\u0ddd","\u0dde",  # ; SpacingMark # Mc   [7] SINHALA VOWEL SIGN GAETTA-PILLA..SINHALA VOWEL SIGN KOMBUVA HAA GAYANUKITTA
+        "\u0df2","\u0df3",  # ; SpacingMark # Mc   [2] SINHALA VOWEL SIGN DIGA GAETTA-PILLA..SINHALA VOWEL SIGN DIGA GAYANUKITTA
+        "\u0E33",  # ; SpacingMark # Lo       THAI CHARACTER SARA AM
+        "\u0EB3",  # ; SpacingMark # Lo       LAO VOWEL SIGN AM
+        "\u0f3e","\u0f3f",  # ; SpacingMark # Mc   [2] TIBETAN SIGN YAR TSHES..TIBETAN SIGN MAR TSHES
+        "\u0F7F",  # ; SpacingMark # Mc       TIBETAN SIGN RNAM BCAD
+        "\u1031",  # ; SpacingMark # Mc       MYANMAR VOWEL SIGN E
+        "\u103b","\u103c",  # ; SpacingMark # Mc   [2] MYANMAR CONSONANT SIGN MEDIAL YA..MYANMAR CONSONANT SIGN MEDIAL RA
+        "\u1056","\u1057",  # ; SpacingMark # Mc   [2] MYANMAR VOWEL SIGN VOCALIC R..MYANMAR VOWEL SIGN VOCALIC RR
+        "\u1084",  # ; SpacingMark # Mc       MYANMAR VOWEL SIGN SHAN E
+        "\u17B6",  # ; SpacingMark # Mc       KHMER VOWEL SIGN AA
+        "\u17be","\u17bf","\u17c0","\u17c1","\u17c2","\u17c3","\u17c4","\u17c5",  # ; SpacingMark # Mc   [8] KHMER VOWEL SIGN OE..KHMER VOWEL SIGN AU
+        "\u17c7","\u17c8",  # ; SpacingMark # Mc   [2] KHMER SIGN REAHMUK..KHMER SIGN YUUKALEAPINTU
+        "\u1923","\u1924","\u1925","\u1926",  # ; SpacingMark # Mc   [4] LIMBU VOWEL SIGN EE..LIMBU VOWEL SIGN AU
+        "\u1929","\u192a","\u192b",  # ; SpacingMark # Mc   [3] LIMBU SUBJOINED LETTER YA..LIMBU SUBJOINED LETTER WA
+        "\u1930","\u1931",  # ; SpacingMark # Mc   [2] LIMBU SMALL LETTER KA..LIMBU SMALL LETTER NGA
+        "\u1933","\u1934","\u1935","\u1936","\u1937","\u1938",  # ; SpacingMark # Mc   [6] LIMBU SMALL LETTER TA..LIMBU SMALL LETTER LA
+        "\u1a19","\u1a1a",  # ; SpacingMark # Mc   [2] BUGINESE VOWEL SIGN E..BUGINESE VOWEL SIGN O
+        "\u1A55",  # ; SpacingMark # Mc       TAI THAM CONSONANT SIGN MEDIAL RA
+        "\u1A57",  # ; SpacingMark # Mc       TAI THAM CONSONANT SIGN LA TANG LAI
+        "\u1a6d","\u1a6e","\u1a6f","\u1a70","\u1a71","\u1a72",  # ; SpacingMark # Mc   [6] TAI THAM VOWEL SIGN OY..TAI THAM VOWEL SIGN THAM AI
+        "\u1B04",  # ; SpacingMark # Mc       BALINESE SIGN BISAH
+        "\u1B35",  # ; SpacingMark # Mc       BALINESE VOWEL SIGN TEDUNG
+        "\u1B3B",  # ; SpacingMark # Mc       BALINESE VOWEL SIGN RA REPA TEDUNG
+        "\u1b3d","\u1b3e","\u1b3f","\u1b40","\u1b41",  # ; SpacingMark # Mc   [5] BALINESE VOWEL SIGN LA LENGA TEDUNG..BALINESE VOWEL SIGN TALING REPA TEDUNG
+        "\u1b43","\u1b44",  # ; SpacingMark # Mc   [2] BALINESE VOWEL SIGN PEPET TEDUNG..BALINESE ADEG ADEG
+        "\u1B82",  # ; SpacingMark # Mc       SUNDANESE SIGN PANGWISAD
+        "\u1BA1",  # ; SpacingMark # Mc       SUNDANESE CONSONANT SIGN PAMINGKAL
+        "\u1ba6","\u1ba7",  # ; SpacingMark # Mc   [2] SUNDANESE VOWEL SIGN PANAELAENG..SUNDANESE VOWEL SIGN PANOLONG
+        "\u1BAA",  # ; SpacingMark # Mc       SUNDANESE SIGN PAMAAEH
+        "\u1BE7",  # ; SpacingMark # Mc       BATAK VOWEL SIGN E
+        "\u1bea","\u1beb","\u1bec",  # ; SpacingMark # Mc   [3] BATAK VOWEL SIGN I..BATAK VOWEL SIGN O
+        "\u1BEE",  # ; SpacingMark # Mc       BATAK VOWEL SIGN U
+        "\u1bf2","\u1bf3",  # ; SpacingMark # Mc   [2] BATAK PANGOLAT..BATAK PANONGONAN
+        "\u1c24","\u1c25","\u1c26","\u1c27","\u1c28","\u1c29","\u1c2a","\u1c2b",  # ; SpacingMark # Mc   [8] LEPCHA SUBJOINED LETTER YA..LEPCHA VOWEL SIGN UU
+        "\u1c34","\u1c35",  # ; SpacingMark # Mc   [2] LEPCHA CONSONANT SIGN NYIN-DO..LEPCHA CONSONANT SIGN KANG
+        "\u1CE1",  # ; SpacingMark # Mc       VEDIC TONE ATHARVAVEDIC INDEPENDENT SVARITA
+        "\u1cf2","\u1cf3",  # ; SpacingMark # Mc   [2] VEDIC SIGN ARDHAVISARGA..VEDIC SIGN ROTATED ARDHAVISARGA
+        "\u1CF7",  # ; SpacingMark # Mc       VEDIC SIGN ATIKRAMA
+        "\ua823","\ua824",  # ; SpacingMark # Mc   [2] SYLOTI NAGRI VOWEL SIGN A..SYLOTI NAGRI VOWEL SIGN I
+        "\uA827",  # ; SpacingMark # Mc       SYLOTI NAGRI VOWEL SIGN OO
+        "\ua880","\ua881",  # ; SpacingMark # Mc   [2] SAURASHTRA SIGN ANUSVARA..SAURASHTRA SIGN VISARGA
+        "\ua8b4","\ua8b5","\ua8b6","\ua8b7","\ua8b8","\ua8b9","\ua8ba","\ua8bb","\ua8bc","\ua8bd","\ua8be","\ua8bf","\ua8c0","\ua8c1","\ua8c2","\ua8c3",  # ; SpacingMark # Mc  [16] SAURASHTRA CONSONANT SIGN HAARU..SAURASHTRA VOWEL SIGN AU
+        "\ua952","\ua953",  # ; SpacingMark # Mc   [2] REJANG CONSONANT SIGN H..REJANG VIRAMA
+        "\uA983",  # ; SpacingMark # Mc       JAVANESE SIGN WIGNYAN
+        "\ua9b4","\ua9b5",  # ; SpacingMark # Mc   [2] JAVANESE VOWEL SIGN TARUNG..JAVANESE VOWEL SIGN TOLONG
+        "\ua9ba","\ua9bb",  # ; SpacingMark # Mc   [2] JAVANESE VOWEL SIGN TALING..JAVANESE VOWEL SIGN DIRGA MURE
+        "\ua9bd","\ua9be","\ua9bf","\ua9c0",  # ; SpacingMark # Mc   [4] JAVANESE CONSONANT SIGN KERET..JAVANESE PANGKON
+        "\uaa2f","\uaa30",  # ; SpacingMark # Mc   [2] CHAM VOWEL SIGN O..CHAM VOWEL SIGN AI
+        "\uaa33","\uaa34",  # ; SpacingMark # Mc   [2] CHAM CONSONANT SIGN YA..CHAM CONSONANT SIGN RA
+        "\uAA4D",  # ; SpacingMark # Mc       CHAM CONSONANT SIGN FINAL H
+        "\uAAEB",  # ; SpacingMark # Mc       MEETEI MAYEK VOWEL SIGN II
+        "\uaaee","\uaaef",  # ; SpacingMark # Mc   [2] MEETEI MAYEK VOWEL SIGN AU..MEETEI MAYEK VOWEL SIGN AAU
+        "\uAAF5",  # ; SpacingMark # Mc       MEETEI MAYEK VOWEL SIGN VISARGA
+        "\uabe3","\uabe4",  # ; SpacingMark # Mc   [2] MEETEI MAYEK VOWEL SIGN ONAP..MEETEI MAYEK VOWEL SIGN INAP
+        "\uabe6","\uabe7",  # ; SpacingMark # Mc   [2] MEETEI MAYEK VOWEL SIGN YENAP..MEETEI MAYEK VOWEL SIGN SOUNAP
+        "\uabe9","\uabea",  # ; SpacingMark # Mc   [2] MEETEI MAYEK VOWEL SIGN CHEINAP..MEETEI MAYEK VOWEL SIGN NUNG
+        "\uABEC",  # ; SpacingMark # Mc       MEETEI MAYEK LUM IYEK
+        "\u11000",  # ; SpacingMark # Mc       BRAHMI SIGN CANDRABINDU
+        "\u11002",  # ; SpacingMark # Mc       BRAHMI SIGN VISARGA
+        "\u11082",  # ; SpacingMark # Mc       KAITHI SIGN VISARGA
+        "\u110b0","\u110b1","\u110b2",  # ; SpacingMark # Mc   [3] KAITHI VOWEL SIGN AA..KAITHI VOWEL SIGN II
+        "\u110b7","\u110b8",  # ; SpacingMark # Mc   [2] KAITHI VOWEL SIGN O..KAITHI VOWEL SIGN AU
+        "\u1112C",  # ; SpacingMark # Mc       CHAKMA VOWEL SIGN E
+        "\u11182",  # ; SpacingMark # Mc       SHARADA SIGN VISARGA
+        "\u111b3","\u111b4","\u111b5",  # ; SpacingMark # Mc   [3] SHARADA VOWEL SIGN AA..SHARADA VOWEL SIGN II
+        "\u111bf","\u111c0",  # ; SpacingMark # Mc   [2] SHARADA VOWEL SIGN AU..SHARADA SIGN VIRAMA
+        "\u1122c","\u1122d","\u1122e",  # ; SpacingMark # Mc   [3] KHOJKI VOWEL SIGN AA..KHOJKI VOWEL SIGN II
+        "\u11232","\u11233",  # ; SpacingMark # Mc   [2] KHOJKI VOWEL SIGN O..KHOJKI VOWEL SIGN AU
+        "\u11235",  # ; SpacingMark # Mc       KHOJKI SIGN VIRAMA
+        "\u112e0","\u112e1","\u112e2",  # ; SpacingMark # Mc   [3] KHUDAWADI VOWEL SIGN AA..KHUDAWADI VOWEL SIGN II
+        "\u11302","\u11303",  # ; SpacingMark # Mc   [2] GRANTHA SIGN ANUSVARA..GRANTHA SIGN VISARGA
+        "\u1133F",  # ; SpacingMark # Mc       GRANTHA VOWEL SIGN I
+        "\u11341","\u11342","\u11343","\u11344",  # ; SpacingMark # Mc   [4] GRANTHA VOWEL SIGN U..GRANTHA VOWEL SIGN VOCALIC RR
+        "\u11347","\u11348",  # ; SpacingMark # Mc   [2] GRANTHA VOWEL SIGN EE..GRANTHA VOWEL SIGN AI
+        "\u1134b","\u1134c","\u1134d",  # ; SpacingMark # Mc   [3] GRANTHA VOWEL SIGN OO..GRANTHA SIGN VIRAMA
+        "\u11362","\u11363",  # ; SpacingMark # Mc   [2] GRANTHA VOWEL SIGN VOCALIC L..GRANTHA VOWEL SIGN VOCALIC LL
+        "\u11435","\u11436","\u11437",  # ; SpacingMark # Mc   [3] NEWA VOWEL SIGN AA..NEWA VOWEL SIGN II
+        "\u11440","\u11441",  # ; SpacingMark # Mc   [2] NEWA VOWEL SIGN O..NEWA VOWEL SIGN AU
+        "\u11445",  # ; SpacingMark # Mc       NEWA SIGN VISARGA
+        "\u114b1","\u114b2",  # ; SpacingMark # Mc   [2] TIRHUTA VOWEL SIGN I..TIRHUTA VOWEL SIGN II
+        "\u114B9",  # ; SpacingMark # Mc       TIRHUTA VOWEL SIGN E
+        "\u114bb","\u114bc",  # ; SpacingMark # Mc   [2] TIRHUTA VOWEL SIGN AI..TIRHUTA VOWEL SIGN O
+        "\u114BE",  # ; SpacingMark # Mc       TIRHUTA VOWEL SIGN AU
+        "\u114C1",  # ; SpacingMark # Mc       TIRHUTA SIGN VISARGA
+        "\u115b0","\u115b1",  # ; SpacingMark # Mc   [2] SIDDHAM VOWEL SIGN I..SIDDHAM VOWEL SIGN II
+        "\u115b8","\u115b9","\u115ba","\u115bb",  # ; SpacingMark # Mc   [4] SIDDHAM VOWEL SIGN E..SIDDHAM VOWEL SIGN AU
+        "\u115BE",  # ; SpacingMark # Mc       SIDDHAM SIGN VISARGA
+        "\u11630","\u11631","\u11632",  # ; SpacingMark # Mc   [3] MODI VOWEL SIGN AA..MODI VOWEL SIGN II
+        "\u1163b","\u1163c",  # ; SpacingMark # Mc   [2] MODI VOWEL SIGN O..MODI VOWEL SIGN AU
+        "\u1163E",  # ; SpacingMark # Mc       MODI SIGN VISARGA
+        "\u116AC",  # ; SpacingMark # Mc       TAKRI SIGN VISARGA
+        "\u116ae","\u116af",  # ; SpacingMark # Mc   [2] TAKRI VOWEL SIGN I..TAKRI VOWEL SIGN II
+        "\u116B6",  # ; SpacingMark # Mc       TAKRI SIGN VIRAMA
+        "\u11720","\u11721",  # ; SpacingMark # Mc   [2] AHOM VOWEL SIGN A..AHOM VOWEL SIGN AA
+        "\u11726",  # ; SpacingMark # Mc       AHOM VOWEL SIGN E
+        "\u11a07","\u11a08",  # ; SpacingMark # Mc   [2] ZANABAZAR SQUARE VOWEL SIGN AI..ZANABAZAR SQUARE VOWEL SIGN AU
+        "\u11A39",  # ; SpacingMark # Mc       ZANABAZAR SQUARE SIGN VISARGA
+        "\u11a57","\u11a58",  # ; SpacingMark # Mc   [2] SOYOMBO VOWEL SIGN AI..SOYOMBO VOWEL SIGN AU
+        "\u11A97",  # ; SpacingMark # Mc       SOYOMBO SIGN VISARGA
+        "\u11C2F",  # ; SpacingMark # Mc       BHAIKSUKI VOWEL SIGN AA
+        "\u11C3E",  # ; SpacingMark # Mc       BHAIKSUKI SIGN VISARGA
+        "\u11CA9",  # ; SpacingMark # Mc       MARCHEN SUBJOINED LETTER YA
+        "\u11CB1",  # ; SpacingMark # Mc       MARCHEN VOWEL SIGN I
+        "\u11CB4",  # ; SpacingMark # Mc       MARCHEN VOWEL SIGN O
+        "\u16f51","\u16f52","\u16f53","\u16f54","\u16f55","\u16f56","\u16f57","\u16f58","\u16f59","\u16f5a","\u16f5b","\u16f5c","\u16f5d","\u16f5e","\u16f5f","\u16f60","\u16f61","\u16f62","\u16f63","\u16f64","\u16f65","\u16f66","\u16f67","\u16f68","\u16f69","\u16f6a","\u16f6b","\u16f6c","\u16f6d","\u16f6e","\u16f6f","\u16f70","\u16f71","\u16f72","\u16f73","\u16f74","\u16f75","\u16f76","\u16f77","\u16f78","\u16f79","\u16f7a","\u16f7b","\u16f7c","\u16f7d","\u16f7e",  # ; SpacingMark # Mc  [46] MIAO SIGN ASPIRATION..MIAO VOWEL SIGN NG
+        "\u1D166",  # ; SpacingMark # Mc       MUSICAL SYMBOL COMBINING SPRECHGESANG STEM
+        "\u1D16D",  # ; SpacingMark # Mc       MUSICAL SYMBOL COMBINING AUGMENTATION DOT
+        "\u1100","\u1101","\u1102","\u1103","\u1104","\u1105","\u1106","\u1107","\u1108","\u1109","\u110a","\u110b","\u110c","\u110d","\u110e","\u110f","\u1110","\u1111","\u1112","\u1113","\u1114","\u1115","\u1116","\u1117","\u1118","\u1119","\u111a","\u111b","\u111c","\u111d","\u111e","\u111f","\u1120","\u1121","\u1122","\u1123","\u1124","\u1125","\u1126","\u1127","\u1128","\u1129","\u112a","\u112b","\u112c","\u112d","\u112e","\u112f","\u1130","\u1131","\u1132","\u1133","\u1134","\u1135","\u1136","\u1137","\u1138","\u1139","\u113a","\u113b","\u113c","\u113d","\u113e","\u113f","\u1140","\u1141","\u1142","\u1143","\u1144","\u1145","\u1146","\u1147","\u1148","\u1149","\u114a","\u114b","\u114c","\u114d","\u114e","\u114f","\u1150","\u1151","\u1152","\u1153","\u1154","\u1155","\u1156","\u1157","\u1158","\u1159","\u115a","\u115b","\u115c","\u115d","\u115e","\u115f",  # ; L # Lo  [96] HANGUL CHOSEONG KIYEOK..HANGUL CHOSEONG FILLER
+        "\ua960","\ua961","\ua962","\ua963","\ua964","\ua965","\ua966","\ua967","\ua968","\ua969","\ua96a","\ua96b","\ua96c","\ua96d","\ua96e","\ua96f","\ua970","\ua971","\ua972","\ua973","\ua974","\ua975","\ua976","\ua977","\ua978","\ua979","\ua97a","\ua97b","\ua97c",  # ; L # Lo  [29] HANGUL CHOSEONG TIKEUT-MIEUM..HANGUL CHOSEONG SSANGYEORINHIEUH
+        "\u1160","\u1161","\u1162","\u1163","\u1164","\u1165","\u1166","\u1167","\u1168","\u1169","\u116a","\u116b","\u116c","\u116d","\u116e","\u116f","\u1170","\u1171","\u1172","\u1173","\u1174","\u1175","\u1176","\u1177","\u1178","\u1179","\u117a","\u117b","\u117c","\u117d","\u117e","\u117f","\u1180","\u1181","\u1182","\u1183","\u1184","\u1185","\u1186","\u1187","\u1188","\u1189","\u118a","\u118b","\u118c","\u118d","\u118e","\u118f","\u1190","\u1191","\u1192","\u1193","\u1194","\u1195","\u1196","\u1197","\u1198","\u1199","\u119a","\u119b","\u119c","\u119d","\u119e","\u119f","\u11a0","\u11a1","\u11a2","\u11a3","\u11a4","\u11a5","\u11a6","\u11a7",  # ; V # Lo  [72] HANGUL JUNGSEONG FILLER..HANGUL JUNGSEONG O-YAE
+        "\ud7b0","\ud7b1","\ud7b2","\ud7b3","\ud7b4","\ud7b5","\ud7b6","\ud7b7","\ud7b8","\ud7b9","\ud7ba","\ud7bb","\ud7bc","\ud7bd","\ud7be","\ud7bf","\ud7c0","\ud7c1","\ud7c2","\ud7c3","\ud7c4","\ud7c5","\ud7c6",  # ; V # Lo  [23] HANGUL JUNGSEONG O-YEO..HANGUL JUNGSEONG ARAEA-E
+        "\u11a8","\u11a9","\u11aa","\u11ab","\u11ac","\u11ad","\u11ae","\u11af","\u11b0","\u11b1","\u11b2","\u11b3","\u11b4","\u11b5","\u11b6","\u11b7","\u11b8","\u11b9","\u11ba","\u11bb","\u11bc","\u11bd","\u11be","\u11bf","\u11c0","\u11c1","\u11c2","\u11c3","\u11c4","\u11c5","\u11c6","\u11c7","\u11c8","\u11c9","\u11ca","\u11cb","\u11cc","\u11cd","\u11ce","\u11cf","\u11d0","\u11d1","\u11d2","\u11d3","\u11d4","\u11d5","\u11d6","\u11d7","\u11d8","\u11d9","\u11da","\u11db","\u11dc","\u11dd","\u11de","\u11df","\u11e0","\u11e1","\u11e2","\u11e3","\u11e4","\u11e5","\u11e6","\u11e7","\u11e8","\u11e9","\u11ea","\u11eb","\u11ec","\u11ed","\u11ee","\u11ef","\u11f0","\u11f1","\u11f2","\u11f3","\u11f4","\u11f5","\u11f6","\u11f7","\u11f8","\u11f9","\u11fa","\u11fb","\u11fc","\u11fd","\u11fe","\u11ff",  # ; T # Lo  [88] HANGUL JONGSEONG KIYEOK..HANGUL JONGSEONG SSANGNIEUN
+        "\ud7cb","\ud7cc","\ud7cd","\ud7ce","\ud7cf","\ud7d0","\ud7d1","\ud7d2","\ud7d3","\ud7d4","\ud7d5","\ud7d6","\ud7d7","\ud7d8","\ud7d9","\ud7da","\ud7db","\ud7dc","\ud7dd","\ud7de","\ud7df","\ud7e0","\ud7e1","\ud7e2","\ud7e3","\ud7e4","\ud7e5","\ud7e6","\ud7e7","\ud7e8","\ud7e9","\ud7ea","\ud7eb","\ud7ec","\ud7ed","\ud7ee","\ud7ef","\ud7f0","\ud7f1","\ud7f2","\ud7f3","\ud7f4","\ud7f5","\ud7f6","\ud7f7","\ud7f8","\ud7f9","\ud7fa","\ud7fb",  # ; T # Lo  [49] HANGUL JONGSEONG NIEUN-RIEUL..HANGUL JONGSEONG PHIEUPH-THIEUTH
+        "\uAC00",  # ; LV # Lo       HANGUL SYLLABLE GA
+        "\uAC1C",  # ; LV # Lo       HANGUL SYLLABLE GAE
+        "\uAC38",  # ; LV # Lo       HANGUL SYLLABLE GYA
+        "\uAC54",  # ; LV # Lo       HANGUL SYLLABLE GYAE
+        "\uAC70",  # ; LV # Lo       HANGUL SYLLABLE GEO
+        "\uAC8C",  # ; LV # Lo       HANGUL SYLLABLE GE
+        "\uACA8",  # ; LV # Lo       HANGUL SYLLABLE GYEO
+        "\uACC4",  # ; LV # Lo       HANGUL SYLLABLE GYE
+        "\uACE0",  # ; LV # Lo       HANGUL SYLLABLE GO
+        "\uACFC",  # ; LV # Lo       HANGUL SYLLABLE GWA
+        "\uAD18",  # ; LV # Lo       HANGUL SYLLABLE GWAE
+        "\uAD34",  # ; LV # Lo       HANGUL SYLLABLE GOE
+        "\uAD50",  # ; LV # Lo       HANGUL SYLLABLE GYO
+        "\uAD6C",  # ; LV # Lo       HANGUL SYLLABLE GU
+        "\uAD88",  # ; LV # Lo       HANGUL SYLLABLE GWEO
+        "\uADA4",  # ; LV # Lo       HANGUL SYLLABLE GWE
+        "\uADC0",  # ; LV # Lo       HANGUL SYLLABLE GWI
+        "\uADDC",  # ; LV # Lo       HANGUL SYLLABLE GYU
+        "\uADF8",  # ; LV # Lo       HANGUL SYLLABLE GEU
+        "\uAE14",  # ; LV # Lo       HANGUL SYLLABLE GYI
+        "\uAE30",  # ; LV # Lo       HANGUL SYLLABLE GI
+        "\uAE4C",  # ; LV # Lo       HANGUL SYLLABLE GGA
+        "\uAE68",  # ; LV # Lo       HANGUL SYLLABLE GGAE
+        "\uAE84",  # ; LV # Lo       HANGUL SYLLABLE GGYA
+        "\uAEA0",  # ; LV # Lo       HANGUL SYLLABLE GGYAE
+        "\uAEBC",  # ; LV # Lo       HANGUL SYLLABLE GGEO
+        "\uAED8",  # ; LV # Lo       HANGUL SYLLABLE GGE
+        "\uAEF4",  # ; LV # Lo       HANGUL SYLLABLE GGYEO
+        "\uAF10",  # ; LV # Lo       HANGUL SYLLABLE GGYE
+        "\uAF2C",  # ; LV # Lo       HANGUL SYLLABLE GGO
+        "\uAF48",  # ; LV # Lo       HANGUL SYLLABLE GGWA
+        "\uAF64",  # ; LV # Lo       HANGUL SYLLABLE GGWAE
+        "\uAF80",  # ; LV # Lo       HANGUL SYLLABLE GGOE
+        "\uAF9C",  # ; LV # Lo       HANGUL SYLLABLE GGYO
+        "\uAFB8",  # ; LV # Lo       HANGUL SYLLABLE GGU
+        "\uAFD4",  # ; LV # Lo       HANGUL SYLLABLE GGWEO
+        "\uAFF0",  # ; LV # Lo       HANGUL SYLLABLE GGWE
+        "\uB00C",  # ; LV # Lo       HANGUL SYLLABLE GGWI
+        "\uB028",  # ; LV # Lo       HANGUL SYLLABLE GGYU
+        "\uB044",  # ; LV # Lo       HANGUL SYLLABLE GGEU
+        "\uB060",  # ; LV # Lo       HANGUL SYLLABLE GGYI
+        "\uB07C",  # ; LV # Lo       HANGUL SYLLABLE GGI
+        "\uB098",  # ; LV # Lo       HANGUL SYLLABLE NA
+        "\uB0B4",  # ; LV # Lo       HANGUL SYLLABLE NAE
+        "\uB0D0",  # ; LV # Lo       HANGUL SYLLABLE NYA
+        "\uB0EC",  # ; LV # Lo       HANGUL SYLLABLE NYAE
+        "\uB108",  # ; LV # Lo       HANGUL SYLLABLE NEO
+        "\uB124",  # ; LV # Lo       HANGUL SYLLABLE NE
+        "\uB140",  # ; LV # Lo       HANGUL SYLLABLE NYEO
+        "\uB15C",  # ; LV # Lo       HANGUL SYLLABLE NYE
+        "\uB178",  # ; LV # Lo       HANGUL SYLLABLE NO
+        "\uB194",  # ; LV # Lo       HANGUL SYLLABLE NWA
+        "\uB1B0",  # ; LV # Lo       HANGUL SYLLABLE NWAE
+        "\uB1CC",  # ; LV # Lo       HANGUL SYLLABLE NOE
+        "\uB1E8",  # ; LV # Lo       HANGUL SYLLABLE NYO
+        "\uB204",  # ; LV # Lo       HANGUL SYLLABLE NU
+        "\uB220",  # ; LV # Lo       HANGUL SYLLABLE NWEO
+        "\uB23C",  # ; LV # Lo       HANGUL SYLLABLE NWE
+        "\uB258",  # ; LV # Lo       HANGUL SYLLABLE NWI
+        "\uB274",  # ; LV # Lo       HANGUL SYLLABLE NYU
+        "\uB290",  # ; LV # Lo       HANGUL SYLLABLE NEU
+        "\uB2AC",  # ; LV # Lo       HANGUL SYLLABLE NYI
+        "\uB2C8",  # ; LV # Lo       HANGUL SYLLABLE NI
+        "\uB2E4",  # ; LV # Lo       HANGUL SYLLABLE DA
+        "\uB300",  # ; LV # Lo       HANGUL SYLLABLE DAE
+        "\uB31C",  # ; LV # Lo       HANGUL SYLLABLE DYA
+        "\uB338",  # ; LV # Lo       HANGUL SYLLABLE DYAE
+        "\uB354",  # ; LV # Lo       HANGUL SYLLABLE DEO
+        "\uB370",  # ; LV # Lo       HANGUL SYLLABLE DE
+        "\uB38C",  # ; LV # Lo       HANGUL SYLLABLE DYEO
+        "\uB3A8",  # ; LV # Lo       HANGUL SYLLABLE DYE
+        "\uB3C4",  # ; LV # Lo       HANGUL SYLLABLE DO
+        "\uB3E0",  # ; LV # Lo       HANGUL SYLLABLE DWA
+        "\uB3FC",  # ; LV # Lo       HANGUL SYLLABLE DWAE
+        "\uB418",  # ; LV # Lo       HANGUL SYLLABLE DOE
+        "\uB434",  # ; LV # Lo       HANGUL SYLLABLE DYO
+        "\uB450",  # ; LV # Lo       HANGUL SYLLABLE DU
+        "\uB46C",  # ; LV # Lo       HANGUL SYLLABLE DWEO
+        "\uB488",  # ; LV # Lo       HANGUL SYLLABLE DWE
+        "\uB4A4",  # ; LV # Lo       HANGUL SYLLABLE DWI
+        "\uB4C0",  # ; LV # Lo       HANGUL SYLLABLE DYU
+        "\uB4DC",  # ; LV # Lo       HANGUL SYLLABLE DEU
+        "\uB4F8",  # ; LV # Lo       HANGUL SYLLABLE DYI
+        "\uB514",  # ; LV # Lo       HANGUL SYLLABLE DI
+        "\uB530",  # ; LV # Lo       HANGUL SYLLABLE DDA
+        "\uB54C",  # ; LV # Lo       HANGUL SYLLABLE DDAE
+        "\uB568",  # ; LV # Lo       HANGUL SYLLABLE DDYA
+        "\uB584",  # ; LV # Lo       HANGUL SYLLABLE DDYAE
+        "\uB5A0",  # ; LV # Lo       HANGUL SYLLABLE DDEO
+        "\uB5BC",  # ; LV # Lo       HANGUL SYLLABLE DDE
+        "\uB5D8",  # ; LV # Lo       HANGUL SYLLABLE DDYEO
+        "\uB5F4",  # ; LV # Lo       HANGUL SYLLABLE DDYE
+        "\uB610",  # ; LV # Lo       HANGUL SYLLABLE DDO
+        "\uB62C",  # ; LV # Lo       HANGUL SYLLABLE DDWA
+        "\uB648",  # ; LV # Lo       HANGUL SYLLABLE DDWAE
+        "\uB664",  # ; LV # Lo       HANGUL SYLLABLE DDOE
+        "\uB680",  # ; LV # Lo       HANGUL SYLLABLE DDYO
+        "\uB69C",  # ; LV # Lo       HANGUL SYLLABLE DDU
+        "\uB6B8",  # ; LV # Lo       HANGUL SYLLABLE DDWEO
+        "\uB6D4",  # ; LV # Lo       HANGUL SYLLABLE DDWE
+        "\uB6F0",  # ; LV # Lo       HANGUL SYLLABLE DDWI
+        "\uB70C",  # ; LV # Lo       HANGUL SYLLABLE DDYU
+        "\uB728",  # ; LV # Lo       HANGUL SYLLABLE DDEU
+        "\uB744",  # ; LV # Lo       HANGUL SYLLABLE DDYI
+        "\uB760",  # ; LV # Lo       HANGUL SYLLABLE DDI
+        "\uB77C",  # ; LV # Lo       HANGUL SYLLABLE RA
+        "\uB798",  # ; LV # Lo       HANGUL SYLLABLE RAE
+        "\uB7B4",  # ; LV # Lo       HANGUL SYLLABLE RYA
+        "\uB7D0",  # ; LV # Lo       HANGUL SYLLABLE RYAE
+        "\uB7EC",  # ; LV # Lo       HANGUL SYLLABLE REO
+        "\uB808",  # ; LV # Lo       HANGUL SYLLABLE RE
+        "\uB824",  # ; LV # Lo       HANGUL SYLLABLE RYEO
+        "\uB840",  # ; LV # Lo       HANGUL SYLLABLE RYE
+        "\uB85C",  # ; LV # Lo       HANGUL SYLLABLE RO
+        "\uB878",  # ; LV # Lo       HANGUL SYLLABLE RWA
+        "\uB894",  # ; LV # Lo       HANGUL SYLLABLE RWAE
+        "\uB8B0",  # ; LV # Lo       HANGUL SYLLABLE ROE
+        "\uB8CC",  # ; LV # Lo       HANGUL SYLLABLE RYO
+        "\uB8E8",  # ; LV # Lo       HANGUL SYLLABLE RU
+        "\uB904",  # ; LV # Lo       HANGUL SYLLABLE RWEO
+        "\uB920",  # ; LV # Lo       HANGUL SYLLABLE RWE
+        "\uB93C",  # ; LV # Lo       HANGUL SYLLABLE RWI
+        "\uB958",  # ; LV # Lo       HANGUL SYLLABLE RYU
+        "\uB974",  # ; LV # Lo       HANGUL SYLLABLE REU
+        "\uB990",  # ; LV # Lo       HANGUL SYLLABLE RYI
+        "\uB9AC",  # ; LV # Lo       HANGUL SYLLABLE RI
+        "\uB9C8",  # ; LV # Lo       HANGUL SYLLABLE MA
+        "\uB9E4",  # ; LV # Lo       HANGUL SYLLABLE MAE
+        "\uBA00",  # ; LV # Lo       HANGUL SYLLABLE MYA
+        "\uBA1C",  # ; LV # Lo       HANGUL SYLLABLE MYAE
+        "\uBA38",  # ; LV # Lo       HANGUL SYLLABLE MEO
+        "\uBA54",  # ; LV # Lo       HANGUL SYLLABLE ME
+        "\uBA70",  # ; LV # Lo       HANGUL SYLLABLE MYEO
+        "\uBA8C",  # ; LV # Lo       HANGUL SYLLABLE MYE
+        "\uBAA8",  # ; LV # Lo       HANGUL SYLLABLE MO
+        "\uBAC4",  # ; LV # Lo       HANGUL SYLLABLE MWA
+        "\uBAE0",  # ; LV # Lo       HANGUL SYLLABLE MWAE
+        "\uBAFC",  # ; LV # Lo       HANGUL SYLLABLE MOE
+        "\uBB18",  # ; LV # Lo       HANGUL SYLLABLE MYO
+        "\uBB34",  # ; LV # Lo       HANGUL SYLLABLE MU
+        "\uBB50",  # ; LV # Lo       HANGUL SYLLABLE MWEO
+        "\uBB6C",  # ; LV # Lo       HANGUL SYLLABLE MWE
+        "\uBB88",  # ; LV # Lo       HANGUL SYLLABLE MWI
+        "\uBBA4",  # ; LV # Lo       HANGUL SYLLABLE MYU
+        "\uBBC0",  # ; LV # Lo       HANGUL SYLLABLE MEU
+        "\uBBDC",  # ; LV # Lo       HANGUL SYLLABLE MYI
+        "\uBBF8",  # ; LV # Lo       HANGUL SYLLABLE MI
+        "\uBC14",  # ; LV # Lo       HANGUL SYLLABLE BA
+        "\uBC30",  # ; LV # Lo       HANGUL SYLLABLE BAE
+        "\uBC4C",  # ; LV # Lo       HANGUL SYLLABLE BYA
+        "\uBC68",  # ; LV # Lo       HANGUL SYLLABLE BYAE
+        "\uBC84",  # ; LV # Lo       HANGUL SYLLABLE BEO
+        "\uBCA0",  # ; LV # Lo       HANGUL SYLLABLE BE
+        "\uBCBC",  # ; LV # Lo       HANGUL SYLLABLE BYEO
+        "\uBCD8",  # ; LV # Lo       HANGUL SYLLABLE BYE
+        "\uBCF4",  # ; LV # Lo       HANGUL SYLLABLE BO
+        "\uBD10",  # ; LV # Lo       HANGUL SYLLABLE BWA
+        "\uBD2C",  # ; LV # Lo       HANGUL SYLLABLE BWAE
+        "\uBD48",  # ; LV # Lo       HANGUL SYLLABLE BOE
+        "\uBD64",  # ; LV # Lo       HANGUL SYLLABLE BYO
+        "\uBD80",  # ; LV # Lo       HANGUL SYLLABLE BU
+        "\uBD9C",  # ; LV # Lo       HANGUL SYLLABLE BWEO
+        "\uBDB8",  # ; LV # Lo       HANGUL SYLLABLE BWE
+        "\uBDD4",  # ; LV # Lo       HANGUL SYLLABLE BWI
+        "\uBDF0",  # ; LV # Lo       HANGUL SYLLABLE BYU
+        "\uBE0C",  # ; LV # Lo       HANGUL SYLLABLE BEU
+        "\uBE28",  # ; LV # Lo       HANGUL SYLLABLE BYI
+        "\uBE44",  # ; LV # Lo       HANGUL SYLLABLE BI
+        "\uBE60",  # ; LV # Lo       HANGUL SYLLABLE BBA
+        "\uBE7C",  # ; LV # Lo       HANGUL SYLLABLE BBAE
+        "\uBE98",  # ; LV # Lo       HANGUL SYLLABLE BBYA
+        "\uBEB4",  # ; LV # Lo       HANGUL SYLLABLE BBYAE
+        "\uBED0",  # ; LV # Lo       HANGUL SYLLABLE BBEO
+        "\uBEEC",  # ; LV # Lo       HANGUL SYLLABLE BBE
+        "\uBF08",  # ; LV # Lo       HANGUL SYLLABLE BBYEO
+        "\uBF24",  # ; LV # Lo       HANGUL SYLLABLE BBYE
+        "\uBF40",  # ; LV # Lo       HANGUL SYLLABLE BBO
+        "\uBF5C",  # ; LV # Lo       HANGUL SYLLABLE BBWA
+        "\uBF78",  # ; LV # Lo       HANGUL SYLLABLE BBWAE
+        "\uBF94",  # ; LV # Lo       HANGUL SYLLABLE BBOE
+        "\uBFB0",  # ; LV # Lo       HANGUL SYLLABLE BBYO
+        "\uBFCC",  # ; LV # Lo       HANGUL SYLLABLE BBU
+        "\uBFE8",  # ; LV # Lo       HANGUL SYLLABLE BBWEO
+        "\uC004",  # ; LV # Lo       HANGUL SYLLABLE BBWE
+        "\uC020",  # ; LV # Lo       HANGUL SYLLABLE BBWI
+        "\uC03C",  # ; LV # Lo       HANGUL SYLLABLE BBYU
+        "\uC058",  # ; LV # Lo       HANGUL SYLLABLE BBEU
+        "\uC074",  # ; LV # Lo       HANGUL SYLLABLE BBYI
+        "\uC090",  # ; LV # Lo       HANGUL SYLLABLE BBI
+        "\uC0AC",  # ; LV # Lo       HANGUL SYLLABLE SA
+        "\uC0C8",  # ; LV # Lo       HANGUL SYLLABLE SAE
+        "\uC0E4",  # ; LV # Lo       HANGUL SYLLABLE SYA
+        "\uC100",  # ; LV # Lo       HANGUL SYLLABLE SYAE
+        "\uC11C",  # ; LV # Lo       HANGUL SYLLABLE SEO
+        "\uC138",  # ; LV # Lo       HANGUL SYLLABLE SE
+        "\uC154",  # ; LV # Lo       HANGUL SYLLABLE SYEO
+        "\uC170",  # ; LV # Lo       HANGUL SYLLABLE SYE
+        "\uC18C",  # ; LV # Lo       HANGUL SYLLABLE SO
+        "\uC1A8",  # ; LV # Lo       HANGUL SYLLABLE SWA
+        "\uC1C4",  # ; LV # Lo       HANGUL SYLLABLE SWAE
+        "\uC1E0",  # ; LV # Lo       HANGUL SYLLABLE SOE
+        "\uC1FC",  # ; LV # Lo       HANGUL SYLLABLE SYO
+        "\uC218",  # ; LV # Lo       HANGUL SYLLABLE SU
+        "\uC234",  # ; LV # Lo       HANGUL SYLLABLE SWEO
+        "\uC250",  # ; LV # Lo       HANGUL SYLLABLE SWE
+        "\uC26C",  # ; LV # Lo       HANGUL SYLLABLE SWI
+        "\uC288",  # ; LV # Lo       HANGUL SYLLABLE SYU
+        "\uC2A4",  # ; LV # Lo       HANGUL SYLLABLE SEU
+        "\uC2C0",  # ; LV # Lo       HANGUL SYLLABLE SYI
+        "\uC2DC",  # ; LV # Lo       HANGUL SYLLABLE SI
+        "\uC2F8",  # ; LV # Lo       HANGUL SYLLABLE SSA
+        "\uC314",  # ; LV # Lo       HANGUL SYLLABLE SSAE
+        "\uC330",  # ; LV # Lo       HANGUL SYLLABLE SSYA
+        "\uC34C",  # ; LV # Lo       HANGUL SYLLABLE SSYAE
+        "\uC368",  # ; LV # Lo       HANGUL SYLLABLE SSEO
+        "\uC384",  # ; LV # Lo       HANGUL SYLLABLE SSE
+        "\uC3A0",  # ; LV # Lo       HANGUL SYLLABLE SSYEO
+        "\uC3BC",  # ; LV # Lo       HANGUL SYLLABLE SSYE
+        "\uC3D8",  # ; LV # Lo       HANGUL SYLLABLE SSO
+        "\uC3F4",  # ; LV # Lo       HANGUL SYLLABLE SSWA
+        "\uC410",  # ; LV # Lo       HANGUL SYLLABLE SSWAE
+        "\uC42C",  # ; LV # Lo       HANGUL SYLLABLE SSOE
+        "\uC448",  # ; LV # Lo       HANGUL SYLLABLE SSYO
+        "\uC464",  # ; LV # Lo       HANGUL SYLLABLE SSU
+        "\uC480",  # ; LV # Lo       HANGUL SYLLABLE SSWEO
+        "\uC49C",  # ; LV # Lo       HANGUL SYLLABLE SSWE
+        "\uC4B8",  # ; LV # Lo       HANGUL SYLLABLE SSWI
+        "\uC4D4",  # ; LV # Lo       HANGUL SYLLABLE SSYU
+        "\uC4F0",  # ; LV # Lo       HANGUL SYLLABLE SSEU
+        "\uC50C",  # ; LV # Lo       HANGUL SYLLABLE SSYI
+        "\uC528",  # ; LV # Lo       HANGUL SYLLABLE SSI
+        "\uC544",  # ; LV # Lo       HANGUL SYLLABLE A
+        "\uC560",  # ; LV # Lo       HANGUL SYLLABLE AE
+        "\uC57C",  # ; LV # Lo       HANGUL SYLLABLE YA
+        "\uC598",  # ; LV # Lo       HANGUL SYLLABLE YAE
+        "\uC5B4",  # ; LV # Lo       HANGUL SYLLABLE EO
+        "\uC5D0",  # ; LV # Lo       HANGUL SYLLABLE E
+        "\uC5EC",  # ; LV # Lo       HANGUL SYLLABLE YEO
+        "\uC608",  # ; LV # Lo       HANGUL SYLLABLE YE
+        "\uC624",  # ; LV # Lo       HANGUL SYLLABLE O
+        "\uC640",  # ; LV # Lo       HANGUL SYLLABLE WA
+        "\uC65C",  # ; LV # Lo       HANGUL SYLLABLE WAE
+        "\uC678",  # ; LV # Lo       HANGUL SYLLABLE OE
+        "\uC694",  # ; LV # Lo       HANGUL SYLLABLE YO
+        "\uC6B0",  # ; LV # Lo       HANGUL SYLLABLE U
+        "\uC6CC",  # ; LV # Lo       HANGUL SYLLABLE WEO
+        "\uC6E8",  # ; LV # Lo       HANGUL SYLLABLE WE
+        "\uC704",  # ; LV # Lo       HANGUL SYLLABLE WI
+        "\uC720",  # ; LV # Lo       HANGUL SYLLABLE YU
+        "\uC73C",  # ; LV # Lo       HANGUL SYLLABLE EU
+        "\uC758",  # ; LV # Lo       HANGUL SYLLABLE YI
+        "\uC774",  # ; LV # Lo       HANGUL SYLLABLE I
+        "\uC790",  # ; LV # Lo       HANGUL SYLLABLE JA
+        "\uC7AC",  # ; LV # Lo       HANGUL SYLLABLE JAE
+        "\uC7C8",  # ; LV # Lo       HANGUL SYLLABLE JYA
+        "\uC7E4",  # ; LV # Lo       HANGUL SYLLABLE JYAE
+        "\uC800",  # ; LV # Lo       HANGUL SYLLABLE JEO
+        "\uC81C",  # ; LV # Lo       HANGUL SYLLABLE JE
+        "\uC838",  # ; LV # Lo       HANGUL SYLLABLE JYEO
+        "\uC854",  # ; LV # Lo       HANGUL SYLLABLE JYE
+        "\uC870",  # ; LV # Lo       HANGUL SYLLABLE JO
+        "\uC88C",  # ; LV # Lo       HANGUL SYLLABLE JWA
+        "\uC8A8",  # ; LV # Lo       HANGUL SYLLABLE JWAE
+        "\uC8C4",  # ; LV # Lo       HANGUL SYLLABLE JOE
+        "\uC8E0",  # ; LV # Lo       HANGUL SYLLABLE JYO
+        "\uC8FC",  # ; LV # Lo       HANGUL SYLLABLE JU
+        "\uC918",  # ; LV # Lo       HANGUL SYLLABLE JWEO
+        "\uC934",  # ; LV # Lo       HANGUL SYLLABLE JWE
+        "\uC950",  # ; LV # Lo       HANGUL SYLLABLE JWI
+        "\uC96C",  # ; LV # Lo       HANGUL SYLLABLE JYU
+        "\uC988",  # ; LV # Lo       HANGUL SYLLABLE JEU
+        "\uC9A4",  # ; LV # Lo       HANGUL SYLLABLE JYI
+        "\uC9C0",  # ; LV # Lo       HANGUL SYLLABLE JI
+        "\uC9DC",  # ; LV # Lo       HANGUL SYLLABLE JJA
+        "\uC9F8",  # ; LV # Lo       HANGUL SYLLABLE JJAE
+        "\uCA14",  # ; LV # Lo       HANGUL SYLLABLE JJYA
+        "\uCA30",  # ; LV # Lo       HANGUL SYLLABLE JJYAE
+        "\uCA4C",  # ; LV # Lo       HANGUL SYLLABLE JJEO
+        "\uCA68",  # ; LV # Lo       HANGUL SYLLABLE JJE
+        "\uCA84",  # ; LV # Lo       HANGUL SYLLABLE JJYEO
+        "\uCAA0",  # ; LV # Lo       HANGUL SYLLABLE JJYE
+        "\uCABC",  # ; LV # Lo       HANGUL SYLLABLE JJO
+        "\uCAD8",  # ; LV # Lo       HANGUL SYLLABLE JJWA
+        "\uCAF4",  # ; LV # Lo       HANGUL SYLLABLE JJWAE
+        "\uCB10",  # ; LV # Lo       HANGUL SYLLABLE JJOE
+        "\uCB2C",  # ; LV # Lo       HANGUL SYLLABLE JJYO
+        "\uCB48",  # ; LV # Lo       HANGUL SYLLABLE JJU
+        "\uCB64",  # ; LV # Lo       HANGUL SYLLABLE JJWEO
+        "\uCB80",  # ; LV # Lo       HANGUL SYLLABLE JJWE
+        "\uCB9C",  # ; LV # Lo       HANGUL SYLLABLE JJWI
+        "\uCBB8",  # ; LV # Lo       HANGUL SYLLABLE JJYU
+        "\uCBD4",  # ; LV # Lo       HANGUL SYLLABLE JJEU
+        "\uCBF0",  # ; LV # Lo       HANGUL SYLLABLE JJYI
+        "\uCC0C",  # ; LV # Lo       HANGUL SYLLABLE JJI
+        "\uCC28",  # ; LV # Lo       HANGUL SYLLABLE CA
+        "\uCC44",  # ; LV # Lo       HANGUL SYLLABLE CAE
+        "\uCC60",  # ; LV # Lo       HANGUL SYLLABLE CYA
+        "\uCC7C",  # ; LV # Lo       HANGUL SYLLABLE CYAE
+        "\uCC98",  # ; LV # Lo       HANGUL SYLLABLE CEO
+        "\uCCB4",  # ; LV # Lo       HANGUL SYLLABLE CE
+        "\uCCD0",  # ; LV # Lo       HANGUL SYLLABLE CYEO
+        "\uCCEC",  # ; LV # Lo       HANGUL SYLLABLE CYE
+        "\uCD08",  # ; LV # Lo       HANGUL SYLLABLE CO
+        "\uCD24",  # ; LV # Lo       HANGUL SYLLABLE CWA
+        "\uCD40",  # ; LV # Lo       HANGUL SYLLABLE CWAE
+        "\uCD5C",  # ; LV # Lo       HANGUL SYLLABLE COE
+        "\uCD78",  # ; LV # Lo       HANGUL SYLLABLE CYO
+        "\uCD94",  # ; LV # Lo       HANGUL SYLLABLE CU
+        "\uCDB0",  # ; LV # Lo       HANGUL SYLLABLE CWEO
+        "\uCDCC",  # ; LV # Lo       HANGUL SYLLABLE CWE
+        "\uCDE8",  # ; LV # Lo       HANGUL SYLLABLE CWI
+        "\uCE04",  # ; LV # Lo       HANGUL SYLLABLE CYU
+        "\uCE20",  # ; LV # Lo       HANGUL SYLLABLE CEU
+        "\uCE3C",  # ; LV # Lo       HANGUL SYLLABLE CYI
+        "\uCE58",  # ; LV # Lo       HANGUL SYLLABLE CI
+        "\uCE74",  # ; LV # Lo       HANGUL SYLLABLE KA
+        "\uCE90",  # ; LV # Lo       HANGUL SYLLABLE KAE
+        "\uCEAC",  # ; LV # Lo       HANGUL SYLLABLE KYA
+        "\uCEC8",  # ; LV # Lo       HANGUL SYLLABLE KYAE
+        "\uCEE4",  # ; LV # Lo       HANGUL SYLLABLE KEO
+        "\uCF00",  # ; LV # Lo       HANGUL SYLLABLE KE
+        "\uCF1C",  # ; LV # Lo       HANGUL SYLLABLE KYEO
+        "\uCF38",  # ; LV # Lo       HANGUL SYLLABLE KYE
+        "\uCF54",  # ; LV # Lo       HANGUL SYLLABLE KO
+        "\uCF70",  # ; LV # Lo       HANGUL SYLLABLE KWA
+        "\uCF8C",  # ; LV # Lo       HANGUL SYLLABLE KWAE
+        "\uCFA8",  # ; LV # Lo       HANGUL SYLLABLE KOE
+        "\uCFC4",  # ; LV # Lo       HANGUL SYLLABLE KYO
+        "\uCFE0",  # ; LV # Lo       HANGUL SYLLABLE KU
+        "\uCFFC",  # ; LV # Lo       HANGUL SYLLABLE KWEO
+        "\uD018",  # ; LV # Lo       HANGUL SYLLABLE KWE
+        "\uD034",  # ; LV # Lo       HANGUL SYLLABLE KWI
+        "\uD050",  # ; LV # Lo       HANGUL SYLLABLE KYU
+        "\uD06C",  # ; LV # Lo       HANGUL SYLLABLE KEU
+        "\uD088",  # ; LV # Lo       HANGUL SYLLABLE KYI
+        "\uD0A4",  # ; LV # Lo       HANGUL SYLLABLE KI
+        "\uD0C0",  # ; LV # Lo       HANGUL SYLLABLE TA
+        "\uD0DC",  # ; LV # Lo       HANGUL SYLLABLE TAE
+        "\uD0F8",  # ; LV # Lo       HANGUL SYLLABLE TYA
+        "\uD114",  # ; LV # Lo       HANGUL SYLLABLE TYAE
+        "\uD130",  # ; LV # Lo       HANGUL SYLLABLE TEO
+        "\uD14C",  # ; LV # Lo       HANGUL SYLLABLE TE
+        "\uD168",  # ; LV # Lo       HANGUL SYLLABLE TYEO
+        "\uD184",  # ; LV # Lo       HANGUL SYLLABLE TYE
+        "\uD1A0",  # ; LV # Lo       HANGUL SYLLABLE TO
+        "\uD1BC",  # ; LV # Lo       HANGUL SYLLABLE TWA
+        "\uD1D8",  # ; LV # Lo       HANGUL SYLLABLE TWAE
+        "\uD1F4",  # ; LV # Lo       HANGUL SYLLABLE TOE
+        "\uD210",  # ; LV # Lo       HANGUL SYLLABLE TYO
+        "\uD22C",  # ; LV # Lo       HANGUL SYLLABLE TU
+        "\uD248",  # ; LV # Lo       HANGUL SYLLABLE TWEO
+        "\uD264",  # ; LV # Lo       HANGUL SYLLABLE TWE
+        "\uD280",  # ; LV # Lo       HANGUL SYLLABLE TWI
+        "\uD29C",  # ; LV # Lo       HANGUL SYLLABLE TYU
+        "\uD2B8",  # ; LV # Lo       HANGUL SYLLABLE TEU
+        "\uD2D4",  # ; LV # Lo       HANGUL SYLLABLE TYI
+        "\uD2F0",  # ; LV # Lo       HANGUL SYLLABLE TI
+        "\uD30C",  # ; LV # Lo       HANGUL SYLLABLE PA
+        "\uD328",  # ; LV # Lo       HANGUL SYLLABLE PAE
+        "\uD344",  # ; LV # Lo       HANGUL SYLLABLE PYA
+        "\uD360",  # ; LV # Lo       HANGUL SYLLABLE PYAE
+        "\uD37C",  # ; LV # Lo       HANGUL SYLLABLE PEO
+        "\uD398",  # ; LV # Lo       HANGUL SYLLABLE PE
+        "\uD3B4",  # ; LV # Lo       HANGUL SYLLABLE PYEO
+        "\uD3D0",  # ; LV # Lo       HANGUL SYLLABLE PYE
+        "\uD3EC",  # ; LV # Lo       HANGUL SYLLABLE PO
+        "\uD408",  # ; LV # Lo       HANGUL SYLLABLE PWA
+        "\uD424",  # ; LV # Lo       HANGUL SYLLABLE PWAE
+        "\uD440",  # ; LV # Lo       HANGUL SYLLABLE POE
+        "\uD45C",  # ; LV # Lo       HANGUL SYLLABLE PYO
+        "\uD478",  # ; LV # Lo       HANGUL SYLLABLE PU
+        "\uD494",  # ; LV # Lo       HANGUL SYLLABLE PWEO
+        "\uD4B0",  # ; LV # Lo       HANGUL SYLLABLE PWE
+        "\uD4CC",  # ; LV # Lo       HANGUL SYLLABLE PWI
+        "\uD4E8",  # ; LV # Lo       HANGUL SYLLABLE PYU
+        "\uD504",  # ; LV # Lo       HANGUL SYLLABLE PEU
+        "\uD520",  # ; LV # Lo       HANGUL SYLLABLE PYI
+        "\uD53C",  # ; LV # Lo       HANGUL SYLLABLE PI
+        "\uD558",  # ; LV # Lo       HANGUL SYLLABLE HA
+        "\uD574",  # ; LV # Lo       HANGUL SYLLABLE HAE
+        "\uD590",  # ; LV # Lo       HANGUL SYLLABLE HYA
+        "\uD5AC",  # ; LV # Lo       HANGUL SYLLABLE HYAE
+        "\uD5C8",  # ; LV # Lo       HANGUL SYLLABLE HEO
+        "\uD5E4",  # ; LV # Lo       HANGUL SYLLABLE HE
+        "\uD600",  # ; LV # Lo       HANGUL SYLLABLE HYEO
+        "\uD61C",  # ; LV # Lo       HANGUL SYLLABLE HYE
+        "\uD638",  # ; LV # Lo       HANGUL SYLLABLE HO
+        "\uD654",  # ; LV # Lo       HANGUL SYLLABLE HWA
+        "\uD670",  # ; LV # Lo       HANGUL SYLLABLE HWAE
+        "\uD68C",  # ; LV # Lo       HANGUL SYLLABLE HOE
+        "\uD6A8",  # ; LV # Lo       HANGUL SYLLABLE HYO
+        "\uD6C4",  # ; LV # Lo       HANGUL SYLLABLE HU
+        "\uD6E0",  # ; LV # Lo       HANGUL SYLLABLE HWEO
+        "\uD6FC",  # ; LV # Lo       HANGUL SYLLABLE HWE
+        "\uD718",  # ; LV # Lo       HANGUL SYLLABLE HWI
+        "\uD734",  # ; LV # Lo       HANGUL SYLLABLE HYU
+        "\uD750",  # ; LV # Lo       HANGUL SYLLABLE HEU
+        "\uD76C",  # ; LV # Lo       HANGUL SYLLABLE HYI
+        "\uD788",  # ; LV # Lo       HANGUL SYLLABLE HI
+        "\uac01","\uac02","\uac03","\uac04","\uac05","\uac06","\uac07","\uac08","\uac09","\uac0a","\uac0b","\uac0c","\uac0d","\uac0e","\uac0f","\uac10","\uac11","\uac12","\uac13","\uac14","\uac15","\uac16","\uac17","\uac18","\uac19","\uac1a","\uac1b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GAG..HANGUL SYLLABLE GAH
+        "\uac1d","\uac1e","\uac1f","\uac20","\uac21","\uac22","\uac23","\uac24","\uac25","\uac26","\uac27","\uac28","\uac29","\uac2a","\uac2b","\uac2c","\uac2d","\uac2e","\uac2f","\uac30","\uac31","\uac32","\uac33","\uac34","\uac35","\uac36","\uac37",  # ; LVT # Lo  [27] HANGUL SYLLABLE GAEG..HANGUL SYLLABLE GAEH
+        "\uac39","\uac3a","\uac3b","\uac3c","\uac3d","\uac3e","\uac3f","\uac40","\uac41","\uac42","\uac43","\uac44","\uac45","\uac46","\uac47","\uac48","\uac49","\uac4a","\uac4b","\uac4c","\uac4d","\uac4e","\uac4f","\uac50","\uac51","\uac52","\uac53",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYAG..HANGUL SYLLABLE GYAH
+        "\uac55","\uac56","\uac57","\uac58","\uac59","\uac5a","\uac5b","\uac5c","\uac5d","\uac5e","\uac5f","\uac60","\uac61","\uac62","\uac63","\uac64","\uac65","\uac66","\uac67","\uac68","\uac69","\uac6a","\uac6b","\uac6c","\uac6d","\uac6e","\uac6f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYAEG..HANGUL SYLLABLE GYAEH
+        "\uac71","\uac72","\uac73","\uac74","\uac75","\uac76","\uac77","\uac78","\uac79","\uac7a","\uac7b","\uac7c","\uac7d","\uac7e","\uac7f","\uac80","\uac81","\uac82","\uac83","\uac84","\uac85","\uac86","\uac87","\uac88","\uac89","\uac8a","\uac8b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GEOG..HANGUL SYLLABLE GEOH
+        "\uac8d","\uac8e","\uac8f","\uac90","\uac91","\uac92","\uac93","\uac94","\uac95","\uac96","\uac97","\uac98","\uac99","\uac9a","\uac9b","\uac9c","\uac9d","\uac9e","\uac9f","\uaca0","\uaca1","\uaca2","\uaca3","\uaca4","\uaca5","\uaca6","\uaca7",  # ; LVT # Lo  [27] HANGUL SYLLABLE GEG..HANGUL SYLLABLE GEH
+        "\uaca9","\uacaa","\uacab","\uacac","\uacad","\uacae","\uacaf","\uacb0","\uacb1","\uacb2","\uacb3","\uacb4","\uacb5","\uacb6","\uacb7","\uacb8","\uacb9","\uacba","\uacbb","\uacbc","\uacbd","\uacbe","\uacbf","\uacc0","\uacc1","\uacc2","\uacc3",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYEOG..HANGUL SYLLABLE GYEOH
+        "\uacc5","\uacc6","\uacc7","\uacc8","\uacc9","\uacca","\uaccb","\uaccc","\uaccd","\uacce","\uaccf","\uacd0","\uacd1","\uacd2","\uacd3","\uacd4","\uacd5","\uacd6","\uacd7","\uacd8","\uacd9","\uacda","\uacdb","\uacdc","\uacdd","\uacde","\uacdf",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYEG..HANGUL SYLLABLE GYEH
+        "\uace1","\uace2","\uace3","\uace4","\uace5","\uace6","\uace7","\uace8","\uace9","\uacea","\uaceb","\uacec","\uaced","\uacee","\uacef","\uacf0","\uacf1","\uacf2","\uacf3","\uacf4","\uacf5","\uacf6","\uacf7","\uacf8","\uacf9","\uacfa","\uacfb",  # ; LVT # Lo  [27] HANGUL SYLLABLE GOG..HANGUL SYLLABLE GOH
+        "\uacfd","\uacfe","\uacff","\uad00","\uad01","\uad02","\uad03","\uad04","\uad05","\uad06","\uad07","\uad08","\uad09","\uad0a","\uad0b","\uad0c","\uad0d","\uad0e","\uad0f","\uad10","\uad11","\uad12","\uad13","\uad14","\uad15","\uad16","\uad17",  # ; LVT # Lo  [27] HANGUL SYLLABLE GWAG..HANGUL SYLLABLE GWAH
+        "\uad19","\uad1a","\uad1b","\uad1c","\uad1d","\uad1e","\uad1f","\uad20","\uad21","\uad22","\uad23","\uad24","\uad25","\uad26","\uad27","\uad28","\uad29","\uad2a","\uad2b","\uad2c","\uad2d","\uad2e","\uad2f","\uad30","\uad31","\uad32","\uad33",  # ; LVT # Lo  [27] HANGUL SYLLABLE GWAEG..HANGUL SYLLABLE GWAEH
+        "\uad35","\uad36","\uad37","\uad38","\uad39","\uad3a","\uad3b","\uad3c","\uad3d","\uad3e","\uad3f","\uad40","\uad41","\uad42","\uad43","\uad44","\uad45","\uad46","\uad47","\uad48","\uad49","\uad4a","\uad4b","\uad4c","\uad4d","\uad4e","\uad4f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GOEG..HANGUL SYLLABLE GOEH
+        "\uad51","\uad52","\uad53","\uad54","\uad55","\uad56","\uad57","\uad58","\uad59","\uad5a","\uad5b","\uad5c","\uad5d","\uad5e","\uad5f","\uad60","\uad61","\uad62","\uad63","\uad64","\uad65","\uad66","\uad67","\uad68","\uad69","\uad6a","\uad6b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYOG..HANGUL SYLLABLE GYOH
+        "\uad6d","\uad6e","\uad6f","\uad70","\uad71","\uad72","\uad73","\uad74","\uad75","\uad76","\uad77","\uad78","\uad79","\uad7a","\uad7b","\uad7c","\uad7d","\uad7e","\uad7f","\uad80","\uad81","\uad82","\uad83","\uad84","\uad85","\uad86","\uad87",  # ; LVT # Lo  [27] HANGUL SYLLABLE GUG..HANGUL SYLLABLE GUH
+        "\uad89","\uad8a","\uad8b","\uad8c","\uad8d","\uad8e","\uad8f","\uad90","\uad91","\uad92","\uad93","\uad94","\uad95","\uad96","\uad97","\uad98","\uad99","\uad9a","\uad9b","\uad9c","\uad9d","\uad9e","\uad9f","\uada0","\uada1","\uada2","\uada3",  # ; LVT # Lo  [27] HANGUL SYLLABLE GWEOG..HANGUL SYLLABLE GWEOH
+        "\uada5","\uada6","\uada7","\uada8","\uada9","\uadaa","\uadab","\uadac","\uadad","\uadae","\uadaf","\uadb0","\uadb1","\uadb2","\uadb3","\uadb4","\uadb5","\uadb6","\uadb7","\uadb8","\uadb9","\uadba","\uadbb","\uadbc","\uadbd","\uadbe","\uadbf",  # ; LVT # Lo  [27] HANGUL SYLLABLE GWEG..HANGUL SYLLABLE GWEH
+        "\uadc1","\uadc2","\uadc3","\uadc4","\uadc5","\uadc6","\uadc7","\uadc8","\uadc9","\uadca","\uadcb","\uadcc","\uadcd","\uadce","\uadcf","\uadd0","\uadd1","\uadd2","\uadd3","\uadd4","\uadd5","\uadd6","\uadd7","\uadd8","\uadd9","\uadda","\uaddb",  # ; LVT # Lo  [27] HANGUL SYLLABLE GWIG..HANGUL SYLLABLE GWIH
+        "\uaddd","\uadde","\uaddf","\uade0","\uade1","\uade2","\uade3","\uade4","\uade5","\uade6","\uade7","\uade8","\uade9","\uadea","\uadeb","\uadec","\uaded","\uadee","\uadef","\uadf0","\uadf1","\uadf2","\uadf3","\uadf4","\uadf5","\uadf6","\uadf7",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYUG..HANGUL SYLLABLE GYUH
+        "\uadf9","\uadfa","\uadfb","\uadfc","\uadfd","\uadfe","\uadff","\uae00","\uae01","\uae02","\uae03","\uae04","\uae05","\uae06","\uae07","\uae08","\uae09","\uae0a","\uae0b","\uae0c","\uae0d","\uae0e","\uae0f","\uae10","\uae11","\uae12","\uae13",  # ; LVT # Lo  [27] HANGUL SYLLABLE GEUG..HANGUL SYLLABLE GEUH
+        "\uae15","\uae16","\uae17","\uae18","\uae19","\uae1a","\uae1b","\uae1c","\uae1d","\uae1e","\uae1f","\uae20","\uae21","\uae22","\uae23","\uae24","\uae25","\uae26","\uae27","\uae28","\uae29","\uae2a","\uae2b","\uae2c","\uae2d","\uae2e","\uae2f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GYIG..HANGUL SYLLABLE GYIH
+        "\uae31","\uae32","\uae33","\uae34","\uae35","\uae36","\uae37","\uae38","\uae39","\uae3a","\uae3b","\uae3c","\uae3d","\uae3e","\uae3f","\uae40","\uae41","\uae42","\uae43","\uae44","\uae45","\uae46","\uae47","\uae48","\uae49","\uae4a","\uae4b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GIG..HANGUL SYLLABLE GIH
+        "\uae4d","\uae4e","\uae4f","\uae50","\uae51","\uae52","\uae53","\uae54","\uae55","\uae56","\uae57","\uae58","\uae59","\uae5a","\uae5b","\uae5c","\uae5d","\uae5e","\uae5f","\uae60","\uae61","\uae62","\uae63","\uae64","\uae65","\uae66","\uae67",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGAG..HANGUL SYLLABLE GGAH
+        "\uae69","\uae6a","\uae6b","\uae6c","\uae6d","\uae6e","\uae6f","\uae70","\uae71","\uae72","\uae73","\uae74","\uae75","\uae76","\uae77","\uae78","\uae79","\uae7a","\uae7b","\uae7c","\uae7d","\uae7e","\uae7f","\uae80","\uae81","\uae82","\uae83",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGAEG..HANGUL SYLLABLE GGAEH
+        "\uae85","\uae86","\uae87","\uae88","\uae89","\uae8a","\uae8b","\uae8c","\uae8d","\uae8e","\uae8f","\uae90","\uae91","\uae92","\uae93","\uae94","\uae95","\uae96","\uae97","\uae98","\uae99","\uae9a","\uae9b","\uae9c","\uae9d","\uae9e","\uae9f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYAG..HANGUL SYLLABLE GGYAH
+        "\uaea1","\uaea2","\uaea3","\uaea4","\uaea5","\uaea6","\uaea7","\uaea8","\uaea9","\uaeaa","\uaeab","\uaeac","\uaead","\uaeae","\uaeaf","\uaeb0","\uaeb1","\uaeb2","\uaeb3","\uaeb4","\uaeb5","\uaeb6","\uaeb7","\uaeb8","\uaeb9","\uaeba","\uaebb",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYAEG..HANGUL SYLLABLE GGYAEH
+        "\uaebd","\uaebe","\uaebf","\uaec0","\uaec1","\uaec2","\uaec3","\uaec4","\uaec5","\uaec6","\uaec7","\uaec8","\uaec9","\uaeca","\uaecb","\uaecc","\uaecd","\uaece","\uaecf","\uaed0","\uaed1","\uaed2","\uaed3","\uaed4","\uaed5","\uaed6","\uaed7",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGEOG..HANGUL SYLLABLE GGEOH
+        "\uaed9","\uaeda","\uaedb","\uaedc","\uaedd","\uaede","\uaedf","\uaee0","\uaee1","\uaee2","\uaee3","\uaee4","\uaee5","\uaee6","\uaee7","\uaee8","\uaee9","\uaeea","\uaeeb","\uaeec","\uaeed","\uaeee","\uaeef","\uaef0","\uaef1","\uaef2","\uaef3",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGEG..HANGUL SYLLABLE GGEH
+        "\uaef5","\uaef6","\uaef7","\uaef8","\uaef9","\uaefa","\uaefb","\uaefc","\uaefd","\uaefe","\uaeff","\uaf00","\uaf01","\uaf02","\uaf03","\uaf04","\uaf05","\uaf06","\uaf07","\uaf08","\uaf09","\uaf0a","\uaf0b","\uaf0c","\uaf0d","\uaf0e","\uaf0f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYEOG..HANGUL SYLLABLE GGYEOH
+        "\uaf11","\uaf12","\uaf13","\uaf14","\uaf15","\uaf16","\uaf17","\uaf18","\uaf19","\uaf1a","\uaf1b","\uaf1c","\uaf1d","\uaf1e","\uaf1f","\uaf20","\uaf21","\uaf22","\uaf23","\uaf24","\uaf25","\uaf26","\uaf27","\uaf28","\uaf29","\uaf2a","\uaf2b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYEG..HANGUL SYLLABLE GGYEH
+        "\uaf2d","\uaf2e","\uaf2f","\uaf30","\uaf31","\uaf32","\uaf33","\uaf34","\uaf35","\uaf36","\uaf37","\uaf38","\uaf39","\uaf3a","\uaf3b","\uaf3c","\uaf3d","\uaf3e","\uaf3f","\uaf40","\uaf41","\uaf42","\uaf43","\uaf44","\uaf45","\uaf46","\uaf47",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGOG..HANGUL SYLLABLE GGOH
+        "\uaf49","\uaf4a","\uaf4b","\uaf4c","\uaf4d","\uaf4e","\uaf4f","\uaf50","\uaf51","\uaf52","\uaf53","\uaf54","\uaf55","\uaf56","\uaf57","\uaf58","\uaf59","\uaf5a","\uaf5b","\uaf5c","\uaf5d","\uaf5e","\uaf5f","\uaf60","\uaf61","\uaf62","\uaf63",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGWAG..HANGUL SYLLABLE GGWAH
+        "\uaf65","\uaf66","\uaf67","\uaf68","\uaf69","\uaf6a","\uaf6b","\uaf6c","\uaf6d","\uaf6e","\uaf6f","\uaf70","\uaf71","\uaf72","\uaf73","\uaf74","\uaf75","\uaf76","\uaf77","\uaf78","\uaf79","\uaf7a","\uaf7b","\uaf7c","\uaf7d","\uaf7e","\uaf7f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGWAEG..HANGUL SYLLABLE GGWAEH
+        "\uaf81","\uaf82","\uaf83","\uaf84","\uaf85","\uaf86","\uaf87","\uaf88","\uaf89","\uaf8a","\uaf8b","\uaf8c","\uaf8d","\uaf8e","\uaf8f","\uaf90","\uaf91","\uaf92","\uaf93","\uaf94","\uaf95","\uaf96","\uaf97","\uaf98","\uaf99","\uaf9a","\uaf9b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGOEG..HANGUL SYLLABLE GGOEH
+        "\uaf9d","\uaf9e","\uaf9f","\uafa0","\uafa1","\uafa2","\uafa3","\uafa4","\uafa5","\uafa6","\uafa7","\uafa8","\uafa9","\uafaa","\uafab","\uafac","\uafad","\uafae","\uafaf","\uafb0","\uafb1","\uafb2","\uafb3","\uafb4","\uafb5","\uafb6","\uafb7",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYOG..HANGUL SYLLABLE GGYOH
+        "\uafb9","\uafba","\uafbb","\uafbc","\uafbd","\uafbe","\uafbf","\uafc0","\uafc1","\uafc2","\uafc3","\uafc4","\uafc5","\uafc6","\uafc7","\uafc8","\uafc9","\uafca","\uafcb","\uafcc","\uafcd","\uafce","\uafcf","\uafd0","\uafd1","\uafd2","\uafd3",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGUG..HANGUL SYLLABLE GGUH
+        "\uafd5","\uafd6","\uafd7","\uafd8","\uafd9","\uafda","\uafdb","\uafdc","\uafdd","\uafde","\uafdf","\uafe0","\uafe1","\uafe2","\uafe3","\uafe4","\uafe5","\uafe6","\uafe7","\uafe8","\uafe9","\uafea","\uafeb","\uafec","\uafed","\uafee","\uafef",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGWEOG..HANGUL SYLLABLE GGWEOH
+        "\uaff1","\uaff2","\uaff3","\uaff4","\uaff5","\uaff6","\uaff7","\uaff8","\uaff9","\uaffa","\uaffb","\uaffc","\uaffd","\uaffe","\uafff","\ub000","\ub001","\ub002","\ub003","\ub004","\ub005","\ub006","\ub007","\ub008","\ub009","\ub00a","\ub00b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGWEG..HANGUL SYLLABLE GGWEH
+        "\ub00d","\ub00e","\ub00f","\ub010","\ub011","\ub012","\ub013","\ub014","\ub015","\ub016","\ub017","\ub018","\ub019","\ub01a","\ub01b","\ub01c","\ub01d","\ub01e","\ub01f","\ub020","\ub021","\ub022","\ub023","\ub024","\ub025","\ub026","\ub027",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGWIG..HANGUL SYLLABLE GGWIH
+        "\ub029","\ub02a","\ub02b","\ub02c","\ub02d","\ub02e","\ub02f","\ub030","\ub031","\ub032","\ub033","\ub034","\ub035","\ub036","\ub037","\ub038","\ub039","\ub03a","\ub03b","\ub03c","\ub03d","\ub03e","\ub03f","\ub040","\ub041","\ub042","\ub043",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYUG..HANGUL SYLLABLE GGYUH
+        "\ub045","\ub046","\ub047","\ub048","\ub049","\ub04a","\ub04b","\ub04c","\ub04d","\ub04e","\ub04f","\ub050","\ub051","\ub052","\ub053","\ub054","\ub055","\ub056","\ub057","\ub058","\ub059","\ub05a","\ub05b","\ub05c","\ub05d","\ub05e","\ub05f",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGEUG..HANGUL SYLLABLE GGEUH
+        "\ub061","\ub062","\ub063","\ub064","\ub065","\ub066","\ub067","\ub068","\ub069","\ub06a","\ub06b","\ub06c","\ub06d","\ub06e","\ub06f","\ub070","\ub071","\ub072","\ub073","\ub074","\ub075","\ub076","\ub077","\ub078","\ub079","\ub07a","\ub07b",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGYIG..HANGUL SYLLABLE GGYIH
+        "\ub07d","\ub07e","\ub07f","\ub080","\ub081","\ub082","\ub083","\ub084","\ub085","\ub086","\ub087","\ub088","\ub089","\ub08a","\ub08b","\ub08c","\ub08d","\ub08e","\ub08f","\ub090","\ub091","\ub092","\ub093","\ub094","\ub095","\ub096","\ub097",  # ; LVT # Lo  [27] HANGUL SYLLABLE GGIG..HANGUL SYLLABLE GGIH
+        "\ub099","\ub09a","\ub09b","\ub09c","\ub09d","\ub09e","\ub09f","\ub0a0","\ub0a1","\ub0a2","\ub0a3","\ub0a4","\ub0a5","\ub0a6","\ub0a7","\ub0a8","\ub0a9","\ub0aa","\ub0ab","\ub0ac","\ub0ad","\ub0ae","\ub0af","\ub0b0","\ub0b1","\ub0b2","\ub0b3",  # ; LVT # Lo  [27] HANGUL SYLLABLE NAG..HANGUL SYLLABLE NAH
+        "\ub0b5","\ub0b6","\ub0b7","\ub0b8","\ub0b9","\ub0ba","\ub0bb","\ub0bc","\ub0bd","\ub0be","\ub0bf","\ub0c0","\ub0c1","\ub0c2","\ub0c3","\ub0c4","\ub0c5","\ub0c6","\ub0c7","\ub0c8","\ub0c9","\ub0ca","\ub0cb","\ub0cc","\ub0cd","\ub0ce","\ub0cf",  # ; LVT # Lo  [27] HANGUL SYLLABLE NAEG..HANGUL SYLLABLE NAEH
+        "\ub0d1","\ub0d2","\ub0d3","\ub0d4","\ub0d5","\ub0d6","\ub0d7","\ub0d8","\ub0d9","\ub0da","\ub0db","\ub0dc","\ub0dd","\ub0de","\ub0df","\ub0e0","\ub0e1","\ub0e2","\ub0e3","\ub0e4","\ub0e5","\ub0e6","\ub0e7","\ub0e8","\ub0e9","\ub0ea","\ub0eb",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYAG..HANGUL SYLLABLE NYAH
+        "\ub0ed","\ub0ee","\ub0ef","\ub0f0","\ub0f1","\ub0f2","\ub0f3","\ub0f4","\ub0f5","\ub0f6","\ub0f7","\ub0f8","\ub0f9","\ub0fa","\ub0fb","\ub0fc","\ub0fd","\ub0fe","\ub0ff","\ub100","\ub101","\ub102","\ub103","\ub104","\ub105","\ub106","\ub107",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYAEG..HANGUL SYLLABLE NYAEH
+        "\ub109","\ub10a","\ub10b","\ub10c","\ub10d","\ub10e","\ub10f","\ub110","\ub111","\ub112","\ub113","\ub114","\ub115","\ub116","\ub117","\ub118","\ub119","\ub11a","\ub11b","\ub11c","\ub11d","\ub11e","\ub11f","\ub120","\ub121","\ub122","\ub123",  # ; LVT # Lo  [27] HANGUL SYLLABLE NEOG..HANGUL SYLLABLE NEOH
+        "\ub125","\ub126","\ub127","\ub128","\ub129","\ub12a","\ub12b","\ub12c","\ub12d","\ub12e","\ub12f","\ub130","\ub131","\ub132","\ub133","\ub134","\ub135","\ub136","\ub137","\ub138","\ub139","\ub13a","\ub13b","\ub13c","\ub13d","\ub13e","\ub13f",  # ; LVT # Lo  [27] HANGUL SYLLABLE NEG..HANGUL SYLLABLE NEH
+        "\ub141","\ub142","\ub143","\ub144","\ub145","\ub146","\ub147","\ub148","\ub149","\ub14a","\ub14b","\ub14c","\ub14d","\ub14e","\ub14f","\ub150","\ub151","\ub152","\ub153","\ub154","\ub155","\ub156","\ub157","\ub158","\ub159","\ub15a","\ub15b",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYEOG..HANGUL SYLLABLE NYEOH
+        "\ub15d","\ub15e","\ub15f","\ub160","\ub161","\ub162","\ub163","\ub164","\ub165","\ub166","\ub167","\ub168","\ub169","\ub16a","\ub16b","\ub16c","\ub16d","\ub16e","\ub16f","\ub170","\ub171","\ub172","\ub173","\ub174","\ub175","\ub176","\ub177",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYEG..HANGUL SYLLABLE NYEH
+        "\ub179","\ub17a","\ub17b","\ub17c","\ub17d","\ub17e","\ub17f","\ub180","\ub181","\ub182","\ub183","\ub184","\ub185","\ub186","\ub187","\ub188","\ub189","\ub18a","\ub18b","\ub18c","\ub18d","\ub18e","\ub18f","\ub190","\ub191","\ub192","\ub193",  # ; LVT # Lo  [27] HANGUL SYLLABLE NOG..HANGUL SYLLABLE NOH
+        "\ub195","\ub196","\ub197","\ub198","\ub199","\ub19a","\ub19b","\ub19c","\ub19d","\ub19e","\ub19f","\ub1a0","\ub1a1","\ub1a2","\ub1a3","\ub1a4","\ub1a5","\ub1a6","\ub1a7","\ub1a8","\ub1a9","\ub1aa","\ub1ab","\ub1ac","\ub1ad","\ub1ae","\ub1af",  # ; LVT # Lo  [27] HANGUL SYLLABLE NWAG..HANGUL SYLLABLE NWAH
+        "\ub1b1","\ub1b2","\ub1b3","\ub1b4","\ub1b5","\ub1b6","\ub1b7","\ub1b8","\ub1b9","\ub1ba","\ub1bb","\ub1bc","\ub1bd","\ub1be","\ub1bf","\ub1c0","\ub1c1","\ub1c2","\ub1c3","\ub1c4","\ub1c5","\ub1c6","\ub1c7","\ub1c8","\ub1c9","\ub1ca","\ub1cb",  # ; LVT # Lo  [27] HANGUL SYLLABLE NWAEG..HANGUL SYLLABLE NWAEH
+        "\ub1cd","\ub1ce","\ub1cf","\ub1d0","\ub1d1","\ub1d2","\ub1d3","\ub1d4","\ub1d5","\ub1d6","\ub1d7","\ub1d8","\ub1d9","\ub1da","\ub1db","\ub1dc","\ub1dd","\ub1de","\ub1df","\ub1e0","\ub1e1","\ub1e2","\ub1e3","\ub1e4","\ub1e5","\ub1e6","\ub1e7",  # ; LVT # Lo  [27] HANGUL SYLLABLE NOEG..HANGUL SYLLABLE NOEH
+        "\ub1e9","\ub1ea","\ub1eb","\ub1ec","\ub1ed","\ub1ee","\ub1ef","\ub1f0","\ub1f1","\ub1f2","\ub1f3","\ub1f4","\ub1f5","\ub1f6","\ub1f7","\ub1f8","\ub1f9","\ub1fa","\ub1fb","\ub1fc","\ub1fd","\ub1fe","\ub1ff","\ub200","\ub201","\ub202","\ub203",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYOG..HANGUL SYLLABLE NYOH
+        "\ub205","\ub206","\ub207","\ub208","\ub209","\ub20a","\ub20b","\ub20c","\ub20d","\ub20e","\ub20f","\ub210","\ub211","\ub212","\ub213","\ub214","\ub215","\ub216","\ub217","\ub218","\ub219","\ub21a","\ub21b","\ub21c","\ub21d","\ub21e","\ub21f",  # ; LVT # Lo  [27] HANGUL SYLLABLE NUG..HANGUL SYLLABLE NUH
+        "\ub221","\ub222","\ub223","\ub224","\ub225","\ub226","\ub227","\ub228","\ub229","\ub22a","\ub22b","\ub22c","\ub22d","\ub22e","\ub22f","\ub230","\ub231","\ub232","\ub233","\ub234","\ub235","\ub236","\ub237","\ub238","\ub239","\ub23a","\ub23b",  # ; LVT # Lo  [27] HANGUL SYLLABLE NWEOG..HANGUL SYLLABLE NWEOH
+        "\ub23d","\ub23e","\ub23f","\ub240","\ub241","\ub242","\ub243","\ub244","\ub245","\ub246","\ub247","\ub248","\ub249","\ub24a","\ub24b","\ub24c","\ub24d","\ub24e","\ub24f","\ub250","\ub251","\ub252","\ub253","\ub254","\ub255","\ub256","\ub257",  # ; LVT # Lo  [27] HANGUL SYLLABLE NWEG..HANGUL SYLLABLE NWEH
+        "\ub259","\ub25a","\ub25b","\ub25c","\ub25d","\ub25e","\ub25f","\ub260","\ub261","\ub262","\ub263","\ub264","\ub265","\ub266","\ub267","\ub268","\ub269","\ub26a","\ub26b","\ub26c","\ub26d","\ub26e","\ub26f","\ub270","\ub271","\ub272","\ub273",  # ; LVT # Lo  [27] HANGUL SYLLABLE NWIG..HANGUL SYLLABLE NWIH
+        "\ub275","\ub276","\ub277","\ub278","\ub279","\ub27a","\ub27b","\ub27c","\ub27d","\ub27e","\ub27f","\ub280","\ub281","\ub282","\ub283","\ub284","\ub285","\ub286","\ub287","\ub288","\ub289","\ub28a","\ub28b","\ub28c","\ub28d","\ub28e","\ub28f",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYUG..HANGUL SYLLABLE NYUH
+        "\ub291","\ub292","\ub293","\ub294","\ub295","\ub296","\ub297","\ub298","\ub299","\ub29a","\ub29b","\ub29c","\ub29d","\ub29e","\ub29f","\ub2a0","\ub2a1","\ub2a2","\ub2a3","\ub2a4","\ub2a5","\ub2a6","\ub2a7","\ub2a8","\ub2a9","\ub2aa","\ub2ab",  # ; LVT # Lo  [27] HANGUL SYLLABLE NEUG..HANGUL SYLLABLE NEUH
+        "\ub2ad","\ub2ae","\ub2af","\ub2b0","\ub2b1","\ub2b2","\ub2b3","\ub2b4","\ub2b5","\ub2b6","\ub2b7","\ub2b8","\ub2b9","\ub2ba","\ub2bb","\ub2bc","\ub2bd","\ub2be","\ub2bf","\ub2c0","\ub2c1","\ub2c2","\ub2c3","\ub2c4","\ub2c5","\ub2c6","\ub2c7",  # ; LVT # Lo  [27] HANGUL SYLLABLE NYIG..HANGUL SYLLABLE NYIH
+        "\ub2c9","\ub2ca","\ub2cb","\ub2cc","\ub2cd","\ub2ce","\ub2cf","\ub2d0","\ub2d1","\ub2d2","\ub2d3","\ub2d4","\ub2d5","\ub2d6","\ub2d7","\ub2d8","\ub2d9","\ub2da","\ub2db","\ub2dc","\ub2dd","\ub2de","\ub2df","\ub2e0","\ub2e1","\ub2e2","\ub2e3",  # ; LVT # Lo  [27] HANGUL SYLLABLE NIG..HANGUL SYLLABLE NIH
+        "\ub2e5","\ub2e6","\ub2e7","\ub2e8","\ub2e9","\ub2ea","\ub2eb","\ub2ec","\ub2ed","\ub2ee","\ub2ef","\ub2f0","\ub2f1","\ub2f2","\ub2f3","\ub2f4","\ub2f5","\ub2f6","\ub2f7","\ub2f8","\ub2f9","\ub2fa","\ub2fb","\ub2fc","\ub2fd","\ub2fe","\ub2ff",  # ; LVT # Lo  [27] HANGUL SYLLABLE DAG..HANGUL SYLLABLE DAH
+        "\ub301","\ub302","\ub303","\ub304","\ub305","\ub306","\ub307","\ub308","\ub309","\ub30a","\ub30b","\ub30c","\ub30d","\ub30e","\ub30f","\ub310","\ub311","\ub312","\ub313","\ub314","\ub315","\ub316","\ub317","\ub318","\ub319","\ub31a","\ub31b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DAEG..HANGUL SYLLABLE DAEH
+        "\ub31d","\ub31e","\ub31f","\ub320","\ub321","\ub322","\ub323","\ub324","\ub325","\ub326","\ub327","\ub328","\ub329","\ub32a","\ub32b","\ub32c","\ub32d","\ub32e","\ub32f","\ub330","\ub331","\ub332","\ub333","\ub334","\ub335","\ub336","\ub337",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYAG..HANGUL SYLLABLE DYAH
+        "\ub339","\ub33a","\ub33b","\ub33c","\ub33d","\ub33e","\ub33f","\ub340","\ub341","\ub342","\ub343","\ub344","\ub345","\ub346","\ub347","\ub348","\ub349","\ub34a","\ub34b","\ub34c","\ub34d","\ub34e","\ub34f","\ub350","\ub351","\ub352","\ub353",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYAEG..HANGUL SYLLABLE DYAEH
+        "\ub355","\ub356","\ub357","\ub358","\ub359","\ub35a","\ub35b","\ub35c","\ub35d","\ub35e","\ub35f","\ub360","\ub361","\ub362","\ub363","\ub364","\ub365","\ub366","\ub367","\ub368","\ub369","\ub36a","\ub36b","\ub36c","\ub36d","\ub36e","\ub36f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DEOG..HANGUL SYLLABLE DEOH
+        "\ub371","\ub372","\ub373","\ub374","\ub375","\ub376","\ub377","\ub378","\ub379","\ub37a","\ub37b","\ub37c","\ub37d","\ub37e","\ub37f","\ub380","\ub381","\ub382","\ub383","\ub384","\ub385","\ub386","\ub387","\ub388","\ub389","\ub38a","\ub38b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DEG..HANGUL SYLLABLE DEH
+        "\ub38d","\ub38e","\ub38f","\ub390","\ub391","\ub392","\ub393","\ub394","\ub395","\ub396","\ub397","\ub398","\ub399","\ub39a","\ub39b","\ub39c","\ub39d","\ub39e","\ub39f","\ub3a0","\ub3a1","\ub3a2","\ub3a3","\ub3a4","\ub3a5","\ub3a6","\ub3a7",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYEOG..HANGUL SYLLABLE DYEOH
+        "\ub3a9","\ub3aa","\ub3ab","\ub3ac","\ub3ad","\ub3ae","\ub3af","\ub3b0","\ub3b1","\ub3b2","\ub3b3","\ub3b4","\ub3b5","\ub3b6","\ub3b7","\ub3b8","\ub3b9","\ub3ba","\ub3bb","\ub3bc","\ub3bd","\ub3be","\ub3bf","\ub3c0","\ub3c1","\ub3c2","\ub3c3",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYEG..HANGUL SYLLABLE DYEH
+        "\ub3c5","\ub3c6","\ub3c7","\ub3c8","\ub3c9","\ub3ca","\ub3cb","\ub3cc","\ub3cd","\ub3ce","\ub3cf","\ub3d0","\ub3d1","\ub3d2","\ub3d3","\ub3d4","\ub3d5","\ub3d6","\ub3d7","\ub3d8","\ub3d9","\ub3da","\ub3db","\ub3dc","\ub3dd","\ub3de","\ub3df",  # ; LVT # Lo  [27] HANGUL SYLLABLE DOG..HANGUL SYLLABLE DOH
+        "\ub3e1","\ub3e2","\ub3e3","\ub3e4","\ub3e5","\ub3e6","\ub3e7","\ub3e8","\ub3e9","\ub3ea","\ub3eb","\ub3ec","\ub3ed","\ub3ee","\ub3ef","\ub3f0","\ub3f1","\ub3f2","\ub3f3","\ub3f4","\ub3f5","\ub3f6","\ub3f7","\ub3f8","\ub3f9","\ub3fa","\ub3fb",  # ; LVT # Lo  [27] HANGUL SYLLABLE DWAG..HANGUL SYLLABLE DWAH
+        "\ub3fd","\ub3fe","\ub3ff","\ub400","\ub401","\ub402","\ub403","\ub404","\ub405","\ub406","\ub407","\ub408","\ub409","\ub40a","\ub40b","\ub40c","\ub40d","\ub40e","\ub40f","\ub410","\ub411","\ub412","\ub413","\ub414","\ub415","\ub416","\ub417",  # ; LVT # Lo  [27] HANGUL SYLLABLE DWAEG..HANGUL SYLLABLE DWAEH
+        "\ub419","\ub41a","\ub41b","\ub41c","\ub41d","\ub41e","\ub41f","\ub420","\ub421","\ub422","\ub423","\ub424","\ub425","\ub426","\ub427","\ub428","\ub429","\ub42a","\ub42b","\ub42c","\ub42d","\ub42e","\ub42f","\ub430","\ub431","\ub432","\ub433",  # ; LVT # Lo  [27] HANGUL SYLLABLE DOEG..HANGUL SYLLABLE DOEH
+        "\ub435","\ub436","\ub437","\ub438","\ub439","\ub43a","\ub43b","\ub43c","\ub43d","\ub43e","\ub43f","\ub440","\ub441","\ub442","\ub443","\ub444","\ub445","\ub446","\ub447","\ub448","\ub449","\ub44a","\ub44b","\ub44c","\ub44d","\ub44e","\ub44f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYOG..HANGUL SYLLABLE DYOH
+        "\ub451","\ub452","\ub453","\ub454","\ub455","\ub456","\ub457","\ub458","\ub459","\ub45a","\ub45b","\ub45c","\ub45d","\ub45e","\ub45f","\ub460","\ub461","\ub462","\ub463","\ub464","\ub465","\ub466","\ub467","\ub468","\ub469","\ub46a","\ub46b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DUG..HANGUL SYLLABLE DUH
+        "\ub46d","\ub46e","\ub46f","\ub470","\ub471","\ub472","\ub473","\ub474","\ub475","\ub476","\ub477","\ub478","\ub479","\ub47a","\ub47b","\ub47c","\ub47d","\ub47e","\ub47f","\ub480","\ub481","\ub482","\ub483","\ub484","\ub485","\ub486","\ub487",  # ; LVT # Lo  [27] HANGUL SYLLABLE DWEOG..HANGUL SYLLABLE DWEOH
+        "\ub489","\ub48a","\ub48b","\ub48c","\ub48d","\ub48e","\ub48f","\ub490","\ub491","\ub492","\ub493","\ub494","\ub495","\ub496","\ub497","\ub498","\ub499","\ub49a","\ub49b","\ub49c","\ub49d","\ub49e","\ub49f","\ub4a0","\ub4a1","\ub4a2","\ub4a3",  # ; LVT # Lo  [27] HANGUL SYLLABLE DWEG..HANGUL SYLLABLE DWEH
+        "\ub4a5","\ub4a6","\ub4a7","\ub4a8","\ub4a9","\ub4aa","\ub4ab","\ub4ac","\ub4ad","\ub4ae","\ub4af","\ub4b0","\ub4b1","\ub4b2","\ub4b3","\ub4b4","\ub4b5","\ub4b6","\ub4b7","\ub4b8","\ub4b9","\ub4ba","\ub4bb","\ub4bc","\ub4bd","\ub4be","\ub4bf",  # ; LVT # Lo  [27] HANGUL SYLLABLE DWIG..HANGUL SYLLABLE DWIH
+        "\ub4c1","\ub4c2","\ub4c3","\ub4c4","\ub4c5","\ub4c6","\ub4c7","\ub4c8","\ub4c9","\ub4ca","\ub4cb","\ub4cc","\ub4cd","\ub4ce","\ub4cf","\ub4d0","\ub4d1","\ub4d2","\ub4d3","\ub4d4","\ub4d5","\ub4d6","\ub4d7","\ub4d8","\ub4d9","\ub4da","\ub4db",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYUG..HANGUL SYLLABLE DYUH
+        "\ub4dd","\ub4de","\ub4df","\ub4e0","\ub4e1","\ub4e2","\ub4e3","\ub4e4","\ub4e5","\ub4e6","\ub4e7","\ub4e8","\ub4e9","\ub4ea","\ub4eb","\ub4ec","\ub4ed","\ub4ee","\ub4ef","\ub4f0","\ub4f1","\ub4f2","\ub4f3","\ub4f4","\ub4f5","\ub4f6","\ub4f7",  # ; LVT # Lo  [27] HANGUL SYLLABLE DEUG..HANGUL SYLLABLE DEUH
+        "\ub4f9","\ub4fa","\ub4fb","\ub4fc","\ub4fd","\ub4fe","\ub4ff","\ub500","\ub501","\ub502","\ub503","\ub504","\ub505","\ub506","\ub507","\ub508","\ub509","\ub50a","\ub50b","\ub50c","\ub50d","\ub50e","\ub50f","\ub510","\ub511","\ub512","\ub513",  # ; LVT # Lo  [27] HANGUL SYLLABLE DYIG..HANGUL SYLLABLE DYIH
+        "\ub515","\ub516","\ub517","\ub518","\ub519","\ub51a","\ub51b","\ub51c","\ub51d","\ub51e","\ub51f","\ub520","\ub521","\ub522","\ub523","\ub524","\ub525","\ub526","\ub527","\ub528","\ub529","\ub52a","\ub52b","\ub52c","\ub52d","\ub52e","\ub52f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DIG..HANGUL SYLLABLE DIH
+        "\ub531","\ub532","\ub533","\ub534","\ub535","\ub536","\ub537","\ub538","\ub539","\ub53a","\ub53b","\ub53c","\ub53d","\ub53e","\ub53f","\ub540","\ub541","\ub542","\ub543","\ub544","\ub545","\ub546","\ub547","\ub548","\ub549","\ub54a","\ub54b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDAG..HANGUL SYLLABLE DDAH
+        "\ub54d","\ub54e","\ub54f","\ub550","\ub551","\ub552","\ub553","\ub554","\ub555","\ub556","\ub557","\ub558","\ub559","\ub55a","\ub55b","\ub55c","\ub55d","\ub55e","\ub55f","\ub560","\ub561","\ub562","\ub563","\ub564","\ub565","\ub566","\ub567",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDAEG..HANGUL SYLLABLE DDAEH
+        "\ub569","\ub56a","\ub56b","\ub56c","\ub56d","\ub56e","\ub56f","\ub570","\ub571","\ub572","\ub573","\ub574","\ub575","\ub576","\ub577","\ub578","\ub579","\ub57a","\ub57b","\ub57c","\ub57d","\ub57e","\ub57f","\ub580","\ub581","\ub582","\ub583",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYAG..HANGUL SYLLABLE DDYAH
+        "\ub585","\ub586","\ub587","\ub588","\ub589","\ub58a","\ub58b","\ub58c","\ub58d","\ub58e","\ub58f","\ub590","\ub591","\ub592","\ub593","\ub594","\ub595","\ub596","\ub597","\ub598","\ub599","\ub59a","\ub59b","\ub59c","\ub59d","\ub59e","\ub59f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYAEG..HANGUL SYLLABLE DDYAEH
+        "\ub5a1","\ub5a2","\ub5a3","\ub5a4","\ub5a5","\ub5a6","\ub5a7","\ub5a8","\ub5a9","\ub5aa","\ub5ab","\ub5ac","\ub5ad","\ub5ae","\ub5af","\ub5b0","\ub5b1","\ub5b2","\ub5b3","\ub5b4","\ub5b5","\ub5b6","\ub5b7","\ub5b8","\ub5b9","\ub5ba","\ub5bb",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDEOG..HANGUL SYLLABLE DDEOH
+        "\ub5bd","\ub5be","\ub5bf","\ub5c0","\ub5c1","\ub5c2","\ub5c3","\ub5c4","\ub5c5","\ub5c6","\ub5c7","\ub5c8","\ub5c9","\ub5ca","\ub5cb","\ub5cc","\ub5cd","\ub5ce","\ub5cf","\ub5d0","\ub5d1","\ub5d2","\ub5d3","\ub5d4","\ub5d5","\ub5d6","\ub5d7",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDEG..HANGUL SYLLABLE DDEH
+        "\ub5d9","\ub5da","\ub5db","\ub5dc","\ub5dd","\ub5de","\ub5df","\ub5e0","\ub5e1","\ub5e2","\ub5e3","\ub5e4","\ub5e5","\ub5e6","\ub5e7","\ub5e8","\ub5e9","\ub5ea","\ub5eb","\ub5ec","\ub5ed","\ub5ee","\ub5ef","\ub5f0","\ub5f1","\ub5f2","\ub5f3",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYEOG..HANGUL SYLLABLE DDYEOH
+        "\ub5f5","\ub5f6","\ub5f7","\ub5f8","\ub5f9","\ub5fa","\ub5fb","\ub5fc","\ub5fd","\ub5fe","\ub5ff","\ub600","\ub601","\ub602","\ub603","\ub604","\ub605","\ub606","\ub607","\ub608","\ub609","\ub60a","\ub60b","\ub60c","\ub60d","\ub60e","\ub60f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYEG..HANGUL SYLLABLE DDYEH
+        "\ub611","\ub612","\ub613","\ub614","\ub615","\ub616","\ub617","\ub618","\ub619","\ub61a","\ub61b","\ub61c","\ub61d","\ub61e","\ub61f","\ub620","\ub621","\ub622","\ub623","\ub624","\ub625","\ub626","\ub627","\ub628","\ub629","\ub62a","\ub62b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDOG..HANGUL SYLLABLE DDOH
+        "\ub62d","\ub62e","\ub62f","\ub630","\ub631","\ub632","\ub633","\ub634","\ub635","\ub636","\ub637","\ub638","\ub639","\ub63a","\ub63b","\ub63c","\ub63d","\ub63e","\ub63f","\ub640","\ub641","\ub642","\ub643","\ub644","\ub645","\ub646","\ub647",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDWAG..HANGUL SYLLABLE DDWAH
+        "\ub649","\ub64a","\ub64b","\ub64c","\ub64d","\ub64e","\ub64f","\ub650","\ub651","\ub652","\ub653","\ub654","\ub655","\ub656","\ub657","\ub658","\ub659","\ub65a","\ub65b","\ub65c","\ub65d","\ub65e","\ub65f","\ub660","\ub661","\ub662","\ub663",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDWAEG..HANGUL SYLLABLE DDWAEH
+        "\ub665","\ub666","\ub667","\ub668","\ub669","\ub66a","\ub66b","\ub66c","\ub66d","\ub66e","\ub66f","\ub670","\ub671","\ub672","\ub673","\ub674","\ub675","\ub676","\ub677","\ub678","\ub679","\ub67a","\ub67b","\ub67c","\ub67d","\ub67e","\ub67f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDOEG..HANGUL SYLLABLE DDOEH
+        "\ub681","\ub682","\ub683","\ub684","\ub685","\ub686","\ub687","\ub688","\ub689","\ub68a","\ub68b","\ub68c","\ub68d","\ub68e","\ub68f","\ub690","\ub691","\ub692","\ub693","\ub694","\ub695","\ub696","\ub697","\ub698","\ub699","\ub69a","\ub69b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYOG..HANGUL SYLLABLE DDYOH
+        "\ub69d","\ub69e","\ub69f","\ub6a0","\ub6a1","\ub6a2","\ub6a3","\ub6a4","\ub6a5","\ub6a6","\ub6a7","\ub6a8","\ub6a9","\ub6aa","\ub6ab","\ub6ac","\ub6ad","\ub6ae","\ub6af","\ub6b0","\ub6b1","\ub6b2","\ub6b3","\ub6b4","\ub6b5","\ub6b6","\ub6b7",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDUG..HANGUL SYLLABLE DDUH
+        "\ub6b9","\ub6ba","\ub6bb","\ub6bc","\ub6bd","\ub6be","\ub6bf","\ub6c0","\ub6c1","\ub6c2","\ub6c3","\ub6c4","\ub6c5","\ub6c6","\ub6c7","\ub6c8","\ub6c9","\ub6ca","\ub6cb","\ub6cc","\ub6cd","\ub6ce","\ub6cf","\ub6d0","\ub6d1","\ub6d2","\ub6d3",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDWEOG..HANGUL SYLLABLE DDWEOH
+        "\ub6d5","\ub6d6","\ub6d7","\ub6d8","\ub6d9","\ub6da","\ub6db","\ub6dc","\ub6dd","\ub6de","\ub6df","\ub6e0","\ub6e1","\ub6e2","\ub6e3","\ub6e4","\ub6e5","\ub6e6","\ub6e7","\ub6e8","\ub6e9","\ub6ea","\ub6eb","\ub6ec","\ub6ed","\ub6ee","\ub6ef",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDWEG..HANGUL SYLLABLE DDWEH
+        "\ub6f1","\ub6f2","\ub6f3","\ub6f4","\ub6f5","\ub6f6","\ub6f7","\ub6f8","\ub6f9","\ub6fa","\ub6fb","\ub6fc","\ub6fd","\ub6fe","\ub6ff","\ub700","\ub701","\ub702","\ub703","\ub704","\ub705","\ub706","\ub707","\ub708","\ub709","\ub70a","\ub70b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDWIG..HANGUL SYLLABLE DDWIH
+        "\ub70d","\ub70e","\ub70f","\ub710","\ub711","\ub712","\ub713","\ub714","\ub715","\ub716","\ub717","\ub718","\ub719","\ub71a","\ub71b","\ub71c","\ub71d","\ub71e","\ub71f","\ub720","\ub721","\ub722","\ub723","\ub724","\ub725","\ub726","\ub727",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYUG..HANGUL SYLLABLE DDYUH
+        "\ub729","\ub72a","\ub72b","\ub72c","\ub72d","\ub72e","\ub72f","\ub730","\ub731","\ub732","\ub733","\ub734","\ub735","\ub736","\ub737","\ub738","\ub739","\ub73a","\ub73b","\ub73c","\ub73d","\ub73e","\ub73f","\ub740","\ub741","\ub742","\ub743",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDEUG..HANGUL SYLLABLE DDEUH
+        "\ub745","\ub746","\ub747","\ub748","\ub749","\ub74a","\ub74b","\ub74c","\ub74d","\ub74e","\ub74f","\ub750","\ub751","\ub752","\ub753","\ub754","\ub755","\ub756","\ub757","\ub758","\ub759","\ub75a","\ub75b","\ub75c","\ub75d","\ub75e","\ub75f",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDYIG..HANGUL SYLLABLE DDYIH
+        "\ub761","\ub762","\ub763","\ub764","\ub765","\ub766","\ub767","\ub768","\ub769","\ub76a","\ub76b","\ub76c","\ub76d","\ub76e","\ub76f","\ub770","\ub771","\ub772","\ub773","\ub774","\ub775","\ub776","\ub777","\ub778","\ub779","\ub77a","\ub77b",  # ; LVT # Lo  [27] HANGUL SYLLABLE DDIG..HANGUL SYLLABLE DDIH
+        "\ub77d","\ub77e","\ub77f","\ub780","\ub781","\ub782","\ub783","\ub784","\ub785","\ub786","\ub787","\ub788","\ub789","\ub78a","\ub78b","\ub78c","\ub78d","\ub78e","\ub78f","\ub790","\ub791","\ub792","\ub793","\ub794","\ub795","\ub796","\ub797",  # ; LVT # Lo  [27] HANGUL SYLLABLE RAG..HANGUL SYLLABLE RAH
+        "\ub799","\ub79a","\ub79b","\ub79c","\ub79d","\ub79e","\ub79f","\ub7a0","\ub7a1","\ub7a2","\ub7a3","\ub7a4","\ub7a5","\ub7a6","\ub7a7","\ub7a8","\ub7a9","\ub7aa","\ub7ab","\ub7ac","\ub7ad","\ub7ae","\ub7af","\ub7b0","\ub7b1","\ub7b2","\ub7b3",  # ; LVT # Lo  [27] HANGUL SYLLABLE RAEG..HANGUL SYLLABLE RAEH
+        "\ub7b5","\ub7b6","\ub7b7","\ub7b8","\ub7b9","\ub7ba","\ub7bb","\ub7bc","\ub7bd","\ub7be","\ub7bf","\ub7c0","\ub7c1","\ub7c2","\ub7c3","\ub7c4","\ub7c5","\ub7c6","\ub7c7","\ub7c8","\ub7c9","\ub7ca","\ub7cb","\ub7cc","\ub7cd","\ub7ce","\ub7cf",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYAG..HANGUL SYLLABLE RYAH
+        "\ub7d1","\ub7d2","\ub7d3","\ub7d4","\ub7d5","\ub7d6","\ub7d7","\ub7d8","\ub7d9","\ub7da","\ub7db","\ub7dc","\ub7dd","\ub7de","\ub7df","\ub7e0","\ub7e1","\ub7e2","\ub7e3","\ub7e4","\ub7e5","\ub7e6","\ub7e7","\ub7e8","\ub7e9","\ub7ea","\ub7eb",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYAEG..HANGUL SYLLABLE RYAEH
+        "\ub7ed","\ub7ee","\ub7ef","\ub7f0","\ub7f1","\ub7f2","\ub7f3","\ub7f4","\ub7f5","\ub7f6","\ub7f7","\ub7f8","\ub7f9","\ub7fa","\ub7fb","\ub7fc","\ub7fd","\ub7fe","\ub7ff","\ub800","\ub801","\ub802","\ub803","\ub804","\ub805","\ub806","\ub807",  # ; LVT # Lo  [27] HANGUL SYLLABLE REOG..HANGUL SYLLABLE REOH
+        "\ub809","\ub80a","\ub80b","\ub80c","\ub80d","\ub80e","\ub80f","\ub810","\ub811","\ub812","\ub813","\ub814","\ub815","\ub816","\ub817","\ub818","\ub819","\ub81a","\ub81b","\ub81c","\ub81d","\ub81e","\ub81f","\ub820","\ub821","\ub822","\ub823",  # ; LVT # Lo  [27] HANGUL SYLLABLE REG..HANGUL SYLLABLE REH
+        "\ub825","\ub826","\ub827","\ub828","\ub829","\ub82a","\ub82b","\ub82c","\ub82d","\ub82e","\ub82f","\ub830","\ub831","\ub832","\ub833","\ub834","\ub835","\ub836","\ub837","\ub838","\ub839","\ub83a","\ub83b","\ub83c","\ub83d","\ub83e","\ub83f",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYEOG..HANGUL SYLLABLE RYEOH
+        "\ub841","\ub842","\ub843","\ub844","\ub845","\ub846","\ub847","\ub848","\ub849","\ub84a","\ub84b","\ub84c","\ub84d","\ub84e","\ub84f","\ub850","\ub851","\ub852","\ub853","\ub854","\ub855","\ub856","\ub857","\ub858","\ub859","\ub85a","\ub85b",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYEG..HANGUL SYLLABLE RYEH
+        "\ub85d","\ub85e","\ub85f","\ub860","\ub861","\ub862","\ub863","\ub864","\ub865","\ub866","\ub867","\ub868","\ub869","\ub86a","\ub86b","\ub86c","\ub86d","\ub86e","\ub86f","\ub870","\ub871","\ub872","\ub873","\ub874","\ub875","\ub876","\ub877",  # ; LVT # Lo  [27] HANGUL SYLLABLE ROG..HANGUL SYLLABLE ROH
+        "\ub879","\ub87a","\ub87b","\ub87c","\ub87d","\ub87e","\ub87f","\ub880","\ub881","\ub882","\ub883","\ub884","\ub885","\ub886","\ub887","\ub888","\ub889","\ub88a","\ub88b","\ub88c","\ub88d","\ub88e","\ub88f","\ub890","\ub891","\ub892","\ub893",  # ; LVT # Lo  [27] HANGUL SYLLABLE RWAG..HANGUL SYLLABLE RWAH
+        "\ub895","\ub896","\ub897","\ub898","\ub899","\ub89a","\ub89b","\ub89c","\ub89d","\ub89e","\ub89f","\ub8a0","\ub8a1","\ub8a2","\ub8a3","\ub8a4","\ub8a5","\ub8a6","\ub8a7","\ub8a8","\ub8a9","\ub8aa","\ub8ab","\ub8ac","\ub8ad","\ub8ae","\ub8af",  # ; LVT # Lo  [27] HANGUL SYLLABLE RWAEG..HANGUL SYLLABLE RWAEH
+        "\ub8b1","\ub8b2","\ub8b3","\ub8b4","\ub8b5","\ub8b6","\ub8b7","\ub8b8","\ub8b9","\ub8ba","\ub8bb","\ub8bc","\ub8bd","\ub8be","\ub8bf","\ub8c0","\ub8c1","\ub8c2","\ub8c3","\ub8c4","\ub8c5","\ub8c6","\ub8c7","\ub8c8","\ub8c9","\ub8ca","\ub8cb",  # ; LVT # Lo  [27] HANGUL SYLLABLE ROEG..HANGUL SYLLABLE ROEH
+        "\ub8cd","\ub8ce","\ub8cf","\ub8d0","\ub8d1","\ub8d2","\ub8d3","\ub8d4","\ub8d5","\ub8d6","\ub8d7","\ub8d8","\ub8d9","\ub8da","\ub8db","\ub8dc","\ub8dd","\ub8de","\ub8df","\ub8e0","\ub8e1","\ub8e2","\ub8e3","\ub8e4","\ub8e5","\ub8e6","\ub8e7",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYOG..HANGUL SYLLABLE RYOH
+        "\ub8e9","\ub8ea","\ub8eb","\ub8ec","\ub8ed","\ub8ee","\ub8ef","\ub8f0","\ub8f1","\ub8f2","\ub8f3","\ub8f4","\ub8f5","\ub8f6","\ub8f7","\ub8f8","\ub8f9","\ub8fa","\ub8fb","\ub8fc","\ub8fd","\ub8fe","\ub8ff","\ub900","\ub901","\ub902","\ub903",  # ; LVT # Lo  [27] HANGUL SYLLABLE RUG..HANGUL SYLLABLE RUH
+        "\ub905","\ub906","\ub907","\ub908","\ub909","\ub90a","\ub90b","\ub90c","\ub90d","\ub90e","\ub90f","\ub910","\ub911","\ub912","\ub913","\ub914","\ub915","\ub916","\ub917","\ub918","\ub919","\ub91a","\ub91b","\ub91c","\ub91d","\ub91e","\ub91f",  # ; LVT # Lo  [27] HANGUL SYLLABLE RWEOG..HANGUL SYLLABLE RWEOH
+        "\ub921","\ub922","\ub923","\ub924","\ub925","\ub926","\ub927","\ub928","\ub929","\ub92a","\ub92b","\ub92c","\ub92d","\ub92e","\ub92f","\ub930","\ub931","\ub932","\ub933","\ub934","\ub935","\ub936","\ub937","\ub938","\ub939","\ub93a","\ub93b",  # ; LVT # Lo  [27] HANGUL SYLLABLE RWEG..HANGUL SYLLABLE RWEH
+        "\ub93d","\ub93e","\ub93f","\ub940","\ub941","\ub942","\ub943","\ub944","\ub945","\ub946","\ub947","\ub948","\ub949","\ub94a","\ub94b","\ub94c","\ub94d","\ub94e","\ub94f","\ub950","\ub951","\ub952","\ub953","\ub954","\ub955","\ub956","\ub957",  # ; LVT # Lo  [27] HANGUL SYLLABLE RWIG..HANGUL SYLLABLE RWIH
+        "\ub959","\ub95a","\ub95b","\ub95c","\ub95d","\ub95e","\ub95f","\ub960","\ub961","\ub962","\ub963","\ub964","\ub965","\ub966","\ub967","\ub968","\ub969","\ub96a","\ub96b","\ub96c","\ub96d","\ub96e","\ub96f","\ub970","\ub971","\ub972","\ub973",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYUG..HANGUL SYLLABLE RYUH
+        "\ub975","\ub976","\ub977","\ub978","\ub979","\ub97a","\ub97b","\ub97c","\ub97d","\ub97e","\ub97f","\ub980","\ub981","\ub982","\ub983","\ub984","\ub985","\ub986","\ub987","\ub988","\ub989","\ub98a","\ub98b","\ub98c","\ub98d","\ub98e","\ub98f",  # ; LVT # Lo  [27] HANGUL SYLLABLE REUG..HANGUL SYLLABLE REUH
+        "\ub991","\ub992","\ub993","\ub994","\ub995","\ub996","\ub997","\ub998","\ub999","\ub99a","\ub99b","\ub99c","\ub99d","\ub99e","\ub99f","\ub9a0","\ub9a1","\ub9a2","\ub9a3","\ub9a4","\ub9a5","\ub9a6","\ub9a7","\ub9a8","\ub9a9","\ub9aa","\ub9ab",  # ; LVT # Lo  [27] HANGUL SYLLABLE RYIG..HANGUL SYLLABLE RYIH
+        "\ub9ad","\ub9ae","\ub9af","\ub9b0","\ub9b1","\ub9b2","\ub9b3","\ub9b4","\ub9b5","\ub9b6","\ub9b7","\ub9b8","\ub9b9","\ub9ba","\ub9bb","\ub9bc","\ub9bd","\ub9be","\ub9bf","\ub9c0","\ub9c1","\ub9c2","\ub9c3","\ub9c4","\ub9c5","\ub9c6","\ub9c7",  # ; LVT # Lo  [27] HANGUL SYLLABLE RIG..HANGUL SYLLABLE RIH
+        "\ub9c9","\ub9ca","\ub9cb","\ub9cc","\ub9cd","\ub9ce","\ub9cf","\ub9d0","\ub9d1","\ub9d2","\ub9d3","\ub9d4","\ub9d5","\ub9d6","\ub9d7","\ub9d8","\ub9d9","\ub9da","\ub9db","\ub9dc","\ub9dd","\ub9de","\ub9df","\ub9e0","\ub9e1","\ub9e2","\ub9e3",  # ; LVT # Lo  [27] HANGUL SYLLABLE MAG..HANGUL SYLLABLE MAH
+        "\ub9e5","\ub9e6","\ub9e7","\ub9e8","\ub9e9","\ub9ea","\ub9eb","\ub9ec","\ub9ed","\ub9ee","\ub9ef","\ub9f0","\ub9f1","\ub9f2","\ub9f3","\ub9f4","\ub9f5","\ub9f6","\ub9f7","\ub9f8","\ub9f9","\ub9fa","\ub9fb","\ub9fc","\ub9fd","\ub9fe","\ub9ff",  # ; LVT # Lo  [27] HANGUL SYLLABLE MAEG..HANGUL SYLLABLE MAEH
+        "\uba01","\uba02","\uba03","\uba04","\uba05","\uba06","\uba07","\uba08","\uba09","\uba0a","\uba0b","\uba0c","\uba0d","\uba0e","\uba0f","\uba10","\uba11","\uba12","\uba13","\uba14","\uba15","\uba16","\uba17","\uba18","\uba19","\uba1a","\uba1b",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYAG..HANGUL SYLLABLE MYAH
+        "\uba1d","\uba1e","\uba1f","\uba20","\uba21","\uba22","\uba23","\uba24","\uba25","\uba26","\uba27","\uba28","\uba29","\uba2a","\uba2b","\uba2c","\uba2d","\uba2e","\uba2f","\uba30","\uba31","\uba32","\uba33","\uba34","\uba35","\uba36","\uba37",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYAEG..HANGUL SYLLABLE MYAEH
+        "\uba39","\uba3a","\uba3b","\uba3c","\uba3d","\uba3e","\uba3f","\uba40","\uba41","\uba42","\uba43","\uba44","\uba45","\uba46","\uba47","\uba48","\uba49","\uba4a","\uba4b","\uba4c","\uba4d","\uba4e","\uba4f","\uba50","\uba51","\uba52","\uba53",  # ; LVT # Lo  [27] HANGUL SYLLABLE MEOG..HANGUL SYLLABLE MEOH
+        "\uba55","\uba56","\uba57","\uba58","\uba59","\uba5a","\uba5b","\uba5c","\uba5d","\uba5e","\uba5f","\uba60","\uba61","\uba62","\uba63","\uba64","\uba65","\uba66","\uba67","\uba68","\uba69","\uba6a","\uba6b","\uba6c","\uba6d","\uba6e","\uba6f",  # ; LVT # Lo  [27] HANGUL SYLLABLE MEG..HANGUL SYLLABLE MEH
+        "\uba71","\uba72","\uba73","\uba74","\uba75","\uba76","\uba77","\uba78","\uba79","\uba7a","\uba7b","\uba7c","\uba7d","\uba7e","\uba7f","\uba80","\uba81","\uba82","\uba83","\uba84","\uba85","\uba86","\uba87","\uba88","\uba89","\uba8a","\uba8b",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYEOG..HANGUL SYLLABLE MYEOH
+        "\uba8d","\uba8e","\uba8f","\uba90","\uba91","\uba92","\uba93","\uba94","\uba95","\uba96","\uba97","\uba98","\uba99","\uba9a","\uba9b","\uba9c","\uba9d","\uba9e","\uba9f","\ubaa0","\ubaa1","\ubaa2","\ubaa3","\ubaa4","\ubaa5","\ubaa6","\ubaa7",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYEG..HANGUL SYLLABLE MYEH
+        "\ubaa9","\ubaaa","\ubaab","\ubaac","\ubaad","\ubaae","\ubaaf","\ubab0","\ubab1","\ubab2","\ubab3","\ubab4","\ubab5","\ubab6","\ubab7","\ubab8","\ubab9","\ubaba","\ubabb","\ubabc","\ubabd","\ubabe","\ubabf","\ubac0","\ubac1","\ubac2","\ubac3",  # ; LVT # Lo  [27] HANGUL SYLLABLE MOG..HANGUL SYLLABLE MOH
+        "\ubac5","\ubac6","\ubac7","\ubac8","\ubac9","\ubaca","\ubacb","\ubacc","\ubacd","\ubace","\ubacf","\ubad0","\ubad1","\ubad2","\ubad3","\ubad4","\ubad5","\ubad6","\ubad7","\ubad8","\ubad9","\ubada","\ubadb","\ubadc","\ubadd","\ubade","\ubadf",  # ; LVT # Lo  [27] HANGUL SYLLABLE MWAG..HANGUL SYLLABLE MWAH
+        "\ubae1","\ubae2","\ubae3","\ubae4","\ubae5","\ubae6","\ubae7","\ubae8","\ubae9","\ubaea","\ubaeb","\ubaec","\ubaed","\ubaee","\ubaef","\ubaf0","\ubaf1","\ubaf2","\ubaf3","\ubaf4","\ubaf5","\ubaf6","\ubaf7","\ubaf8","\ubaf9","\ubafa","\ubafb",  # ; LVT # Lo  [27] HANGUL SYLLABLE MWAEG..HANGUL SYLLABLE MWAEH
+        "\ubafd","\ubafe","\ubaff","\ubb00","\ubb01","\ubb02","\ubb03","\ubb04","\ubb05","\ubb06","\ubb07","\ubb08","\ubb09","\ubb0a","\ubb0b","\ubb0c","\ubb0d","\ubb0e","\ubb0f","\ubb10","\ubb11","\ubb12","\ubb13","\ubb14","\ubb15","\ubb16","\ubb17",  # ; LVT # Lo  [27] HANGUL SYLLABLE MOEG..HANGUL SYLLABLE MOEH
+        "\ubb19","\ubb1a","\ubb1b","\ubb1c","\ubb1d","\ubb1e","\ubb1f","\ubb20","\ubb21","\ubb22","\ubb23","\ubb24","\ubb25","\ubb26","\ubb27","\ubb28","\ubb29","\ubb2a","\ubb2b","\ubb2c","\ubb2d","\ubb2e","\ubb2f","\ubb30","\ubb31","\ubb32","\ubb33",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYOG..HANGUL SYLLABLE MYOH
+        "\ubb35","\ubb36","\ubb37","\ubb38","\ubb39","\ubb3a","\ubb3b","\ubb3c","\ubb3d","\ubb3e","\ubb3f","\ubb40","\ubb41","\ubb42","\ubb43","\ubb44","\ubb45","\ubb46","\ubb47","\ubb48","\ubb49","\ubb4a","\ubb4b","\ubb4c","\ubb4d","\ubb4e","\ubb4f",  # ; LVT # Lo  [27] HANGUL SYLLABLE MUG..HANGUL SYLLABLE MUH
+        "\ubb51","\ubb52","\ubb53","\ubb54","\ubb55","\ubb56","\ubb57","\ubb58","\ubb59","\ubb5a","\ubb5b","\ubb5c","\ubb5d","\ubb5e","\ubb5f","\ubb60","\ubb61","\ubb62","\ubb63","\ubb64","\ubb65","\ubb66","\ubb67","\ubb68","\ubb69","\ubb6a","\ubb6b",  # ; LVT # Lo  [27] HANGUL SYLLABLE MWEOG..HANGUL SYLLABLE MWEOH
+        "\ubb6d","\ubb6e","\ubb6f","\ubb70","\ubb71","\ubb72","\ubb73","\ubb74","\ubb75","\ubb76","\ubb77","\ubb78","\ubb79","\ubb7a","\ubb7b","\ubb7c","\ubb7d","\ubb7e","\ubb7f","\ubb80","\ubb81","\ubb82","\ubb83","\ubb84","\ubb85","\ubb86","\ubb87",  # ; LVT # Lo  [27] HANGUL SYLLABLE MWEG..HANGUL SYLLABLE MWEH
+        "\ubb89","\ubb8a","\ubb8b","\ubb8c","\ubb8d","\ubb8e","\ubb8f","\ubb90","\ubb91","\ubb92","\ubb93","\ubb94","\ubb95","\ubb96","\ubb97","\ubb98","\ubb99","\ubb9a","\ubb9b","\ubb9c","\ubb9d","\ubb9e","\ubb9f","\ubba0","\ubba1","\ubba2","\ubba3",  # ; LVT # Lo  [27] HANGUL SYLLABLE MWIG..HANGUL SYLLABLE MWIH
+        "\ubba5","\ubba6","\ubba7","\ubba8","\ubba9","\ubbaa","\ubbab","\ubbac","\ubbad","\ubbae","\ubbaf","\ubbb0","\ubbb1","\ubbb2","\ubbb3","\ubbb4","\ubbb5","\ubbb6","\ubbb7","\ubbb8","\ubbb9","\ubbba","\ubbbb","\ubbbc","\ubbbd","\ubbbe","\ubbbf",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYUG..HANGUL SYLLABLE MYUH
+        "\ubbc1","\ubbc2","\ubbc3","\ubbc4","\ubbc5","\ubbc6","\ubbc7","\ubbc8","\ubbc9","\ubbca","\ubbcb","\ubbcc","\ubbcd","\ubbce","\ubbcf","\ubbd0","\ubbd1","\ubbd2","\ubbd3","\ubbd4","\ubbd5","\ubbd6","\ubbd7","\ubbd8","\ubbd9","\ubbda","\ubbdb",  # ; LVT # Lo  [27] HANGUL SYLLABLE MEUG..HANGUL SYLLABLE MEUH
+        "\ubbdd","\ubbde","\ubbdf","\ubbe0","\ubbe1","\ubbe2","\ubbe3","\ubbe4","\ubbe5","\ubbe6","\ubbe7","\ubbe8","\ubbe9","\ubbea","\ubbeb","\ubbec","\ubbed","\ubbee","\ubbef","\ubbf0","\ubbf1","\ubbf2","\ubbf3","\ubbf4","\ubbf5","\ubbf6","\ubbf7",  # ; LVT # Lo  [27] HANGUL SYLLABLE MYIG..HANGUL SYLLABLE MYIH
+        "\ubbf9","\ubbfa","\ubbfb","\ubbfc","\ubbfd","\ubbfe","\ubbff","\ubc00","\ubc01","\ubc02","\ubc03","\ubc04","\ubc05","\ubc06","\ubc07","\ubc08","\ubc09","\ubc0a","\ubc0b","\ubc0c","\ubc0d","\ubc0e","\ubc0f","\ubc10","\ubc11","\ubc12","\ubc13",  # ; LVT # Lo  [27] HANGUL SYLLABLE MIG..HANGUL SYLLABLE MIH
+        "\ubc15","\ubc16","\ubc17","\ubc18","\ubc19","\ubc1a","\ubc1b","\ubc1c","\ubc1d","\ubc1e","\ubc1f","\ubc20","\ubc21","\ubc22","\ubc23","\ubc24","\ubc25","\ubc26","\ubc27","\ubc28","\ubc29","\ubc2a","\ubc2b","\ubc2c","\ubc2d","\ubc2e","\ubc2f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BAG..HANGUL SYLLABLE BAH
+        "\ubc31","\ubc32","\ubc33","\ubc34","\ubc35","\ubc36","\ubc37","\ubc38","\ubc39","\ubc3a","\ubc3b","\ubc3c","\ubc3d","\ubc3e","\ubc3f","\ubc40","\ubc41","\ubc42","\ubc43","\ubc44","\ubc45","\ubc46","\ubc47","\ubc48","\ubc49","\ubc4a","\ubc4b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BAEG..HANGUL SYLLABLE BAEH
+        "\ubc4d","\ubc4e","\ubc4f","\ubc50","\ubc51","\ubc52","\ubc53","\ubc54","\ubc55","\ubc56","\ubc57","\ubc58","\ubc59","\ubc5a","\ubc5b","\ubc5c","\ubc5d","\ubc5e","\ubc5f","\ubc60","\ubc61","\ubc62","\ubc63","\ubc64","\ubc65","\ubc66","\ubc67",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYAG..HANGUL SYLLABLE BYAH
+        "\ubc69","\ubc6a","\ubc6b","\ubc6c","\ubc6d","\ubc6e","\ubc6f","\ubc70","\ubc71","\ubc72","\ubc73","\ubc74","\ubc75","\ubc76","\ubc77","\ubc78","\ubc79","\ubc7a","\ubc7b","\ubc7c","\ubc7d","\ubc7e","\ubc7f","\ubc80","\ubc81","\ubc82","\ubc83",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYAEG..HANGUL SYLLABLE BYAEH
+        "\ubc85","\ubc86","\ubc87","\ubc88","\ubc89","\ubc8a","\ubc8b","\ubc8c","\ubc8d","\ubc8e","\ubc8f","\ubc90","\ubc91","\ubc92","\ubc93","\ubc94","\ubc95","\ubc96","\ubc97","\ubc98","\ubc99","\ubc9a","\ubc9b","\ubc9c","\ubc9d","\ubc9e","\ubc9f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BEOG..HANGUL SYLLABLE BEOH
+        "\ubca1","\ubca2","\ubca3","\ubca4","\ubca5","\ubca6","\ubca7","\ubca8","\ubca9","\ubcaa","\ubcab","\ubcac","\ubcad","\ubcae","\ubcaf","\ubcb0","\ubcb1","\ubcb2","\ubcb3","\ubcb4","\ubcb5","\ubcb6","\ubcb7","\ubcb8","\ubcb9","\ubcba","\ubcbb",  # ; LVT # Lo  [27] HANGUL SYLLABLE BEG..HANGUL SYLLABLE BEH
+        "\ubcbd","\ubcbe","\ubcbf","\ubcc0","\ubcc1","\ubcc2","\ubcc3","\ubcc4","\ubcc5","\ubcc6","\ubcc7","\ubcc8","\ubcc9","\ubcca","\ubccb","\ubccc","\ubccd","\ubcce","\ubccf","\ubcd0","\ubcd1","\ubcd2","\ubcd3","\ubcd4","\ubcd5","\ubcd6","\ubcd7",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYEOG..HANGUL SYLLABLE BYEOH
+        "\ubcd9","\ubcda","\ubcdb","\ubcdc","\ubcdd","\ubcde","\ubcdf","\ubce0","\ubce1","\ubce2","\ubce3","\ubce4","\ubce5","\ubce6","\ubce7","\ubce8","\ubce9","\ubcea","\ubceb","\ubcec","\ubced","\ubcee","\ubcef","\ubcf0","\ubcf1","\ubcf2","\ubcf3",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYEG..HANGUL SYLLABLE BYEH
+        "\ubcf5","\ubcf6","\ubcf7","\ubcf8","\ubcf9","\ubcfa","\ubcfb","\ubcfc","\ubcfd","\ubcfe","\ubcff","\ubd00","\ubd01","\ubd02","\ubd03","\ubd04","\ubd05","\ubd06","\ubd07","\ubd08","\ubd09","\ubd0a","\ubd0b","\ubd0c","\ubd0d","\ubd0e","\ubd0f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BOG..HANGUL SYLLABLE BOH
+        "\ubd11","\ubd12","\ubd13","\ubd14","\ubd15","\ubd16","\ubd17","\ubd18","\ubd19","\ubd1a","\ubd1b","\ubd1c","\ubd1d","\ubd1e","\ubd1f","\ubd20","\ubd21","\ubd22","\ubd23","\ubd24","\ubd25","\ubd26","\ubd27","\ubd28","\ubd29","\ubd2a","\ubd2b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BWAG..HANGUL SYLLABLE BWAH
+        "\ubd2d","\ubd2e","\ubd2f","\ubd30","\ubd31","\ubd32","\ubd33","\ubd34","\ubd35","\ubd36","\ubd37","\ubd38","\ubd39","\ubd3a","\ubd3b","\ubd3c","\ubd3d","\ubd3e","\ubd3f","\ubd40","\ubd41","\ubd42","\ubd43","\ubd44","\ubd45","\ubd46","\ubd47",  # ; LVT # Lo  [27] HANGUL SYLLABLE BWAEG..HANGUL SYLLABLE BWAEH
+        "\ubd49","\ubd4a","\ubd4b","\ubd4c","\ubd4d","\ubd4e","\ubd4f","\ubd50","\ubd51","\ubd52","\ubd53","\ubd54","\ubd55","\ubd56","\ubd57","\ubd58","\ubd59","\ubd5a","\ubd5b","\ubd5c","\ubd5d","\ubd5e","\ubd5f","\ubd60","\ubd61","\ubd62","\ubd63",  # ; LVT # Lo  [27] HANGUL SYLLABLE BOEG..HANGUL SYLLABLE BOEH
+        "\ubd65","\ubd66","\ubd67","\ubd68","\ubd69","\ubd6a","\ubd6b","\ubd6c","\ubd6d","\ubd6e","\ubd6f","\ubd70","\ubd71","\ubd72","\ubd73","\ubd74","\ubd75","\ubd76","\ubd77","\ubd78","\ubd79","\ubd7a","\ubd7b","\ubd7c","\ubd7d","\ubd7e","\ubd7f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYOG..HANGUL SYLLABLE BYOH
+        "\ubd81","\ubd82","\ubd83","\ubd84","\ubd85","\ubd86","\ubd87","\ubd88","\ubd89","\ubd8a","\ubd8b","\ubd8c","\ubd8d","\ubd8e","\ubd8f","\ubd90","\ubd91","\ubd92","\ubd93","\ubd94","\ubd95","\ubd96","\ubd97","\ubd98","\ubd99","\ubd9a","\ubd9b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BUG..HANGUL SYLLABLE BUH
+        "\ubd9d","\ubd9e","\ubd9f","\ubda0","\ubda1","\ubda2","\ubda3","\ubda4","\ubda5","\ubda6","\ubda7","\ubda8","\ubda9","\ubdaa","\ubdab","\ubdac","\ubdad","\ubdae","\ubdaf","\ubdb0","\ubdb1","\ubdb2","\ubdb3","\ubdb4","\ubdb5","\ubdb6","\ubdb7",  # ; LVT # Lo  [27] HANGUL SYLLABLE BWEOG..HANGUL SYLLABLE BWEOH
+        "\ubdb9","\ubdba","\ubdbb","\ubdbc","\ubdbd","\ubdbe","\ubdbf","\ubdc0","\ubdc1","\ubdc2","\ubdc3","\ubdc4","\ubdc5","\ubdc6","\ubdc7","\ubdc8","\ubdc9","\ubdca","\ubdcb","\ubdcc","\ubdcd","\ubdce","\ubdcf","\ubdd0","\ubdd1","\ubdd2","\ubdd3",  # ; LVT # Lo  [27] HANGUL SYLLABLE BWEG..HANGUL SYLLABLE BWEH
+        "\ubdd5","\ubdd6","\ubdd7","\ubdd8","\ubdd9","\ubdda","\ubddb","\ubddc","\ubddd","\ubdde","\ubddf","\ubde0","\ubde1","\ubde2","\ubde3","\ubde4","\ubde5","\ubde6","\ubde7","\ubde8","\ubde9","\ubdea","\ubdeb","\ubdec","\ubded","\ubdee","\ubdef",  # ; LVT # Lo  [27] HANGUL SYLLABLE BWIG..HANGUL SYLLABLE BWIH
+        "\ubdf1","\ubdf2","\ubdf3","\ubdf4","\ubdf5","\ubdf6","\ubdf7","\ubdf8","\ubdf9","\ubdfa","\ubdfb","\ubdfc","\ubdfd","\ubdfe","\ubdff","\ube00","\ube01","\ube02","\ube03","\ube04","\ube05","\ube06","\ube07","\ube08","\ube09","\ube0a","\ube0b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYUG..HANGUL SYLLABLE BYUH
+        "\ube0d","\ube0e","\ube0f","\ube10","\ube11","\ube12","\ube13","\ube14","\ube15","\ube16","\ube17","\ube18","\ube19","\ube1a","\ube1b","\ube1c","\ube1d","\ube1e","\ube1f","\ube20","\ube21","\ube22","\ube23","\ube24","\ube25","\ube26","\ube27",  # ; LVT # Lo  [27] HANGUL SYLLABLE BEUG..HANGUL SYLLABLE BEUH
+        "\ube29","\ube2a","\ube2b","\ube2c","\ube2d","\ube2e","\ube2f","\ube30","\ube31","\ube32","\ube33","\ube34","\ube35","\ube36","\ube37","\ube38","\ube39","\ube3a","\ube3b","\ube3c","\ube3d","\ube3e","\ube3f","\ube40","\ube41","\ube42","\ube43",  # ; LVT # Lo  [27] HANGUL SYLLABLE BYIG..HANGUL SYLLABLE BYIH
+        "\ube45","\ube46","\ube47","\ube48","\ube49","\ube4a","\ube4b","\ube4c","\ube4d","\ube4e","\ube4f","\ube50","\ube51","\ube52","\ube53","\ube54","\ube55","\ube56","\ube57","\ube58","\ube59","\ube5a","\ube5b","\ube5c","\ube5d","\ube5e","\ube5f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BIG..HANGUL SYLLABLE BIH
+        "\ube61","\ube62","\ube63","\ube64","\ube65","\ube66","\ube67","\ube68","\ube69","\ube6a","\ube6b","\ube6c","\ube6d","\ube6e","\ube6f","\ube70","\ube71","\ube72","\ube73","\ube74","\ube75","\ube76","\ube77","\ube78","\ube79","\ube7a","\ube7b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBAG..HANGUL SYLLABLE BBAH
+        "\ube7d","\ube7e","\ube7f","\ube80","\ube81","\ube82","\ube83","\ube84","\ube85","\ube86","\ube87","\ube88","\ube89","\ube8a","\ube8b","\ube8c","\ube8d","\ube8e","\ube8f","\ube90","\ube91","\ube92","\ube93","\ube94","\ube95","\ube96","\ube97",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBAEG..HANGUL SYLLABLE BBAEH
+        "\ube99","\ube9a","\ube9b","\ube9c","\ube9d","\ube9e","\ube9f","\ubea0","\ubea1","\ubea2","\ubea3","\ubea4","\ubea5","\ubea6","\ubea7","\ubea8","\ubea9","\ubeaa","\ubeab","\ubeac","\ubead","\ubeae","\ubeaf","\ubeb0","\ubeb1","\ubeb2","\ubeb3",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYAG..HANGUL SYLLABLE BBYAH
+        "\ubeb5","\ubeb6","\ubeb7","\ubeb8","\ubeb9","\ubeba","\ubebb","\ubebc","\ubebd","\ubebe","\ubebf","\ubec0","\ubec1","\ubec2","\ubec3","\ubec4","\ubec5","\ubec6","\ubec7","\ubec8","\ubec9","\ubeca","\ubecb","\ubecc","\ubecd","\ubece","\ubecf",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYAEG..HANGUL SYLLABLE BBYAEH
+        "\ubed1","\ubed2","\ubed3","\ubed4","\ubed5","\ubed6","\ubed7","\ubed8","\ubed9","\ubeda","\ubedb","\ubedc","\ubedd","\ubede","\ubedf","\ubee0","\ubee1","\ubee2","\ubee3","\ubee4","\ubee5","\ubee6","\ubee7","\ubee8","\ubee9","\ubeea","\ubeeb",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBEOG..HANGUL SYLLABLE BBEOH
+        "\ubeed","\ubeee","\ubeef","\ubef0","\ubef1","\ubef2","\ubef3","\ubef4","\ubef5","\ubef6","\ubef7","\ubef8","\ubef9","\ubefa","\ubefb","\ubefc","\ubefd","\ubefe","\ubeff","\ubf00","\ubf01","\ubf02","\ubf03","\ubf04","\ubf05","\ubf06","\ubf07",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBEG..HANGUL SYLLABLE BBEH
+        "\ubf09","\ubf0a","\ubf0b","\ubf0c","\ubf0d","\ubf0e","\ubf0f","\ubf10","\ubf11","\ubf12","\ubf13","\ubf14","\ubf15","\ubf16","\ubf17","\ubf18","\ubf19","\ubf1a","\ubf1b","\ubf1c","\ubf1d","\ubf1e","\ubf1f","\ubf20","\ubf21","\ubf22","\ubf23",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYEOG..HANGUL SYLLABLE BBYEOH
+        "\ubf25","\ubf26","\ubf27","\ubf28","\ubf29","\ubf2a","\ubf2b","\ubf2c","\ubf2d","\ubf2e","\ubf2f","\ubf30","\ubf31","\ubf32","\ubf33","\ubf34","\ubf35","\ubf36","\ubf37","\ubf38","\ubf39","\ubf3a","\ubf3b","\ubf3c","\ubf3d","\ubf3e","\ubf3f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYEG..HANGUL SYLLABLE BBYEH
+        "\ubf41","\ubf42","\ubf43","\ubf44","\ubf45","\ubf46","\ubf47","\ubf48","\ubf49","\ubf4a","\ubf4b","\ubf4c","\ubf4d","\ubf4e","\ubf4f","\ubf50","\ubf51","\ubf52","\ubf53","\ubf54","\ubf55","\ubf56","\ubf57","\ubf58","\ubf59","\ubf5a","\ubf5b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBOG..HANGUL SYLLABLE BBOH
+        "\ubf5d","\ubf5e","\ubf5f","\ubf60","\ubf61","\ubf62","\ubf63","\ubf64","\ubf65","\ubf66","\ubf67","\ubf68","\ubf69","\ubf6a","\ubf6b","\ubf6c","\ubf6d","\ubf6e","\ubf6f","\ubf70","\ubf71","\ubf72","\ubf73","\ubf74","\ubf75","\ubf76","\ubf77",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBWAG..HANGUL SYLLABLE BBWAH
+        "\ubf79","\ubf7a","\ubf7b","\ubf7c","\ubf7d","\ubf7e","\ubf7f","\ubf80","\ubf81","\ubf82","\ubf83","\ubf84","\ubf85","\ubf86","\ubf87","\ubf88","\ubf89","\ubf8a","\ubf8b","\ubf8c","\ubf8d","\ubf8e","\ubf8f","\ubf90","\ubf91","\ubf92","\ubf93",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBWAEG..HANGUL SYLLABLE BBWAEH
+        "\ubf95","\ubf96","\ubf97","\ubf98","\ubf99","\ubf9a","\ubf9b","\ubf9c","\ubf9d","\ubf9e","\ubf9f","\ubfa0","\ubfa1","\ubfa2","\ubfa3","\ubfa4","\ubfa5","\ubfa6","\ubfa7","\ubfa8","\ubfa9","\ubfaa","\ubfab","\ubfac","\ubfad","\ubfae","\ubfaf",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBOEG..HANGUL SYLLABLE BBOEH
+        "\ubfb1","\ubfb2","\ubfb3","\ubfb4","\ubfb5","\ubfb6","\ubfb7","\ubfb8","\ubfb9","\ubfba","\ubfbb","\ubfbc","\ubfbd","\ubfbe","\ubfbf","\ubfc0","\ubfc1","\ubfc2","\ubfc3","\ubfc4","\ubfc5","\ubfc6","\ubfc7","\ubfc8","\ubfc9","\ubfca","\ubfcb",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYOG..HANGUL SYLLABLE BBYOH
+        "\ubfcd","\ubfce","\ubfcf","\ubfd0","\ubfd1","\ubfd2","\ubfd3","\ubfd4","\ubfd5","\ubfd6","\ubfd7","\ubfd8","\ubfd9","\ubfda","\ubfdb","\ubfdc","\ubfdd","\ubfde","\ubfdf","\ubfe0","\ubfe1","\ubfe2","\ubfe3","\ubfe4","\ubfe5","\ubfe6","\ubfe7",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBUG..HANGUL SYLLABLE BBUH
+        "\ubfe9","\ubfea","\ubfeb","\ubfec","\ubfed","\ubfee","\ubfef","\ubff0","\ubff1","\ubff2","\ubff3","\ubff4","\ubff5","\ubff6","\ubff7","\ubff8","\ubff9","\ubffa","\ubffb","\ubffc","\ubffd","\ubffe","\ubfff","\uc000","\uc001","\uc002","\uc003",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBWEOG..HANGUL SYLLABLE BBWEOH
+        "\uc005","\uc006","\uc007","\uc008","\uc009","\uc00a","\uc00b","\uc00c","\uc00d","\uc00e","\uc00f","\uc010","\uc011","\uc012","\uc013","\uc014","\uc015","\uc016","\uc017","\uc018","\uc019","\uc01a","\uc01b","\uc01c","\uc01d","\uc01e","\uc01f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBWEG..HANGUL SYLLABLE BBWEH
+        "\uc021","\uc022","\uc023","\uc024","\uc025","\uc026","\uc027","\uc028","\uc029","\uc02a","\uc02b","\uc02c","\uc02d","\uc02e","\uc02f","\uc030","\uc031","\uc032","\uc033","\uc034","\uc035","\uc036","\uc037","\uc038","\uc039","\uc03a","\uc03b",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBWIG..HANGUL SYLLABLE BBWIH
+        "\uc03d","\uc03e","\uc03f","\uc040","\uc041","\uc042","\uc043","\uc044","\uc045","\uc046","\uc047","\uc048","\uc049","\uc04a","\uc04b","\uc04c","\uc04d","\uc04e","\uc04f","\uc050","\uc051","\uc052","\uc053","\uc054","\uc055","\uc056","\uc057",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYUG..HANGUL SYLLABLE BBYUH
+        "\uc059","\uc05a","\uc05b","\uc05c","\uc05d","\uc05e","\uc05f","\uc060","\uc061","\uc062","\uc063","\uc064","\uc065","\uc066","\uc067","\uc068","\uc069","\uc06a","\uc06b","\uc06c","\uc06d","\uc06e","\uc06f","\uc070","\uc071","\uc072","\uc073",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBEUG..HANGUL SYLLABLE BBEUH
+        "\uc075","\uc076","\uc077","\uc078","\uc079","\uc07a","\uc07b","\uc07c","\uc07d","\uc07e","\uc07f","\uc080","\uc081","\uc082","\uc083","\uc084","\uc085","\uc086","\uc087","\uc088","\uc089","\uc08a","\uc08b","\uc08c","\uc08d","\uc08e","\uc08f",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBYIG..HANGUL SYLLABLE BBYIH
+        "\uc091","\uc092","\uc093","\uc094","\uc095","\uc096","\uc097","\uc098","\uc099","\uc09a","\uc09b","\uc09c","\uc09d","\uc09e","\uc09f","\uc0a0","\uc0a1","\uc0a2","\uc0a3","\uc0a4","\uc0a5","\uc0a6","\uc0a7","\uc0a8","\uc0a9","\uc0aa","\uc0ab",  # ; LVT # Lo  [27] HANGUL SYLLABLE BBIG..HANGUL SYLLABLE BBIH
+        "\uc0ad","\uc0ae","\uc0af","\uc0b0","\uc0b1","\uc0b2","\uc0b3","\uc0b4","\uc0b5","\uc0b6","\uc0b7","\uc0b8","\uc0b9","\uc0ba","\uc0bb","\uc0bc","\uc0bd","\uc0be","\uc0bf","\uc0c0","\uc0c1","\uc0c2","\uc0c3","\uc0c4","\uc0c5","\uc0c6","\uc0c7",  # ; LVT # Lo  [27] HANGUL SYLLABLE SAG..HANGUL SYLLABLE SAH
+        "\uc0c9","\uc0ca","\uc0cb","\uc0cc","\uc0cd","\uc0ce","\uc0cf","\uc0d0","\uc0d1","\uc0d2","\uc0d3","\uc0d4","\uc0d5","\uc0d6","\uc0d7","\uc0d8","\uc0d9","\uc0da","\uc0db","\uc0dc","\uc0dd","\uc0de","\uc0df","\uc0e0","\uc0e1","\uc0e2","\uc0e3",  # ; LVT # Lo  [27] HANGUL SYLLABLE SAEG..HANGUL SYLLABLE SAEH
+        "\uc0e5","\uc0e6","\uc0e7","\uc0e8","\uc0e9","\uc0ea","\uc0eb","\uc0ec","\uc0ed","\uc0ee","\uc0ef","\uc0f0","\uc0f1","\uc0f2","\uc0f3","\uc0f4","\uc0f5","\uc0f6","\uc0f7","\uc0f8","\uc0f9","\uc0fa","\uc0fb","\uc0fc","\uc0fd","\uc0fe","\uc0ff",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYAG..HANGUL SYLLABLE SYAH
+        "\uc101","\uc102","\uc103","\uc104","\uc105","\uc106","\uc107","\uc108","\uc109","\uc10a","\uc10b","\uc10c","\uc10d","\uc10e","\uc10f","\uc110","\uc111","\uc112","\uc113","\uc114","\uc115","\uc116","\uc117","\uc118","\uc119","\uc11a","\uc11b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYAEG..HANGUL SYLLABLE SYAEH
+        "\uc11d","\uc11e","\uc11f","\uc120","\uc121","\uc122","\uc123","\uc124","\uc125","\uc126","\uc127","\uc128","\uc129","\uc12a","\uc12b","\uc12c","\uc12d","\uc12e","\uc12f","\uc130","\uc131","\uc132","\uc133","\uc134","\uc135","\uc136","\uc137",  # ; LVT # Lo  [27] HANGUL SYLLABLE SEOG..HANGUL SYLLABLE SEOH
+        "\uc139","\uc13a","\uc13b","\uc13c","\uc13d","\uc13e","\uc13f","\uc140","\uc141","\uc142","\uc143","\uc144","\uc145","\uc146","\uc147","\uc148","\uc149","\uc14a","\uc14b","\uc14c","\uc14d","\uc14e","\uc14f","\uc150","\uc151","\uc152","\uc153",  # ; LVT # Lo  [27] HANGUL SYLLABLE SEG..HANGUL SYLLABLE SEH
+        "\uc155","\uc156","\uc157","\uc158","\uc159","\uc15a","\uc15b","\uc15c","\uc15d","\uc15e","\uc15f","\uc160","\uc161","\uc162","\uc163","\uc164","\uc165","\uc166","\uc167","\uc168","\uc169","\uc16a","\uc16b","\uc16c","\uc16d","\uc16e","\uc16f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYEOG..HANGUL SYLLABLE SYEOH
+        "\uc171","\uc172","\uc173","\uc174","\uc175","\uc176","\uc177","\uc178","\uc179","\uc17a","\uc17b","\uc17c","\uc17d","\uc17e","\uc17f","\uc180","\uc181","\uc182","\uc183","\uc184","\uc185","\uc186","\uc187","\uc188","\uc189","\uc18a","\uc18b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYEG..HANGUL SYLLABLE SYEH
+        "\uc18d","\uc18e","\uc18f","\uc190","\uc191","\uc192","\uc193","\uc194","\uc195","\uc196","\uc197","\uc198","\uc199","\uc19a","\uc19b","\uc19c","\uc19d","\uc19e","\uc19f","\uc1a0","\uc1a1","\uc1a2","\uc1a3","\uc1a4","\uc1a5","\uc1a6","\uc1a7",  # ; LVT # Lo  [27] HANGUL SYLLABLE SOG..HANGUL SYLLABLE SOH
+        "\uc1a9","\uc1aa","\uc1ab","\uc1ac","\uc1ad","\uc1ae","\uc1af","\uc1b0","\uc1b1","\uc1b2","\uc1b3","\uc1b4","\uc1b5","\uc1b6","\uc1b7","\uc1b8","\uc1b9","\uc1ba","\uc1bb","\uc1bc","\uc1bd","\uc1be","\uc1bf","\uc1c0","\uc1c1","\uc1c2","\uc1c3",  # ; LVT # Lo  [27] HANGUL SYLLABLE SWAG..HANGUL SYLLABLE SWAH
+        "\uc1c5","\uc1c6","\uc1c7","\uc1c8","\uc1c9","\uc1ca","\uc1cb","\uc1cc","\uc1cd","\uc1ce","\uc1cf","\uc1d0","\uc1d1","\uc1d2","\uc1d3","\uc1d4","\uc1d5","\uc1d6","\uc1d7","\uc1d8","\uc1d9","\uc1da","\uc1db","\uc1dc","\uc1dd","\uc1de","\uc1df",  # ; LVT # Lo  [27] HANGUL SYLLABLE SWAEG..HANGUL SYLLABLE SWAEH
+        "\uc1e1","\uc1e2","\uc1e3","\uc1e4","\uc1e5","\uc1e6","\uc1e7","\uc1e8","\uc1e9","\uc1ea","\uc1eb","\uc1ec","\uc1ed","\uc1ee","\uc1ef","\uc1f0","\uc1f1","\uc1f2","\uc1f3","\uc1f4","\uc1f5","\uc1f6","\uc1f7","\uc1f8","\uc1f9","\uc1fa","\uc1fb",  # ; LVT # Lo  [27] HANGUL SYLLABLE SOEG..HANGUL SYLLABLE SOEH
+        "\uc1fd","\uc1fe","\uc1ff","\uc200","\uc201","\uc202","\uc203","\uc204","\uc205","\uc206","\uc207","\uc208","\uc209","\uc20a","\uc20b","\uc20c","\uc20d","\uc20e","\uc20f","\uc210","\uc211","\uc212","\uc213","\uc214","\uc215","\uc216","\uc217",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYOG..HANGUL SYLLABLE SYOH
+        "\uc219","\uc21a","\uc21b","\uc21c","\uc21d","\uc21e","\uc21f","\uc220","\uc221","\uc222","\uc223","\uc224","\uc225","\uc226","\uc227","\uc228","\uc229","\uc22a","\uc22b","\uc22c","\uc22d","\uc22e","\uc22f","\uc230","\uc231","\uc232","\uc233",  # ; LVT # Lo  [27] HANGUL SYLLABLE SUG..HANGUL SYLLABLE SUH
+        "\uc235","\uc236","\uc237","\uc238","\uc239","\uc23a","\uc23b","\uc23c","\uc23d","\uc23e","\uc23f","\uc240","\uc241","\uc242","\uc243","\uc244","\uc245","\uc246","\uc247","\uc248","\uc249","\uc24a","\uc24b","\uc24c","\uc24d","\uc24e","\uc24f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SWEOG..HANGUL SYLLABLE SWEOH
+        "\uc251","\uc252","\uc253","\uc254","\uc255","\uc256","\uc257","\uc258","\uc259","\uc25a","\uc25b","\uc25c","\uc25d","\uc25e","\uc25f","\uc260","\uc261","\uc262","\uc263","\uc264","\uc265","\uc266","\uc267","\uc268","\uc269","\uc26a","\uc26b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SWEG..HANGUL SYLLABLE SWEH
+        "\uc26d","\uc26e","\uc26f","\uc270","\uc271","\uc272","\uc273","\uc274","\uc275","\uc276","\uc277","\uc278","\uc279","\uc27a","\uc27b","\uc27c","\uc27d","\uc27e","\uc27f","\uc280","\uc281","\uc282","\uc283","\uc284","\uc285","\uc286","\uc287",  # ; LVT # Lo  [27] HANGUL SYLLABLE SWIG..HANGUL SYLLABLE SWIH
+        "\uc289","\uc28a","\uc28b","\uc28c","\uc28d","\uc28e","\uc28f","\uc290","\uc291","\uc292","\uc293","\uc294","\uc295","\uc296","\uc297","\uc298","\uc299","\uc29a","\uc29b","\uc29c","\uc29d","\uc29e","\uc29f","\uc2a0","\uc2a1","\uc2a2","\uc2a3",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYUG..HANGUL SYLLABLE SYUH
+        "\uc2a5","\uc2a6","\uc2a7","\uc2a8","\uc2a9","\uc2aa","\uc2ab","\uc2ac","\uc2ad","\uc2ae","\uc2af","\uc2b0","\uc2b1","\uc2b2","\uc2b3","\uc2b4","\uc2b5","\uc2b6","\uc2b7","\uc2b8","\uc2b9","\uc2ba","\uc2bb","\uc2bc","\uc2bd","\uc2be","\uc2bf",  # ; LVT # Lo  [27] HANGUL SYLLABLE SEUG..HANGUL SYLLABLE SEUH
+        "\uc2c1","\uc2c2","\uc2c3","\uc2c4","\uc2c5","\uc2c6","\uc2c7","\uc2c8","\uc2c9","\uc2ca","\uc2cb","\uc2cc","\uc2cd","\uc2ce","\uc2cf","\uc2d0","\uc2d1","\uc2d2","\uc2d3","\uc2d4","\uc2d5","\uc2d6","\uc2d7","\uc2d8","\uc2d9","\uc2da","\uc2db",  # ; LVT # Lo  [27] HANGUL SYLLABLE SYIG..HANGUL SYLLABLE SYIH
+        "\uc2dd","\uc2de","\uc2df","\uc2e0","\uc2e1","\uc2e2","\uc2e3","\uc2e4","\uc2e5","\uc2e6","\uc2e7","\uc2e8","\uc2e9","\uc2ea","\uc2eb","\uc2ec","\uc2ed","\uc2ee","\uc2ef","\uc2f0","\uc2f1","\uc2f2","\uc2f3","\uc2f4","\uc2f5","\uc2f6","\uc2f7",  # ; LVT # Lo  [27] HANGUL SYLLABLE SIG..HANGUL SYLLABLE SIH
+        "\uc2f9","\uc2fa","\uc2fb","\uc2fc","\uc2fd","\uc2fe","\uc2ff","\uc300","\uc301","\uc302","\uc303","\uc304","\uc305","\uc306","\uc307","\uc308","\uc309","\uc30a","\uc30b","\uc30c","\uc30d","\uc30e","\uc30f","\uc310","\uc311","\uc312","\uc313",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSAG..HANGUL SYLLABLE SSAH
+        "\uc315","\uc316","\uc317","\uc318","\uc319","\uc31a","\uc31b","\uc31c","\uc31d","\uc31e","\uc31f","\uc320","\uc321","\uc322","\uc323","\uc324","\uc325","\uc326","\uc327","\uc328","\uc329","\uc32a","\uc32b","\uc32c","\uc32d","\uc32e","\uc32f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSAEG..HANGUL SYLLABLE SSAEH
+        "\uc331","\uc332","\uc333","\uc334","\uc335","\uc336","\uc337","\uc338","\uc339","\uc33a","\uc33b","\uc33c","\uc33d","\uc33e","\uc33f","\uc340","\uc341","\uc342","\uc343","\uc344","\uc345","\uc346","\uc347","\uc348","\uc349","\uc34a","\uc34b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYAG..HANGUL SYLLABLE SSYAH
+        "\uc34d","\uc34e","\uc34f","\uc350","\uc351","\uc352","\uc353","\uc354","\uc355","\uc356","\uc357","\uc358","\uc359","\uc35a","\uc35b","\uc35c","\uc35d","\uc35e","\uc35f","\uc360","\uc361","\uc362","\uc363","\uc364","\uc365","\uc366","\uc367",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYAEG..HANGUL SYLLABLE SSYAEH
+        "\uc369","\uc36a","\uc36b","\uc36c","\uc36d","\uc36e","\uc36f","\uc370","\uc371","\uc372","\uc373","\uc374","\uc375","\uc376","\uc377","\uc378","\uc379","\uc37a","\uc37b","\uc37c","\uc37d","\uc37e","\uc37f","\uc380","\uc381","\uc382","\uc383",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSEOG..HANGUL SYLLABLE SSEOH
+        "\uc385","\uc386","\uc387","\uc388","\uc389","\uc38a","\uc38b","\uc38c","\uc38d","\uc38e","\uc38f","\uc390","\uc391","\uc392","\uc393","\uc394","\uc395","\uc396","\uc397","\uc398","\uc399","\uc39a","\uc39b","\uc39c","\uc39d","\uc39e","\uc39f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSEG..HANGUL SYLLABLE SSEH
+        "\uc3a1","\uc3a2","\uc3a3","\uc3a4","\uc3a5","\uc3a6","\uc3a7","\uc3a8","\uc3a9","\uc3aa","\uc3ab","\uc3ac","\uc3ad","\uc3ae","\uc3af","\uc3b0","\uc3b1","\uc3b2","\uc3b3","\uc3b4","\uc3b5","\uc3b6","\uc3b7","\uc3b8","\uc3b9","\uc3ba","\uc3bb",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYEOG..HANGUL SYLLABLE SSYEOH
+        "\uc3bd","\uc3be","\uc3bf","\uc3c0","\uc3c1","\uc3c2","\uc3c3","\uc3c4","\uc3c5","\uc3c6","\uc3c7","\uc3c8","\uc3c9","\uc3ca","\uc3cb","\uc3cc","\uc3cd","\uc3ce","\uc3cf","\uc3d0","\uc3d1","\uc3d2","\uc3d3","\uc3d4","\uc3d5","\uc3d6","\uc3d7",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYEG..HANGUL SYLLABLE SSYEH
+        "\uc3d9","\uc3da","\uc3db","\uc3dc","\uc3dd","\uc3de","\uc3df","\uc3e0","\uc3e1","\uc3e2","\uc3e3","\uc3e4","\uc3e5","\uc3e6","\uc3e7","\uc3e8","\uc3e9","\uc3ea","\uc3eb","\uc3ec","\uc3ed","\uc3ee","\uc3ef","\uc3f0","\uc3f1","\uc3f2","\uc3f3",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSOG..HANGUL SYLLABLE SSOH
+        "\uc3f5","\uc3f6","\uc3f7","\uc3f8","\uc3f9","\uc3fa","\uc3fb","\uc3fc","\uc3fd","\uc3fe","\uc3ff","\uc400","\uc401","\uc402","\uc403","\uc404","\uc405","\uc406","\uc407","\uc408","\uc409","\uc40a","\uc40b","\uc40c","\uc40d","\uc40e","\uc40f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSWAG..HANGUL SYLLABLE SSWAH
+        "\uc411","\uc412","\uc413","\uc414","\uc415","\uc416","\uc417","\uc418","\uc419","\uc41a","\uc41b","\uc41c","\uc41d","\uc41e","\uc41f","\uc420","\uc421","\uc422","\uc423","\uc424","\uc425","\uc426","\uc427","\uc428","\uc429","\uc42a","\uc42b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSWAEG..HANGUL SYLLABLE SSWAEH
+        "\uc42d","\uc42e","\uc42f","\uc430","\uc431","\uc432","\uc433","\uc434","\uc435","\uc436","\uc437","\uc438","\uc439","\uc43a","\uc43b","\uc43c","\uc43d","\uc43e","\uc43f","\uc440","\uc441","\uc442","\uc443","\uc444","\uc445","\uc446","\uc447",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSOEG..HANGUL SYLLABLE SSOEH
+        "\uc449","\uc44a","\uc44b","\uc44c","\uc44d","\uc44e","\uc44f","\uc450","\uc451","\uc452","\uc453","\uc454","\uc455","\uc456","\uc457","\uc458","\uc459","\uc45a","\uc45b","\uc45c","\uc45d","\uc45e","\uc45f","\uc460","\uc461","\uc462","\uc463",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYOG..HANGUL SYLLABLE SSYOH
+        "\uc465","\uc466","\uc467","\uc468","\uc469","\uc46a","\uc46b","\uc46c","\uc46d","\uc46e","\uc46f","\uc470","\uc471","\uc472","\uc473","\uc474","\uc475","\uc476","\uc477","\uc478","\uc479","\uc47a","\uc47b","\uc47c","\uc47d","\uc47e","\uc47f",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSUG..HANGUL SYLLABLE SSUH
+        "\uc481","\uc482","\uc483","\uc484","\uc485","\uc486","\uc487","\uc488","\uc489","\uc48a","\uc48b","\uc48c","\uc48d","\uc48e","\uc48f","\uc490","\uc491","\uc492","\uc493","\uc494","\uc495","\uc496","\uc497","\uc498","\uc499","\uc49a","\uc49b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSWEOG..HANGUL SYLLABLE SSWEOH
+        "\uc49d","\uc49e","\uc49f","\uc4a0","\uc4a1","\uc4a2","\uc4a3","\uc4a4","\uc4a5","\uc4a6","\uc4a7","\uc4a8","\uc4a9","\uc4aa","\uc4ab","\uc4ac","\uc4ad","\uc4ae","\uc4af","\uc4b0","\uc4b1","\uc4b2","\uc4b3","\uc4b4","\uc4b5","\uc4b6","\uc4b7",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSWEG..HANGUL SYLLABLE SSWEH
+        "\uc4b9","\uc4ba","\uc4bb","\uc4bc","\uc4bd","\uc4be","\uc4bf","\uc4c0","\uc4c1","\uc4c2","\uc4c3","\uc4c4","\uc4c5","\uc4c6","\uc4c7","\uc4c8","\uc4c9","\uc4ca","\uc4cb","\uc4cc","\uc4cd","\uc4ce","\uc4cf","\uc4d0","\uc4d1","\uc4d2","\uc4d3",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSWIG..HANGUL SYLLABLE SSWIH
+        "\uc4d5","\uc4d6","\uc4d7","\uc4d8","\uc4d9","\uc4da","\uc4db","\uc4dc","\uc4dd","\uc4de","\uc4df","\uc4e0","\uc4e1","\uc4e2","\uc4e3","\uc4e4","\uc4e5","\uc4e6","\uc4e7","\uc4e8","\uc4e9","\uc4ea","\uc4eb","\uc4ec","\uc4ed","\uc4ee","\uc4ef",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYUG..HANGUL SYLLABLE SSYUH
+        "\uc4f1","\uc4f2","\uc4f3","\uc4f4","\uc4f5","\uc4f6","\uc4f7","\uc4f8","\uc4f9","\uc4fa","\uc4fb","\uc4fc","\uc4fd","\uc4fe","\uc4ff","\uc500","\uc501","\uc502","\uc503","\uc504","\uc505","\uc506","\uc507","\uc508","\uc509","\uc50a","\uc50b",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSEUG..HANGUL SYLLABLE SSEUH
+        "\uc50d","\uc50e","\uc50f","\uc510","\uc511","\uc512","\uc513","\uc514","\uc515","\uc516","\uc517","\uc518","\uc519","\uc51a","\uc51b","\uc51c","\uc51d","\uc51e","\uc51f","\uc520","\uc521","\uc522","\uc523","\uc524","\uc525","\uc526","\uc527",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSYIG..HANGUL SYLLABLE SSYIH
+        "\uc529","\uc52a","\uc52b","\uc52c","\uc52d","\uc52e","\uc52f","\uc530","\uc531","\uc532","\uc533","\uc534","\uc535","\uc536","\uc537","\uc538","\uc539","\uc53a","\uc53b","\uc53c","\uc53d","\uc53e","\uc53f","\uc540","\uc541","\uc542","\uc543",  # ; LVT # Lo  [27] HANGUL SYLLABLE SSIG..HANGUL SYLLABLE SSIH
+        "\uc545","\uc546","\uc547","\uc548","\uc549","\uc54a","\uc54b","\uc54c","\uc54d","\uc54e","\uc54f","\uc550","\uc551","\uc552","\uc553","\uc554","\uc555","\uc556","\uc557","\uc558","\uc559","\uc55a","\uc55b","\uc55c","\uc55d","\uc55e","\uc55f",  # ; LVT # Lo  [27] HANGUL SYLLABLE AG..HANGUL SYLLABLE AH
+        "\uc561","\uc562","\uc563","\uc564","\uc565","\uc566","\uc567","\uc568","\uc569","\uc56a","\uc56b","\uc56c","\uc56d","\uc56e","\uc56f","\uc570","\uc571","\uc572","\uc573","\uc574","\uc575","\uc576","\uc577","\uc578","\uc579","\uc57a","\uc57b",  # ; LVT # Lo  [27] HANGUL SYLLABLE AEG..HANGUL SYLLABLE AEH
+        "\uc57d","\uc57e","\uc57f","\uc580","\uc581","\uc582","\uc583","\uc584","\uc585","\uc586","\uc587","\uc588","\uc589","\uc58a","\uc58b","\uc58c","\uc58d","\uc58e","\uc58f","\uc590","\uc591","\uc592","\uc593","\uc594","\uc595","\uc596","\uc597",  # ; LVT # Lo  [27] HANGUL SYLLABLE YAG..HANGUL SYLLABLE YAH
+        "\uc599","\uc59a","\uc59b","\uc59c","\uc59d","\uc59e","\uc59f","\uc5a0","\uc5a1","\uc5a2","\uc5a3","\uc5a4","\uc5a5","\uc5a6","\uc5a7","\uc5a8","\uc5a9","\uc5aa","\uc5ab","\uc5ac","\uc5ad","\uc5ae","\uc5af","\uc5b0","\uc5b1","\uc5b2","\uc5b3",  # ; LVT # Lo  [27] HANGUL SYLLABLE YAEG..HANGUL SYLLABLE YAEH
+        "\uc5b5","\uc5b6","\uc5b7","\uc5b8","\uc5b9","\uc5ba","\uc5bb","\uc5bc","\uc5bd","\uc5be","\uc5bf","\uc5c0","\uc5c1","\uc5c2","\uc5c3","\uc5c4","\uc5c5","\uc5c6","\uc5c7","\uc5c8","\uc5c9","\uc5ca","\uc5cb","\uc5cc","\uc5cd","\uc5ce","\uc5cf",  # ; LVT # Lo  [27] HANGUL SYLLABLE EOG..HANGUL SYLLABLE EOH
+        "\uc5d1","\uc5d2","\uc5d3","\uc5d4","\uc5d5","\uc5d6","\uc5d7","\uc5d8","\uc5d9","\uc5da","\uc5db","\uc5dc","\uc5dd","\uc5de","\uc5df","\uc5e0","\uc5e1","\uc5e2","\uc5e3","\uc5e4","\uc5e5","\uc5e6","\uc5e7","\uc5e8","\uc5e9","\uc5ea","\uc5eb",  # ; LVT # Lo  [27] HANGUL SYLLABLE EG..HANGUL SYLLABLE EH
+        "\uc5ed","\uc5ee","\uc5ef","\uc5f0","\uc5f1","\uc5f2","\uc5f3","\uc5f4","\uc5f5","\uc5f6","\uc5f7","\uc5f8","\uc5f9","\uc5fa","\uc5fb","\uc5fc","\uc5fd","\uc5fe","\uc5ff","\uc600","\uc601","\uc602","\uc603","\uc604","\uc605","\uc606","\uc607",  # ; LVT # Lo  [27] HANGUL SYLLABLE YEOG..HANGUL SYLLABLE YEOH
+        "\uc609","\uc60a","\uc60b","\uc60c","\uc60d","\uc60e","\uc60f","\uc610","\uc611","\uc612","\uc613","\uc614","\uc615","\uc616","\uc617","\uc618","\uc619","\uc61a","\uc61b","\uc61c","\uc61d","\uc61e","\uc61f","\uc620","\uc621","\uc622","\uc623",  # ; LVT # Lo  [27] HANGUL SYLLABLE YEG..HANGUL SYLLABLE YEH
+        "\uc625","\uc626","\uc627","\uc628","\uc629","\uc62a","\uc62b","\uc62c","\uc62d","\uc62e","\uc62f","\uc630","\uc631","\uc632","\uc633","\uc634","\uc635","\uc636","\uc637","\uc638","\uc639","\uc63a","\uc63b","\uc63c","\uc63d","\uc63e","\uc63f",  # ; LVT # Lo  [27] HANGUL SYLLABLE OG..HANGUL SYLLABLE OH
+        "\uc641","\uc642","\uc643","\uc644","\uc645","\uc646","\uc647","\uc648","\uc649","\uc64a","\uc64b","\uc64c","\uc64d","\uc64e","\uc64f","\uc650","\uc651","\uc652","\uc653","\uc654","\uc655","\uc656","\uc657","\uc658","\uc659","\uc65a","\uc65b",  # ; LVT # Lo  [27] HANGUL SYLLABLE WAG..HANGUL SYLLABLE WAH
+        "\uc65d","\uc65e","\uc65f","\uc660","\uc661","\uc662","\uc663","\uc664","\uc665","\uc666","\uc667","\uc668","\uc669","\uc66a","\uc66b","\uc66c","\uc66d","\uc66e","\uc66f","\uc670","\uc671","\uc672","\uc673","\uc674","\uc675","\uc676","\uc677",  # ; LVT # Lo  [27] HANGUL SYLLABLE WAEG..HANGUL SYLLABLE WAEH
+        "\uc679","\uc67a","\uc67b","\uc67c","\uc67d","\uc67e","\uc67f","\uc680","\uc681","\uc682","\uc683","\uc684","\uc685","\uc686","\uc687","\uc688","\uc689","\uc68a","\uc68b","\uc68c","\uc68d","\uc68e","\uc68f","\uc690","\uc691","\uc692","\uc693",  # ; LVT # Lo  [27] HANGUL SYLLABLE OEG..HANGUL SYLLABLE OEH
+        "\uc695","\uc696","\uc697","\uc698","\uc699","\uc69a","\uc69b","\uc69c","\uc69d","\uc69e","\uc69f","\uc6a0","\uc6a1","\uc6a2","\uc6a3","\uc6a4","\uc6a5","\uc6a6","\uc6a7","\uc6a8","\uc6a9","\uc6aa","\uc6ab","\uc6ac","\uc6ad","\uc6ae","\uc6af",  # ; LVT # Lo  [27] HANGUL SYLLABLE YOG..HANGUL SYLLABLE YOH
+        "\uc6b1","\uc6b2","\uc6b3","\uc6b4","\uc6b5","\uc6b6","\uc6b7","\uc6b8","\uc6b9","\uc6ba","\uc6bb","\uc6bc","\uc6bd","\uc6be","\uc6bf","\uc6c0","\uc6c1","\uc6c2","\uc6c3","\uc6c4","\uc6c5","\uc6c6","\uc6c7","\uc6c8","\uc6c9","\uc6ca","\uc6cb",  # ; LVT # Lo  [27] HANGUL SYLLABLE UG..HANGUL SYLLABLE UH
+        "\uc6cd","\uc6ce","\uc6cf","\uc6d0","\uc6d1","\uc6d2","\uc6d3","\uc6d4","\uc6d5","\uc6d6","\uc6d7","\uc6d8","\uc6d9","\uc6da","\uc6db","\uc6dc","\uc6dd","\uc6de","\uc6df","\uc6e0","\uc6e1","\uc6e2","\uc6e3","\uc6e4","\uc6e5","\uc6e6","\uc6e7",  # ; LVT # Lo  [27] HANGUL SYLLABLE WEOG..HANGUL SYLLABLE WEOH
+        "\uc6e9","\uc6ea","\uc6eb","\uc6ec","\uc6ed","\uc6ee","\uc6ef","\uc6f0","\uc6f1","\uc6f2","\uc6f3","\uc6f4","\uc6f5","\uc6f6","\uc6f7","\uc6f8","\uc6f9","\uc6fa","\uc6fb","\uc6fc","\uc6fd","\uc6fe","\uc6ff","\uc700","\uc701","\uc702","\uc703",  # ; LVT # Lo  [27] HANGUL SYLLABLE WEG..HANGUL SYLLABLE WEH
+        "\uc705","\uc706","\uc707","\uc708","\uc709","\uc70a","\uc70b","\uc70c","\uc70d","\uc70e","\uc70f","\uc710","\uc711","\uc712","\uc713","\uc714","\uc715","\uc716","\uc717","\uc718","\uc719","\uc71a","\uc71b","\uc71c","\uc71d","\uc71e","\uc71f",  # ; LVT # Lo  [27] HANGUL SYLLABLE WIG..HANGUL SYLLABLE WIH
+        "\uc721","\uc722","\uc723","\uc724","\uc725","\uc726","\uc727","\uc728","\uc729","\uc72a","\uc72b","\uc72c","\uc72d","\uc72e","\uc72f","\uc730","\uc731","\uc732","\uc733","\uc734","\uc735","\uc736","\uc737","\uc738","\uc739","\uc73a","\uc73b",  # ; LVT # Lo  [27] HANGUL SYLLABLE YUG..HANGUL SYLLABLE YUH
+        "\uc73d","\uc73e","\uc73f","\uc740","\uc741","\uc742","\uc743","\uc744","\uc745","\uc746","\uc747","\uc748","\uc749","\uc74a","\uc74b","\uc74c","\uc74d","\uc74e","\uc74f","\uc750","\uc751","\uc752","\uc753","\uc754","\uc755","\uc756","\uc757",  # ; LVT # Lo  [27] HANGUL SYLLABLE EUG..HANGUL SYLLABLE EUH
+        "\uc759","\uc75a","\uc75b","\uc75c","\uc75d","\uc75e","\uc75f","\uc760","\uc761","\uc762","\uc763","\uc764","\uc765","\uc766","\uc767","\uc768","\uc769","\uc76a","\uc76b","\uc76c","\uc76d","\uc76e","\uc76f","\uc770","\uc771","\uc772","\uc773",  # ; LVT # Lo  [27] HANGUL SYLLABLE YIG..HANGUL SYLLABLE YIH
+        "\uc775","\uc776","\uc777","\uc778","\uc779","\uc77a","\uc77b","\uc77c","\uc77d","\uc77e","\uc77f","\uc780","\uc781","\uc782","\uc783","\uc784","\uc785","\uc786","\uc787","\uc788","\uc789","\uc78a","\uc78b","\uc78c","\uc78d","\uc78e","\uc78f",  # ; LVT # Lo  [27] HANGUL SYLLABLE IG..HANGUL SYLLABLE IH
+        "\uc791","\uc792","\uc793","\uc794","\uc795","\uc796","\uc797","\uc798","\uc799","\uc79a","\uc79b","\uc79c","\uc79d","\uc79e","\uc79f","\uc7a0","\uc7a1","\uc7a2","\uc7a3","\uc7a4","\uc7a5","\uc7a6","\uc7a7","\uc7a8","\uc7a9","\uc7aa","\uc7ab",  # ; LVT # Lo  [27] HANGUL SYLLABLE JAG..HANGUL SYLLABLE JAH
+        "\uc7ad","\uc7ae","\uc7af","\uc7b0","\uc7b1","\uc7b2","\uc7b3","\uc7b4","\uc7b5","\uc7b6","\uc7b7","\uc7b8","\uc7b9","\uc7ba","\uc7bb","\uc7bc","\uc7bd","\uc7be","\uc7bf","\uc7c0","\uc7c1","\uc7c2","\uc7c3","\uc7c4","\uc7c5","\uc7c6","\uc7c7",  # ; LVT # Lo  [27] HANGUL SYLLABLE JAEG..HANGUL SYLLABLE JAEH
+        "\uc7c9","\uc7ca","\uc7cb","\uc7cc","\uc7cd","\uc7ce","\uc7cf","\uc7d0","\uc7d1","\uc7d2","\uc7d3","\uc7d4","\uc7d5","\uc7d6","\uc7d7","\uc7d8","\uc7d9","\uc7da","\uc7db","\uc7dc","\uc7dd","\uc7de","\uc7df","\uc7e0","\uc7e1","\uc7e2","\uc7e3",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYAG..HANGUL SYLLABLE JYAH
+        "\uc7e5","\uc7e6","\uc7e7","\uc7e8","\uc7e9","\uc7ea","\uc7eb","\uc7ec","\uc7ed","\uc7ee","\uc7ef","\uc7f0","\uc7f1","\uc7f2","\uc7f3","\uc7f4","\uc7f5","\uc7f6","\uc7f7","\uc7f8","\uc7f9","\uc7fa","\uc7fb","\uc7fc","\uc7fd","\uc7fe","\uc7ff",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYAEG..HANGUL SYLLABLE JYAEH
+        "\uc801","\uc802","\uc803","\uc804","\uc805","\uc806","\uc807","\uc808","\uc809","\uc80a","\uc80b","\uc80c","\uc80d","\uc80e","\uc80f","\uc810","\uc811","\uc812","\uc813","\uc814","\uc815","\uc816","\uc817","\uc818","\uc819","\uc81a","\uc81b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JEOG..HANGUL SYLLABLE JEOH
+        "\uc81d","\uc81e","\uc81f","\uc820","\uc821","\uc822","\uc823","\uc824","\uc825","\uc826","\uc827","\uc828","\uc829","\uc82a","\uc82b","\uc82c","\uc82d","\uc82e","\uc82f","\uc830","\uc831","\uc832","\uc833","\uc834","\uc835","\uc836","\uc837",  # ; LVT # Lo  [27] HANGUL SYLLABLE JEG..HANGUL SYLLABLE JEH
+        "\uc839","\uc83a","\uc83b","\uc83c","\uc83d","\uc83e","\uc83f","\uc840","\uc841","\uc842","\uc843","\uc844","\uc845","\uc846","\uc847","\uc848","\uc849","\uc84a","\uc84b","\uc84c","\uc84d","\uc84e","\uc84f","\uc850","\uc851","\uc852","\uc853",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYEOG..HANGUL SYLLABLE JYEOH
+        "\uc855","\uc856","\uc857","\uc858","\uc859","\uc85a","\uc85b","\uc85c","\uc85d","\uc85e","\uc85f","\uc860","\uc861","\uc862","\uc863","\uc864","\uc865","\uc866","\uc867","\uc868","\uc869","\uc86a","\uc86b","\uc86c","\uc86d","\uc86e","\uc86f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYEG..HANGUL SYLLABLE JYEH
+        "\uc871","\uc872","\uc873","\uc874","\uc875","\uc876","\uc877","\uc878","\uc879","\uc87a","\uc87b","\uc87c","\uc87d","\uc87e","\uc87f","\uc880","\uc881","\uc882","\uc883","\uc884","\uc885","\uc886","\uc887","\uc888","\uc889","\uc88a","\uc88b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JOG..HANGUL SYLLABLE JOH
+        "\uc88d","\uc88e","\uc88f","\uc890","\uc891","\uc892","\uc893","\uc894","\uc895","\uc896","\uc897","\uc898","\uc899","\uc89a","\uc89b","\uc89c","\uc89d","\uc89e","\uc89f","\uc8a0","\uc8a1","\uc8a2","\uc8a3","\uc8a4","\uc8a5","\uc8a6","\uc8a7",  # ; LVT # Lo  [27] HANGUL SYLLABLE JWAG..HANGUL SYLLABLE JWAH
+        "\uc8a9","\uc8aa","\uc8ab","\uc8ac","\uc8ad","\uc8ae","\uc8af","\uc8b0","\uc8b1","\uc8b2","\uc8b3","\uc8b4","\uc8b5","\uc8b6","\uc8b7","\uc8b8","\uc8b9","\uc8ba","\uc8bb","\uc8bc","\uc8bd","\uc8be","\uc8bf","\uc8c0","\uc8c1","\uc8c2","\uc8c3",  # ; LVT # Lo  [27] HANGUL SYLLABLE JWAEG..HANGUL SYLLABLE JWAEH
+        "\uc8c5","\uc8c6","\uc8c7","\uc8c8","\uc8c9","\uc8ca","\uc8cb","\uc8cc","\uc8cd","\uc8ce","\uc8cf","\uc8d0","\uc8d1","\uc8d2","\uc8d3","\uc8d4","\uc8d5","\uc8d6","\uc8d7","\uc8d8","\uc8d9","\uc8da","\uc8db","\uc8dc","\uc8dd","\uc8de","\uc8df",  # ; LVT # Lo  [27] HANGUL SYLLABLE JOEG..HANGUL SYLLABLE JOEH
+        "\uc8e1","\uc8e2","\uc8e3","\uc8e4","\uc8e5","\uc8e6","\uc8e7","\uc8e8","\uc8e9","\uc8ea","\uc8eb","\uc8ec","\uc8ed","\uc8ee","\uc8ef","\uc8f0","\uc8f1","\uc8f2","\uc8f3","\uc8f4","\uc8f5","\uc8f6","\uc8f7","\uc8f8","\uc8f9","\uc8fa","\uc8fb",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYOG..HANGUL SYLLABLE JYOH
+        "\uc8fd","\uc8fe","\uc8ff","\uc900","\uc901","\uc902","\uc903","\uc904","\uc905","\uc906","\uc907","\uc908","\uc909","\uc90a","\uc90b","\uc90c","\uc90d","\uc90e","\uc90f","\uc910","\uc911","\uc912","\uc913","\uc914","\uc915","\uc916","\uc917",  # ; LVT # Lo  [27] HANGUL SYLLABLE JUG..HANGUL SYLLABLE JUH
+        "\uc919","\uc91a","\uc91b","\uc91c","\uc91d","\uc91e","\uc91f","\uc920","\uc921","\uc922","\uc923","\uc924","\uc925","\uc926","\uc927","\uc928","\uc929","\uc92a","\uc92b","\uc92c","\uc92d","\uc92e","\uc92f","\uc930","\uc931","\uc932","\uc933",  # ; LVT # Lo  [27] HANGUL SYLLABLE JWEOG..HANGUL SYLLABLE JWEOH
+        "\uc935","\uc936","\uc937","\uc938","\uc939","\uc93a","\uc93b","\uc93c","\uc93d","\uc93e","\uc93f","\uc940","\uc941","\uc942","\uc943","\uc944","\uc945","\uc946","\uc947","\uc948","\uc949","\uc94a","\uc94b","\uc94c","\uc94d","\uc94e","\uc94f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JWEG..HANGUL SYLLABLE JWEH
+        "\uc951","\uc952","\uc953","\uc954","\uc955","\uc956","\uc957","\uc958","\uc959","\uc95a","\uc95b","\uc95c","\uc95d","\uc95e","\uc95f","\uc960","\uc961","\uc962","\uc963","\uc964","\uc965","\uc966","\uc967","\uc968","\uc969","\uc96a","\uc96b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JWIG..HANGUL SYLLABLE JWIH
+        "\uc96d","\uc96e","\uc96f","\uc970","\uc971","\uc972","\uc973","\uc974","\uc975","\uc976","\uc977","\uc978","\uc979","\uc97a","\uc97b","\uc97c","\uc97d","\uc97e","\uc97f","\uc980","\uc981","\uc982","\uc983","\uc984","\uc985","\uc986","\uc987",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYUG..HANGUL SYLLABLE JYUH
+        "\uc989","\uc98a","\uc98b","\uc98c","\uc98d","\uc98e","\uc98f","\uc990","\uc991","\uc992","\uc993","\uc994","\uc995","\uc996","\uc997","\uc998","\uc999","\uc99a","\uc99b","\uc99c","\uc99d","\uc99e","\uc99f","\uc9a0","\uc9a1","\uc9a2","\uc9a3",  # ; LVT # Lo  [27] HANGUL SYLLABLE JEUG..HANGUL SYLLABLE JEUH
+        "\uc9a5","\uc9a6","\uc9a7","\uc9a8","\uc9a9","\uc9aa","\uc9ab","\uc9ac","\uc9ad","\uc9ae","\uc9af","\uc9b0","\uc9b1","\uc9b2","\uc9b3","\uc9b4","\uc9b5","\uc9b6","\uc9b7","\uc9b8","\uc9b9","\uc9ba","\uc9bb","\uc9bc","\uc9bd","\uc9be","\uc9bf",  # ; LVT # Lo  [27] HANGUL SYLLABLE JYIG..HANGUL SYLLABLE JYIH
+        "\uc9c1","\uc9c2","\uc9c3","\uc9c4","\uc9c5","\uc9c6","\uc9c7","\uc9c8","\uc9c9","\uc9ca","\uc9cb","\uc9cc","\uc9cd","\uc9ce","\uc9cf","\uc9d0","\uc9d1","\uc9d2","\uc9d3","\uc9d4","\uc9d5","\uc9d6","\uc9d7","\uc9d8","\uc9d9","\uc9da","\uc9db",  # ; LVT # Lo  [27] HANGUL SYLLABLE JIG..HANGUL SYLLABLE JIH
+        "\uc9dd","\uc9de","\uc9df","\uc9e0","\uc9e1","\uc9e2","\uc9e3","\uc9e4","\uc9e5","\uc9e6","\uc9e7","\uc9e8","\uc9e9","\uc9ea","\uc9eb","\uc9ec","\uc9ed","\uc9ee","\uc9ef","\uc9f0","\uc9f1","\uc9f2","\uc9f3","\uc9f4","\uc9f5","\uc9f6","\uc9f7",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJAG..HANGUL SYLLABLE JJAH
+        "\uc9f9","\uc9fa","\uc9fb","\uc9fc","\uc9fd","\uc9fe","\uc9ff","\uca00","\uca01","\uca02","\uca03","\uca04","\uca05","\uca06","\uca07","\uca08","\uca09","\uca0a","\uca0b","\uca0c","\uca0d","\uca0e","\uca0f","\uca10","\uca11","\uca12","\uca13",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJAEG..HANGUL SYLLABLE JJAEH
+        "\uca15","\uca16","\uca17","\uca18","\uca19","\uca1a","\uca1b","\uca1c","\uca1d","\uca1e","\uca1f","\uca20","\uca21","\uca22","\uca23","\uca24","\uca25","\uca26","\uca27","\uca28","\uca29","\uca2a","\uca2b","\uca2c","\uca2d","\uca2e","\uca2f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYAG..HANGUL SYLLABLE JJYAH
+        "\uca31","\uca32","\uca33","\uca34","\uca35","\uca36","\uca37","\uca38","\uca39","\uca3a","\uca3b","\uca3c","\uca3d","\uca3e","\uca3f","\uca40","\uca41","\uca42","\uca43","\uca44","\uca45","\uca46","\uca47","\uca48","\uca49","\uca4a","\uca4b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYAEG..HANGUL SYLLABLE JJYAEH
+        "\uca4d","\uca4e","\uca4f","\uca50","\uca51","\uca52","\uca53","\uca54","\uca55","\uca56","\uca57","\uca58","\uca59","\uca5a","\uca5b","\uca5c","\uca5d","\uca5e","\uca5f","\uca60","\uca61","\uca62","\uca63","\uca64","\uca65","\uca66","\uca67",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJEOG..HANGUL SYLLABLE JJEOH
+        "\uca69","\uca6a","\uca6b","\uca6c","\uca6d","\uca6e","\uca6f","\uca70","\uca71","\uca72","\uca73","\uca74","\uca75","\uca76","\uca77","\uca78","\uca79","\uca7a","\uca7b","\uca7c","\uca7d","\uca7e","\uca7f","\uca80","\uca81","\uca82","\uca83",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJEG..HANGUL SYLLABLE JJEH
+        "\uca85","\uca86","\uca87","\uca88","\uca89","\uca8a","\uca8b","\uca8c","\uca8d","\uca8e","\uca8f","\uca90","\uca91","\uca92","\uca93","\uca94","\uca95","\uca96","\uca97","\uca98","\uca99","\uca9a","\uca9b","\uca9c","\uca9d","\uca9e","\uca9f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYEOG..HANGUL SYLLABLE JJYEOH
+        "\ucaa1","\ucaa2","\ucaa3","\ucaa4","\ucaa5","\ucaa6","\ucaa7","\ucaa8","\ucaa9","\ucaaa","\ucaab","\ucaac","\ucaad","\ucaae","\ucaaf","\ucab0","\ucab1","\ucab2","\ucab3","\ucab4","\ucab5","\ucab6","\ucab7","\ucab8","\ucab9","\ucaba","\ucabb",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYEG..HANGUL SYLLABLE JJYEH
+        "\ucabd","\ucabe","\ucabf","\ucac0","\ucac1","\ucac2","\ucac3","\ucac4","\ucac5","\ucac6","\ucac7","\ucac8","\ucac9","\ucaca","\ucacb","\ucacc","\ucacd","\ucace","\ucacf","\ucad0","\ucad1","\ucad2","\ucad3","\ucad4","\ucad5","\ucad6","\ucad7",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJOG..HANGUL SYLLABLE JJOH
+        "\ucad9","\ucada","\ucadb","\ucadc","\ucadd","\ucade","\ucadf","\ucae0","\ucae1","\ucae2","\ucae3","\ucae4","\ucae5","\ucae6","\ucae7","\ucae8","\ucae9","\ucaea","\ucaeb","\ucaec","\ucaed","\ucaee","\ucaef","\ucaf0","\ucaf1","\ucaf2","\ucaf3",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJWAG..HANGUL SYLLABLE JJWAH
+        "\ucaf5","\ucaf6","\ucaf7","\ucaf8","\ucaf9","\ucafa","\ucafb","\ucafc","\ucafd","\ucafe","\ucaff","\ucb00","\ucb01","\ucb02","\ucb03","\ucb04","\ucb05","\ucb06","\ucb07","\ucb08","\ucb09","\ucb0a","\ucb0b","\ucb0c","\ucb0d","\ucb0e","\ucb0f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJWAEG..HANGUL SYLLABLE JJWAEH
+        "\ucb11","\ucb12","\ucb13","\ucb14","\ucb15","\ucb16","\ucb17","\ucb18","\ucb19","\ucb1a","\ucb1b","\ucb1c","\ucb1d","\ucb1e","\ucb1f","\ucb20","\ucb21","\ucb22","\ucb23","\ucb24","\ucb25","\ucb26","\ucb27","\ucb28","\ucb29","\ucb2a","\ucb2b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJOEG..HANGUL SYLLABLE JJOEH
+        "\ucb2d","\ucb2e","\ucb2f","\ucb30","\ucb31","\ucb32","\ucb33","\ucb34","\ucb35","\ucb36","\ucb37","\ucb38","\ucb39","\ucb3a","\ucb3b","\ucb3c","\ucb3d","\ucb3e","\ucb3f","\ucb40","\ucb41","\ucb42","\ucb43","\ucb44","\ucb45","\ucb46","\ucb47",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYOG..HANGUL SYLLABLE JJYOH
+        "\ucb49","\ucb4a","\ucb4b","\ucb4c","\ucb4d","\ucb4e","\ucb4f","\ucb50","\ucb51","\ucb52","\ucb53","\ucb54","\ucb55","\ucb56","\ucb57","\ucb58","\ucb59","\ucb5a","\ucb5b","\ucb5c","\ucb5d","\ucb5e","\ucb5f","\ucb60","\ucb61","\ucb62","\ucb63",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJUG..HANGUL SYLLABLE JJUH
+        "\ucb65","\ucb66","\ucb67","\ucb68","\ucb69","\ucb6a","\ucb6b","\ucb6c","\ucb6d","\ucb6e","\ucb6f","\ucb70","\ucb71","\ucb72","\ucb73","\ucb74","\ucb75","\ucb76","\ucb77","\ucb78","\ucb79","\ucb7a","\ucb7b","\ucb7c","\ucb7d","\ucb7e","\ucb7f",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJWEOG..HANGUL SYLLABLE JJWEOH
+        "\ucb81","\ucb82","\ucb83","\ucb84","\ucb85","\ucb86","\ucb87","\ucb88","\ucb89","\ucb8a","\ucb8b","\ucb8c","\ucb8d","\ucb8e","\ucb8f","\ucb90","\ucb91","\ucb92","\ucb93","\ucb94","\ucb95","\ucb96","\ucb97","\ucb98","\ucb99","\ucb9a","\ucb9b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJWEG..HANGUL SYLLABLE JJWEH
+        "\ucb9d","\ucb9e","\ucb9f","\ucba0","\ucba1","\ucba2","\ucba3","\ucba4","\ucba5","\ucba6","\ucba7","\ucba8","\ucba9","\ucbaa","\ucbab","\ucbac","\ucbad","\ucbae","\ucbaf","\ucbb0","\ucbb1","\ucbb2","\ucbb3","\ucbb4","\ucbb5","\ucbb6","\ucbb7",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJWIG..HANGUL SYLLABLE JJWIH
+        "\ucbb9","\ucbba","\ucbbb","\ucbbc","\ucbbd","\ucbbe","\ucbbf","\ucbc0","\ucbc1","\ucbc2","\ucbc3","\ucbc4","\ucbc5","\ucbc6","\ucbc7","\ucbc8","\ucbc9","\ucbca","\ucbcb","\ucbcc","\ucbcd","\ucbce","\ucbcf","\ucbd0","\ucbd1","\ucbd2","\ucbd3",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYUG..HANGUL SYLLABLE JJYUH
+        "\ucbd5","\ucbd6","\ucbd7","\ucbd8","\ucbd9","\ucbda","\ucbdb","\ucbdc","\ucbdd","\ucbde","\ucbdf","\ucbe0","\ucbe1","\ucbe2","\ucbe3","\ucbe4","\ucbe5","\ucbe6","\ucbe7","\ucbe8","\ucbe9","\ucbea","\ucbeb","\ucbec","\ucbed","\ucbee","\ucbef",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJEUG..HANGUL SYLLABLE JJEUH
+        "\ucbf1","\ucbf2","\ucbf3","\ucbf4","\ucbf5","\ucbf6","\ucbf7","\ucbf8","\ucbf9","\ucbfa","\ucbfb","\ucbfc","\ucbfd","\ucbfe","\ucbff","\ucc00","\ucc01","\ucc02","\ucc03","\ucc04","\ucc05","\ucc06","\ucc07","\ucc08","\ucc09","\ucc0a","\ucc0b",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJYIG..HANGUL SYLLABLE JJYIH
+        "\ucc0d","\ucc0e","\ucc0f","\ucc10","\ucc11","\ucc12","\ucc13","\ucc14","\ucc15","\ucc16","\ucc17","\ucc18","\ucc19","\ucc1a","\ucc1b","\ucc1c","\ucc1d","\ucc1e","\ucc1f","\ucc20","\ucc21","\ucc22","\ucc23","\ucc24","\ucc25","\ucc26","\ucc27",  # ; LVT # Lo  [27] HANGUL SYLLABLE JJIG..HANGUL SYLLABLE JJIH
+        "\ucc29","\ucc2a","\ucc2b","\ucc2c","\ucc2d","\ucc2e","\ucc2f","\ucc30","\ucc31","\ucc32","\ucc33","\ucc34","\ucc35","\ucc36","\ucc37","\ucc38","\ucc39","\ucc3a","\ucc3b","\ucc3c","\ucc3d","\ucc3e","\ucc3f","\ucc40","\ucc41","\ucc42","\ucc43",  # ; LVT # Lo  [27] HANGUL SYLLABLE CAG..HANGUL SYLLABLE CAH
+        "\ucc45","\ucc46","\ucc47","\ucc48","\ucc49","\ucc4a","\ucc4b","\ucc4c","\ucc4d","\ucc4e","\ucc4f","\ucc50","\ucc51","\ucc52","\ucc53","\ucc54","\ucc55","\ucc56","\ucc57","\ucc58","\ucc59","\ucc5a","\ucc5b","\ucc5c","\ucc5d","\ucc5e","\ucc5f",  # ; LVT # Lo  [27] HANGUL SYLLABLE CAEG..HANGUL SYLLABLE CAEH
+        "\ucc61","\ucc62","\ucc63","\ucc64","\ucc65","\ucc66","\ucc67","\ucc68","\ucc69","\ucc6a","\ucc6b","\ucc6c","\ucc6d","\ucc6e","\ucc6f","\ucc70","\ucc71","\ucc72","\ucc73","\ucc74","\ucc75","\ucc76","\ucc77","\ucc78","\ucc79","\ucc7a","\ucc7b",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYAG..HANGUL SYLLABLE CYAH
+        "\ucc7d","\ucc7e","\ucc7f","\ucc80","\ucc81","\ucc82","\ucc83","\ucc84","\ucc85","\ucc86","\ucc87","\ucc88","\ucc89","\ucc8a","\ucc8b","\ucc8c","\ucc8d","\ucc8e","\ucc8f","\ucc90","\ucc91","\ucc92","\ucc93","\ucc94","\ucc95","\ucc96","\ucc97",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYAEG..HANGUL SYLLABLE CYAEH
+        "\ucc99","\ucc9a","\ucc9b","\ucc9c","\ucc9d","\ucc9e","\ucc9f","\ucca0","\ucca1","\ucca2","\ucca3","\ucca4","\ucca5","\ucca6","\ucca7","\ucca8","\ucca9","\uccaa","\uccab","\uccac","\uccad","\uccae","\uccaf","\uccb0","\uccb1","\uccb2","\uccb3",  # ; LVT # Lo  [27] HANGUL SYLLABLE CEOG..HANGUL SYLLABLE CEOH
+        "\uccb5","\uccb6","\uccb7","\uccb8","\uccb9","\uccba","\uccbb","\uccbc","\uccbd","\uccbe","\uccbf","\uccc0","\uccc1","\uccc2","\uccc3","\uccc4","\uccc5","\uccc6","\uccc7","\uccc8","\uccc9","\uccca","\ucccb","\ucccc","\ucccd","\uccce","\ucccf",  # ; LVT # Lo  [27] HANGUL SYLLABLE CEG..HANGUL SYLLABLE CEH
+        "\uccd1","\uccd2","\uccd3","\uccd4","\uccd5","\uccd6","\uccd7","\uccd8","\uccd9","\uccda","\uccdb","\uccdc","\uccdd","\uccde","\uccdf","\ucce0","\ucce1","\ucce2","\ucce3","\ucce4","\ucce5","\ucce6","\ucce7","\ucce8","\ucce9","\uccea","\ucceb",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYEOG..HANGUL SYLLABLE CYEOH
+        "\ucced","\uccee","\uccef","\uccf0","\uccf1","\uccf2","\uccf3","\uccf4","\uccf5","\uccf6","\uccf7","\uccf8","\uccf9","\uccfa","\uccfb","\uccfc","\uccfd","\uccfe","\uccff","\ucd00","\ucd01","\ucd02","\ucd03","\ucd04","\ucd05","\ucd06","\ucd07",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYEG..HANGUL SYLLABLE CYEH
+        "\ucd09","\ucd0a","\ucd0b","\ucd0c","\ucd0d","\ucd0e","\ucd0f","\ucd10","\ucd11","\ucd12","\ucd13","\ucd14","\ucd15","\ucd16","\ucd17","\ucd18","\ucd19","\ucd1a","\ucd1b","\ucd1c","\ucd1d","\ucd1e","\ucd1f","\ucd20","\ucd21","\ucd22","\ucd23",  # ; LVT # Lo  [27] HANGUL SYLLABLE COG..HANGUL SYLLABLE COH
+        "\ucd25","\ucd26","\ucd27","\ucd28","\ucd29","\ucd2a","\ucd2b","\ucd2c","\ucd2d","\ucd2e","\ucd2f","\ucd30","\ucd31","\ucd32","\ucd33","\ucd34","\ucd35","\ucd36","\ucd37","\ucd38","\ucd39","\ucd3a","\ucd3b","\ucd3c","\ucd3d","\ucd3e","\ucd3f",  # ; LVT # Lo  [27] HANGUL SYLLABLE CWAG..HANGUL SYLLABLE CWAH
+        "\ucd41","\ucd42","\ucd43","\ucd44","\ucd45","\ucd46","\ucd47","\ucd48","\ucd49","\ucd4a","\ucd4b","\ucd4c","\ucd4d","\ucd4e","\ucd4f","\ucd50","\ucd51","\ucd52","\ucd53","\ucd54","\ucd55","\ucd56","\ucd57","\ucd58","\ucd59","\ucd5a","\ucd5b",  # ; LVT # Lo  [27] HANGUL SYLLABLE CWAEG..HANGUL SYLLABLE CWAEH
+        "\ucd5d","\ucd5e","\ucd5f","\ucd60","\ucd61","\ucd62","\ucd63","\ucd64","\ucd65","\ucd66","\ucd67","\ucd68","\ucd69","\ucd6a","\ucd6b","\ucd6c","\ucd6d","\ucd6e","\ucd6f","\ucd70","\ucd71","\ucd72","\ucd73","\ucd74","\ucd75","\ucd76","\ucd77",  # ; LVT # Lo  [27] HANGUL SYLLABLE COEG..HANGUL SYLLABLE COEH
+        "\ucd79","\ucd7a","\ucd7b","\ucd7c","\ucd7d","\ucd7e","\ucd7f","\ucd80","\ucd81","\ucd82","\ucd83","\ucd84","\ucd85","\ucd86","\ucd87","\ucd88","\ucd89","\ucd8a","\ucd8b","\ucd8c","\ucd8d","\ucd8e","\ucd8f","\ucd90","\ucd91","\ucd92","\ucd93",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYOG..HANGUL SYLLABLE CYOH
+        "\ucd95","\ucd96","\ucd97","\ucd98","\ucd99","\ucd9a","\ucd9b","\ucd9c","\ucd9d","\ucd9e","\ucd9f","\ucda0","\ucda1","\ucda2","\ucda3","\ucda4","\ucda5","\ucda6","\ucda7","\ucda8","\ucda9","\ucdaa","\ucdab","\ucdac","\ucdad","\ucdae","\ucdaf",  # ; LVT # Lo  [27] HANGUL SYLLABLE CUG..HANGUL SYLLABLE CUH
+        "\ucdb1","\ucdb2","\ucdb3","\ucdb4","\ucdb5","\ucdb6","\ucdb7","\ucdb8","\ucdb9","\ucdba","\ucdbb","\ucdbc","\ucdbd","\ucdbe","\ucdbf","\ucdc0","\ucdc1","\ucdc2","\ucdc3","\ucdc4","\ucdc5","\ucdc6","\ucdc7","\ucdc8","\ucdc9","\ucdca","\ucdcb",  # ; LVT # Lo  [27] HANGUL SYLLABLE CWEOG..HANGUL SYLLABLE CWEOH
+        "\ucdcd","\ucdce","\ucdcf","\ucdd0","\ucdd1","\ucdd2","\ucdd3","\ucdd4","\ucdd5","\ucdd6","\ucdd7","\ucdd8","\ucdd9","\ucdda","\ucddb","\ucddc","\ucddd","\ucdde","\ucddf","\ucde0","\ucde1","\ucde2","\ucde3","\ucde4","\ucde5","\ucde6","\ucde7",  # ; LVT # Lo  [27] HANGUL SYLLABLE CWEG..HANGUL SYLLABLE CWEH
+        "\ucde9","\ucdea","\ucdeb","\ucdec","\ucded","\ucdee","\ucdef","\ucdf0","\ucdf1","\ucdf2","\ucdf3","\ucdf4","\ucdf5","\ucdf6","\ucdf7","\ucdf8","\ucdf9","\ucdfa","\ucdfb","\ucdfc","\ucdfd","\ucdfe","\ucdff","\uce00","\uce01","\uce02","\uce03",  # ; LVT # Lo  [27] HANGUL SYLLABLE CWIG..HANGUL SYLLABLE CWIH
+        "\uce05","\uce06","\uce07","\uce08","\uce09","\uce0a","\uce0b","\uce0c","\uce0d","\uce0e","\uce0f","\uce10","\uce11","\uce12","\uce13","\uce14","\uce15","\uce16","\uce17","\uce18","\uce19","\uce1a","\uce1b","\uce1c","\uce1d","\uce1e","\uce1f",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYUG..HANGUL SYLLABLE CYUH
+        "\uce21","\uce22","\uce23","\uce24","\uce25","\uce26","\uce27","\uce28","\uce29","\uce2a","\uce2b","\uce2c","\uce2d","\uce2e","\uce2f","\uce30","\uce31","\uce32","\uce33","\uce34","\uce35","\uce36","\uce37","\uce38","\uce39","\uce3a","\uce3b",  # ; LVT # Lo  [27] HANGUL SYLLABLE CEUG..HANGUL SYLLABLE CEUH
+        "\uce3d","\uce3e","\uce3f","\uce40","\uce41","\uce42","\uce43","\uce44","\uce45","\uce46","\uce47","\uce48","\uce49","\uce4a","\uce4b","\uce4c","\uce4d","\uce4e","\uce4f","\uce50","\uce51","\uce52","\uce53","\uce54","\uce55","\uce56","\uce57",  # ; LVT # Lo  [27] HANGUL SYLLABLE CYIG..HANGUL SYLLABLE CYIH
+        "\uce59","\uce5a","\uce5b","\uce5c","\uce5d","\uce5e","\uce5f","\uce60","\uce61","\uce62","\uce63","\uce64","\uce65","\uce66","\uce67","\uce68","\uce69","\uce6a","\uce6b","\uce6c","\uce6d","\uce6e","\uce6f","\uce70","\uce71","\uce72","\uce73",  # ; LVT # Lo  [27] HANGUL SYLLABLE CIG..HANGUL SYLLABLE CIH
+        "\uce75","\uce76","\uce77","\uce78","\uce79","\uce7a","\uce7b","\uce7c","\uce7d","\uce7e","\uce7f","\uce80","\uce81","\uce82","\uce83","\uce84","\uce85","\uce86","\uce87","\uce88","\uce89","\uce8a","\uce8b","\uce8c","\uce8d","\uce8e","\uce8f",  # ; LVT # Lo  [27] HANGUL SYLLABLE KAG..HANGUL SYLLABLE KAH
+        "\uce91","\uce92","\uce93","\uce94","\uce95","\uce96","\uce97","\uce98","\uce99","\uce9a","\uce9b","\uce9c","\uce9d","\uce9e","\uce9f","\ucea0","\ucea1","\ucea2","\ucea3","\ucea4","\ucea5","\ucea6","\ucea7","\ucea8","\ucea9","\uceaa","\uceab",  # ; LVT # Lo  [27] HANGUL SYLLABLE KAEG..HANGUL SYLLABLE KAEH
+        "\ucead","\uceae","\uceaf","\uceb0","\uceb1","\uceb2","\uceb3","\uceb4","\uceb5","\uceb6","\uceb7","\uceb8","\uceb9","\uceba","\ucebb","\ucebc","\ucebd","\ucebe","\ucebf","\ucec0","\ucec1","\ucec2","\ucec3","\ucec4","\ucec5","\ucec6","\ucec7",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYAG..HANGUL SYLLABLE KYAH
+        "\ucec9","\uceca","\ucecb","\ucecc","\ucecd","\ucece","\ucecf","\uced0","\uced1","\uced2","\uced3","\uced4","\uced5","\uced6","\uced7","\uced8","\uced9","\uceda","\ucedb","\ucedc","\ucedd","\ucede","\ucedf","\ucee0","\ucee1","\ucee2","\ucee3",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYAEG..HANGUL SYLLABLE KYAEH
+        "\ucee5","\ucee6","\ucee7","\ucee8","\ucee9","\uceea","\uceeb","\uceec","\uceed","\uceee","\uceef","\ucef0","\ucef1","\ucef2","\ucef3","\ucef4","\ucef5","\ucef6","\ucef7","\ucef8","\ucef9","\ucefa","\ucefb","\ucefc","\ucefd","\ucefe","\uceff",  # ; LVT # Lo  [27] HANGUL SYLLABLE KEOG..HANGUL SYLLABLE KEOH
+        "\ucf01","\ucf02","\ucf03","\ucf04","\ucf05","\ucf06","\ucf07","\ucf08","\ucf09","\ucf0a","\ucf0b","\ucf0c","\ucf0d","\ucf0e","\ucf0f","\ucf10","\ucf11","\ucf12","\ucf13","\ucf14","\ucf15","\ucf16","\ucf17","\ucf18","\ucf19","\ucf1a","\ucf1b",  # ; LVT # Lo  [27] HANGUL SYLLABLE KEG..HANGUL SYLLABLE KEH
+        "\ucf1d","\ucf1e","\ucf1f","\ucf20","\ucf21","\ucf22","\ucf23","\ucf24","\ucf25","\ucf26","\ucf27","\ucf28","\ucf29","\ucf2a","\ucf2b","\ucf2c","\ucf2d","\ucf2e","\ucf2f","\ucf30","\ucf31","\ucf32","\ucf33","\ucf34","\ucf35","\ucf36","\ucf37",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYEOG..HANGUL SYLLABLE KYEOH
+        "\ucf39","\ucf3a","\ucf3b","\ucf3c","\ucf3d","\ucf3e","\ucf3f","\ucf40","\ucf41","\ucf42","\ucf43","\ucf44","\ucf45","\ucf46","\ucf47","\ucf48","\ucf49","\ucf4a","\ucf4b","\ucf4c","\ucf4d","\ucf4e","\ucf4f","\ucf50","\ucf51","\ucf52","\ucf53",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYEG..HANGUL SYLLABLE KYEH
+        "\ucf55","\ucf56","\ucf57","\ucf58","\ucf59","\ucf5a","\ucf5b","\ucf5c","\ucf5d","\ucf5e","\ucf5f","\ucf60","\ucf61","\ucf62","\ucf63","\ucf64","\ucf65","\ucf66","\ucf67","\ucf68","\ucf69","\ucf6a","\ucf6b","\ucf6c","\ucf6d","\ucf6e","\ucf6f",  # ; LVT # Lo  [27] HANGUL SYLLABLE KOG..HANGUL SYLLABLE KOH
+        "\ucf71","\ucf72","\ucf73","\ucf74","\ucf75","\ucf76","\ucf77","\ucf78","\ucf79","\ucf7a","\ucf7b","\ucf7c","\ucf7d","\ucf7e","\ucf7f","\ucf80","\ucf81","\ucf82","\ucf83","\ucf84","\ucf85","\ucf86","\ucf87","\ucf88","\ucf89","\ucf8a","\ucf8b",  # ; LVT # Lo  [27] HANGUL SYLLABLE KWAG..HANGUL SYLLABLE KWAH
+        "\ucf8d","\ucf8e","\ucf8f","\ucf90","\ucf91","\ucf92","\ucf93","\ucf94","\ucf95","\ucf96","\ucf97","\ucf98","\ucf99","\ucf9a","\ucf9b","\ucf9c","\ucf9d","\ucf9e","\ucf9f","\ucfa0","\ucfa1","\ucfa2","\ucfa3","\ucfa4","\ucfa5","\ucfa6","\ucfa7",  # ; LVT # Lo  [27] HANGUL SYLLABLE KWAEG..HANGUL SYLLABLE KWAEH
+        "\ucfa9","\ucfaa","\ucfab","\ucfac","\ucfad","\ucfae","\ucfaf","\ucfb0","\ucfb1","\ucfb2","\ucfb3","\ucfb4","\ucfb5","\ucfb6","\ucfb7","\ucfb8","\ucfb9","\ucfba","\ucfbb","\ucfbc","\ucfbd","\ucfbe","\ucfbf","\ucfc0","\ucfc1","\ucfc2","\ucfc3",  # ; LVT # Lo  [27] HANGUL SYLLABLE KOEG..HANGUL SYLLABLE KOEH
+        "\ucfc5","\ucfc6","\ucfc7","\ucfc8","\ucfc9","\ucfca","\ucfcb","\ucfcc","\ucfcd","\ucfce","\ucfcf","\ucfd0","\ucfd1","\ucfd2","\ucfd3","\ucfd4","\ucfd5","\ucfd6","\ucfd7","\ucfd8","\ucfd9","\ucfda","\ucfdb","\ucfdc","\ucfdd","\ucfde","\ucfdf",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYOG..HANGUL SYLLABLE KYOH
+        "\ucfe1","\ucfe2","\ucfe3","\ucfe4","\ucfe5","\ucfe6","\ucfe7","\ucfe8","\ucfe9","\ucfea","\ucfeb","\ucfec","\ucfed","\ucfee","\ucfef","\ucff0","\ucff1","\ucff2","\ucff3","\ucff4","\ucff5","\ucff6","\ucff7","\ucff8","\ucff9","\ucffa","\ucffb",  # ; LVT # Lo  [27] HANGUL SYLLABLE KUG..HANGUL SYLLABLE KUH
+        "\ucffd","\ucffe","\ucfff","\ud000","\ud001","\ud002","\ud003","\ud004","\ud005","\ud006","\ud007","\ud008","\ud009","\ud00a","\ud00b","\ud00c","\ud00d","\ud00e","\ud00f","\ud010","\ud011","\ud012","\ud013","\ud014","\ud015","\ud016","\ud017",  # ; LVT # Lo  [27] HANGUL SYLLABLE KWEOG..HANGUL SYLLABLE KWEOH
+        "\ud019","\ud01a","\ud01b","\ud01c","\ud01d","\ud01e","\ud01f","\ud020","\ud021","\ud022","\ud023","\ud024","\ud025","\ud026","\ud027","\ud028","\ud029","\ud02a","\ud02b","\ud02c","\ud02d","\ud02e","\ud02f","\ud030","\ud031","\ud032","\ud033",  # ; LVT # Lo  [27] HANGUL SYLLABLE KWEG..HANGUL SYLLABLE KWEH
+        "\ud035","\ud036","\ud037","\ud038","\ud039","\ud03a","\ud03b","\ud03c","\ud03d","\ud03e","\ud03f","\ud040","\ud041","\ud042","\ud043","\ud044","\ud045","\ud046","\ud047","\ud048","\ud049","\ud04a","\ud04b","\ud04c","\ud04d","\ud04e","\ud04f",  # ; LVT # Lo  [27] HANGUL SYLLABLE KWIG..HANGUL SYLLABLE KWIH
+        "\ud051","\ud052","\ud053","\ud054","\ud055","\ud056","\ud057","\ud058","\ud059","\ud05a","\ud05b","\ud05c","\ud05d","\ud05e","\ud05f","\ud060","\ud061","\ud062","\ud063","\ud064","\ud065","\ud066","\ud067","\ud068","\ud069","\ud06a","\ud06b",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYUG..HANGUL SYLLABLE KYUH
+        "\ud06d","\ud06e","\ud06f","\ud070","\ud071","\ud072","\ud073","\ud074","\ud075","\ud076","\ud077","\ud078","\ud079","\ud07a","\ud07b","\ud07c","\ud07d","\ud07e","\ud07f","\ud080","\ud081","\ud082","\ud083","\ud084","\ud085","\ud086","\ud087",  # ; LVT # Lo  [27] HANGUL SYLLABLE KEUG..HANGUL SYLLABLE KEUH
+        "\ud089","\ud08a","\ud08b","\ud08c","\ud08d","\ud08e","\ud08f","\ud090","\ud091","\ud092","\ud093","\ud094","\ud095","\ud096","\ud097","\ud098","\ud099","\ud09a","\ud09b","\ud09c","\ud09d","\ud09e","\ud09f","\ud0a0","\ud0a1","\ud0a2","\ud0a3",  # ; LVT # Lo  [27] HANGUL SYLLABLE KYIG..HANGUL SYLLABLE KYIH
+        "\ud0a5","\ud0a6","\ud0a7","\ud0a8","\ud0a9","\ud0aa","\ud0ab","\ud0ac","\ud0ad","\ud0ae","\ud0af","\ud0b0","\ud0b1","\ud0b2","\ud0b3","\ud0b4","\ud0b5","\ud0b6","\ud0b7","\ud0b8","\ud0b9","\ud0ba","\ud0bb","\ud0bc","\ud0bd","\ud0be","\ud0bf",  # ; LVT # Lo  [27] HANGUL SYLLABLE KIG..HANGUL SYLLABLE KIH
+        "\ud0c1","\ud0c2","\ud0c3","\ud0c4","\ud0c5","\ud0c6","\ud0c7","\ud0c8","\ud0c9","\ud0ca","\ud0cb","\ud0cc","\ud0cd","\ud0ce","\ud0cf","\ud0d0","\ud0d1","\ud0d2","\ud0d3","\ud0d4","\ud0d5","\ud0d6","\ud0d7","\ud0d8","\ud0d9","\ud0da","\ud0db",  # ; LVT # Lo  [27] HANGUL SYLLABLE TAG..HANGUL SYLLABLE TAH
+        "\ud0dd","\ud0de","\ud0df","\ud0e0","\ud0e1","\ud0e2","\ud0e3","\ud0e4","\ud0e5","\ud0e6","\ud0e7","\ud0e8","\ud0e9","\ud0ea","\ud0eb","\ud0ec","\ud0ed","\ud0ee","\ud0ef","\ud0f0","\ud0f1","\ud0f2","\ud0f3","\ud0f4","\ud0f5","\ud0f6","\ud0f7",  # ; LVT # Lo  [27] HANGUL SYLLABLE TAEG..HANGUL SYLLABLE TAEH
+        "\ud0f9","\ud0fa","\ud0fb","\ud0fc","\ud0fd","\ud0fe","\ud0ff","\ud100","\ud101","\ud102","\ud103","\ud104","\ud105","\ud106","\ud107","\ud108","\ud109","\ud10a","\ud10b","\ud10c","\ud10d","\ud10e","\ud10f","\ud110","\ud111","\ud112","\ud113",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYAG..HANGUL SYLLABLE TYAH
+        "\ud115","\ud116","\ud117","\ud118","\ud119","\ud11a","\ud11b","\ud11c","\ud11d","\ud11e","\ud11f","\ud120","\ud121","\ud122","\ud123","\ud124","\ud125","\ud126","\ud127","\ud128","\ud129","\ud12a","\ud12b","\ud12c","\ud12d","\ud12e","\ud12f",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYAEG..HANGUL SYLLABLE TYAEH
+        "\ud131","\ud132","\ud133","\ud134","\ud135","\ud136","\ud137","\ud138","\ud139","\ud13a","\ud13b","\ud13c","\ud13d","\ud13e","\ud13f","\ud140","\ud141","\ud142","\ud143","\ud144","\ud145","\ud146","\ud147","\ud148","\ud149","\ud14a","\ud14b",  # ; LVT # Lo  [27] HANGUL SYLLABLE TEOG..HANGUL SYLLABLE TEOH
+        "\ud14d","\ud14e","\ud14f","\ud150","\ud151","\ud152","\ud153","\ud154","\ud155","\ud156","\ud157","\ud158","\ud159","\ud15a","\ud15b","\ud15c","\ud15d","\ud15e","\ud15f","\ud160","\ud161","\ud162","\ud163","\ud164","\ud165","\ud166","\ud167",  # ; LVT # Lo  [27] HANGUL SYLLABLE TEG..HANGUL SYLLABLE TEH
+        "\ud169","\ud16a","\ud16b","\ud16c","\ud16d","\ud16e","\ud16f","\ud170","\ud171","\ud172","\ud173","\ud174","\ud175","\ud176","\ud177","\ud178","\ud179","\ud17a","\ud17b","\ud17c","\ud17d","\ud17e","\ud17f","\ud180","\ud181","\ud182","\ud183",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYEOG..HANGUL SYLLABLE TYEOH
+        "\ud185","\ud186","\ud187","\ud188","\ud189","\ud18a","\ud18b","\ud18c","\ud18d","\ud18e","\ud18f","\ud190","\ud191","\ud192","\ud193","\ud194","\ud195","\ud196","\ud197","\ud198","\ud199","\ud19a","\ud19b","\ud19c","\ud19d","\ud19e","\ud19f",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYEG..HANGUL SYLLABLE TYEH
+        "\ud1a1","\ud1a2","\ud1a3","\ud1a4","\ud1a5","\ud1a6","\ud1a7","\ud1a8","\ud1a9","\ud1aa","\ud1ab","\ud1ac","\ud1ad","\ud1ae","\ud1af","\ud1b0","\ud1b1","\ud1b2","\ud1b3","\ud1b4","\ud1b5","\ud1b6","\ud1b7","\ud1b8","\ud1b9","\ud1ba","\ud1bb",  # ; LVT # Lo  [27] HANGUL SYLLABLE TOG..HANGUL SYLLABLE TOH
+        "\ud1bd","\ud1be","\ud1bf","\ud1c0","\ud1c1","\ud1c2","\ud1c3","\ud1c4","\ud1c5","\ud1c6","\ud1c7","\ud1c8","\ud1c9","\ud1ca","\ud1cb","\ud1cc","\ud1cd","\ud1ce","\ud1cf","\ud1d0","\ud1d1","\ud1d2","\ud1d3","\ud1d4","\ud1d5","\ud1d6","\ud1d7",  # ; LVT # Lo  [27] HANGUL SYLLABLE TWAG..HANGUL SYLLABLE TWAH
+        "\ud1d9","\ud1da","\ud1db","\ud1dc","\ud1dd","\ud1de","\ud1df","\ud1e0","\ud1e1","\ud1e2","\ud1e3","\ud1e4","\ud1e5","\ud1e6","\ud1e7","\ud1e8","\ud1e9","\ud1ea","\ud1eb","\ud1ec","\ud1ed","\ud1ee","\ud1ef","\ud1f0","\ud1f1","\ud1f2","\ud1f3",  # ; LVT # Lo  [27] HANGUL SYLLABLE TWAEG..HANGUL SYLLABLE TWAEH
+        "\ud1f5","\ud1f6","\ud1f7","\ud1f8","\ud1f9","\ud1fa","\ud1fb","\ud1fc","\ud1fd","\ud1fe","\ud1ff","\ud200","\ud201","\ud202","\ud203","\ud204","\ud205","\ud206","\ud207","\ud208","\ud209","\ud20a","\ud20b","\ud20c","\ud20d","\ud20e","\ud20f",  # ; LVT # Lo  [27] HANGUL SYLLABLE TOEG..HANGUL SYLLABLE TOEH
+        "\ud211","\ud212","\ud213","\ud214","\ud215","\ud216","\ud217","\ud218","\ud219","\ud21a","\ud21b","\ud21c","\ud21d","\ud21e","\ud21f","\ud220","\ud221","\ud222","\ud223","\ud224","\ud225","\ud226","\ud227","\ud228","\ud229","\ud22a","\ud22b",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYOG..HANGUL SYLLABLE TYOH
+        "\ud22d","\ud22e","\ud22f","\ud230","\ud231","\ud232","\ud233","\ud234","\ud235","\ud236","\ud237","\ud238","\ud239","\ud23a","\ud23b","\ud23c","\ud23d","\ud23e","\ud23f","\ud240","\ud241","\ud242","\ud243","\ud244","\ud245","\ud246","\ud247",  # ; LVT # Lo  [27] HANGUL SYLLABLE TUG..HANGUL SYLLABLE TUH
+        "\ud249","\ud24a","\ud24b","\ud24c","\ud24d","\ud24e","\ud24f","\ud250","\ud251","\ud252","\ud253","\ud254","\ud255","\ud256","\ud257","\ud258","\ud259","\ud25a","\ud25b","\ud25c","\ud25d","\ud25e","\ud25f","\ud260","\ud261","\ud262","\ud263",  # ; LVT # Lo  [27] HANGUL SYLLABLE TWEOG..HANGUL SYLLABLE TWEOH
+        "\ud265","\ud266","\ud267","\ud268","\ud269","\ud26a","\ud26b","\ud26c","\ud26d","\ud26e","\ud26f","\ud270","\ud271","\ud272","\ud273","\ud274","\ud275","\ud276","\ud277","\ud278","\ud279","\ud27a","\ud27b","\ud27c","\ud27d","\ud27e","\ud27f",  # ; LVT # Lo  [27] HANGUL SYLLABLE TWEG..HANGUL SYLLABLE TWEH
+        "\ud281","\ud282","\ud283","\ud284","\ud285","\ud286","\ud287","\ud288","\ud289","\ud28a","\ud28b","\ud28c","\ud28d","\ud28e","\ud28f","\ud290","\ud291","\ud292","\ud293","\ud294","\ud295","\ud296","\ud297","\ud298","\ud299","\ud29a","\ud29b",  # ; LVT # Lo  [27] HANGUL SYLLABLE TWIG..HANGUL SYLLABLE TWIH
+        "\ud29d","\ud29e","\ud29f","\ud2a0","\ud2a1","\ud2a2","\ud2a3","\ud2a4","\ud2a5","\ud2a6","\ud2a7","\ud2a8","\ud2a9","\ud2aa","\ud2ab","\ud2ac","\ud2ad","\ud2ae","\ud2af","\ud2b0","\ud2b1","\ud2b2","\ud2b3","\ud2b4","\ud2b5","\ud2b6","\ud2b7",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYUG..HANGUL SYLLABLE TYUH
+        "\ud2b9","\ud2ba","\ud2bb","\ud2bc","\ud2bd","\ud2be","\ud2bf","\ud2c0","\ud2c1","\ud2c2","\ud2c3","\ud2c4","\ud2c5","\ud2c6","\ud2c7","\ud2c8","\ud2c9","\ud2ca","\ud2cb","\ud2cc","\ud2cd","\ud2ce","\ud2cf","\ud2d0","\ud2d1","\ud2d2","\ud2d3",  # ; LVT # Lo  [27] HANGUL SYLLABLE TEUG..HANGUL SYLLABLE TEUH
+        "\ud2d5","\ud2d6","\ud2d7","\ud2d8","\ud2d9","\ud2da","\ud2db","\ud2dc","\ud2dd","\ud2de","\ud2df","\ud2e0","\ud2e1","\ud2e2","\ud2e3","\ud2e4","\ud2e5","\ud2e6","\ud2e7","\ud2e8","\ud2e9","\ud2ea","\ud2eb","\ud2ec","\ud2ed","\ud2ee","\ud2ef",  # ; LVT # Lo  [27] HANGUL SYLLABLE TYIG..HANGUL SYLLABLE TYIH
+        "\ud2f1","\ud2f2","\ud2f3","\ud2f4","\ud2f5","\ud2f6","\ud2f7","\ud2f8","\ud2f9","\ud2fa","\ud2fb","\ud2fc","\ud2fd","\ud2fe","\ud2ff","\ud300","\ud301","\ud302","\ud303","\ud304","\ud305","\ud306","\ud307","\ud308","\ud309","\ud30a","\ud30b",  # ; LVT # Lo  [27] HANGUL SYLLABLE TIG..HANGUL SYLLABLE TIH
+        "\ud30d","\ud30e","\ud30f","\ud310","\ud311","\ud312","\ud313","\ud314","\ud315","\ud316","\ud317","\ud318","\ud319","\ud31a","\ud31b","\ud31c","\ud31d","\ud31e","\ud31f","\ud320","\ud321","\ud322","\ud323","\ud324","\ud325","\ud326","\ud327",  # ; LVT # Lo  [27] HANGUL SYLLABLE PAG..HANGUL SYLLABLE PAH
+        "\ud329","\ud32a","\ud32b","\ud32c","\ud32d","\ud32e","\ud32f","\ud330","\ud331","\ud332","\ud333","\ud334","\ud335","\ud336","\ud337","\ud338","\ud339","\ud33a","\ud33b","\ud33c","\ud33d","\ud33e","\ud33f","\ud340","\ud341","\ud342","\ud343",  # ; LVT # Lo  [27] HANGUL SYLLABLE PAEG..HANGUL SYLLABLE PAEH
+        "\ud345","\ud346","\ud347","\ud348","\ud349","\ud34a","\ud34b","\ud34c","\ud34d","\ud34e","\ud34f","\ud350","\ud351","\ud352","\ud353","\ud354","\ud355","\ud356","\ud357","\ud358","\ud359","\ud35a","\ud35b","\ud35c","\ud35d","\ud35e","\ud35f",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYAG..HANGUL SYLLABLE PYAH
+        "\ud361","\ud362","\ud363","\ud364","\ud365","\ud366","\ud367","\ud368","\ud369","\ud36a","\ud36b","\ud36c","\ud36d","\ud36e","\ud36f","\ud370","\ud371","\ud372","\ud373","\ud374","\ud375","\ud376","\ud377","\ud378","\ud379","\ud37a","\ud37b",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYAEG..HANGUL SYLLABLE PYAEH
+        "\ud37d","\ud37e","\ud37f","\ud380","\ud381","\ud382","\ud383","\ud384","\ud385","\ud386","\ud387","\ud388","\ud389","\ud38a","\ud38b","\ud38c","\ud38d","\ud38e","\ud38f","\ud390","\ud391","\ud392","\ud393","\ud394","\ud395","\ud396","\ud397",  # ; LVT # Lo  [27] HANGUL SYLLABLE PEOG..HANGUL SYLLABLE PEOH
+        "\ud399","\ud39a","\ud39b","\ud39c","\ud39d","\ud39e","\ud39f","\ud3a0","\ud3a1","\ud3a2","\ud3a3","\ud3a4","\ud3a5","\ud3a6","\ud3a7","\ud3a8","\ud3a9","\ud3aa","\ud3ab","\ud3ac","\ud3ad","\ud3ae","\ud3af","\ud3b0","\ud3b1","\ud3b2","\ud3b3",  # ; LVT # Lo  [27] HANGUL SYLLABLE PEG..HANGUL SYLLABLE PEH
+        "\ud3b5","\ud3b6","\ud3b7","\ud3b8","\ud3b9","\ud3ba","\ud3bb","\ud3bc","\ud3bd","\ud3be","\ud3bf","\ud3c0","\ud3c1","\ud3c2","\ud3c3","\ud3c4","\ud3c5","\ud3c6","\ud3c7","\ud3c8","\ud3c9","\ud3ca","\ud3cb","\ud3cc","\ud3cd","\ud3ce","\ud3cf",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYEOG..HANGUL SYLLABLE PYEOH
+        "\ud3d1","\ud3d2","\ud3d3","\ud3d4","\ud3d5","\ud3d6","\ud3d7","\ud3d8","\ud3d9","\ud3da","\ud3db","\ud3dc","\ud3dd","\ud3de","\ud3df","\ud3e0","\ud3e1","\ud3e2","\ud3e3","\ud3e4","\ud3e5","\ud3e6","\ud3e7","\ud3e8","\ud3e9","\ud3ea","\ud3eb",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYEG..HANGUL SYLLABLE PYEH
+        "\ud3ed","\ud3ee","\ud3ef","\ud3f0","\ud3f1","\ud3f2","\ud3f3","\ud3f4","\ud3f5","\ud3f6","\ud3f7","\ud3f8","\ud3f9","\ud3fa","\ud3fb","\ud3fc","\ud3fd","\ud3fe","\ud3ff","\ud400","\ud401","\ud402","\ud403","\ud404","\ud405","\ud406","\ud407",  # ; LVT # Lo  [27] HANGUL SYLLABLE POG..HANGUL SYLLABLE POH
+        "\ud409","\ud40a","\ud40b","\ud40c","\ud40d","\ud40e","\ud40f","\ud410","\ud411","\ud412","\ud413","\ud414","\ud415","\ud416","\ud417","\ud418","\ud419","\ud41a","\ud41b","\ud41c","\ud41d","\ud41e","\ud41f","\ud420","\ud421","\ud422","\ud423",  # ; LVT # Lo  [27] HANGUL SYLLABLE PWAG..HANGUL SYLLABLE PWAH
+        "\ud425","\ud426","\ud427","\ud428","\ud429","\ud42a","\ud42b","\ud42c","\ud42d","\ud42e","\ud42f","\ud430","\ud431","\ud432","\ud433","\ud434","\ud435","\ud436","\ud437","\ud438","\ud439","\ud43a","\ud43b","\ud43c","\ud43d","\ud43e","\ud43f",  # ; LVT # Lo  [27] HANGUL SYLLABLE PWAEG..HANGUL SYLLABLE PWAEH
+        "\ud441","\ud442","\ud443","\ud444","\ud445","\ud446","\ud447","\ud448","\ud449","\ud44a","\ud44b","\ud44c","\ud44d","\ud44e","\ud44f","\ud450","\ud451","\ud452","\ud453","\ud454","\ud455","\ud456","\ud457","\ud458","\ud459","\ud45a","\ud45b",  # ; LVT # Lo  [27] HANGUL SYLLABLE POEG..HANGUL SYLLABLE POEH
+        "\ud45d","\ud45e","\ud45f","\ud460","\ud461","\ud462","\ud463","\ud464","\ud465","\ud466","\ud467","\ud468","\ud469","\ud46a","\ud46b","\ud46c","\ud46d","\ud46e","\ud46f","\ud470","\ud471","\ud472","\ud473","\ud474","\ud475","\ud476","\ud477",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYOG..HANGUL SYLLABLE PYOH
+        "\ud479","\ud47a","\ud47b","\ud47c","\ud47d","\ud47e","\ud47f","\ud480","\ud481","\ud482","\ud483","\ud484","\ud485","\ud486","\ud487","\ud488","\ud489","\ud48a","\ud48b","\ud48c","\ud48d","\ud48e","\ud48f","\ud490","\ud491","\ud492","\ud493",  # ; LVT # Lo  [27] HANGUL SYLLABLE PUG..HANGUL SYLLABLE PUH
+        "\ud495","\ud496","\ud497","\ud498","\ud499","\ud49a","\ud49b","\ud49c","\ud49d","\ud49e","\ud49f","\ud4a0","\ud4a1","\ud4a2","\ud4a3","\ud4a4","\ud4a5","\ud4a6","\ud4a7","\ud4a8","\ud4a9","\ud4aa","\ud4ab","\ud4ac","\ud4ad","\ud4ae","\ud4af",  # ; LVT # Lo  [27] HANGUL SYLLABLE PWEOG..HANGUL SYLLABLE PWEOH
+        "\ud4b1","\ud4b2","\ud4b3","\ud4b4","\ud4b5","\ud4b6","\ud4b7","\ud4b8","\ud4b9","\ud4ba","\ud4bb","\ud4bc","\ud4bd","\ud4be","\ud4bf","\ud4c0","\ud4c1","\ud4c2","\ud4c3","\ud4c4","\ud4c5","\ud4c6","\ud4c7","\ud4c8","\ud4c9","\ud4ca","\ud4cb",  # ; LVT # Lo  [27] HANGUL SYLLABLE PWEG..HANGUL SYLLABLE PWEH
+        "\ud4cd","\ud4ce","\ud4cf","\ud4d0","\ud4d1","\ud4d2","\ud4d3","\ud4d4","\ud4d5","\ud4d6","\ud4d7","\ud4d8","\ud4d9","\ud4da","\ud4db","\ud4dc","\ud4dd","\ud4de","\ud4df","\ud4e0","\ud4e1","\ud4e2","\ud4e3","\ud4e4","\ud4e5","\ud4e6","\ud4e7",  # ; LVT # Lo  [27] HANGUL SYLLABLE PWIG..HANGUL SYLLABLE PWIH
+        "\ud4e9","\ud4ea","\ud4eb","\ud4ec","\ud4ed","\ud4ee","\ud4ef","\ud4f0","\ud4f1","\ud4f2","\ud4f3","\ud4f4","\ud4f5","\ud4f6","\ud4f7","\ud4f8","\ud4f9","\ud4fa","\ud4fb","\ud4fc","\ud4fd","\ud4fe","\ud4ff","\ud500","\ud501","\ud502","\ud503",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYUG..HANGUL SYLLABLE PYUH
+        "\ud505","\ud506","\ud507","\ud508","\ud509","\ud50a","\ud50b","\ud50c","\ud50d","\ud50e","\ud50f","\ud510","\ud511","\ud512","\ud513","\ud514","\ud515","\ud516","\ud517","\ud518","\ud519","\ud51a","\ud51b","\ud51c","\ud51d","\ud51e","\ud51f",  # ; LVT # Lo  [27] HANGUL SYLLABLE PEUG..HANGUL SYLLABLE PEUH
+        "\ud521","\ud522","\ud523","\ud524","\ud525","\ud526","\ud527","\ud528","\ud529","\ud52a","\ud52b","\ud52c","\ud52d","\ud52e","\ud52f","\ud530","\ud531","\ud532","\ud533","\ud534","\ud535","\ud536","\ud537","\ud538","\ud539","\ud53a","\ud53b",  # ; LVT # Lo  [27] HANGUL SYLLABLE PYIG..HANGUL SYLLABLE PYIH
+        "\ud53d","\ud53e","\ud53f","\ud540","\ud541","\ud542","\ud543","\ud544","\ud545","\ud546","\ud547","\ud548","\ud549","\ud54a","\ud54b","\ud54c","\ud54d","\ud54e","\ud54f","\ud550","\ud551","\ud552","\ud553","\ud554","\ud555","\ud556","\ud557",  # ; LVT # Lo  [27] HANGUL SYLLABLE PIG..HANGUL SYLLABLE PIH
+        "\ud559","\ud55a","\ud55b","\ud55c","\ud55d","\ud55e","\ud55f","\ud560","\ud561","\ud562","\ud563","\ud564","\ud565","\ud566","\ud567","\ud568","\ud569","\ud56a","\ud56b","\ud56c","\ud56d","\ud56e","\ud56f","\ud570","\ud571","\ud572","\ud573",  # ; LVT # Lo  [27] HANGUL SYLLABLE HAG..HANGUL SYLLABLE HAH
+        "\ud575","\ud576","\ud577","\ud578","\ud579","\ud57a","\ud57b","\ud57c","\ud57d","\ud57e","\ud57f","\ud580","\ud581","\ud582","\ud583","\ud584","\ud585","\ud586","\ud587","\ud588","\ud589","\ud58a","\ud58b","\ud58c","\ud58d","\ud58e","\ud58f",  # ; LVT # Lo  [27] HANGUL SYLLABLE HAEG..HANGUL SYLLABLE HAEH
+        "\ud591","\ud592","\ud593","\ud594","\ud595","\ud596","\ud597","\ud598","\ud599","\ud59a","\ud59b","\ud59c","\ud59d","\ud59e","\ud59f","\ud5a0","\ud5a1","\ud5a2","\ud5a3","\ud5a4","\ud5a5","\ud5a6","\ud5a7","\ud5a8","\ud5a9","\ud5aa","\ud5ab",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYAG..HANGUL SYLLABLE HYAH
+        "\ud5ad","\ud5ae","\ud5af","\ud5b0","\ud5b1","\ud5b2","\ud5b3","\ud5b4","\ud5b5","\ud5b6","\ud5b7","\ud5b8","\ud5b9","\ud5ba","\ud5bb","\ud5bc","\ud5bd","\ud5be","\ud5bf","\ud5c0","\ud5c1","\ud5c2","\ud5c3","\ud5c4","\ud5c5","\ud5c6","\ud5c7",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYAEG..HANGUL SYLLABLE HYAEH
+        "\ud5c9","\ud5ca","\ud5cb","\ud5cc","\ud5cd","\ud5ce","\ud5cf","\ud5d0","\ud5d1","\ud5d2","\ud5d3","\ud5d4","\ud5d5","\ud5d6","\ud5d7","\ud5d8","\ud5d9","\ud5da","\ud5db","\ud5dc","\ud5dd","\ud5de","\ud5df","\ud5e0","\ud5e1","\ud5e2","\ud5e3",  # ; LVT # Lo  [27] HANGUL SYLLABLE HEOG..HANGUL SYLLABLE HEOH
+        "\ud5e5","\ud5e6","\ud5e7","\ud5e8","\ud5e9","\ud5ea","\ud5eb","\ud5ec","\ud5ed","\ud5ee","\ud5ef","\ud5f0","\ud5f1","\ud5f2","\ud5f3","\ud5f4","\ud5f5","\ud5f6","\ud5f7","\ud5f8","\ud5f9","\ud5fa","\ud5fb","\ud5fc","\ud5fd","\ud5fe","\ud5ff",  # ; LVT # Lo  [27] HANGUL SYLLABLE HEG..HANGUL SYLLABLE HEH
+        "\ud601","\ud602","\ud603","\ud604","\ud605","\ud606","\ud607","\ud608","\ud609","\ud60a","\ud60b","\ud60c","\ud60d","\ud60e","\ud60f","\ud610","\ud611","\ud612","\ud613","\ud614","\ud615","\ud616","\ud617","\ud618","\ud619","\ud61a","\ud61b",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYEOG..HANGUL SYLLABLE HYEOH
+        "\ud61d","\ud61e","\ud61f","\ud620","\ud621","\ud622","\ud623","\ud624","\ud625","\ud626","\ud627","\ud628","\ud629","\ud62a","\ud62b","\ud62c","\ud62d","\ud62e","\ud62f","\ud630","\ud631","\ud632","\ud633","\ud634","\ud635","\ud636","\ud637",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYEG..HANGUL SYLLABLE HYEH
+        "\ud639","\ud63a","\ud63b","\ud63c","\ud63d","\ud63e","\ud63f","\ud640","\ud641","\ud642","\ud643","\ud644","\ud645","\ud646","\ud647","\ud648","\ud649","\ud64a","\ud64b","\ud64c","\ud64d","\ud64e","\ud64f","\ud650","\ud651","\ud652","\ud653",  # ; LVT # Lo  [27] HANGUL SYLLABLE HOG..HANGUL SYLLABLE HOH
+        "\ud655","\ud656","\ud657","\ud658","\ud659","\ud65a","\ud65b","\ud65c","\ud65d","\ud65e","\ud65f","\ud660","\ud661","\ud662","\ud663","\ud664","\ud665","\ud666","\ud667","\ud668","\ud669","\ud66a","\ud66b","\ud66c","\ud66d","\ud66e","\ud66f",  # ; LVT # Lo  [27] HANGUL SYLLABLE HWAG..HANGUL SYLLABLE HWAH
+        "\ud671","\ud672","\ud673","\ud674","\ud675","\ud676","\ud677","\ud678","\ud679","\ud67a","\ud67b","\ud67c","\ud67d","\ud67e","\ud67f","\ud680","\ud681","\ud682","\ud683","\ud684","\ud685","\ud686","\ud687","\ud688","\ud689","\ud68a","\ud68b",  # ; LVT # Lo  [27] HANGUL SYLLABLE HWAEG..HANGUL SYLLABLE HWAEH
+        "\ud68d","\ud68e","\ud68f","\ud690","\ud691","\ud692","\ud693","\ud694","\ud695","\ud696","\ud697","\ud698","\ud699","\ud69a","\ud69b","\ud69c","\ud69d","\ud69e","\ud69f","\ud6a0","\ud6a1","\ud6a2","\ud6a3","\ud6a4","\ud6a5","\ud6a6","\ud6a7",  # ; LVT # Lo  [27] HANGUL SYLLABLE HOEG..HANGUL SYLLABLE HOEH
+        "\ud6a9","\ud6aa","\ud6ab","\ud6ac","\ud6ad","\ud6ae","\ud6af","\ud6b0","\ud6b1","\ud6b2","\ud6b3","\ud6b4","\ud6b5","\ud6b6","\ud6b7","\ud6b8","\ud6b9","\ud6ba","\ud6bb","\ud6bc","\ud6bd","\ud6be","\ud6bf","\ud6c0","\ud6c1","\ud6c2","\ud6c3",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYOG..HANGUL SYLLABLE HYOH
+        "\ud6c5","\ud6c6","\ud6c7","\ud6c8","\ud6c9","\ud6ca","\ud6cb","\ud6cc","\ud6cd","\ud6ce","\ud6cf","\ud6d0","\ud6d1","\ud6d2","\ud6d3","\ud6d4","\ud6d5","\ud6d6","\ud6d7","\ud6d8","\ud6d9","\ud6da","\ud6db","\ud6dc","\ud6dd","\ud6de","\ud6df",  # ; LVT # Lo  [27] HANGUL SYLLABLE HUG..HANGUL SYLLABLE HUH
+        "\ud6e1","\ud6e2","\ud6e3","\ud6e4","\ud6e5","\ud6e6","\ud6e7","\ud6e8","\ud6e9","\ud6ea","\ud6eb","\ud6ec","\ud6ed","\ud6ee","\ud6ef","\ud6f0","\ud6f1","\ud6f2","\ud6f3","\ud6f4","\ud6f5","\ud6f6","\ud6f7","\ud6f8","\ud6f9","\ud6fa","\ud6fb",  # ; LVT # Lo  [27] HANGUL SYLLABLE HWEOG..HANGUL SYLLABLE HWEOH
+        "\ud6fd","\ud6fe","\ud6ff","\ud700","\ud701","\ud702","\ud703","\ud704","\ud705","\ud706","\ud707","\ud708","\ud709","\ud70a","\ud70b","\ud70c","\ud70d","\ud70e","\ud70f","\ud710","\ud711","\ud712","\ud713","\ud714","\ud715","\ud716","\ud717",  # ; LVT # Lo  [27] HANGUL SYLLABLE HWEG..HANGUL SYLLABLE HWEH
+        "\ud719","\ud71a","\ud71b","\ud71c","\ud71d","\ud71e","\ud71f","\ud720","\ud721","\ud722","\ud723","\ud724","\ud725","\ud726","\ud727","\ud728","\ud729","\ud72a","\ud72b","\ud72c","\ud72d","\ud72e","\ud72f","\ud730","\ud731","\ud732","\ud733",  # ; LVT # Lo  [27] HANGUL SYLLABLE HWIG..HANGUL SYLLABLE HWIH
+        "\ud735","\ud736","\ud737","\ud738","\ud739","\ud73a","\ud73b","\ud73c","\ud73d","\ud73e","\ud73f","\ud740","\ud741","\ud742","\ud743","\ud744","\ud745","\ud746","\ud747","\ud748","\ud749","\ud74a","\ud74b","\ud74c","\ud74d","\ud74e","\ud74f",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYUG..HANGUL SYLLABLE HYUH
+        "\ud751","\ud752","\ud753","\ud754","\ud755","\ud756","\ud757","\ud758","\ud759","\ud75a","\ud75b","\ud75c","\ud75d","\ud75e","\ud75f","\ud760","\ud761","\ud762","\ud763","\ud764","\ud765","\ud766","\ud767","\ud768","\ud769","\ud76a","\ud76b",  # ; LVT # Lo  [27] HANGUL SYLLABLE HEUG..HANGUL SYLLABLE HEUH
+        "\ud76d","\ud76e","\ud76f","\ud770","\ud771","\ud772","\ud773","\ud774","\ud775","\ud776","\ud777","\ud778","\ud779","\ud77a","\ud77b","\ud77c","\ud77d","\ud77e","\ud77f","\ud780","\ud781","\ud782","\ud783","\ud784","\ud785","\ud786","\ud787",  # ; LVT # Lo  [27] HANGUL SYLLABLE HYIG..HANGUL SYLLABLE HYIH
+        "\ud789","\ud78a","\ud78b","\ud78c","\ud78d","\ud78e","\ud78f","\ud790","\ud791","\ud792","\ud793","\ud794","\ud795","\ud796","\ud797","\ud798","\ud799","\ud79a","\ud79b","\ud79c","\ud79d","\ud79e","\ud79f","\ud7a0","\ud7a1","\ud7a2","\ud7a3",  # ; LVT # Lo  [27] HANGUL SYLLABLE HIG..HANGUL SYLLABLE HIH
+        "\u261D",  # ; E_Base # So       WHITE UP POINTING INDEX
+        "\u26F9",  # ; E_Base # So       PERSON WITH BALL
+        "\u270a","\u270b","\u270c","\u270d",  # ; E_Base # So   [4] RAISED FIST..WRITING HAND
+        "\u1F385",  # ; E_Base # So       FATHER CHRISTMAS
+        "\u1f3c2","\u1f3c3","\u1f3c4",  # ; E_Base # So   [3] SNOWBOARDER..SURFER
+        "\u1F3C7",  # ; E_Base # So       HORSE RACING
+        "\u1f3ca","\u1f3cb","\u1f3cc",  # ; E_Base # So   [3] SWIMMER..GOLFER
+        "\u1f442","\u1f443",  # ; E_Base # So   [2] EAR..NOSE
+        "\u1f446","\u1f447","\u1f448","\u1f449","\u1f44a","\u1f44b","\u1f44c","\u1f44d","\u1f44e","\u1f44f","\u1f450",  # ; E_Base # So  [11] WHITE UP POINTING BACKHAND INDEX..OPEN HANDS SIGN
+        "\u1F46E",  # ; E_Base # So       POLICE OFFICER
+        "\u1f470","\u1f471","\u1f472","\u1f473","\u1f474","\u1f475","\u1f476","\u1f477","\u1f478",  # ; E_Base # So   [9] BRIDE WITH VEIL..PRINCESS
+        "\u1F47C",  # ; E_Base # So       BABY ANGEL
+        "\u1f481","\u1f482","\u1f483",  # ; E_Base # So   [3] INFORMATION DESK PERSON..DANCER
+        "\u1f485","\u1f486","\u1f487",  # ; E_Base # So   [3] NAIL POLISH..HAIRCUT
+        "\u1F4AA",  # ; E_Base # So       FLEXED BICEPS
+        "\u1f574","\u1f575",  # ; E_Base # So   [2] MAN IN BUSINESS SUIT LEVITATING..SLEUTH OR SPY
+        "\u1F57A",  # ; E_Base # So       MAN DANCING
+        "\u1F590",  # ; E_Base # So       RAISED HAND WITH FINGERS SPLAYED
+        "\u1f595","\u1f596",  # ; E_Base # So   [2] REVERSED HAND WITH MIDDLE FINGER EXTENDED..RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS
+        "\u1f645","\u1f646","\u1f647",  # ; E_Base # So   [3] FACE WITH NO GOOD GESTURE..PERSON BOWING DEEPLY
+        "\u1f64b","\u1f64c","\u1f64d","\u1f64e","\u1f64f",  # ; E_Base # So   [5] HAPPY PERSON RAISING ONE HAND..PERSON WITH FOLDED HANDS
+        "\u1F6A3",  # ; E_Base # So       ROWBOAT
+        "\u1f6b4","\u1f6b5","\u1f6b6",  # ; E_Base # So   [3] BICYCLIST..PEDESTRIAN
+        "\u1F6C0",  # ; E_Base # So       BATH
+        "\u1F6CC",  # ; E_Base # So       SLEEPING ACCOMMODATION
+        "\u1f918","\u1f919","\u1f91a","\u1f91b","\u1f91c",  # ; E_Base # So   [5] SIGN OF THE HORNS..RIGHT-FACING FIST
+        "\u1f91e","\u1f91f",  # ; E_Base # So   [2] HAND WITH INDEX AND MIDDLE FINGERS CROSSED..I LOVE YOU HAND SIGN
+        "\u1F926",  # ; E_Base # So       FACE PALM
+        "\u1f930","\u1f931","\u1f932","\u1f933","\u1f934","\u1f935","\u1f936","\u1f937","\u1f938","\u1f939",  # ; E_Base # So  [10] PREGNANT WOMAN..JUGGLING
+        "\u1f93d","\u1f93e",  # ; E_Base # So   [2] WATER POLO..HANDBALL
+        "\u1f9d1","\u1f9d2","\u1f9d3","\u1f9d4","\u1f9d5","\u1f9d6","\u1f9d7","\u1f9d8","\u1f9d9","\u1f9da","\u1f9db","\u1f9dc","\u1f9dd",  # ; E_Base # So  [13] ADULT..ELF
+        "\u1f3fb","\u1f3fc","\u1f3fd","\u1f3fe","\u1f3ff",  # ; E_Modifier # Sk   [5] EMOJI MODIFIER FITZPATRICK TYPE-1-2..EMOJI MODIFIER FITZPATRICK TYPE-6
+        "\u200D",  # ; ZWJ # Cf       ZERO WIDTH JOINER
+        "\u2640",  # ; Glue_After_Zwj # So       FEMALE SIGN
+        "\u2642",  # ; Glue_After_Zwj # So       MALE SIGN
+        "\u2695","\u2696",  # ; Glue_After_Zwj # So   [2] STAFF OF AESCULAPIUS..SCALES
+        "\u2708",  # ; Glue_After_Zwj # So       AIRPLANE
+        "\u2764",  # ; Glue_After_Zwj # So       HEAVY BLACK HEART
+        "\u1F308",  # ; Glue_After_Zwj # So       RAINBOW
+        "\u1F33E",  # ; Glue_After_Zwj # So       EAR OF RICE
+        "\u1F373",  # ; Glue_After_Zwj # So       COOKING
+        "\u1F393",  # ; Glue_After_Zwj # So       GRADUATION CAP
+        "\u1F3A4",  # ; Glue_After_Zwj # So       MICROPHONE
+        "\u1F3A8",  # ; Glue_After_Zwj # So       ARTIST PALETTE
+        "\u1F3EB",  # ; Glue_After_Zwj # So       SCHOOL
+        "\u1F3ED",  # ; Glue_After_Zwj # So       FACTORY
+        "\u1F48B",  # ; Glue_After_Zwj # So       KISS MARK
+        "\u1f4bb","\u1f4bc",  # ; Glue_After_Zwj # So   [2] PERSONAL COMPUTER..BRIEFCASE
+        "\u1F527",  # ; Glue_After_Zwj # So       WRENCH
+        "\u1F52C",  # ; Glue_After_Zwj # So       MICROSCOPE
+        "\u1F5E8",  # ; Glue_After_Zwj # So       LEFT SPEECH BUBBLE
+        "\u1F680",  # ; Glue_After_Zwj # So       ROCKET
+        "\u1F692",  # ; Glue_After_Zwj # So       FIRE ENGINE
+        "\u1f466","\u1f467","\u1f468","\u1f469",  # ; E_Base_GAZ # So   [4] BOY..WOMAN
     ]
     test_data.each do |string|
       assert @validator.valid_encoding?(string), "U10_GraphemeBreakProperty: #{string}"
